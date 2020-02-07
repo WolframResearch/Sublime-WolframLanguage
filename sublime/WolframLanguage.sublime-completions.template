@@ -1,0 +1,6 @@
+{
+  "scope": "source.wolfram",
+  "completions": [
+`builtInFunctions`
+  ]
+}

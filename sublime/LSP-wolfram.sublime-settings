@@ -1,0 +1,63 @@
+{
+  "client" : {
+    "command":
+    [
+      "python",
+      "/Users/brenton/development/stash/COD/lspserver/LSPServer/Python/wolfram_lsp_proxy.py",
+      "--logDir",
+      "/Users/brenton/development/stash/COD/lspserver/build/logs",
+      "--extra=-noinit",
+      "/Applications/Mathematica120.app/Contents/MacOS/WolframKernel"
+    ],
+    "enabled": true,
+    "languages": [
+      {
+        "languageId": "wolfram",
+        "scopes": ["source.wolfram"],
+        "syntaxes": ["Packages/WolframLanguage/WolframLanguage.sublime-syntax"]
+      }
+    ],
+    "initializationOptions": {
+      "confidenceLevel": 0.01,
+      "colorProvider": false,
+      "hoverProvider": false
+    },
+    "settings": {}
+  }
+}
+
+
+    //"wolfram":
+    //{
+    //  "command":
+    //  [
+    //    "python",
+    //    "/Users/brenton/development/stash/COD/lspserver/LSPServer/Python/wolfram_lsp_proxy.py",
+    //    "--logDir",
+    //    "/Users/brenton/development/stash/COD/lspserver/build/logs",
+    //    "--extra=-noinit",
+    //    "/Applications/Mathematica120.app/Contents/MacOS/WolframKernel"
+    //  ],
+    //  "enabled": true,
+    //  "env":
+    //  {
+    //  },
+    //  "initializationOptions":
+    //  {
+    //    "confidenceLevel": 0.01,
+    //    "colorProvider": false,
+    //    "hoverProvider": false
+    //  },
+    //  "languageId": "wolfram",
+    //  "scopes":
+    //  [
+    //    "source.wolfram"
+    //  ],
+    //  "settings":
+    //  {
+    //  },
+    //  "syntaxes":
+    //  [
+    //    "Packages/User/WolframLanguage/WolframLanguage.sublime-syntax"
+    //  ]
+    //}
