@@ -1,7 +1,7 @@
 
 execute_process(
   COMMAND
-    ${WOLFRAMKERNEL} -noinit -noprompt -script ${GENERATESYNTAX_WL_SCRIPT} -buildDir ${BUILDDIR}
+    ${WOLFRAMKERNEL} -noinit -noprompt -nopaclet -script ${GENERATESYNTAX_WL_SCRIPT} -buildDir ${BUILDDIR}
   TIMEOUT
     # this can take a while
     600
