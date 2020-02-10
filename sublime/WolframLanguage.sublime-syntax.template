@@ -53,7 +53,7 @@ variables:
 contexts:
 
   main:
-    - include: declarations
+    # - include: declarations
     - include: expressions
 
   expressions:
@@ -139,6 +139,8 @@ contexts:
       scope: keyword.operator.string.wolfram
     - match: \.\.\.?
       scope: keyword.operator.repeat.wolfram
+    - match: ';;$'
+      scope: invalid.endofline
     - match: ';;'
       scope: keyword.operator.span.wolfram
     - match: ';'
@@ -201,11 +203,11 @@ contexts:
     - match: '(?:System<*"`"*>)?({{built_in_functions}})'
       scope: variable.function
     - match: '(?:System<*"`"*>)?({{obsolete_functions}})'
-      scope: invalid.deprecated.wolfram
+      scope: invalid.obsolete
     - match: '(?:System<*"`"*>)?({{undocumented_functions}})'
-      scope: invalid.undocumented.wolfram
+      scope: invalid.undocumented
     - match: '(?:System<*"`"*>)?({{experimental_functions}})'
-      scope: invalid.experimental.wolfram
+      scope: invalid.experimental
     - match: '{{identifier}}'
       scope: variable.other
     - match: (#[a-zA-Z][[:alnum:]]*|#\d*)
@@ -249,35 +251,35 @@ contexts:
     - include: expressions
 
 
-  declarations:
-    - match: |-
-        (?x)
-        {{identifier}}
-        (?=
-          \s*
-          (
-            \[(?!\[)
-            (?>
-              [^\[\]]+|
-              \g<-1>
-            )*
-            \]
-          )
-          \s*(?:\/;.*)?\s*:=
-        )
-      scope: entity.name.function
-      push:
-        - match: \[
-          scope: punctuation.section.brackets.begin.wolfram
-          push:
-            - meta_scope: meta.arguments.wolfram
-            - match: \]
-              scope: punctuation.section.brackets.end.wolfram
-              pop: true
-        - match: (?=[^\[])
-          pop: true
-    - match: ((?:{{symbol}}<*"`"*>)*(\${{symbol}}))(?=\s*:?=)
-      scope: entity.name.constant.wolfram
+  # declarations:
+  #   - match: |-
+  #       (?x)
+  #       {{identifier}}
+  #       (?=
+  #         \s*
+  #         (
+  #           \[(?!\[)
+  #           (?>
+  #             [^\[\]]+|
+  #             \g<-1>
+  #           )*
+  #           \]
+  #         )
+  #         \s*(?:\/;.*)?\s*:=
+  #       )
+  #     scope: entity.name.function
+  #     push:
+  #       - match: \[
+  #         scope: punctuation.section.brackets.begin.wolfram
+  #         push:
+  #           - meta_scope: meta.arguments.wolfram
+  #           - match: \]
+  #             scope: punctuation.section.brackets.end.wolfram
+  #             pop: true
+  #       - match: (?=[^\[])
+  #         pop: true
+  #   - match: ((?:{{symbol}}<*"`"*>)*(\${{symbol}}))(?=\s*:?=)
+  #     scope: entity.name.constant.wolfram
 
   # sequence:
   #   - meta_scope: meta.sequence.wolfram
