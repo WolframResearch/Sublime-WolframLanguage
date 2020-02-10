@@ -14,6 +14,7 @@ set(STATIC_PACKAGE_SOURCES
   ${CMAKE_SOURCE_DIR}/sublime/LSP-wolfram.sublime-settings
   ${CMAKE_SOURCE_DIR}/sublime/Main.sublime-menu
   ${CMAKE_SOURCE_DIR}/sublime/plugin.py
+  ${CMAKE_SOURCE_DIR}/sublime/WolframLanguage.sublime-color-scheme
   ${CMAKE_SOURCE_DIR}/sublime/WolframLanguage.sublime-settings
 )
 
