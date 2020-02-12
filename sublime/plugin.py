@@ -15,8 +15,8 @@ class LspWolframLanguagePlugin(LanguageHandler):
 
     @property
     def config(self) -> ClientConfig:
-        settings = sublime.load_settings("LSP-wolfram.sublime-settings")
-        client_configuration = settings.get('client')
+        settings = sublime.load_settings("WolframLanguage.sublime-settings")
+        client_configuration = settings.get('lsp_server')
         
         default_configuration = {
             "languages": [

@@ -9,37 +9,16 @@
         "children":
         [
           {
-            "caption": "Wolfram Language Settings",
+            "caption": "Wolfram Language",
             "children":
             [
               {
-                "caption": "Wolfram Language Settings",
+                "caption": "Settings",
                 "command": "edit_settings",
                 "args":
                 {
                   "base_file": "${packages}/WolframLanguage/WolframLanguage.sublime-settings"
                 }
-              }
-            ]
-          }
-          ,
-          {
-            "caption": "LSP",
-            "id": "lsp-settings",
-            "children": [
-              {
-                "caption": "Servers",
-                "id": "lsp-servers",
-                "children": [
-                  {
-                    "caption": "LSP-wolfram",
-                    "command": "edit_settings",
-                    "args": {
-                      "base_file": "${packages}/WolframLanguage/LSP-wolfram.sublime-settings",
-                      "default": "{\n\t$0\n}\n"
-                    }
-                  }
-                ]
               }
             ]
           }

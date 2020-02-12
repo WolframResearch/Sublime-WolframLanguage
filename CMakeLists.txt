@@ -11,7 +11,6 @@ set(WOLFRAMKERNEL ${WOLFRAMKERNEL_DEFAULT} CACHE FILEPATH "Path to WolframKernel
 message(STATUS "WOLFRAMKERNEL: ${WOLFRAMKERNEL}")
 
 set(STATIC_PACKAGE_SOURCES
-  ${CMAKE_SOURCE_DIR}/sublime/LSP-wolfram.sublime-settings
   ${CMAKE_SOURCE_DIR}/sublime/Main.sublime-menu
   ${CMAKE_SOURCE_DIR}/sublime/plugin.py
   ${CMAKE_SOURCE_DIR}/sublime/WolframLanguage.sublime-color-scheme
@@ -79,6 +78,50 @@ foreach(SRC ${STATIC_PACKAGE_SOURCES})
   )
   list(APPEND COPIED_PACKAGE_SOURCES ${CMAKE_BINARY_DIR}/package/WolframLanguage/${BARE_SRC})
 endforeach()
+
+
+
+
+
+#
+# platform settings files
+#
+# The spaces and parentheses in the file names screw-up simple copying
+#
+
+add_custom_command(
+  OUTPUT
+    ${CMAKE_BINARY_DIR}/package/WolframLanguage/WolframLanguage\ \(Linux\).sublime-settings
+  COMMAND
+    ${CMAKE_COMMAND} -E copy ${CMAKE_SOURCE_DIR}/sublime/WolframLanguage\ \\\(Linux\\\).sublime-settings ${CMAKE_BINARY_DIR}/package/WolframLanguage/WolframLanguage\ \\\(Linux\\\).sublime-settings
+  DEPENDS
+    ${CMAKE_SOURCE_DIR}/sublime/WolframLanguage\ \(Linux\).sublime-settings
+)
+list(APPEND COPIED_PACKAGE_SOURCES ${CMAKE_BINARY_DIR}/package/WolframLanguage/WolframLanguage\ \(Linux\).sublime-settings)
+
+add_custom_command(
+  OUTPUT
+    ${CMAKE_BINARY_DIR}/package/WolframLanguage/WolframLanguage\ \(OSX\).sublime-settings
+  COMMAND
+    ${CMAKE_COMMAND} -E copy ${CMAKE_SOURCE_DIR}/sublime/WolframLanguage\ \\\(OSX\\\).sublime-settings ${CMAKE_BINARY_DIR}/package/WolframLanguage/WolframLanguage\ \\\(OSX\\\).sublime-settings
+  DEPENDS
+    ${CMAKE_SOURCE_DIR}/sublime/WolframLanguage\ \(OSX\).sublime-settings
+)
+list(APPEND COPIED_PACKAGE_SOURCES ${CMAKE_BINARY_DIR}/package/WolframLanguage/WolframLanguage\ \(OSX\).sublime-settings)
+
+add_custom_command(
+  OUTPUT
+    ${CMAKE_BINARY_DIR}/package/WolframLanguage/WolframLanguage\ \(Windows\).sublime-settings
+  COMMAND
+    ${CMAKE_COMMAND} -E copy ${CMAKE_SOURCE_DIR}/sublime/WolframLanguage\ \\\(Windows\\\).sublime-settings ${CMAKE_BINARY_DIR}/package/WolframLanguage/WolframLanguage\ \\\(Windows\\\).sublime-settings
+  DEPENDS
+    ${CMAKE_SOURCE_DIR}/sublime/WolframLanguage\ \(Windows\).sublime-settings
+)
+list(APPEND COPIED_PACKAGE_SOURCES ${CMAKE_BINARY_DIR}/package/WolframLanguage/WolframLanguage\ \(Windows\).sublime-settings)
+
+
+
+
 
 
 

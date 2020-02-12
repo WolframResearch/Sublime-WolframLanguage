@@ -1,8 +1,8 @@
 {
-  "client" : {
+	"lsp_server" : {
     "command":
     [
-      "/path/to/WolframKernel",
+      "/usr/local/Wolfram/Mathematica/12.0/Executables/WolframKernel",
       "-noinit",
       "-noprompt",
       "-nopaclet",

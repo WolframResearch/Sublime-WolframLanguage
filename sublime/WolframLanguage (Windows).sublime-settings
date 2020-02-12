@@ -1,11 +1,8 @@
 {
-  "lsp_server" : {
+	"lsp_server" : {
     "command":
     [
-      //
-      // The path to WolframKernel is set to platform-specific defaults
-      //
-      "/path/to/WolframKernel",
+      "C:\\Program Files\\Wolfram Research\\Mathematica\\12.0\\wolfram.exe",
       "-noinit",
       "-noprompt",
       "-nopaclet",
@@ -20,15 +17,4 @@
     },
     "settings": {}
   }
-  ,
-  "extensions":
-  [
-    "m",
-    "wl",
-    "wls",
-    "nb",
-    "mt",
-    "wlt"
-  ],
-  "word_separators": "./\\()\"'-:,.;<>~!@#%^&*|+=[]{}`~?_"
 }
