@@ -25,10 +25,6 @@ set(COMPLETIONS_TEMPLATE_SOURCE
   ${CMAKE_SOURCE_DIR}/sublime/WolframLanguage.sublime-completions.template
 )
 
-set(WL_GENERATE_SOURCES
-  ${CMAKE_SOURCE_DIR}/SublimeWolframLanguage/Generate/GenerateSyntax.wl
-)
-
 #
 # Set VERSION_NUMBER, SYSTEMID
 #
@@ -44,11 +40,23 @@ file(MAKE_DIRECTORY
 # Copy source files
 #
 
+set(PROCESSED_SYMBOLS_DUMP ${CMAKE_BINARY_DIR}/processedSymbols.mx)
+
 set(COPIED_SYNTAX_TEMPLATE ${CMAKE_BINARY_DIR}/WolframLanguage.sublime-syntax.template)
 set(APPLIED_SYNTAX_TEMPLATE ${CMAKE_BINARY_DIR}/package/WolframLanguage/WolframLanguage.sublime-syntax)
 
 set(COPIED_COMPLETIONS_TEMPLATE ${CMAKE_BINARY_DIR}/WolframLanguage.sublime-completions.template)
 set(APPLIED_COMPLETIONS_TEMPLATE ${CMAKE_BINARY_DIR}/package/WolframLanguage/WolframLanguage.sublime-completions)
+
+add_custom_command(
+  OUTPUT
+    ${PROCESSED_SYMBOLS_DUMP}
+  COMMAND
+    ${CMAKE_COMMAND} -DSCRIPT=${CMAKE_SOURCE_DIR}/SublimeWolframLanguage/Generate/ProcessSymbols.wl -DBUILDDIR=${CMAKE_BINARY_DIR} -DWOLFRAMKERNEL=${WOLFRAMKERNEL} -P ${PROJECT_SOURCE_DIR}/cmake/WolframScript.cmake
+  DEPENDS
+    ${CMAKE_SOURCE_DIR}/SublimeWolframLanguage/Generate/ProcessSymbols.wl
+    ${PROJECT_SOURCE_DIR}/cmake/WolframScript.cmake
+)
 
 add_custom_command(
   OUTPUT
@@ -59,11 +67,13 @@ add_custom_command(
   COMMAND
     ${CMAKE_COMMAND} -E copy ${COMPLETIONS_TEMPLATE_SOURCE} ${COPIED_COMPLETIONS_TEMPLATE}
   COMMAND
-    ${CMAKE_COMMAND} -DGENERATESYNTAX_WL_SCRIPT=${CMAKE_SOURCE_DIR}/SublimeWolframLanguage/Generate/GenerateSyntax.wl -DBUILDDIR=${CMAKE_BINARY_DIR} -DWOLFRAMKERNEL=${WOLFRAMKERNEL} -P ${PROJECT_SOURCE_DIR}/cmake/ApplyTemplates.cmake
+    ${CMAKE_COMMAND} -DSCRIPT=${CMAKE_SOURCE_DIR}/SublimeWolframLanguage/Generate/ApplyTemplates.wl -DBUILDDIR=${CMAKE_BINARY_DIR} -DWOLFRAMKERNEL=${WOLFRAMKERNEL} -P ${PROJECT_SOURCE_DIR}/cmake/WolframScript.cmake
   DEPENDS
     ${SYNTAX_TEMPLATE_SOURCE}
     ${COMPLETIONS_TEMPLATE_SOURCE}
-    ${WL_GENERATE_SOURCES}
+    ${CMAKE_SOURCE_DIR}/SublimeWolframLanguage/Generate/ApplyTemplates.wl
+    ${PROJECT_SOURCE_DIR}/cmake/WolframScript.cmake
+    ${PROCESSED_SYMBOLS_DUMP}
 )
 
 foreach(SRC ${STATIC_PACKAGE_SOURCES})
