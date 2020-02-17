@@ -22,25 +22,36 @@ variables:
   symbolSegment: '[$[:alpha:]]+[$[:alnum:]]*'
   symbol: '(?:{{symbolSegment}}?)(?:<*"`"*>{{symbolSegment}})*'
 
-  # Built-in functions
+  #
+  # This gets filled-in during build
+  #
   built_in_functions: |-
     (?x)
     (?<![<*"`"*>$[:alpha:]])(?:
       `builtInFunctions`
     )(?![<*"`"*>$[:alnum:]])
 
+  #
+  # This gets filled-in during build
+  #
   obsolete_functions: |-
     (?x)
     (?<![<*"`"*>$[:alpha:]])(?:
       `obsoleteFunctions`
     )(?![<*"`"*>$[:alnum:]])
 
+  #
+  # This gets filled-in during build
+  #
   undocumented_functions: |-
     (?x)
     (?<![<*"`"*>$[:alpha:]])(?:
       `undocumentedFunctions`
     )(?![<*"`"*>$[:alnum:]])
 
+  #
+  # This gets filled-in during build
+  #
   experimental_functions: |-
     (?x)
     (?<![<*"`"*>$[:alpha:]])(?:
@@ -126,8 +137,17 @@ contexts:
     #
     # unicode characters
     #
-    - match: '\\\[[[:alnum:]]+\]'
+    # Long Names
+    #
+    # This gets filled-in during build
+    #
+    - match: '\\\[(?:`longNames`)\]'
       scope: constant.character.escape
+    #
+    # Anything else is an error
+    #
+    - match: '\\\[[[:alnum:]]+\]'
+      scope: invalid.illegal
     - match: '\\:\h\h\h\h'
       scope: constant.character.escape
     - match: '\\\.\h\h'

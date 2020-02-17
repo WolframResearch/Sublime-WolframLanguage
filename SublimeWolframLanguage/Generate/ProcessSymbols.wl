@@ -27,6 +27,8 @@ Module[{names, documentedSymbols, allSymbols, allASCIISymbols, obsoleteNames,
 
   SetDirectory[FileNameJoin[{$InstallationDirectory, "Documentation/English/System/ReferencePages/Symbols"}]];
 
+  Print["scanning Documented symbols..."];
+
   names = FileNames["*.nb", "", Infinity];
 
   documentedSymbols = StringDrop[#, -3]& /@ names;

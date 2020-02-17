@@ -5,6 +5,20 @@ Begin["`Private`"]
 
 Print["Applying Templates..."]
 
+srcDirFlagPosition = FirstPosition[$CommandLine, "-srcDir"]
+
+If[MissingQ[srcDirFlagPosition],
+  Print["Cannot proceed; Unsupported src directory"];
+  Quit[1]
+]
+
+srcDir = $CommandLine[[srcDirFlagPosition[[1]] + 1]]
+
+If[FileType[srcDir] =!= Directory,
+  Print["Cannot proceed; Unsupported src directory"];
+  Quit[1]
+]
+
 buildDirFlagPosition = FirstPosition[$CommandLine, "-buildDir"]
 
 If[MissingQ[buildDirFlagPosition],
@@ -27,22 +41,23 @@ Module[{dumpFile},
   dumpFile = FileNameJoin[{buildDir, "processedSymbols.mx"}];
 
   Get[dumpFile];
-
-  (*
-  Print[OutputForm["$builtInSymbols: "], OutputForm[SublimeWolframLanguage`Generate`$builtInSymbols]];
-  Print[OutputForm["$undocumentedSymbols: "], OutputForm[SublimeWolframLanguage`Generate`$undocumentedSymbols]];
-  Print[OutputForm["$experimentalSymbols: "], OutputForm[SublimeWolframLanguage`Generate`$experimentalSymbols]];
-  Print[OutputForm["$obsoleteSymbols: "], OutputForm[SublimeWolframLanguage`Generate`$obsoleteSymbols]];
-  *)
 ]
 
 
 buildSyntax[] :=
 Catch[
-Module[{t, templateFile, appliedFile, apply},
+Module[{t, templateFile, appliedFile, apply, longNameFile},
 
   templateFile = FileNameJoin[{buildDir, "WolframLanguage.sublime-syntax.template"}];
   appliedFile = FileNameJoin[{buildDir, "package", "WolframLanguage", "WolframLanguage.sublime-syntax"}];
+
+  Print["scanning Long Names..."];
+
+  longNameFile = FileNameJoin[{srcDir, "SublimeWolframLanguage", "Data", "LongNames.wl"}];
+
+  longNamesAssoc = Get[longNameFile];
+
+  $longNames = Keys[longNamesAssoc];
 
   t = FileTemplate[templateFile];
 
@@ -54,7 +69,8 @@ Module[{t, templateFile, appliedFile, apply},
     "builtInFunctions" -> StringReplace[StringJoin[Riffle[SublimeWolframLanguage`Generate`$builtInSymbols, "|"]], "$" -> "\\$"],
     "undocumentedFunctions" -> StringReplace[StringJoin[Riffle[SublimeWolframLanguage`Generate`$undocumentedSymbols, "|"]], "$" -> "\\$"],
     "experimentalFunctions" -> StringReplace[StringJoin[Riffle[SublimeWolframLanguage`Generate`$experimentalSymbols, "|"]], "$" -> "\\$"],
-    "obsoleteFunctions" -> StringReplace[StringJoin[Riffle[SublimeWolframLanguage`Generate`$obsoleteSymbols, "|"]], "$" -> "\\$"]
+    "obsoleteFunctions" -> StringReplace[StringJoin[Riffle[SublimeWolframLanguage`Generate`$obsoleteSymbols, "|"]], "$" -> "\\$"],
+    "longNames" -> StringJoin[Riffle[$longNames, "|"]]
     |>, appliedFile];
 
   Print[apply];
