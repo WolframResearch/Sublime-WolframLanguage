@@ -30,5 +30,6 @@
     "mt",
     "wlt"
   ],
+  "color_scheme": "Monokai.sublime-color-scheme",
   "word_separators": "./\\()\"'-:,.;<>~!@#%^&*|+=[]{}`~?_"
 }
