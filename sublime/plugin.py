@@ -35,13 +35,45 @@ class LspWolframLanguagePlugin(LanguageHandler):
         return True
 
     def on_initialized(self, client) -> None:
-        pass
+        client.on_notification("textDocument/publishImplicitTimes", self.on_implicit_times)
 
-class WolframLanguageListener(sublime_plugin.EventListener):
-    def on_hover(self, view, point, hover_zone):
+    def on_implicit_times(self, params):
 
-        name = view.scope_name(point)
+        #
+        # Currently grabbing the active view
+        # There is no current way to obtain the view that corresponds to the file
+        # Related issues: https://github.com/sublimelsp/LSP/issues/641
+        #
+        view = sublime.active_window().active_view()
 
-        win   = sublime.active_window()
-        panel = win.create_output_panel("wolfram")
-        panel.run_command("append", {"characters": name})
+        view.erase_phantoms("implicit_times")
+
+        lines = params['lines']
+        for l in lines:
+            line = l['line']
+            characters = l['characters']
+
+            joined = ''.join(characters)
+
+            #
+            # Must replace spaces with &nbsp;
+            # Sublime minihtml does not support <pre>, <code>, etc.
+            # Related issues: https://forum.sublimetext.com/t/does-minihtml-support-the-pre-tag/46267/3
+            #
+
+            replaced = []
+            for c in joined:
+                if c == ' ':
+                    replaced.append('&nbsp;')
+                elif c == '\t':
+                    replaced.append('&nbsp;')
+                else:
+                    replaced.append(c)
+
+            joined = ''.join(replaced)
+            
+            view.add_phantom("implicit_times",
+                sublime.Region(view.text_point(line - 1, 1 - 1), view.text_point(line - 1, len(replaced) - 1)),
+                '<span style="color:#7777ff">' + joined + '</span>',
+                sublime.LAYOUT_BELOW)
+
