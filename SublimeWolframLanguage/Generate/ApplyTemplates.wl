@@ -66,11 +66,12 @@ Module[{t, templateFile, appliedFile, apply, longNameFile},
   ];
 
   apply = FileTemplateApply[t, <|
-    "builtInFunctions" -> StringReplace[StringJoin[Riffle[SublimeWolframLanguage`Generate`$builtInSymbols, "|"]], "$" -> "\\$"],
+    "builtInFunctions" -> StringReplace[StringJoin[Riffle[SublimeWolframLanguage`Generate`$builtInFunctions, "|"]], "$" -> "\\$"],
     "undocumentedFunctions" -> StringReplace[StringJoin[Riffle[SublimeWolframLanguage`Generate`$undocumentedSymbols, "|"]], "$" -> "\\$"],
     "experimentalFunctions" -> StringReplace[StringJoin[Riffle[SublimeWolframLanguage`Generate`$experimentalSymbols, "|"]], "$" -> "\\$"],
     "obsoleteFunctions" -> StringReplace[StringJoin[Riffle[SublimeWolframLanguage`Generate`$obsoleteSymbols, "|"]], "$" -> "\\$"],
-    "longNames" -> StringJoin[Riffle[$longNames, "|"]]
+    "longNames" -> StringJoin[Riffle[$longNames, "|"]],
+    "constants" -> StringReplace[StringJoin[Riffle[SublimeWolframLanguage`Generate`$constants, "|"]], "$" -> "\\$"]
     |>, appliedFile];
 
   Print[apply];
@@ -81,7 +82,7 @@ Module[{t, templateFile, appliedFile, apply, longNameFile},
 
 buildCompletions[] :=
 Catch[
-Module[{t, templateFile, appliedFile, apply},
+Module[{t, templateFile, appliedFile, apply, completions},
 
   templateFile = FileNameJoin[{buildDir, "WolframLanguage.sublime-completions.template"}];
   appliedFile = FileNameJoin[{buildDir, "package", "WolframLanguage", "WolframLanguage.sublime-completions"}];
@@ -92,8 +93,10 @@ Module[{t, templateFile, appliedFile, apply},
     Quit[1]
   ];
 
+  completions = SublimeWolframLanguage`Generate`$builtInFunctions ~Join~ SublimeWolframLanguage`Generate`$constants;
+
   apply = FileTemplateApply[t, <|
-    "builtInFunctions" -> StringJoin[Riffle[{"    \"", #, "\""}& /@ SublimeWolframLanguage`Generate`$builtInSymbols, ",\n"]]
+    "builtInFunctions" -> StringJoin[Riffle[{"    \"", #, "\""}& /@ completions, ",\n"]]
     |>, appliedFile];
 
   Print[apply];

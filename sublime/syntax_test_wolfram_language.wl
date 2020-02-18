@@ -21,14 +21,13 @@
    11.11`11.11
 (* ^^^^^^^^^^^ constant.numeric *)
 
-(* NUMERIC CONSTANTS *)
-
-   Catalan
-(* ^ constant.numeric *)
-   Pi
-(* ^ constant.numeric *)
 
 (* LANGUAGE CONSTANTS *)
+
+   Catalan
+(* ^ constant.language *)
+   Pi
+(* ^ constant.language *)
 
    True
 (* ^^^^ constant.language *)
@@ -100,7 +99,7 @@
 (* VARIABLES *)
 
   f[x]
-(*^ variable.function*)
+(*^ variable.other*)
   foo$bar12
 (*^^^^^^^^^ variable.other *)
   $foo
@@ -185,7 +184,7 @@
 
 (* STRINGS *)
 
-  "This is a `string` (* this is not \a comment*)"
+  "This is a `string` (* this is not a comment*)"
 (* ^ string.quoted *)
 (*            ^ constant.other.placeholder *)
 (*                       ^ string.quoted *)

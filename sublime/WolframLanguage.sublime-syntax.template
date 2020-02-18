@@ -27,8 +27,14 @@ variables:
   #
   built_in_functions: |-
     (?x)
-    (?<![<*"`"*>$[:alpha:]])(?:
+    (?<![<*"`"*>$[:alpha:]])(?:System<*"`"*>)?(?:
       `builtInFunctions`
+    )(?![<*"`"*>$[:alnum:]])
+
+  constants: |-
+    (?x)
+    (?<![<*"`"*>$[:alpha:]])(?:System<*"`"*>)?(?:
+      `constants`
     )(?![<*"`"*>$[:alnum:]])
 
   #
@@ -36,7 +42,7 @@ variables:
   #
   obsolete_functions: |-
     (?x)
-    (?<![<*"`"*>$[:alpha:]])(?:
+    (?<![<*"`"*>$[:alpha:]])(?:System<*"`"*>)?(?:
       `obsoleteFunctions`
     )(?![<*"`"*>$[:alnum:]])
 
@@ -45,7 +51,7 @@ variables:
   #
   undocumented_functions: |-
     (?x)
-    (?<![<*"`"*>$[:alpha:]])(?:
+    (?<![<*"`"*>$[:alpha:]])(?:System<*"`"*>)?(?:
       `undocumentedFunctions`
     )(?![<*"`"*>$[:alnum:]])
 
@@ -54,7 +60,7 @@ variables:
   #
   experimental_functions: |-
     (?x)
-    (?<![<*"`"*>$[:alpha:]])(?:
+    (?<![<*"`"*>$[:alpha:]])(?:System<*"`"*>)?(?:
       `experimentalFunctions`
     )(?![<*"`"*>$[:alnum:]])
 
@@ -293,14 +299,18 @@ contexts:
   #    scope: variable.function.wolfram
   
   variable:
-    - match: '(?:System<*"`"*>)?(?:{{built_in_functions}})'
+    - match: '{{built_in_functions}}'
       scope: variable.function
-    - match: '(?:System<*"`"*>)?(?:{{obsolete_functions}})'
+    - match: '{{constants}}'
+      scope: constant.language
+    - match: '{{obsolete_functions}}'
       scope: invalid.deprecated
-    - match: '(?:System<*"`"*>)?(?:{{undocumented_functions}})'
+    - match: '{{undocumented_functions}}'
       scope: variable.function
-    - match: '(?:System<*"`"*>)?(?:{{experimental_functions}})'
+    - match: '{{experimental_functions}}'
       scope: variable.function
+    - match: 'System<*"`"*>{{symbolSegment}}'
+      scope: invalid.illegal
     - match: '(?<![<*"`"*>$[:alpha:]]){{symbol}}(?![<*"`"*>$[:alnum:]])'
       scope: variable.other
     # - match: (#[a-zA-Z][[:alnum:]]*|#\d*)

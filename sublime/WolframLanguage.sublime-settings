@@ -5,7 +5,7 @@
       //
       // The path to WolframKernel is set to platform-specific defaults
       //
-      "/path/to/WolframKernel",
+      "<<Path to WolframKernel>>",
       "-noinit",
       "-noprompt",
       "-nopaclet",
@@ -30,6 +30,6 @@
     "mt",
     "wlt"
   ],
-  "color_scheme": "Monokai.sublime-color-scheme",
+  "color_scheme": "WolframLanguage.sublime-color-scheme",
   "word_separators": "./\\()\"'-:,.;<>~!@#%^&*|+=[]{}`~?_"
 }
