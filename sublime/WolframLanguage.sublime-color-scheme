@@ -1,6 +1,6 @@
 {
     "name": "WolframLanguage",
-    "author": "Sublime HQ Pty Ltd, Wimer Hazenberg",
+    "author": "Brenton Bostick, Sublime HQ Pty Ltd, Wimer Hazenberg",
     "variables":
     {
         "black": "hsl(0, 0%, 0%)",
@@ -48,22 +48,22 @@
         {
             "name": "Comment",
             "scope": "comment",
-            "foreground": "var(yellow5)"
+            "foreground": "rgb(80, 80, 80)"
         },
         {
             "name": "String",
             "scope": "string",
-            "foreground": "var(yellow)"
+            "foreground": "rgb(180, 180, 180)"
         },
         {
             "name": "Number",
             "scope": "constant.numeric",
-            "foreground": "var(purple)"
+            "foreground": "var(white)"
         },
         {
             "name": "Built-in constant",
             "scope": "constant.language",
-            "foreground": "var(purple)"
+            "foreground": "var(white)"
         },
         {
             "name": "User-defined constant",
@@ -136,7 +136,7 @@
         {
             "name": "Function call",
             "scope": "variable.function, variable.annotation",
-            "foreground": "var(blue)"
+            "foreground": "var(white)"
         },
         {
             "name": "Library function",
@@ -165,29 +165,8 @@
             "background": "var(red2)"
         },
         {
-            //
-            // BKB: originally Monokai invalid.deprecated
-            //
-            "name": "Invalid obsolete",
-            "scope": "invalid.obsolete",
-            "foreground": "var(white2)",
-            "background": "var(purple)"
-        },
-        {
-            //
-            // BKB: added
-            //
-            "name": "Invalid undocumented",
-            "scope": "invalid.undocumented",
-            "foreground": "var(white2)",
-            "background": "var(purple)"
-        },
-        {
-            //
-            // BKB: added
-            //
-            "name": "Invalid experimental",
-            "scope": "invalid.experimental",
+            "name": "Invalid deprecated",
+            "scope": "invalid.deprecated",
             "foreground": "var(white2)",
             "background": "var(purple)"
         },

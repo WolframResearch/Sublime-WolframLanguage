@@ -11,17 +11,19 @@ set(WOLFRAMKERNEL ${WOLFRAMKERNEL_DEFAULT} CACHE FILEPATH "Path to WolframKernel
 message(STATUS "WOLFRAMKERNEL: ${WOLFRAMKERNEL}")
 
 set(STATIC_PACKAGE_SOURCES
-  ${CMAKE_SOURCE_DIR}/sublime/Main.sublime-menu
-  ${CMAKE_SOURCE_DIR}/sublime/plugin.py
-  ${CMAKE_SOURCE_DIR}/sublime/WolframLanguage.sublime-settings
+  ${PROJECT_SOURCE_DIR}/sublime/Main.sublime-menu
+  ${PROJECT_SOURCE_DIR}/sublime/plugin.py
+  ${PROJECT_SOURCE_DIR}/sublime/syntax_test_wolfram_language.wl
+  ${PROJECT_SOURCE_DIR}/sublime/WolframLanguage.sublime-color-scheme
+  ${PROJECT_SOURCE_DIR}/sublime/WolframLanguage.sublime-settings
 )
 
 set(SYNTAX_TEMPLATE_SOURCE
-  ${CMAKE_SOURCE_DIR}/sublime/WolframLanguage.sublime-syntax.template
+  ${PROJECT_SOURCE_DIR}/sublime/WolframLanguage.sublime-syntax.template
 )
 
 set(COMPLETIONS_TEMPLATE_SOURCE
-  ${CMAKE_SOURCE_DIR}/sublime/WolframLanguage.sublime-completions.template
+  ${PROJECT_SOURCE_DIR}/sublime/WolframLanguage.sublime-completions.template
 )
 
 #
@@ -31,7 +33,7 @@ CheckWolframKernel()
 
 
 file(MAKE_DIRECTORY
-  ${CMAKE_BINARY_DIR}/package/WolframLanguage
+  ${PROJECT_BINARY_DIR}/package/WolframLanguage
 )
 
 
@@ -39,21 +41,21 @@ file(MAKE_DIRECTORY
 # Copy source files
 #
 
-set(PROCESSED_SYMBOLS_DUMP ${CMAKE_BINARY_DIR}/processedSymbols.mx)
+set(PROCESSED_SYMBOLS_DUMP ${PROJECT_BINARY_DIR}/processedSymbols.mx)
 
-set(COPIED_SYNTAX_TEMPLATE ${CMAKE_BINARY_DIR}/WolframLanguage.sublime-syntax.template)
-set(APPLIED_SYNTAX_TEMPLATE ${CMAKE_BINARY_DIR}/package/WolframLanguage/WolframLanguage.sublime-syntax)
+set(COPIED_SYNTAX_TEMPLATE ${PROJECT_BINARY_DIR}/WolframLanguage.sublime-syntax.template)
+set(APPLIED_SYNTAX_TEMPLATE ${PROJECT_BINARY_DIR}/package/WolframLanguage/WolframLanguage.sublime-syntax)
 
-set(COPIED_COMPLETIONS_TEMPLATE ${CMAKE_BINARY_DIR}/WolframLanguage.sublime-completions.template)
-set(APPLIED_COMPLETIONS_TEMPLATE ${CMAKE_BINARY_DIR}/package/WolframLanguage/WolframLanguage.sublime-completions)
+set(COPIED_COMPLETIONS_TEMPLATE ${PROJECT_BINARY_DIR}/WolframLanguage.sublime-completions.template)
+set(APPLIED_COMPLETIONS_TEMPLATE ${PROJECT_BINARY_DIR}/package/WolframLanguage/WolframLanguage.sublime-completions)
 
 add_custom_command(
   OUTPUT
     ${PROCESSED_SYMBOLS_DUMP}
   COMMAND
-    ${CMAKE_COMMAND} -DSCRIPT=${CMAKE_SOURCE_DIR}/SublimeWolframLanguage/Generate/ProcessSymbols.wl -DSRCDIR=${CMAKE_SOURCE_DIR} -DBUILDDIR=${CMAKE_BINARY_DIR} -DWOLFRAMKERNEL=${WOLFRAMKERNEL} -P ${PROJECT_SOURCE_DIR}/cmake/WolframScript.cmake
+    ${CMAKE_COMMAND} -DSCRIPT=${PROJECT_SOURCE_DIR}/SublimeWolframLanguage/Generate/ProcessSymbols.wl -DSRCDIR=${PROJECT_SOURCE_DIR} -DBUILDDIR=${PROJECT_BINARY_DIR} -DWOLFRAMKERNEL=${WOLFRAMKERNEL} -P ${PROJECT_SOURCE_DIR}/cmake/WolframScript.cmake
   DEPENDS
-    ${CMAKE_SOURCE_DIR}/SublimeWolframLanguage/Generate/ProcessSymbols.wl
+    ${PROJECT_SOURCE_DIR}/SublimeWolframLanguage/Generate/ProcessSymbols.wl
     ${PROJECT_SOURCE_DIR}/cmake/WolframScript.cmake
 )
 
@@ -66,11 +68,11 @@ add_custom_command(
   COMMAND
     ${CMAKE_COMMAND} -E copy ${COMPLETIONS_TEMPLATE_SOURCE} ${COPIED_COMPLETIONS_TEMPLATE}
   COMMAND
-    ${CMAKE_COMMAND} -DSCRIPT=${CMAKE_SOURCE_DIR}/SublimeWolframLanguage/Generate/ApplyTemplates.wl -DSRCDIR=${CMAKE_SOURCE_DIR} -DBUILDDIR=${CMAKE_BINARY_DIR} -DWOLFRAMKERNEL=${WOLFRAMKERNEL} -P ${PROJECT_SOURCE_DIR}/cmake/WolframScript.cmake
+    ${CMAKE_COMMAND} -DSCRIPT=${PROJECT_SOURCE_DIR}/SublimeWolframLanguage/Generate/ApplyTemplates.wl -DSRCDIR=${PROJECT_SOURCE_DIR} -DBUILDDIR=${PROJECT_BINARY_DIR} -DWOLFRAMKERNEL=${WOLFRAMKERNEL} -P ${PROJECT_SOURCE_DIR}/cmake/WolframScript.cmake
   DEPENDS
     ${SYNTAX_TEMPLATE_SOURCE}
     ${COMPLETIONS_TEMPLATE_SOURCE}
-    ${CMAKE_SOURCE_DIR}/SublimeWolframLanguage/Generate/ApplyTemplates.wl
+    ${PROJECT_SOURCE_DIR}/SublimeWolframLanguage/Generate/ApplyTemplates.wl
     ${PROJECT_SOURCE_DIR}/cmake/WolframScript.cmake
     ${PROCESSED_SYMBOLS_DUMP}
 )
@@ -79,13 +81,13 @@ foreach(SRC ${STATIC_PACKAGE_SOURCES})
   get_filename_component(BARE_SRC ${SRC} NAME)
   add_custom_command(
     OUTPUT
-      ${CMAKE_BINARY_DIR}/package/WolframLanguage/${BARE_SRC}
+      ${PROJECT_BINARY_DIR}/package/WolframLanguage/${BARE_SRC}
     COMMAND
-      ${CMAKE_COMMAND} -E copy ${SRC} ${CMAKE_BINARY_DIR}/package/WolframLanguage/${BARE_SRC}
+      ${CMAKE_COMMAND} -E copy ${SRC} ${PROJECT_BINARY_DIR}/package/WolframLanguage/${BARE_SRC}
     DEPENDS
       ${SRC}
   )
-  list(APPEND COPIED_PACKAGE_SOURCES ${CMAKE_BINARY_DIR}/package/WolframLanguage/${BARE_SRC})
+  list(APPEND COPIED_PACKAGE_SOURCES ${PROJECT_BINARY_DIR}/package/WolframLanguage/${BARE_SRC})
 endforeach()
 
 
@@ -100,33 +102,33 @@ endforeach()
 
 add_custom_command(
   OUTPUT
-    ${CMAKE_BINARY_DIR}/package/WolframLanguage/WolframLanguage\ \(Linux\).sublime-settings
+    ${PROJECT_BINARY_DIR}/package/WolframLanguage/WolframLanguage\ \(Linux\).sublime-settings
   COMMAND
-    ${CMAKE_COMMAND} -E copy ${CMAKE_SOURCE_DIR}/sublime/WolframLanguage\ \\\(Linux\\\).sublime-settings ${CMAKE_BINARY_DIR}/package/WolframLanguage/WolframLanguage\ \\\(Linux\\\).sublime-settings
+    ${CMAKE_COMMAND} -E copy ${PROJECT_SOURCE_DIR}/sublime/WolframLanguage\ \\\(Linux\\\).sublime-settings ${PROJECT_BINARY_DIR}/package/WolframLanguage/WolframLanguage\ \\\(Linux\\\).sublime-settings
   DEPENDS
-    ${CMAKE_SOURCE_DIR}/sublime/WolframLanguage\ \(Linux\).sublime-settings
+    ${PROJECT_SOURCE_DIR}/sublime/WolframLanguage\ \(Linux\).sublime-settings
 )
-list(APPEND COPIED_PACKAGE_SOURCES ${CMAKE_BINARY_DIR}/package/WolframLanguage/WolframLanguage\ \(Linux\).sublime-settings)
+list(APPEND COPIED_PACKAGE_SOURCES ${PROJECT_BINARY_DIR}/package/WolframLanguage/WolframLanguage\ \(Linux\).sublime-settings)
 
 add_custom_command(
   OUTPUT
-    ${CMAKE_BINARY_DIR}/package/WolframLanguage/WolframLanguage\ \(OSX\).sublime-settings
+    ${PROJECT_BINARY_DIR}/package/WolframLanguage/WolframLanguage\ \(OSX\).sublime-settings
   COMMAND
-    ${CMAKE_COMMAND} -E copy ${CMAKE_SOURCE_DIR}/sublime/WolframLanguage\ \\\(OSX\\\).sublime-settings ${CMAKE_BINARY_DIR}/package/WolframLanguage/WolframLanguage\ \\\(OSX\\\).sublime-settings
+    ${CMAKE_COMMAND} -E copy ${PROJECT_SOURCE_DIR}/sublime/WolframLanguage\ \\\(OSX\\\).sublime-settings ${PROJECT_BINARY_DIR}/package/WolframLanguage/WolframLanguage\ \\\(OSX\\\).sublime-settings
   DEPENDS
-    ${CMAKE_SOURCE_DIR}/sublime/WolframLanguage\ \(OSX\).sublime-settings
+    ${PROJECT_SOURCE_DIR}/sublime/WolframLanguage\ \(OSX\).sublime-settings
 )
-list(APPEND COPIED_PACKAGE_SOURCES ${CMAKE_BINARY_DIR}/package/WolframLanguage/WolframLanguage\ \(OSX\).sublime-settings)
+list(APPEND COPIED_PACKAGE_SOURCES ${PROJECT_BINARY_DIR}/package/WolframLanguage/WolframLanguage\ \(OSX\).sublime-settings)
 
 add_custom_command(
   OUTPUT
-    ${CMAKE_BINARY_DIR}/package/WolframLanguage/WolframLanguage\ \(Windows\).sublime-settings
+    ${PROJECT_BINARY_DIR}/package/WolframLanguage/WolframLanguage\ \(Windows\).sublime-settings
   COMMAND
-    ${CMAKE_COMMAND} -E copy ${CMAKE_SOURCE_DIR}/sublime/WolframLanguage\ \\\(Windows\\\).sublime-settings ${CMAKE_BINARY_DIR}/package/WolframLanguage/WolframLanguage\ \\\(Windows\\\).sublime-settings
+    ${CMAKE_COMMAND} -E copy ${PROJECT_SOURCE_DIR}/sublime/WolframLanguage\ \\\(Windows\\\).sublime-settings ${PROJECT_BINARY_DIR}/package/WolframLanguage/WolframLanguage\ \\\(Windows\\\).sublime-settings
   DEPENDS
-    ${CMAKE_SOURCE_DIR}/sublime/WolframLanguage\ \(Windows\).sublime-settings
+    ${PROJECT_SOURCE_DIR}/sublime/WolframLanguage\ \(Windows\).sublime-settings
 )
-list(APPEND COPIED_PACKAGE_SOURCES ${CMAKE_BINARY_DIR}/package/WolframLanguage/WolframLanguage\ \(Windows\).sublime-settings)
+list(APPEND COPIED_PACKAGE_SOURCES ${PROJECT_BINARY_DIR}/package/WolframLanguage/WolframLanguage\ \(Windows\).sublime-settings)
 
 
 
