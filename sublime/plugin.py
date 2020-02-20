@@ -128,18 +128,25 @@ class LspWolframLanguagePlugin(LanguageHandler):
             #
 
             replaced = []
+            index = 0
             for c in joined:
                 if c == ' ':
                     replaced.append('&nbsp;')
                 elif c == '\t':
                     replaced.append('&nbsp;')
+                elif c == '\xd7':
+                    replaced.append(c)
+                    view.add_phantom("implicit_times",
+                        sublime.Region(view.text_point(line - 1, index), view.text_point(line - 1, index + 1)),
+                        '<span style="color:#aaaaff">' + c + '</span>',
+                        sublime.LAYOUT_INLINE)
                 else:
                     replaced.append(c)
+                index = index + 1
 
-            joined = ''.join(replaced)
-            
-            view.add_phantom("implicit_times",
-                sublime.Region(view.text_point(line - 1, 1 - 1), view.text_point(line - 1, len(replaced) - 1)),
-                '<span style="color:#7777ff">' + joined + '</span>',
-                sublime.LAYOUT_BELOW)
+            # joined = ''.join(replaced)
+            # view.add_phantom("implicit_times",
+            #     sublime.Region(view.text_point(line - 1, 1 - 1), view.text_point(line - 1, len(replaced) - 1)),
+            #     '<span style="color:#7777ff">' + joined + '</span>',
+            #     sublime.LAYOUT_BELOW)
 
