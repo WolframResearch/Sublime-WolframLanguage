@@ -2,9 +2,6 @@
   "lsp_server" : {
     "command":
     [
-      //
-      // The path to WolframKernel is set to platform-specific defaults
-      //
       "<<Path to WolframKernel>>",
       "-noinit",
       "-noprompt",
@@ -26,10 +23,10 @@
     "m",
     "wl",
     "wls",
-    "nb",
     "mt",
     "wlt"
   ],
-  "color_scheme": "WolframLanguage.sublime-color-scheme",
-  "word_separators": "./\\()\"'-:,.;<>~!@#%^&*|+=[]{}`~?_"
+  //
+  // Uncomment to use Wolfram-specific syntax coloring
+  // "color_scheme": "WolframLanguage.sublime-color-scheme",
 }
