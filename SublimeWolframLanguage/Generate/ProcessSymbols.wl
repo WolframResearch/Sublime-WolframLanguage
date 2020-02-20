@@ -163,7 +163,7 @@ Module[{names, documentedSymbols, allSymbols, allASCIISymbols, obsoleteNames,
   *)
   obsoleteNames = Select[names, FindList[#, "\"OBSOLETE SYMBOL\"", 100] != {}&];
 
-  SublimeWolframLanguage`Generate`$obsoleteSymbols = StringDrop[#, -3] & /@ obsoleteNames;
+  SublimeWolframLanguage`Generate`$obsoleteSymbols = StringDrop[#, -3]& /@ obsoleteNames;
 
   Print["scanning Experimental symbols..."];
 

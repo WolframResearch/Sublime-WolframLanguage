@@ -4,19 +4,20 @@
 # https://www.sublimetext.com/docs/3/syntax.html
 # https://www.sublimetext.com/docs/3/scope_naming.html
 
+#
+# Adapted from: https://github.com/ViktorQvarfordt/Sublime-WolframLanguage
+#
+
 name: WolframLanguage
 
 file_extensions:
   - m
   - wl
   - wls
-  # FIXME: special process when rendering .nb file
-  #- nb
+  - mt
+  - wlt
 
-# first_line_match: ^#!.*\b(math|wolfram).*$
 scope: source.wolfram
-
-# Partly based on https://github.com/JuliaEditorSupport/Julia-sublime/blob/master/Julia.sublime-syntax
 
 variables:
   symbolSegment: '[$[:alpha:]]+[$[:alnum:]]*'
@@ -64,38 +65,30 @@ variables:
       `experimentalFunctions`
     )(?![<*"`"*>$[:alnum:]])
 
-  # nb_code_styles: (Input)
+  # YAML escapes ' characters by doubling them up
+  operator_char: '!|&|''|\*|\+|,|-|\.|/|:|;|<|=|>|\?|@|\\|^|\||~'
 
 
 contexts:
 
   main:
-    # - include: declarations
     - include: expressions
-
-  # expressions:
-  #   - include: pattern
-  #   - include: expressions-nopattern
 
   expressions:
     - include: comments
     - include: escaped_characters
     - include: literals
-    # - include: shorthand
     - include: operators
-    # - include: pattern-short
-    # - include: scoping
-    - include: variable
-    - include: nested
+    - include: pattern_operators
+    - include: symbols
+    - include: groups
+    #
+    # Anything else is an error
+    #
+    - match: (?:{{operator_char}})
+      scope: invalid.illegal
 
   comments:
-    # - match: '(\(\*\s*)(::)([[:alnum:]]+)(::)(\s*\*\))'
-    #   captures:
-    #     1: comment.line.wolfram
-    #     2: constant.numeric.line-number.find-in-files
-    #     3: constant.language.wolfram
-    #     4: constant.numeric.line-number.find-in-files
-    #     5: comment.line.wolfram
     - match: \(\*
       scope: punctuation.definition.comment.wolfram
       push: comment-block
@@ -113,35 +106,9 @@ contexts:
     #
     # linear syntax
     #
-    - match: \\!
-      scope: constant.character.escape
-    - match: \\%
-      scope: constant.character.escape
-    - match: \\&
-      scope: constant.character.escape
-    - match: \\\(
-      scope: constant.character.escape
-    - match: \\\)
-      scope: constant.character.escape
-    - match: \\\*
-      scope: constant.character.escape
-    - match: \\\+
-      scope: constant.character.escape
-    - match: \\/
-      scope: constant.character.escape
-    - match: \\@
-      scope: constant.character.escape
-    - match: \\\^
-      scope: constant.character.escape
-    - match: \\_
-      scope: constant.character.escape
-    - match: \\<*"`"*>
-      scope: constant.character.escape
-    - match: '\\ '
+    - match: \\(?:[!%&()*+/@^_<*"`"*> ])
       scope: constant.character.escape
 
-    #
-    # unicode characters
     #
     # Long Names
     #
@@ -152,17 +119,32 @@ contexts:
     #
     # Anything else is an error
     #
-    - match: '\\\[[[:alnum:]]+\]'
+    - match: '\\\[.*\]'
       scope: invalid.illegal
+
+    #
+    # \:XXXX syntax
+    #
     - match: '\\:\h\h\h\h'
       scope: constant.character.escape
+    #
+    # \.XX syntax
+    #
     - match: '\\\.\h\h'
       scope: constant.character.escape
+    #
+    # \|XXXXXX syntax
+    #
     - match: '\\\|\h\h\h\h\h\h'
       scope: constant.character.escape
+    #
+    # \XXX syntax
+    #
     - match: '\\[0-7][0-7][0-7]'
       scope: constant.character.escape
-
+    # line continuation
+    - match: '\\$'
+      scope: constant.character.escape punctuation.separator.continuation
     #
     # Anything else is an error
     #
@@ -170,23 +152,7 @@ contexts:
       scope: invalid.illegal
 
   string_escaped_characters:
-    - match: \\b
-      scope: constant.character.escape
-    - match: \\f
-      scope: constant.character.escape
-    - match: \\n
-      scope: constant.character.escape
-    - match: \\r
-      scope: constant.character.escape
-    - match: \\t
-      scope: constant.character.escape
-    - match: \\\"
-      scope: constant.character.escape
-    - match: \\\\
-      scope: constant.character.escape
-    - match: \\<
-      scope: constant.character.escape
-    - match: \\>
+    - match: \\(?:[bfnrt"\\<>])
       scope: constant.character.escape
     - include: escaped_characters
 
@@ -202,195 +168,114 @@ contexts:
           pop: true
         - include: string_escaped_characters
 
-  # shorthand:
-  #   - match: (::)\s*([[:alnum:]]+)
-  #     captures:
-  #       1: keyword.operator.MessageName.wolfram
-  #       2: string.unquoted.wolfram
-  #   # ENHANCEMENT: infix
-  #   - match: (//)\s*({{identifier}})
-  #     captures:
-  #       1: keyword.operator.Postfix.wolfram
-  #       3: variable.function.wolfram
-
   operators:
-    - match: ;;$
-      scope: invalid.endofline
-    - match: \.
-      scope: keyword.operator.dot.wolfram
-    - match: ':'
-      scope: keyword.operator.colon.wolfram
-    - match: (@\*|@{1,3}|\/[@*])
-      scope: keyword.operator.call.wolfram
-    - match: (\/\/?\.)
-      scope: keyword.operator.replace.wolfram
-    - match: (===|=!=|==|!=|>=|<=|<(?!\|)|(?<!\|)>)
-      scope: keyword.operator.comparison.wolfram
-    - match: (!|\|\||&&)
-      scope: keyword.operator.logical.wolfram
-    - match: (:?=|\/:|[-:]>|[+\-*/]=|<->)
-      scope: keyword.operator.assignment.wolfram
-    - match: /;
-      scope: keyword.operator.condition.wolfram
-    - match: (\+\+|--|[+\-*/])
-      scope: keyword.operator.arithmetic.wolfram
-    - match: (>>>?|<<<?)
-      scope: keyword.operator.flow.wolfram
-    - match: (<>|~~)
-      scope: keyword.operator.string.wolfram
-    - match: \.\.\.?
-      scope: keyword.operator.repeat.wolfram
-    - match: ;;
-      scope: keyword.operator.span.wolfram
-    - match: ;
-      scope: keyword.operator.compound.wolfram
-    # - match: \\\[[[:alnum:]]+\]
-    #   scope: keyword.operator.word.wolfram
-    - match: \&
-      scope: keyword.operator.function.wolfram
-
-  # pattern-short:
-  #   # Including Blank, BlankSequence, BlankNullSequence
-  #   # Can also be matched with Pattern, PatternTest, Optional
-  #   - match: ({{identifier}})?(_{1,3})(({{identifier}})?)
-  #     scope: variable.parameter.wolfram
-  #     push:
-  #       - meta_scope: meta.pattern.blank.wolfram
-  #       - match: (?:\s*)(\?)
-  #         captures:
-  #           1: keyword.operator.PatternTest.wolfram
-  #         pop: true
-  #       - match: (?:\s*)(:)(?=[^:>=])
-  #         captures:
-  #           1: keyword.operator.Optional.wolfram
-  #         pop: true
-  #       - match: (?=.)
-  #         pop: true
-
-  # pattern:
-  #   - match: '({{identifier}})\s*(:(?=[^:>=]))'
-  #     captures:
-  #       1: variable.parameter.wolfram
-  #       3: keyword.operator.Pattern.wolfram
-  #     push:
-  #       - meta_content_scope: meta.pattern.wolfram
-  #       - match: \?
-  #         scope: keyword.operator.PatternTest.wolfram
-  #       - match: ':(?=[^:>=])'
-  #         scope: keyword.operator.Optional.wolfram
-  #         pop: true
-  #       # we should check the precedence here
-  #       - match: (?=[:-]>|:?=|\/[;.\/]|[\]\)\},;&]|>>|<<)
-  #         pop: true
-  #       - include: expressions-nopattern
-
-  #function:
-  #  - match: ({{identifier}})\s*(\[(?!\[))
-  #    captures:
-  #      1: variable.function.wolfram
-  #      3: punctuation.section.brackets.begin.wolfram
-  #    push:
-  #      - meta_scope: meta.block.wolfram
-  #      - match: \]
-  #        scope: punctuation.section.brackets.end.wolfram
-  #        pop: true
-  #      - include: expressions
-  #  - match: ({{identifier}})(?=\s*(@\*|@{1,3}|\/[@*]))
-  #    scope: variable.function.wolfram
-  
-  variable:
-    - match: '{{built_in_functions}}'
-      scope: variable.function
-    - match: '{{constants}}'
-      scope: constant.language
-    - match: '{{obsolete_functions}}'
-      scope: invalid.deprecated
-    - match: '{{undocumented_functions}}'
-      scope: variable.function
-    - match: '{{experimental_functions}}'
-      scope: variable.function
-    - match: 'System<*"`"*>{{symbolSegment}}'
+    # 3 character assignment
+    - match: (?:\^:=)
+      scope: keyword.operator.assignment.UpSetDelayed.wolfram
+    # anything else
+    - match: (?:\^:.)
       scope: invalid.illegal
+    # 3 character other
+    - match: (?:===)
+      scope: keyword.operator.SameQ.wolfram
+    # 3 character other
+    - match: (?:>>>)
+      scope: keyword.operator.PutAppend.wolfram
+    - match: (?:=!=|\.\.\.|//\.|@@@|<->|//@)
+      scope: keyword.operator.wolfram
+    # 2 character arithmetic
+    - match: (?:--|\+\+)
+      scope: keyword.operator.arithmetic.wolfram
+    # 2 character logical
+    - match: (?:\|\||&&)
+      scope: keyword.operator.logical.wolfram
+    # 2 character assignment
+    - match: (?::=)
+      scope: keyword.operator.assignment.SetDelayed.wolfram
+    - match: (?:\^=)
+      scope: keyword.operator.assignment.UpSet.wolfram
+    - match: (?:/=)
+      scope: keyword.operator.assignment.DivideBy.wolfram
+    - match: (?:\+=)
+      scope: keyword.operator.assignment.AddTo.wolfram
+    - match: (?:=\.)
+      scope: keyword.operator.assignment.Unset.wolfram
+    - match: (?:\*=)
+      scope: keyword.operator.assignment.TimesBy.wolfram
+    - match: (?:-=)
+      scope: keyword.operator.assignment.SubtractFrom.wolfram
+    - match: (?:/:)
+      scope: keyword.operator.assignment.TagSet.wolfram
+    # 2 character ;; specific
+    - match: (?:;;$)
+      scope: invalid.endofline.Span.wolfram
+    - match: (?:;;)
+      scope: keyword.operator.Span.wolfram
+    # 2 character other
+    # accomodate =!= syntax for fonts
+    #- match: (?<!=)(?:!=)
+    - match: (?:!=)
+      scope: keyword.operator.Unequal.wolfram
+    - match: (?:==)
+      scope: keyword.operator.Equal.wolfram
+    # could be Factorial2 or Not2, so do not treat as logical
+    - match: (?:!!)
+      scope: keyword.operator.BangBang.wolfram
+    - match: (?:::)
+      scope: keyword.operator.MessageName.wolfram
+    - match: (?:<<)
+      scope: keyword.operator.Get.wolfram
+    - match: (?:>>)
+      scope: keyword.operator.Put.wolfram
+    # - match: (?:\?\?)
+    #   scope: keyword.operator.wolfram
+    - match: (?:<=|>=|\.\.|:>|<>|->|/@|/;|/\.|//|/\*|@@|@\*|~~|\*\*)
+      scope: keyword.operator.wolfram
+    # 1 character arithmetic
+    - match: (?:-|\+|/|\*)
+      scope: keyword.operator.arithmetic.wolfram
+    # 1 character assignment
+    - match: (?:=)
+      scope: keyword.operator.assignment.Set.wolfram
+    # 1 character other
+    # accomodate <||> syntax
+    - match: (?:<)(?!\|)
+      scope: keyword.operator.Less.wolfram
+    # accomodate <||> syntax
+    - match: (?:\|)(?!>)
+      scope: keyword.operator.Alternatives.wolfram
+    # could be Not or Factorial, so do not treat as logical
+    - match: (?:!)
+      scope: keyword.operator.Bang.wolfram
+    - match: (?:;)
+      scope: keyword.operator.CompoundExpression.wolfram punctuation.terminator
+    - match: (?:,)
+      scope: keyword.operator.Comma.wolfram punctuation.separator
+    - match: ^(?:\?)
+      scope: invalid.startofline.Information.wolfram
+    # warn about ??
+    - match: (?:\?)(?!\?)
+      scope: keyword.operator.wolfram
+    - match: (?:>|\^|\.|:|,|&|@|~|')
+      scope: keyword.operator.wolfram
+  
+  symbols:
+    - match: '{{built_in_functions}}'
+      scope: variable.function.builtin.wolfram
+    - match: '{{constants}}'
+      scope: constant.language.wolfram
+    - match: '{{obsolete_functions}}'
+      scope: invalid.deprecated.wolfram
+    - match: '{{undocumented_functions}}'
+      scope: variable.function.undocumented.wolfram
+    - match: '{{experimental_functions}}'
+      scope: variable.function.experimental.wolfram
+    - match: 'System<*"`"*>{{symbolSegment}}(?![<*"`"*>$[:alnum:]])'
+      scope: invalid.illegal.system.wolfram
     - match: '(?<![<*"`"*>$[:alpha:]]){{symbol}}(?![<*"`"*>$[:alnum:]])'
-      scope: variable.other
-    # - match: (#[a-zA-Z][[:alnum:]]*|#\d*)
-    #   scope: variable.parameter
+      scope: variable.other.wolfram
 
-  # scoping:
-  #   - match: (Block|Module|With|Function)\s*(\[(?!\[))
-  #     captures:
-  #       1: variable.function.scoping.wolfram
-  #       2: punctuation.section.brackets.begin.wolfram
-  #     push:
-  #       - meta_content_scope: meta.block.wolfram
-  #       - match: '\{'
-  #         set: [localized, local]
-  #       - match: '\]'
-  #         scope: punctuation.section.brackets.end.wolfram
-  #         pop: true
-  #       - include: expressions
-
-  # localized:
-  #   - meta_content_scope: meta.block.local.wolfram
-  #   - match: '\,'
-  #     push: local
-  #   - match: '\}'
-  #     set:
-  #       - meta_content_scope: meta.block.wolfram
-  #       - match: '\]'
-  #         scope: punctuation.section.brackets.end.wolfram
-  #         pop: true
-  #       - include: expressions
-  #   - match: '\]'
-  #     pop: true
-  #   - include: expressions
-
-  # local:
-  #   - match: '{{identifier}}'
-  #     scope: variable.parameter.wolfram
-  #     pop: true
-  #   - match: (?=[\,|\}])
-  #     pop: true
-  #   - include: expressions
-
-
-  # declarations:
-  #   - match: |-
-  #       (?x)
-  #       {{identifier}}
-  #       (?=
-  #         \s*
-  #         (
-  #           \[(?!\[)
-  #           (?>
-  #             [^\[\]]+|
-  #             \g<-1>
-  #           )*
-  #           \]
-  #         )
-  #         \s*(?:\/;.*)?\s*:=
-  #       )
-  #     scope: entity.name.function
-  #     push:
-  #       - match: \[
-  #         scope: punctuation.section.brackets.begin.wolfram
-  #         push:
-  #           - meta_scope: meta.arguments.wolfram
-  #           - match: \]
-  #             scope: punctuation.section.brackets.end.wolfram
-  #             pop: true
-  #       - match: (?=[^\[])
-  #         pop: true
-  #   - match: ((?:{{symbol}}<*"`"*>)*(\${{symbol}}))(?=\s*:?=)
-  #     scope: entity.name.constant.wolfram
-
-  # sequence:
-  #   - meta_scope: meta.sequence.wolfram
-  #   - match: \,\s*
-  #     scope: punctuation.separator.sequence.wolfram
-  #   - include: expressions
-
-  nested:
+  groups:
     - match: \(
       scope: punctuation.section.parens.begin.wolfram
       push:
@@ -431,3 +316,13 @@ contexts:
           scope: punctuation.section.association.end.wolfram
           pop: true
         - include: expressions
+
+  pattern_operators:
+    - match: (?:___)
+      scope: keyword.operator.BlankNullSequence.wolfram
+    - match: (?:__)
+      scope: keyword.operator.BlankSequence.wolfram
+    - match: (?:_\.)
+      scope: keyword.operator.Optional.wolfram
+    - match: (?:_)
+      scope: keyword.operator.Blank.wolfram
