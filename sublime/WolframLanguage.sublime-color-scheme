@@ -66,6 +66,16 @@
             "foreground": "var(white)"
         },
         {
+            "name": "Parts",
+            "scope": "punctuation.section.parts.begin.wolfram",
+            "foreground": "var(yellow)"
+        },
+        {
+            "name": "Parts",
+            "scope": "punctuation.section.parts.end.wolfram",
+            "foreground": "var(yellow)"
+        },
+        {
             "name": "User-defined constant",
             "scope": "constant.character, constant.other",
             "foreground": "var(purple)"
