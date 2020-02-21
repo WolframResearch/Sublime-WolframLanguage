@@ -21,15 +21,13 @@ If[FileType[buildDir] =!= Directory,
 
 
 
-SublimeWolframLanguage`Generate`$constants = {
-"Above", "After", "AlgebraicRulesData", "All", "Anonymous", \
-"Automatic", "Axis", "Back", "Backward", "Baseline", "Before", \
-"Below", "Black", "BlankForm", "Blue", "Bold", "Bottom", "Brown", \
-"Byte", "Catalan", "CellStyle", "Center", "Character", "Complex", \
-"ComplexInfinity", "Connect", "Constant", \
-"ConvertToPostScriptPacket", "Cyan", "Dashed", "Decimal", \
-"DefaultAxesStyle", "DefaultBaseStyle", "DefaultBoxStyle", \
-"DefaultFaceGridsStyle", "DefaultFieldHintStyle", \
+SublimeWolframLanguage`Generate`$constants =
+{"Above", "After", "All", "Anonymous", "Automatic", "Axis", "Back", \
+"Backward", "Baseline", "Before", "Below", "Black", "BlankForm", \
+"Blue", "Bold", "Bottom", "Brown", "Byte", "Catalan", "CellStyle", \
+"Center", "Character", "ComplexInfinity", "Constant", "Cyan", \
+"Dashed", "Decimal", "DefaultAxesStyle", "DefaultBaseStyle", \
+"DefaultBoxStyle", "DefaultFaceGridsStyle", "DefaultFieldHintStyle", \
 "DefaultFrameStyle", "DefaultFrameTicksStyle", \
 "DefaultGridLinesStyle", "DefaultLabelStyle", "DefaultMenuStyle", \
 "DefaultTicksStyle", "DefaultTooltipStyle", "Degree", "Delimiter", \
@@ -41,8 +39,8 @@ SublimeWolframLanguage`Generate`$constants = {
 "Full", "General", "Generic", "Glaisher", "GoldenAngle", \
 "GoldenRatio", "Gray", "Green", "Here", "HexadecimalCharacter", \
 "HoldAll", "HoldAllComplete", "HoldFirst", "HoldRest", \
-"HorizontalForm", "I", "Indeterminate", "Inequality", "Infinity", \
-"Inherited", "InputToBoxFormPacket", "InstallService", "Integer", \
+"HorizontalForm", "I", "Indeterminate", "Infinity", "Inherited", \
+"InputToBoxFormPacket", "InstallService", "Integer", \
 "InterpretTemplate", "Italic", "K", "Khinchin", "KillProcess", \
 "Large", "Larger", "Launch", "Left", "LetterCharacter", "LightBlue", \
 "LightBrown", "LightCyan", "LightGray", "LightGreen", "LightMagenta", \
@@ -56,45 +54,42 @@ SublimeWolframLanguage`Generate`$constants = {
 "ParentForm", "Pi", "Pink", "Plain", "ProcessConnection", \
 "Processes", "ProcessInformation", "ProcessObject", "ProcessStatus", \
 "Protected", "PunctuationCharacter", "Purple", "Rational", \
-"RawMedium", "ReadLine", "ReadProtected", "ReadString", "Real", \
-"Record", "Red", "RepeatedString", "ReturnInputFormPacket", "Right", \
-"RuleCondition", "RuleForm", "RunProcess", "Saturday", \
-"ScheduledTaskInformation", "SequenceHold", "Small", "Smaller", \
-"Socket", "SpanFromAbove", "SpanFromBoth", "SpanFromLeft", \
-"StartOfLine", "StartOfString", "StartProcess", "String", "Stub", \
-"Sunday", "SystemProcessData", "SystemProcesses", "Temporary", \
-"Thick", "Thin", "ThisLink", "Thursday", "Tiny", "Today", "Tomorrow", \
-"TooBig", "Top", "Transparent", "True", "Tuesday", "Undefined", \
-"Underlined", "URLFetch", "URLFetchAsynchronous", "URLSave", \
-"URLSaveAsynchronous", "ValueForm", "VectorGlyphData", \
-"VerticalForm", "Wednesday", "White", "Whitespace", \
-"WhitespaceCharacter", "Word", "WordBoundary", "WordCharacter", \
-"WriteLine", "Yellow", "Yesterday", "$Aborted", \
-"$AllowExternalChannelFunctions", "$AssertFunction", "$Assumptions", \
-"$AsynchronousTask", "$AudioInputDevices", "$AudioOutputDevices", \
-"$BaseDirectory", "$BatchInput", "$BatchOutput", "$BlockchainBase", \
-"$BoxForms", "$ByteOrdering", "$CacheBaseDirectory", "$Canceled", \
-"$ChannelBase", "$CharacterEncoding", "$CharacterEncodings", \
-"$CloudBase", "$CloudConnected", "$CloudCreditsAvailable", \
-"$CloudEvaluation", "$CloudExpressionBase", "$CloudRootDirectory", \
-"$CloudSymbolBase", "$CloudUserID", "$CloudUserUUID", \
-"$CloudVersion", "$CommandLine", "$CompilationTarget", \
-"$ConditionHold", "$ConfiguredKernels", "$Context", "$ContextPath", \
-"$ControlActiveSetting", "$Cookies", "$CookieStore", "$CreationDate", \
-"$CurrentLink", "$DateStringFormat", "$DefaultAudioInputDevice", \
-"$DefaultAudioOutputDevice", "$DefaultFont", "$DefaultImagingDevice", \
-"$DefaultLocalBase", "$DefaultNetworkInterface", "$DefaultPath", \
-"$Display", "$DisplayFunction", "$DistributedContexts", \
-"$DynamicEvaluation", "$Echo", "$EmbedCodeEnvironments", \
-"$EmbeddableServices", "$EntityStores", "$Epilog", \
-"$EvaluationCloudBase", "$EvaluationCloudObject", \
-"$EvaluationEnvironment", "$ExportFormats", "$Failed", \
-"$FontFamilies", "$FormatType", "$FrontEnd", "$FrontEndSession", \
-"$GeoLocation", "$GeoLocationCity", "$GeoLocationCountry", \
-"$GeoLocationSource", "$HistoryLength", "$HomeDirectory", \
-"$HTTPCookies", "$IgnoreEOF", "$ImageFormattingWidth", \
-"$ImagingDevice", "$ImagingDevices", "$ImportFormats", \
-"$IncomingMailSettings", "$InitialDirectory", \
+"RawMedium", "ReadProtected", "ReadString", "Real", "Record", "Red", \
+"RepeatedString", "Right", "RuleCondition", "RuleForm", "Saturday", \
+"SequenceHold", "Small", "Smaller", "SpanFromAbove", "SpanFromBoth", \
+"SpanFromLeft", "StartOfLine", "StartOfString", "StartProcess", \
+"String", "Stub", "Sunday", "SystemProcessData", "SystemProcesses", \
+"Temporary", "Thick", "Thin", "ThisLink", "Thursday", "Tiny", \
+"Today", "Tomorrow", "Top", "Transparent", "True", "Tuesday", \
+"Undefined", "Underlined", "URLFetch", "URLFetchAsynchronous", \
+"URLSave", "URLSaveAsynchronous", "ValueForm", "VerticalForm", \
+"Wednesday", "White", "Whitespace", "WhitespaceCharacter", "Word", \
+"WordBoundary", "WordCharacter", "WriteLine", "Yellow", "Yesterday", \
+"$Aborted", "$AllowExternalChannelFunctions", "$AssertFunction", \
+"$Assumptions", "$AsynchronousTask", "$AudioInputDevices", \
+"$AudioOutputDevices", "$BaseDirectory", "$BatchInput", \
+"$BatchOutput", "$BlockchainBase", "$BoxForms", "$ByteOrdering", \
+"$CacheBaseDirectory", "$Canceled", "$ChannelBase", \
+"$CharacterEncoding", "$CharacterEncodings", "$CloudBase", \
+"$CloudConnected", "$CloudCreditsAvailable", "$CloudEvaluation", \
+"$CloudExpressionBase", "$CloudRootDirectory", "$CloudSymbolBase", \
+"$CloudUserID", "$CloudUserUUID", "$CloudVersion", "$CommandLine", \
+"$CompilationTarget", "$ConditionHold", "$ConfiguredKernels", \
+"$Context", "$ContextPath", "$ControlActiveSetting", "$Cookies", \
+"$CookieStore", "$CreationDate", "$CurrentLink", "$DateStringFormat", \
+"$DefaultAudioInputDevice", "$DefaultAudioOutputDevice", \
+"$DefaultFont", "$DefaultImagingDevice", "$DefaultLocalBase", \
+"$DefaultNetworkInterface", "$DefaultPath", "$Display", \
+"$DisplayFunction", "$DistributedContexts", "$DynamicEvaluation", \
+"$Echo", "$EmbedCodeEnvironments", "$EmbeddableServices", \
+"$EntityStores", "$Epilog", "$EvaluationCloudBase", \
+"$EvaluationCloudObject", "$EvaluationEnvironment", "$ExportFormats", \
+"$Failed", "$FontFamilies", "$FormatType", "$FrontEnd", \
+"$FrontEndSession", "$GeoLocation", "$GeoLocationCity", \
+"$GeoLocationCountry", "$GeoLocationSource", "$HistoryLength", \
+"$HomeDirectory", "$HTTPCookies", "$IgnoreEOF", \
+"$ImageFormattingWidth", "$ImagingDevice", "$ImagingDevices", \
+"$ImportFormats", "$IncomingMailSettings", "$InitialDirectory", \
 "$InitializationContexts", "$Input", "$InputFileName", \
 "$InputStreamMethods", "$Inspector", "$InstallationDate", \
 "$InstallationDirectory", "$InterpreterTypes", "$IterationLimit", \
