@@ -253,7 +253,7 @@ contexts:
       scope: keyword.operator.Comma.wolfram punctuation.separator
     - match: ^(?:\?)
       scope: invalid.startofline.Information.wolfram
-    # warn about ??
+    # TODO: warn about ??
     - match: (?:\?)(?!\?)
       scope: keyword.operator.wolfram
     - match: (?:>|\^|\.|:|,|&|@|~|')
