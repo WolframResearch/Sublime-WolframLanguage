@@ -8,7 +8,7 @@ import sys
 
 from LSP.plugin.core.handlers import LanguageHandler
 from LSP.plugin.core.settings import ClientConfig, LanguageConfig, read_client_config
-from LSP.plugin.core.protocol import Request
+from LSP.plugin.core.protocol import Notification
 
 settings_file = 'WolframLanguage.sublime-settings'
 
@@ -56,6 +56,8 @@ class LspWolframLanguagePlugin(LanguageHandler):
 
     def on_initialized(self, client) -> None:
 
+        self._client = client
+
         active_window   = sublime.active_window()
         panel = active_window.create_output_panel("wolfram")
 
@@ -68,6 +70,8 @@ class LspWolframLanguagePlugin(LanguageHandler):
         client.on_notification("wolfram/versions", self.on_wolfram_versions)
 
         client.on_notification("textDocument/publishImplicitTimes", self.on_implicit_times)
+
+        client.on_notification("textDocument/publishHTMLSnippet", self.on_html_snippet)
 
     def on_wolfram_versions(self, params):
 
@@ -127,26 +131,58 @@ class LspWolframLanguagePlugin(LanguageHandler):
             # Related issues: https://forum.sublimetext.com/t/does-minihtml-support-the-pre-tag/46267/3
             #
 
-            replaced = []
             index = 0
             for c in joined:
-                if c == ' ':
-                    replaced.append('&nbsp;')
-                elif c == '\t':
-                    replaced.append('&nbsp;')
-                elif c == '\xd7':
-                    replaced.append(c)
+                if c == '\xd7':
                     view.add_phantom("implicit_times",
                         sublime.Region(view.text_point(line - 1, index), view.text_point(line - 1, index + 1)),
                         '<span style="color:#aaaaff">' + c + '</span>',
                         sublime.LAYOUT_INLINE)
-                else:
-                    replaced.append(c)
                 index = index + 1
 
-            # joined = ''.join(replaced)
-            # view.add_phantom("implicit_times",
-            #     sublime.Region(view.text_point(line - 1, 1 - 1), view.text_point(line - 1, len(replaced) - 1)),
-            #     '<span style="color:#7777ff">' + joined + '</span>',
-            #     sublime.LAYOUT_BELOW)
+
+    def on_html_snippet(self, params):
+
+        #
+        # Currently grabbing the active view
+        # There is no current way to obtain the view that corresponds to the file
+        # Related issues: https://github.com/sublimelsp/LSP/issues/641
+        #
+        
+        if not sublime:
+            return
+
+        active_window = sublime.active_window()
+
+        view = active_window.active_view()
+
+        view.erase_phantoms("html_snippet")
+
+        lines = params['lines']
+        for l in lines:
+            line = l['line']
+            characters = l['characters']
+
+            joined = ''.join(characters)
+
+            view.add_phantom("html_snippet",
+                sublime.Region(view.text_point(line - 1, 1 - 1), view.text_point(line - 1, len(characters) - 1)),
+                joined,
+                sublime.LAYOUT_BELOW, self.on_navigate)
+
+    def on_navigate(self, href):
+        
+        # if not sublime:
+        #     return
+
+        # active_window = sublime.active_window()
+
+        # panel = active_window.create_output_panel("wolfram")
+
+        #panel.run_command("append", {"characters": 'clicked on: ' + href + '\n'})
+
+        req = Notification("htmlSnippetClick", {'href': href})
+
+        self._client.send_notification(req)
+
 
