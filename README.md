@@ -39,7 +39,7 @@ If you haven't already, [install Package Control](https://packagecontrol.io/inst
 
 ### Settings
 
-Package Settings > Wolfram Language > Settings
+`Package Settings > Wolfram Language > Settings`
 
 ```
 {
