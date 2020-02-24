@@ -46,7 +46,7 @@ Package Settings > Wolfram Language > Settings
   "lsp_server" : {
     "command":
     [
-        "<<Path to WolframKernel>>",
+        "<<Path to WolframKernel (or wolfram.exe on Windows)>>",
         "-noinit",
         "-noprompt",
         "-nopaclet",
