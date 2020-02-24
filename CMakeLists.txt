@@ -11,6 +11,11 @@ set(WOLFRAMKERNEL ${WOLFRAMKERNEL_DEFAULT} CACHE FILEPATH "Path to WolframKernel
 message(STATUS "WOLFRAMKERNEL: ${WOLFRAMKERNEL}")
 
 set(STATIC_PACKAGE_SOURCES
+  #
+  # why still use the older-style .tmPreferences?
+  # https://forum.sublimetext.com/t/toggle-comment-with-a-custom-sublime-syntax/18789
+  #
+  ${PROJECT_SOURCE_DIR}/sublime/Comments.tmPreferences
   ${PROJECT_SOURCE_DIR}/sublime/Main.sublime-menu
   ${PROJECT_SOURCE_DIR}/sublime/plugin.py
   ${PROJECT_SOURCE_DIR}/sublime/syntax_test_wolfram_language.wl
