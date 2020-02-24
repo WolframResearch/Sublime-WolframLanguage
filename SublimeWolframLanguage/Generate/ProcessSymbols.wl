@@ -23,73 +23,64 @@ If[FileType[buildDir] =!= Directory,
 
 SublimeWolframLanguage`Generate`$constants =
 {"Above", "After", "All", "Anonymous", "Automatic", "Axis", "Back", \
-"Backward", "Baseline", "Before", "Below", "Black", "BlankForm", \
-"Blue", "Bold", "Bottom", "Brown", "Byte", "Catalan", "CellStyle", \
-"Center", "Character", "ComplexInfinity", "Constant", "Cyan", \
-"Dashed", "Decimal", "DefaultAxesStyle", "DefaultBaseStyle", \
-"DefaultBoxStyle", "DefaultFaceGridsStyle", "DefaultFieldHintStyle", \
+"Backward", "Baseline", "Before", "Below", "Black", "Blue", "Bold", \
+"Bottom", "Brown", "Byte", "Catalan", "CellStyle", "Center", \
+"Character", "ComplexInfinity", "Constant", "Cyan", "Dashed", \
+"Decimal", "DefaultAxesStyle", "DefaultBaseStyle", "DefaultBoxStyle", \
+"DefaultFaceGridsStyle", "DefaultFieldHintStyle", \
 "DefaultFrameStyle", "DefaultFrameTicksStyle", \
 "DefaultGridLinesStyle", "DefaultLabelStyle", "DefaultMenuStyle", \
 "DefaultTicksStyle", "DefaultTooltipStyle", "Degree", "Delimiter", \
-"DigitCharacter", "DimensionReduce", "DocumentGeneratorInformation", \
-"DocumentGenerators", "DotDashed", "Dotted", "DragAndDrop", "E", \
+"DigitCharacter", "DotDashed", "Dotted", "DragAndDrop", "E", \
 "EndOfBuffer", "EndOfFile", "EndOfLine", "EndOfString", "EulerGamma", \
 "Expression", "False", "Flat", "FontProperties", "Forward", \
 "ForwardBackward", "Friday", "Front", "FrontEndDynamicExpression", \
 "Full", "General", "Generic", "Glaisher", "GoldenAngle", \
 "GoldenRatio", "Gray", "Green", "Here", "HexadecimalCharacter", \
-"HoldAll", "HoldAllComplete", "HoldFirst", "HoldRest", \
-"HorizontalForm", "I", "Indeterminate", "Infinity", "Inherited", \
-"InputToBoxFormPacket", "InstallService", "Integer", \
-"InterpretTemplate", "Italic", "K", "Khinchin", "KillProcess", \
-"Large", "Larger", "Launch", "Left", "LetterCharacter", "LightBlue", \
-"LightBrown", "LightCyan", "LightGray", "LightGreen", "LightMagenta", \
-"LightOrange", "LightPink", "LightPurple", "LightRed", "LightYellow", \
-"LinkOpen", "LinkService", "Listable", "Listen", "Locked", \
-"LongestMatch", "Loopback", "MachinePrecision", "Magenta", "Manual", \
-"MatchLocalNameQ", "Medium", "MeshCellCentroid", "MeshCellMeasure", \
-"MeshCellQuality", "Modular", "Monday", "NHoldAll", "NHoldFirst", \
-"NHoldRest", "NonAssociative", "None", "Now", "NoWhitespace", "Null", \
-"Number", "NumberString", "Orange", "OutputMathEditExpression", \
-"ParentForm", "Pi", "Pink", "Plain", "ProcessConnection", \
-"Processes", "ProcessInformation", "ProcessObject", "ProcessStatus", \
-"Protected", "PunctuationCharacter", "Purple", "Rational", \
-"RawMedium", "ReadProtected", "ReadString", "Real", "Record", "Red", \
-"RepeatedString", "Right", "RuleCondition", "RuleForm", "Saturday", \
-"SequenceHold", "Small", "Smaller", "SpanFromAbove", "SpanFromBoth", \
-"SpanFromLeft", "StartOfLine", "StartOfString", "StartProcess", \
-"String", "Stub", "Sunday", "SystemProcessData", "SystemProcesses", \
-"Temporary", "Thick", "Thin", "ThisLink", "Thursday", "Tiny", \
-"Today", "Tomorrow", "Top", "Transparent", "True", "Tuesday", \
-"Undefined", "Underlined", "URLFetch", "URLFetchAsynchronous", \
-"URLSave", "URLSaveAsynchronous", "ValueForm", "VerticalForm", \
+"HoldAll", "HoldAllComplete", "HoldFirst", "HoldRest", "I", \
+"Indeterminate", "Infinity", "Inherited", "Integer", "Italic", "K", \
+"Khinchin", "Large", "Larger", "Launch", "Left", "LetterCharacter", \
+"LightBlue", "LightBrown", "LightCyan", "LightGray", "LightGreen", \
+"LightMagenta", "LightOrange", "LightPink", "LightPurple", \
+"LightRed", "LightYellow", "Listable", "Listen", "Locked", \
+"Loopback", "MachinePrecision", "Magenta", "Manual", "Medium", \
+"MeshCellCentroid", "MeshCellMeasure", "MeshCellQuality", "Modular", \
+"Monday", "NHoldAll", "NHoldFirst", "NHoldRest", "NonAssociative", \
+"None", "Now", "NoWhitespace", "Null", "Number", "NumberString", \
+"Orange", "ParentForm", "Pi", "Pink", "Plain", "Protected", \
+"PunctuationCharacter", "Purple", "ReadProtected", "Real", "Record", \
+"Red", "Right", "Saturday", "SequenceHold", "Small", "Smaller", \
+"SpanFromAbove", "SpanFromBoth", "SpanFromLeft", "StartOfLine", \
+"StartOfString", "String", "Stub", "Sunday", "Temporary", "Thick", \
+"Thin", "ThisLink", "Thursday", "Tiny", "Today", "Tomorrow", "Top", \
+"Transparent", "True", "Tuesday", "Undefined", "Underlined", \
 "Wednesday", "White", "Whitespace", "WhitespaceCharacter", "Word", \
-"WordBoundary", "WordCharacter", "WriteLine", "Yellow", "Yesterday", \
-"$Aborted", "$AllowExternalChannelFunctions", "$AssertFunction", \
-"$Assumptions", "$AsynchronousTask", "$AudioInputDevices", \
-"$AudioOutputDevices", "$BaseDirectory", "$BatchInput", \
-"$BatchOutput", "$BlockchainBase", "$BoxForms", "$ByteOrdering", \
-"$CacheBaseDirectory", "$Canceled", "$ChannelBase", \
-"$CharacterEncoding", "$CharacterEncodings", "$CloudBase", \
-"$CloudConnected", "$CloudCreditsAvailable", "$CloudEvaluation", \
-"$CloudExpressionBase", "$CloudRootDirectory", "$CloudSymbolBase", \
-"$CloudUserID", "$CloudUserUUID", "$CloudVersion", "$CommandLine", \
-"$CompilationTarget", "$ConditionHold", "$ConfiguredKernels", \
-"$Context", "$ContextPath", "$ControlActiveSetting", "$Cookies", \
-"$CookieStore", "$CreationDate", "$CurrentLink", "$DateStringFormat", \
-"$DefaultAudioInputDevice", "$DefaultAudioOutputDevice", \
-"$DefaultFont", "$DefaultImagingDevice", "$DefaultLocalBase", \
-"$DefaultNetworkInterface", "$DefaultPath", "$Display", \
-"$DisplayFunction", "$DistributedContexts", "$DynamicEvaluation", \
-"$Echo", "$EmbedCodeEnvironments", "$EmbeddableServices", \
-"$EntityStores", "$Epilog", "$EvaluationCloudBase", \
-"$EvaluationCloudObject", "$EvaluationEnvironment", "$ExportFormats", \
-"$Failed", "$FontFamilies", "$FormatType", "$FrontEnd", \
-"$FrontEndSession", "$GeoLocation", "$GeoLocationCity", \
-"$GeoLocationCountry", "$GeoLocationSource", "$HistoryLength", \
-"$HomeDirectory", "$HTTPCookies", "$IgnoreEOF", \
-"$ImageFormattingWidth", "$ImagingDevice", "$ImagingDevices", \
-"$ImportFormats", "$IncomingMailSettings", "$InitialDirectory", \
+"WordBoundary", "WordCharacter", "Yellow", "Yesterday", "$Aborted", \
+"$AllowExternalChannelFunctions", "$AssertFunction", "$Assumptions", \
+"$AsynchronousTask", "$AudioInputDevices", "$AudioOutputDevices", \
+"$BaseDirectory", "$BatchInput", "$BatchOutput", "$BlockchainBase", \
+"$BoxForms", "$ByteOrdering", "$CacheBaseDirectory", "$Canceled", \
+"$ChannelBase", "$CharacterEncoding", "$CharacterEncodings", \
+"$CloudBase", "$CloudConnected", "$CloudCreditsAvailable", \
+"$CloudEvaluation", "$CloudExpressionBase", "$CloudRootDirectory", \
+"$CloudSymbolBase", "$CloudUserID", "$CloudUserUUID", \
+"$CloudVersion", "$CommandLine", "$CompilationTarget", \
+"$ConfiguredKernels", "$Context", "$ContextPath", \
+"$ControlActiveSetting", "$Cookies", "$CookieStore", "$CreationDate", \
+"$CurrentLink", "$DateStringFormat", "$DefaultAudioInputDevice", \
+"$DefaultAudioOutputDevice", "$DefaultFont", "$DefaultImagingDevice", \
+"$DefaultLocalBase", "$DefaultNetworkInterface", "$DefaultPath", \
+"$Display", "$DisplayFunction", "$DistributedContexts", \
+"$DynamicEvaluation", "$Echo", "$EmbedCodeEnvironments", \
+"$EmbeddableServices", "$EntityStores", "$Epilog", \
+"$EvaluationCloudBase", "$EvaluationCloudObject", \
+"$EvaluationEnvironment", "$ExportFormats", "$Failed", \
+"$FontFamilies", "$FormatType", "$FrontEnd", "$FrontEndSession", \
+"$GeoLocation", "$GeoLocationCity", "$GeoLocationCountry", \
+"$GeoLocationSource", "$HistoryLength", "$HomeDirectory", \
+"$HTTPCookies", "$IgnoreEOF", "$ImageFormattingWidth", \
+"$ImagingDevice", "$ImagingDevices", "$ImportFormats", \
+"$IncomingMailSettings", "$InitialDirectory", \
 "$InitializationContexts", "$Input", "$InputFileName", \
 "$InputStreamMethods", "$Inspector", "$InstallationDate", \
 "$InstallationDirectory", "$InterpreterTypes", "$IterationLimit", \
@@ -111,10 +102,10 @@ SublimeWolframLanguage`Generate`$constants =
 "$ParentProcessID", "$PasswordFile", "$Path", "$PathnameSeparator", \
 "$PerformanceGoal", "$Permissions", "$PersistenceBase", \
 "$PersistencePath", "$PipeSupported", "$PlotTheme", "$Post", "$Pre", \
-"$PrePrint", "$PreRead", "$PrintForms", "$PrintLiteral", \
-"$Printout3DPreviewer", "$ProcessID", "$ProcessorCount", \
-"$ProcessorType", "$ProductInformation", "$ProgramName", \
-"$PublisherID", "$RandomState", "$RecursionLimit", "$ReleaseNumber", \
+"$PrePrint", "$PreRead", "$PrintForms", "$Printout3DPreviewer", \
+"$ProcessID", "$ProcessorCount", "$ProcessorType", \
+"$ProductInformation", "$ProgramName", "$PublisherID", \
+"$RandomState", "$RecursionLimit", "$ReleaseNumber", \
 "$RequesterAddress", "$RequesterWolframID", "$RequesterWolframUUID", \
 "$RootDirectory", "$ScheduledTask", "$ScriptCommandLine", \
 "$ScriptInputString", "$ServiceCreditsAvailable", "$Services", \
@@ -151,7 +142,7 @@ Module[{names, documentedSymbols, allSymbols, allASCIISymbols, obsoleteNames,
 
   SublimeWolframLanguage`Generate`$undocumentedSymbols = Complement[allASCIISymbols, documentedSymbols];
 
-  Print["scanning Obsolete symbols..."];
+  Print["scanning Obsolete symbols... \[WatchIcon]"];
 
   (*
   "OBSOLETE SYMBOL" is found in the first ~50 lines, so use 100 as a heuristic for how many lines to read
@@ -160,7 +151,7 @@ Module[{names, documentedSymbols, allSymbols, allASCIISymbols, obsoleteNames,
 
   SublimeWolframLanguage`Generate`$obsoleteSymbols = StringDrop[#, -3]& /@ obsoleteNames;
 
-  Print["scanning Experimental symbols..."];
+  Print["scanning Experimental symbols... \[WatchIcon]"];
 
   (*
   "EXPERIMENTAL" is found in the first ~500 lines, so use 1000 as a heuristic for how many lines to read
