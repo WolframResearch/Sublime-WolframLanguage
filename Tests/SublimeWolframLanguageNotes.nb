@@ -10,35 +10,31 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      1624,         56]
-NotebookOptionsPosition[      1150,         39]
-NotebookOutlinePosition[      1545,         55]
-CellTagsIndexPosition[      1502,         52]
+NotebookDataLength[      1540,         52]
+NotebookOptionsPosition[      1038,         34]
+NotebookOutlinePosition[      1462,         51]
+CellTagsIndexPosition[      1419,         48]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
 
 Cell[CellGroupData[{
-Cell["update", "Section",
- CellChangeTimes->{{3.7915647821641293`*^9, 
-  3.791564783131378*^9}},ExpressionUUID->"288050c6-f636-4921-afdd-\
-0707941aab2b"],
+Cell["update", "Section",ExpressionUUID->"288050c6-f636-4921-afdd-0707941aab2b"],
 
 Cell["\<\
 cd ../../sublime-wolframlanguage/build/
+cmake --build . --target package
 rm -rf /Users/brenton/Library/Application\\ Support/Sublime\\ Text\\ \
 3/Packages/WolframLanguage
 cp -rf package/WolframLanguage /Users/brenton/Library/Application\\ \
 Support/Sublime\\ Text\\ 3/Packages/\
-\>", "Program",
- CellChangeTimes->{{3.7915647946370583`*^9, 
-  3.79156480500181*^9}},ExpressionUUID->"aa1431f8-d31b-47e0-b9e8-\
-91f361420260"]
-}, Open  ]]
+\>", "Program",ExpressionUUID->"aa1431f8-d31b-47e0-b9e8-91f361420260"]
+}, Closed]]
 },
 WindowSize->{808, 751},
 WindowMargins->{{4, Automatic}, {Automatic, 4}},
+TrackCellChangeTimes->False,
 FrontEndVersion->"12.1 for Mac OS X x86 (64-bit) (February 10, 2020)",
 StyleDefinitions->"Default.nb",
 ExpressionUUID->"f72eb5b2-ff87-4d2a-9729-3562866f1e6e"
@@ -55,9 +51,9 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[580, 22, 153, 3, 67, "Section",ExpressionUUID->"288050c6-f636-4921-afdd-0707941aab2b"],
-Cell[736, 27, 398, 9, 101, "Program",ExpressionUUID->"aa1431f8-d31b-47e0-b9e8-91f361420260"]
-}, Open  ]]
+Cell[580, 22, 80, 0, 67, "Section",ExpressionUUID->"288050c6-f636-4921-afdd-0707941aab2b"],
+Cell[663, 24, 359, 7, 118, "Program",ExpressionUUID->"aa1431f8-d31b-47e0-b9e8-91f361420260"]
+}, Closed]]
 }
 ]
 *)
