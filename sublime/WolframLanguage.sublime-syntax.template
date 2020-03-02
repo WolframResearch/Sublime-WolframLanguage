@@ -157,6 +157,8 @@ contexts:
     - include: escaped_characters
 
   literals:
+    - match: 16\^\^\h+
+      scope: constant.numeric.wolfram
     - match: (?:\d+\.?|\.\d)\d*\<*"`"*>{0,2}
       scope: constant.numeric.wolfram
     - match: \"
