@@ -103,9 +103,9 @@ cmake --build . --target package
 
 The result is a directory named `package` that contains the WolframLanguage Sublime package.
 
-Specify `INSTALLATION_DIRECTORY` if you have Mathematica installed in a non-default location:
+Specify `MATHEMATICA_INSTALL_DIR` if you have Mathematica installed in a non-default location:
 ```
-cmake -DINSTALLATION_DIRECTORY=/Applications/Mathematica111.app/Contents/ ..
+cmake -DMATHEMATICA_INSTALL_DIR=/Applications/Mathematica111.app/Contents/ ..
 cmake --build . --target package
 ```
 
