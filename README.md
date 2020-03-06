@@ -37,26 +37,9 @@ Out[4]= PacletObject[LSPServer, 1.0, <>]
 
 If you haven't already, [install Package Control](https://packagecontrol.io/installation), then select `WolframLanguage` from the `Package Control: Install Package` dropdown list in the Command Palette.
 
-### Settings
 
-`Package Settings > Wolfram Language > Settings`
+In the Command Palette: LSP: Enable Language Server Globally, and select wolfram
 
-```
-{
-  "lsp_server" : {
-    "command":
-    [
-        "<<Path to WolframKernel (or wolfram.exe on Windows)>>",
-        "-noinit",
-        "-noprompt",
-        "-nopaclet",
-        "-run",
-        "Needs[\"LSPServer`\"];LSPServer`StartServer[]"
-    ]
-  }
-}
-
-```
 
 Restart Sublime
 
@@ -70,20 +53,16 @@ Which[a, b, a, b]
 You should see warnings about duplicate clauses.
 
 
-#### Command arguments:
+### Settings
 
-`<<Path to WolframKernel>>`
+`Package Settings > Wolfram Language > Settings`
 
-This is the path to your `WolframKernel` executable.
-
-If you installed Mathematica in a default location, then this is something like:
 ```
-/Applications/Mathematica.app/Contents/MacOS/WolframKernel
+{
+  "kernel": "/Applications/Mathematica121.app/Contents/MacOS/WolframKernel"
+}
+
 ```
-
-``"Needs[\"LSPServer`\"];LSPServer`StartServer[]"``
-
-This is the command that the kernel runs to start the server.
 
 
 ## Building
@@ -111,6 +90,51 @@ cmake --build . --target package
 
 
 ## Troubleshooting
+
+
+Make sure that the required packages are up-to-date:
+sublime-wolframlanguage
+LSP package
+
+
+make sure older versions are not present
+
+Package Control > List Packages
+
+
+LSP with URL https://github.com/tomv564/LSP
+Remove Package
+
+
+WolframLanguage with URL https://github.com/ViktorQvarfordt/Sublime-WolframLanguage:
+Remove Package
+
+
+### Debugging
+
+Turn on debug LSP settings
+
+
+LSP > Settings
+
+```
+{
+  "auto_show_diagnostics_panel": "never",
+  "log_debug": true,
+  "log_payloads": true,
+  "log_stderr": true,
+  "show_diagnostics_severity_level": 4
+}
+
+```
+
+
+
+
+
+
+
+
 
 ### Windows
 

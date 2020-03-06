@@ -1,23 +1,36 @@
 {
-  "lsp_server" : {
-    "command":
-    [
-      "<<Path to WolframKernel (or wolfram.exe on Windows)>>",
-      "-noinit",
-      "-noprompt",
-      "-nopaclet",
-      "-run",
-      "Needs[\"LSPServer`\"];LSPServer`StartServer[]"
-    ],
-    "enabled": true,
-    "initializationOptions": {
-      "confidenceLevel": 0.95,
-      "colorProvider": false,
-      "hoverProvider": false
-    },
-    "settings": {}
+  //
+  // This defaults to platform-specific values:
+  // Linx: /usr/local/Wolfram/Mathematica/12.0/Executables/WolframKernel
+  // OSX: /Applications/Mathematica.app/Contents/MacOS/WolframKernel
+  // Windows: C:\Program Files\Wolfram Research\Mathematica\12.0\wolfram.exe
+  //
+  // Change this setting to use a different kernel
+  //
+  "kernel": "<<Path to WolframKernel (or wolfram.exe on Windows)>>",
+  
+  //
+  // The command to run. The special value `kernel` will be replaced
+  // with the value of the "kernel" setting.
+  //
+  "lsp_server_command":
+  [
+    "`kernel`",
+    "-noinit",
+    "-noprompt",
+    "-nopaclet",
+    "-run",
+    "Needs[\"LSPServer`\"];LSPServer`StartServer[]"
+  ],
+
+  "lsp_server_initialization_options": {
+    "confidenceLevel": 0.95,
+    "colorProvider": false,
+    "hoverProvider": false,
+    "definitionProvider": true
   }
   ,
+
   "extensions":
   [
     "m",
@@ -26,6 +39,7 @@
     "mt",
     "wlt"
   ],
+
   //
   // Uncomment to use Wolfram-specific syntax coloring
   // "color_scheme": "WolframLanguage.sublime-color-scheme",

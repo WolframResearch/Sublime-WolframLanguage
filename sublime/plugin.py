@@ -15,39 +15,57 @@ settings_file = 'WolframLanguage.sublime-settings'
 class LspWolframLanguagePlugin(LanguageHandler):
     @property
     def name(self) -> str:
-        return 'lsp-wolfram'
+        return 'wolfram'
 
     @property
     def config(self) -> ClientConfig:
         settings = sublime.load_settings(settings_file)
-        client_configuration = settings.get('lsp_server')
-        
-        default_configuration = {
-            "languages": [
-                {
-                    "languageId": "wolfram",
-                    "scopes": ["source.wolfram"],
-                    "syntaxes": ["Packages/WolframLanguage/WolframLanguage.sublime-syntax"]
-                }
-            ]
-        }
-        default_configuration.update(client_configuration)
 
-        return read_client_config('lsp-wolfram', default_configuration)
+        command = settings.get("lsp_server_command")
+
+        kernel_path = command[0]
+
+        if kernel_path == '`kernel`':
+            kernel = settings.get("kernel")
+            command[0] = kernel
+
+        initialization_options = settings.get("lsp_server_initialization_options")
+
+        config = {
+            "languageId": "wolfram",
+            "scopes": ["source.wolfram"],
+            "syntaxes": ["Packages/WolframLanguage/WolframLanguage.sublime-syntax"]
+        }
+
+        config['command'] = command
+        config['initializationOptions'] = initialization_options
+
+        return read_client_config('wolfram', config)
 
     def on_start(self, window) -> bool:
         settings = sublime.load_settings(settings_file)
-        client_configuration = settings.get('lsp_server')
 
-        command = client_configuration.get('command')
+        command = settings.get("lsp_server_command")
+
         kernel_path = command[0]
 
-        if not os.path.isfile(kernel_path):
-            sublime.message_dialog("Cannot find kernel: " + kernel_path)
+        #
+        # if not using `kernel` syntax in command, then just return now
+        #
+        if not kernel_path == '`kernel`':
+            return True
+
+        #
+        # Check that kernel specified by `kernel` actually exists
+        #
+        kernel = settings.get("kernel")
+
+        if not os.path.isfile(kernel):
+            sublime.message_dialog("Cannot find kernel: " + kernel)
             return False
 
         if sys.platform == "win32":
-            base = os.path.basename(kernel_path)
+            base = os.path.basename(kernel)
             if base.lower() == 'wolframkernel.exe' or base.lower() == 'wolframkernel':
                 sublime.message_dialog('WolframKernel.exe cannot be used because it opens a separate window and hangs on stdin. Please use wolfram.exe')
                 return False

@@ -1,20 +1,3 @@
 {
-	"lsp_server" : {
-    "command":
-    [
-      "C:\\Program Files\\Wolfram Research\\Mathematica\\12.0\\wolfram.exe",
-      "-noinit",
-      "-noprompt",
-      "-nopaclet",
-      "-run",
-      "Needs[\"LSPServer`\"];LSPServer`StartServer[]"
-    ],
-    "enabled": true,
-    "initializationOptions": {
-      "confidenceLevel": 0.95,
-      "colorProvider": false,
-      "hoverProvider": false
-    },
-    "settings": {}
-  }
+  "kernel": "C:\\Program Files\\Wolfram Research\\Mathematica\\12.0\\wolfram.exe"
 }
