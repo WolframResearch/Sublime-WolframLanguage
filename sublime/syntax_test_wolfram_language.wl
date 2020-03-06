@@ -25,9 +25,9 @@
 (* LANGUAGE CONSTANTS *)
 
    Catalan
-(* ^ constant.language *)
+(* ^ constant.language.wolfram *)
    Pi
-(* ^ constant.language *)
+(* ^ constant.language.wolfram *)
 
    True
 (* ^^^^ constant.language *)
@@ -53,19 +53,19 @@
 (*^^ keyword.operator.logical*)
 
   >
-(*^ keyword.operator.comparison*)
+(*^ keyword.operator*)
   <
-(*^ keyword.operator.comparison*)
+(*^ keyword.operator*)
   ==
-(*^^ keyword.operator.comparison*)
+(*^^ keyword.operator*)
   >=
-(*^^ keyword.operator.comparison*)
+(*^^ keyword.operator*)
   <=
-(*^^ keyword.operator.comparison*)
+(*^^ keyword.operator*)
   ===
-(*^^^ keyword.operator.comparison*)
+(*^^^ keyword.operator*)
   =!=
-(*^^^ keyword.operator.comparison*)
+(*^^^ keyword.operator*)
 
    @
 (* ^ keyword.operator *)
@@ -99,13 +99,25 @@
 (* VARIABLES *)
 
   f[x]
-(*^ variable.other*)
+(*^ variable*)
   foo$bar12
 (*^^^^^^^^^ variable.other *)
   $foo
 (*^^^^ variable.other *)
   my`context12`$foo
 (*^^^^ variable.other *)
+  1$12foo
+(*^ constant.numeric.wolfram *)
+(* ^^^^^^ variable.other.wolfram *)
+
+  System`foo
+(* ^^^^^^^^^ invalid.illegal.system.wolfram *)
+  URLFetch
+(*^^^^^^^^ invalid.deprecated.wolfram *)
+  DiskBox
+(*^^^^^^^ variable.function.undocumented.wolfram *)
+  BaseEncode
+(*^^^^^^^^^^ variable.function.experimental.wolfram *)
 
   Plus
 (* ^ variable.function *)
@@ -113,91 +125,26 @@
 (*     ^^^ variable.function *)
 
   Image[Red, Interleaving -> True]
-(*^^^^^ variable.function *)
-(*      ^ constant.language *) (* seems wrong to me *)
-(*           ^^^^^^^^^^^^ variable.function.wolfram *)
+(*^ variable.function.builtin.wolfram *)
+(*      ^ constant.language.wolfram *)
+(*           ^^^^^^^^^^^^ variable.function.builtin.wolfram *)
 (*                        ^^ keyword.operator *)
-
-(* PATTERNS *)
-
-  var_head  foo
-(*^^^^^^^^ meta.pattern.blank.wolfram variable.parameter.wolfram *)
-(*          ^ variable.other *)
-
-  var_head:foo
-(*^^^^^^^^ meta.pattern.blank.wolfram variable.parameter.wolfram *)
-(*        ^ meta.pattern.blank.wolfram keyword.operator.Optional.wolfram *)
-(*         ^^^ variable.other *)
-
-  var_head ? EvenQ
-(*^^^^^^^^ meta.pattern.blank.wolfram variable.parameter.wolfram *)
-(*         ^ meta.pattern.blank.wolfram keyword.operator.PatternTest.wolfram *)
-(*           ^^^^^ variable.function *)
-
-  var: patt ? EvenQ : foo
-(*^^^ variable.parameter.wolfram *)
-(*   ^ keyword.operator.Pattern.wolfram *)
-(*      ^^^ meta.pattern.wolfram variable.other *)
-(*          ^ meta.pattern.wolfram keyword.operator.PatternTest.wolfram *)
-(*            ^^^^^ meta.pattern.wolfram variable.function *)
-(*                  ^ keyword.operator.Optional.wolfram *)
-(*                    ^^^ variable.other *)
-
-
-(* FUNCTIONS *)
-
-  f[x_, y_] := 2x
-(*^ entity.name.function*)
-(* ^ meta.arguments.wolfram punctuation.section.brackets.begin.wolfram *)
-(*  ^^ meta.arguments.wolfram meta.pattern.blank.wolfram variable.parameter.wolfram *)
-(*    ^^ meta.arguments.wolfram punctuation.separator.sequence.wolfram *)
-(*      ^ variable.parameter*)
-(*        ^ meta.arguments.wolfram punctuation.section.brackets.end.wolfram *)
-(*          ^^ keyword.operator*)
-
-  f[x_, OptionsPattern[]] := 2x
-(*^ entity.name.function*)
-(*  ^ variable.parameter*)
-(*      ^^^^^^^^^^^^^^ variable.function*)
-(*                        ^^ keyword.operator*)
-
-  f[x_?TrueQ, y_ /; Negative[y]] := 2x /; y > 0
-(*^ entity.name.function*)
-(*  ^ variable.parameter*)
-(*    ^ keyword.operator*)
-(*               ^^ keyword.operator*)
-
-
-  f[x_, s_] := 2x
-(*^ entity.name.function*)
-(*  ^ variable.parameter*)
-
-  f[x_] := 2x
-(*^ entity.name.function*)
-(*  ^ variable.parameter*)
-
-  f[x_] /; x > 0 := x
-(*^ entity.name.function  *)
-
-  f[[]]
 
 
 (* STRINGS *)
 
   "This is a `string` (* this is not a comment*)"
 (* ^ string.quoted *)
-(*            ^ constant.other.placeholder *)
 (*                       ^ string.quoted *)
-(*                                    ^ constant.character.escape *)
+(*                                    ^ string.quoted.double *)
 
   foo::bar = "message"
 (*   ^^ keyword.operator.MessageName *)
-(*     ^^^ string.unquoted *)
-(*             ^^ string.quoted *)
+(*             ^ string.quoted *)
 
   "this`is`a`context"
 (*^ punctuation.definition.string.begin *)
-(* ^^^^^^^^^^^^^^^^^ string.quoted.wolfram*)
+(* ^^^^^^^^^^^^^^^^^ string.quoted.double.wolfram*)
 
 
 (* COMMENTS *)
@@ -237,49 +184,3 @@
 (*^^^ meta.parts.wolfram punctuation.section.parts.begin.wolfram *)
 (*   ^ meta.parts.wolfram *)
 (*    ^^ meta.parts.wolfram punctuation.section.parts.end.wolfram *)
-
-
-(* SCOPING *)
-
-Module[
-(*^^^^ variable.function.scoping.wolfram *)
-(*    ^ punctuation.section.brackets.begin.wolfram *)
-    { foo, bar = 1},
-(*   ^ meta.block.local.wolfram *)
-(*    ^^^ meta.block.local.wolfram variable.parameter.wolfram *)
-(*                  ^ meta.block.wolfram *)
-    foo
-(*  ^^^ meta.block.wolfram variable.other *)
-]
-
-Block[
-  {
-    var1, (*comment*) var2 , var3 = var4
-(*  ^^^^ meta.block.local.wolfram variable.parameter.wolfram *)
-(*        ^^^^^^^^^^^ meta.block.local.wolfram comment.block.wolfram *)
-(*                    ^^^^ meta.block.local.wolfram variable.parameter.wolfram *)
-(*                           ^^^^ meta.block.local.wolfram variable.parameter.wolfram *)
-(*                                  ^^^^ meta.block.local.wolfram variable.other*)
-  },
-
-  code
-(*^^^^ meta.block.wolfram variable.other *)
-
-]
-
-
-(* ASSERTION FREE *)
-
-  System`foo[[1]]
-  a//a
-  StringMatchQ[IgnoreCase -> Automatic, foo -> bar]
-
-  foo["bar",  baz_Lisght] :=
-
-
-(* multiline (* also a comment *)
-  comment 
-  asd
-*)
-
-(* ::s:: *)
