@@ -86,8 +86,8 @@
         },
         {
             "name": "Keyword",
-            "scope": "keyword - (source.c keyword.operator | source.c++ keyword.operator | source.objc keyword.operator | source.objc++ keyword.operator), keyword.operator.word",
-            "foreground": "var(red2)"
+            "scope": "keyword, keyword.operator.word",
+            "foreground": "var(white)"
         },
         {
             "name": "Annotation Punctuation",

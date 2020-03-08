@@ -154,7 +154,7 @@ class LspWolframLanguagePlugin(LanguageHandler):
                 if c == '\xd7':
                     view.add_phantom("implicit_times",
                         sublime.Region(view.text_point(line - 1, index), view.text_point(line - 1, index + 1)),
-                        '<span style="color:#aaaaff">' + c + '</span>',
+                        '<span style="color:#888888">' + c + '</span>',
                         sublime.LAYOUT_INLINE)
                 index = index + 1
 
