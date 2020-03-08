@@ -126,7 +126,13 @@ SublimeWolframLanguage`Generate`$constants =
 
 setupSystemSymbols[] :=
 Module[{names, documentedSymbols, allSymbols, allASCIISymbols, obsoleteNames,
-  experimentalNames},
+  experimentalNames, obsoleteString, experimentalString},
+
+  allSymbols = Names["System`*"];
+
+  allASCIISymbols = Flatten[StringCases[allSymbols, RegularExpression["[a-zA-Z0-9$]+"]]];
+
+  Print["There are ", Length[allASCIISymbols], " System` symbols."];
 
   SetDirectory[FileNameJoin[{$InstallationDirectory, "Documentation/English/System/ReferencePages/Symbols"}]];
 
@@ -136,29 +142,58 @@ Module[{names, documentedSymbols, allSymbols, allASCIISymbols, obsoleteNames,
 
   documentedSymbols = StringDrop[#, -3]& /@ names;
 
-  allSymbols = Names["System`*"];
-
-  allASCIISymbols = Flatten[StringCases[allSymbols, RegularExpression["[a-zA-Z0-9$]+"]]];
+  Print["There are ", Length[documentedSymbols], " documented symbols in System`. (there are also ", Length[Complement[documentedSymbols, allASCIISymbols]], " documented symbols not in System`)"];
 
   SublimeWolframLanguage`Generate`$undocumentedSymbols = Complement[allASCIISymbols, documentedSymbols];
+
+  Print["There are ", Length[SublimeWolframLanguage`Generate`$undocumentedSymbols], " undocumented symbols in System`."];
 
   Print["scanning Obsolete symbols... \[WatchIcon]"];
 
   (*
   "OBSOLETE SYMBOL" is found in the first ~50 lines, so use 100 as a heuristic for how many lines to read
   *)
-  obsoleteNames = Select[names, FindList[#, "\"OBSOLETE SYMBOL\"", 100] != {}&];
+
+  obsoleteString =
+    Which[
+      $VersionNumber >= 11.1,
+        "\"OBSOLETE SYMBOL\"",
+      True,
+        "\"OBSOLETE WOLFRAM LANGUAGE SYMBOL\""
+    ];
+
+  obsoleteNames = Select[names, FindList[#, obsoleteString, 100] != {}&];
 
   SublimeWolframLanguage`Generate`$obsoleteSymbols = StringDrop[#, -3]& /@ obsoleteNames;
 
+  Print["There are ", Length[SublimeWolframLanguage`Generate`$obsoleteSymbols], " obsolete symbols in System`."];
+
+  If[SublimeWolframLanguage`Generate`$obsoleteSymbols == {},
+    SublimeWolframLanguage`Generate`$obsoleteSymbols = {"ObsoletePlaceholderXXX"}
+  ];
+
   Print["scanning Experimental symbols... \[WatchIcon]"];
+
+  experimentalString =
+    Which[
+      $VersionNumber >= 11.1,
+        "\"EXPERIMENTAL\"",
+      True,
+        "\"EXPERIMENTAL\""
+    ];
 
   (*
   "EXPERIMENTAL" is found in the first ~500 lines, so use 1000 as a heuristic for how many lines to read
   *)
-  experimentalNames = Select[names, FindList[#, "\"EXPERIMENTAL\"", 1000] != {}&];
+  experimentalNames = Select[names, FindList[#, experimentalString, 1000] != {}&];
 
   SublimeWolframLanguage`Generate`$experimentalSymbols = StringDrop[#, -3]& /@ experimentalNames;
+
+  Print["There are ", Length[SublimeWolframLanguage`Generate`$experimentalSymbols], " experimental symbols in System`."];
+
+  If[SublimeWolframLanguage`Generate`$experimentalSymbols == {},
+    SublimeWolframLanguage`Generate`$experimentalSymbols = {"ExperimentalPlaceholderXXX"}
+  ];
 
   SublimeWolframLanguage`Generate`$builtInFunctions =
     Complement[documentedSymbols,
