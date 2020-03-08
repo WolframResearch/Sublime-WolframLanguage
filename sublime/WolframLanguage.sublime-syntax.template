@@ -257,12 +257,6 @@ contexts:
     # could be Factorial2 or Not2, so do not treat as logical
     - match: (?:!!)
       scope: keyword.operator.BangBang.wolfram
-    - match: (?:::)
-      scope: keyword.operator.MessageName.wolfram
-    - match: (?:<<)
-      scope: keyword.operator.Get.wolfram
-    - match: (?:>>)
-      scope: keyword.operator.Put.wolfram
     # - match: (?:\?\?)
     #   scope: keyword.operator.wolfram
     - match: (?:<=|>=|\.\.|:>|<>|->|/@|/;|/\.|//|/\*|@@|@\*|~~|\*\*)
