@@ -45,8 +45,12 @@
   *
 (*^ keyword.operator.arithmetic*)
 
+
+(* ! could be Not or Factorial, so do not mark as keyword.operator.logical *)
   !
-(*^ keyword.operator.logical*)
+(*^ keyword.operator*)
+
+
   &&
 (*^^ keyword.operator.logical*)
   ||
@@ -140,6 +144,7 @@
 
   foo::bar = "message"
 (*   ^^ keyword.operator.MessageName *)
+(*     ^^^ string.unquoted*)
 (*             ^ string.quoted *)
 
   "this`is`a`context"
