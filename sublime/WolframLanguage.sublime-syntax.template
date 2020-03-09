@@ -173,14 +173,16 @@ contexts:
         - include: string_escaped_characters
 
   stringifying_operators:
-    - match: (>>>)\s*("[[:alpha:]][[:alnum:]]*")
+    - match: (>>>)\s*("\w*")
       captures:
         1: keyword.operator.PutAppend.wolfram
         2: string.quoted.double.wolfram
-    - match: (>>>)\s*([[:alpha:]][[:alnum:]]*)
+    - match: (>>>)\s*(\w*)
       captures:
         1: keyword.operator.PutAppend.wolfram
         2: string.unquoted.wolfram
+    - match: '>>>'
+      scope: invalid.illegal
     - match: (::)("[[:alpha:]][[:alnum:]]*")
       captures:
         1: keyword.operator.MessageName.wolfram
@@ -189,6 +191,8 @@ contexts:
       captures:
         1: keyword.operator.MessageName.wolfram
         2: string.unquoted.wolfram
+    - match: '::'
+      scope: invalid.illegal
     - match: (<<)\s*("[<*"`"*>[:alpha:]][<*"`"*>[:alnum:]]*")
       captures:
         1: keyword.operator.Get.wolfram
@@ -197,14 +201,18 @@ contexts:
       captures:
         1: keyword.operator.Get.wolfram
         2: string.unquoted.wolfram
-    - match: (>>)\s*("[[:alpha:]][[:alnum:]]*")
+    - match: '<<'
+      scope: invalid.illegal
+    - match: (>>)\s*("\w")
       captures:
         1: keyword.operator.Put.wolfram
         2: string.quoted.double.wolfram
-    - match: (>>)\s*([[:alpha:]][[:alnum:]]*)
+    - match: (>>)\s*(\w*)
       captures:
         1: keyword.operator.Put.wolfram
         2: string.unquoted.wolfram
+    - match: '>>'
+      scope: invalid.illegal
 
   operators:
     # 3 character assignment
