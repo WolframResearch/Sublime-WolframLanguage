@@ -100,6 +100,66 @@
    <->
 (* ^^^ keyword.operator *)
 
+
+(* STRINGIFYING OPERATORS *)
+
+  >>>
+(*^^^ keyword.operator.PutAppend.wolfram *)
+
+  >>
+(*^^ keyword.operator.Put.wolfram *)
+
+  <<
+(*^^ invalid.illegal *)
+
+
+  abc >>> def
+(*^^^ variable.other.wolfram*)
+(*    ^^^ keyword.operator.PutAppend.wolfram *)
+(*        ^^^ string.unquoted.wolfram *)
+
+  abc >>> "def"
+(*^^^ variable.other.wolfram*)
+(*    ^^^ keyword.operator.PutAppend.wolfram *)
+(*        ^^^^^ string.quoted.double.wolfram *)
+
+  abc >> def
+(*^^^ variable.other.wolfram*)
+(*    ^^ keyword.operator.Put.wolfram *)
+(*       ^^^ string.unquoted.wolfram *)
+
+  abc >> "def"
+(*^^^ variable.other.wolfram*)
+(*    ^^ keyword.operator.Put.wolfram *)
+(*       ^^^^^ string.quoted.double.wolfram *)
+
+  << qwerty
+(*^^ keyword.operator.Get.wolfram *)
+(*   ^^^^^^ string.unquoted.wolfram *)
+
+  << "qwerty"
+(*^^ keyword.operator.Get.wolfram *)
+(*   ^^^^^^^^ string.quoted.double.wolfram *)
+
+  abc << def
+(*^^^ variable.other.wolfram*)
+(*    ^^ keyword.operator.Get.wolfram *)
+(*       ^^^ string.unquoted.wolfram *)
+
+  ::
+(*^^ invalid.illegal *)
+
+  symbol::tag
+(*^^^^^^ variable.other.wolfram *)
+(*      ^^ keyword.operator.MessageName.wolfram *)
+(*        ^^^ string.unquoted.wolfram *)
+
+  symbol::"tag"
+(*^^^^^^ variable.other.wolfram *)
+(*      ^^ keyword.operator.MessageName.wolfram *)
+(*        ^^^^^ string.quoted.double.wolfram *)
+
+
 (* VARIABLES *)
 
   f[x]
