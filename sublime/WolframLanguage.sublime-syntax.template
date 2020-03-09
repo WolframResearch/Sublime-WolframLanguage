@@ -22,49 +22,50 @@ scope: source.wolfram
 variables:
   symbolSegment: '[$[:alpha:]]+[$[:alnum:]]*'
   symbol: '(?:{{symbolSegment}}?)(?:<*"`"*>{{symbolSegment}})*'
-  symbolBoundary: '[<*"`"*>$[:alnum:]]'
+  symbolBeginning: '\b'
+  symbolEnd: '(?![<*"`"*>$[:alnum:]])'
 
   #
   # This gets filled-in during build
   #
   built_in_functions: |-
     (?x)
-    \b(?:System<*"`"*>)?(?:
+    {{symbolBeginning}}(?:System<*"`"*>)?(?:
       `builtInFunctions`
-    )(?!{{symbolBoundary}})
+    ){{symbolEnd}}
 
   constants: |-
     (?x)
-    \b(?:System<*"`"*>)?(?:
+    {{symbolBeginning}}(?:System<*"`"*>)?(?:
       `constants`
-    )(?!{{symbolBoundary}})
+    ){{symbolEnd}}
 
   #
   # This gets filled-in during build
   #
   obsolete_functions: |-
     (?x)
-    \b(?:System<*"`"*>)?(?:
+    {{symbolBeginning}}(?:System<*"`"*>)?(?:
       `obsoleteFunctions`
-    )(?!{{symbolBoundary}})
+    ){{symbolEnd}}
 
   #
   # This gets filled-in during build
   #
   undocumented_functions: |-
     (?x)
-    \b(?:System<*"`"*>)?(?:
+    {{symbolBeginning}}(?:System<*"`"*>)?(?:
       `undocumentedFunctions`
-    )(?!{{symbolBoundary}})
+    ){{symbolEnd}}
 
   #
   # This gets filled-in during build
   #
   experimental_functions: |-
     (?x)
-    \b(?:System<*"`"*>)?(?:
+    {{symbolBeginning}}(?:System<*"`"*>)?(?:
       `experimentalFunctions`
-    )(?!{{symbolBoundary}})
+    ){{symbolEnd}}
 
   # YAML escapes ' characters by doubling them up
   operator_char: '!|&|''|\*|\+|,|-|\.|/|:|;|<|=|>|\?|@|\\|^|\||~'
@@ -308,9 +309,9 @@ contexts:
       scope: variable.function.undocumented.wolfram
     - match: '{{experimental_functions}}'
       scope: variable.function.experimental.wolfram
-    - match: 'System<*"`"*>{{symbolSegment}}(?!{{symbolBoundary}})'
+    - match: 'System<*"`"*>{{symbolSegment}}{{symbolEnd}}'
       scope: invalid.illegal.system.wolfram
-    - match: '{{symbol}}(?!{{symbolBoundary}})'
+    - match: '{{symbol}}{{symbolEnd}}'
       scope: variable.other.wolfram
 
   groups:
