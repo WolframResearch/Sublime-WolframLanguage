@@ -22,48 +22,50 @@ scope: source.wolfram
 variables:
   symbolSegment: '[$[:alpha:]]+[$[:alnum:]]*'
   symbol: '(?:{{symbolSegment}}?)(?:<*"`"*>{{symbolSegment}})*'
+  symbolBeginning: '\b'
+  symbolEnd: '(?![<*"`"*>$[:alnum:]])'
 
   #
   # This gets filled-in during build
   #
   built_in_functions: |-
     (?x)
-    (?<![<*"`"*>$[:alpha:]])(?:System<*"`"*>)?(?:
+    {{symbolBeginning}}(?:System<*"`"*>)?(?:
       `builtInFunctions`
-    )(?![<*"`"*>$[:alnum:]])
+    ){{symbolEnd}}
 
   constants: |-
     (?x)
-    (?<![<*"`"*>$[:alpha:]])(?:System<*"`"*>)?(?:
+    {{symbolBeginning}}(?:System<*"`"*>)?(?:
       `constants`
-    )(?![<*"`"*>$[:alnum:]])
+    ){{symbolEnd}}
 
   #
   # This gets filled-in during build
   #
   obsolete_functions: |-
     (?x)
-    (?<![<*"`"*>$[:alpha:]])(?:System<*"`"*>)?(?:
+    {{symbolBeginning}}(?:System<*"`"*>)?(?:
       `obsoleteFunctions`
-    )(?![<*"`"*>$[:alnum:]])
+    ){{symbolEnd}}
 
   #
   # This gets filled-in during build
   #
   undocumented_functions: |-
     (?x)
-    (?<![<*"`"*>$[:alpha:]])(?:System<*"`"*>)?(?:
+    {{symbolBeginning}}(?:System<*"`"*>)?(?:
       `undocumentedFunctions`
-    )(?![<*"`"*>$[:alnum:]])
+    ){{symbolEnd}}
 
   #
   # This gets filled-in during build
   #
   experimental_functions: |-
     (?x)
-    (?<![<*"`"*>$[:alpha:]])(?:System<*"`"*>)?(?:
+    {{symbolBeginning}}(?:System<*"`"*>)?(?:
       `experimentalFunctions`
-    )(?![<*"`"*>$[:alnum:]])
+    ){{symbolEnd}}
 
   # YAML escapes ' characters by doubling them up
   operator_char: '!|&|''|\*|\+|,|-|\.|/|:|;|<|=|>|\?|@|\\|^|\||~'
@@ -78,6 +80,7 @@ contexts:
     - include: comments
     - include: escaped_characters
     - include: literals
+    - include: stringifying_operators
     - include: operators
     - include: pattern_operators
     - include: symbols
@@ -170,6 +173,48 @@ contexts:
           pop: true
         - include: string_escaped_characters
 
+  stringifying_operators:
+    - match: (>>>)\s*("\w*")
+      captures:
+        1: keyword.operator.PutAppend.wolfram
+        2: string.quoted.double.wolfram
+    - match: (>>>)\s*(\w*)
+      captures:
+        1: keyword.operator.PutAppend.wolfram
+        2: string.unquoted.wolfram
+    - match: '>>>'
+      scope: invalid.illegal
+    - match: (::)("[[:alpha:]][[:alnum:]]*")
+      captures:
+        1: keyword.operator.MessageName.wolfram
+        2: string.quoted.double.wolfram
+    - match: (::)([[:alpha:]][[:alnum:]]*)
+      captures:
+        1: keyword.operator.MessageName.wolfram
+        2: string.unquoted.wolfram
+    - match: '::'
+      scope: invalid.illegal
+    - match: (<<)\s*("[<*"`"*>[:alpha:]][<*"`"*>[:alnum:]]*")
+      captures:
+        1: keyword.operator.Get.wolfram
+        2: string.quoted.double.wolfram
+    - match: (<<)\s*([<*"`"*>[:alpha:]][<*"`"*>[:alnum:]]*)
+      captures:
+        1: keyword.operator.Get.wolfram
+        2: string.unquoted.wolfram
+    - match: '<<'
+      scope: invalid.illegal
+    - match: (>>)\s*("\w")
+      captures:
+        1: keyword.operator.Put.wolfram
+        2: string.quoted.double.wolfram
+    - match: (>>)\s*(\w*)
+      captures:
+        1: keyword.operator.Put.wolfram
+        2: string.unquoted.wolfram
+    - match: '>>'
+      scope: invalid.illegal
+
   operators:
     # 3 character assignment
     - match: (?:\^:=)
@@ -181,8 +226,6 @@ contexts:
     - match: (?:===)
       scope: keyword.operator.SameQ.wolfram
     # 3 character other
-    - match: (?:>>>)
-      scope: keyword.operator.PutAppend.wolfram
     - match: (?:=!=|\.\.\.|//\.|@@@|<->|//@)
       scope: keyword.operator.wolfram
     # 2 character arithmetic
@@ -223,12 +266,6 @@ contexts:
     # could be Factorial2 or Not2, so do not treat as logical
     - match: (?:!!)
       scope: keyword.operator.BangBang.wolfram
-    - match: (?:::)
-      scope: keyword.operator.MessageName.wolfram
-    - match: (?:<<)
-      scope: keyword.operator.Get.wolfram
-    - match: (?:>>)
-      scope: keyword.operator.Put.wolfram
     # - match: (?:\?\?)
     #   scope: keyword.operator.wolfram
     - match: (?:<=|>=|\.\.|:>|<>|->|/@|/;|/\.|//|/\*|@@|@\*|~~|\*\*)
@@ -272,9 +309,9 @@ contexts:
       scope: variable.function.undocumented.wolfram
     - match: '{{experimental_functions}}'
       scope: variable.function.experimental.wolfram
-    - match: 'System<*"`"*>{{symbolSegment}}(?![<*"`"*>$[:alnum:]])'
+    - match: 'System<*"`"*>{{symbolSegment}}{{symbolEnd}}'
       scope: invalid.illegal.system.wolfram
-    - match: '(?<![<*"`"*>$[:alpha:]]){{symbol}}(?![<*"`"*>$[:alnum:]])'
+    - match: '{{symbol}}{{symbolEnd}}'
       scope: variable.other.wolfram
 
   groups:

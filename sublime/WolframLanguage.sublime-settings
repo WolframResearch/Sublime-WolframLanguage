@@ -40,6 +40,7 @@
     "wlt"
   ],
 
+  "word_separators": "./\\()\"'-:,.;<>~!@#%^&*|+=[]{}`~?_"
   //
   // Uncomment to use Wolfram-specific syntax coloring
   // "color_scheme": "WolframLanguage.sublime-color-scheme",
