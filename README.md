@@ -106,7 +106,7 @@ LSP with URL https://github.com/tomv564/LSP
 Remove Package
 
 
-WolframLanguage with URL https://github.com/ViktorQvarfordt/Sublime-WolframLanguage:
+WolframLanguage with URL https://github.com/ViktorQvarfordt/Sublime-WolframLanguage
 Remove Package
 
 

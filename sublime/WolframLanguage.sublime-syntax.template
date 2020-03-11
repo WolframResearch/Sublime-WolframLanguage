@@ -95,6 +95,8 @@ contexts:
     - match: \(\*
       scope: punctuation.definition.comment.wolfram
       push: comment-block
+    - match: \*\)
+      scope: invalid.illegal.stray-comment-end.wolfram
 
   comment-block:
     - meta_scope: comment.block.wolfram
@@ -315,6 +317,16 @@ contexts:
       scope: variable.other.wolfram
 
   groups:
+    - match: \\\(
+      scope: punctuation.section.linearsyntax.begin.wolfram
+      push:
+        - meta_scope: meta.linearsyntax.wolfram
+        - match: \\\)
+          scope: punctuation.section.linearsyntax.end.wolfram
+          pop: true
+        - include: expressions
+    - match: \\\)
+      scope: invalid.illegal.stray-linearsyntax-end.wolfram
     - match: \(
       scope: punctuation.section.parens.begin.wolfram
       push:
@@ -323,6 +335,8 @@ contexts:
           scope: punctuation.section.parens.end.wolfram
           pop: true
         - include: expressions
+    - match: \)
+      scope: invalid.illegal.stray-parens-end.wolfram
     - match: \[\s*\[
       scope: punctuation.section.parts.begin.wolfram
       push:
@@ -331,6 +345,8 @@ contexts:
           scope: punctuation.section.parts.end.wolfram
           pop: true
         - include: expressions
+    - match: \]\s*\]
+      scope: invalid.illegal.stray-parts-end.wolfram
     - match: \[
       scope: punctuation.section.brackets.begin.wolfram
       push:
@@ -339,6 +355,8 @@ contexts:
           scope: punctuation.section.brackets.end.wolfram
           pop: true
         - include: expressions
+    - match: \]
+      scope: invalid.illegal.stray-brackets-end.wolfram
     - match: \{
       scope: punctuation.section.braces.begin.wolfram
       push:
@@ -347,6 +365,8 @@ contexts:
           scope: punctuation.section.braces.end.wolfram
           pop: true
         - include: expressions
+    - match: \}
+      scope: invalid.illegal.stray-braces-end.wolfram
     - match: <\|
       scope: punctuation.section.association.begin.wolfram
       push:
@@ -355,6 +375,8 @@ contexts:
           scope: punctuation.section.association.end.wolfram
           pop: true
         - include: expressions
+    - match: \|>
+      scope: invalid.illegal.stray-association-end.wolfram
 
   pattern_operators:
     - match: (?:___)

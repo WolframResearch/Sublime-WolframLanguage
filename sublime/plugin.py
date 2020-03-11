@@ -61,7 +61,7 @@ class LspWolframLanguagePlugin(LanguageHandler):
         kernel = settings.get("kernel")
 
         if not os.path.isfile(kernel):
-            sublime.message_dialog("Cannot find kernel: " + kernel)
+            sublime.message_dialog("Cannot find Wolfram Kernel: " + kernel)
             return False
 
         if sys.platform == "win32":
