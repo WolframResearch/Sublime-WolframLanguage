@@ -20,55 +20,22 @@ file_extensions:
 scope: source.wolfram
 
 variables:
-  symbolSegment: '[$[:alpha:]]+[$[:alnum:]]*'
-  symbol: '(?:{{symbolSegment}}?)(?:<*"`"*>{{symbolSegment}})*'
-  symbolBeginning: '\b'
-  symbolEnd: '(?![<*"`"*>$[:alnum:]])'
+  symbolSegment: (?:[$[:alpha:]]+[$[:alnum:]]*)
+  symbol: (?:{{symbolSegment}}?)(?:<*"`"*>{{symbolSegment}})*
+  symbolBeginning: \b
+  symbolEnd: (?![<*"`"*>$[:alnum:]])
 
   #
-  # This gets filled-in during build
+  # These get filled-in during build
   #
-  built_in_functions: |-
-    (?x)
-    {{symbolBeginning}}(?:System<*"`"*>)?(?:
-      `builtInFunctions`
-    ){{symbolEnd}}
+  built_in_functions: (?:`builtInFunctions`)
+  constants: (?:`constants`)
+  obsolete_functions: (?:`obsoleteFunctions`)
+  undocumented_functions: (?:`undocumentedFunctions`)
+  experimental_functions: (?:`experimentalFunctions`)
+  long_names: (?:`longNames`)
 
-  constants: |-
-    (?x)
-    {{symbolBeginning}}(?:System<*"`"*>)?(?:
-      `constants`
-    ){{symbolEnd}}
-
-  #
-  # This gets filled-in during build
-  #
-  obsolete_functions: |-
-    (?x)
-    {{symbolBeginning}}(?:System<*"`"*>)?(?:
-      `obsoleteFunctions`
-    ){{symbolEnd}}
-
-  #
-  # This gets filled-in during build
-  #
-  undocumented_functions: |-
-    (?x)
-    {{symbolBeginning}}(?:System<*"`"*>)?(?:
-      `undocumentedFunctions`
-    ){{symbolEnd}}
-
-  #
-  # This gets filled-in during build
-  #
-  experimental_functions: |-
-    (?x)
-    {{symbolBeginning}}(?:System<*"`"*>)?(?:
-      `experimentalFunctions`
-    ){{symbolEnd}}
-
-  # YAML escapes ' characters by doubling them up
-  operator_char: '!|&|''|\*|\+|,|-|\.|/|:|;|<|=|>|\?|@|\\|^|\||~'
+  punctuation_char: (?:!|&|'|\*|\+|,|-|\.|/|:|;|<|=|>|\?|@|\\|^|\||~)
 
 
 contexts:
@@ -88,7 +55,7 @@ contexts:
     #
     # Anything else is an error
     #
-    - match: (?:{{operator_char}})
+    - match: '{{punctuation_char}}'
       scope: invalid.illegal
 
   comments:
@@ -111,7 +78,7 @@ contexts:
     #
     # linear syntax
     #
-    - match: \\(?:[!%&()*+/@^_<*"`"*> ])
+    - match: \\[!%&()*+/@^_<*"`"*> ]
       scope: constant.character.escape
 
     #
@@ -119,36 +86,36 @@ contexts:
     #
     # This gets filled-in during build
     #
-    - match: '\\\[(?:`longNames`)\]'
+    - match: \\\[(?:`longNames`)\]
       scope: constant.character.escape
     #
     # Anything else is an error
     #
-    - match: '\\\[.*\]'
+    - match: \\\[.*\]
       scope: invalid.illegal
 
     #
     # \:XXXX syntax
     #
-    - match: '\\:\h\h\h\h'
+    - match: \\:\h\h\h\h
       scope: constant.character.escape
     #
     # \.XX syntax
     #
-    - match: '\\\.\h\h'
+    - match: \\\.\h\h
       scope: constant.character.escape
     #
     # \|XXXXXX syntax
     #
-    - match: '\\\|\h\h\h\h\h\h'
+    - match: \\\|\h\h\h\h\h\h
       scope: constant.character.escape
     #
     # \XXX syntax
     #
-    - match: '\\[0-7][0-7][0-7]'
+    - match: \\[0-7][0-7][0-7]
       scope: constant.character.escape
     # line continuation
-    - match: '\\$'
+    - match: \\$
       scope: constant.character.escape punctuation.separator.continuation
     #
     # Anything else is an error
@@ -157,7 +124,7 @@ contexts:
       scope: invalid.illegal
 
   string_escaped_characters:
-    - match: \\(?:[bfnrt"\\<>])
+    - match: \\[bfnrt"\\<>]
       scope: constant.character.escape
     - include: escaped_characters
 
@@ -301,15 +268,15 @@ contexts:
       scope: keyword.operator.wolfram
   
   symbols:
-    - match: '{{built_in_functions}}'
+    - match: '{{symbolBeginning}}(?:System<*"`"*>)?{{built_in_functions}}{{symbolEnd}}'
       scope: variable.function.builtin.wolfram
-    - match: '{{constants}}'
+    - match: '{{symbolBeginning}}(?:System<*"`"*>)?{{constants}}{{symbolEnd}}'
       scope: constant.language.wolfram
-    - match: '{{obsolete_functions}}'
+    - match: '{{symbolBeginning}}(?:System<*"`"*>)?{{obsolete_functions}}{{symbolEnd}}'
       scope: invalid.deprecated.wolfram
     - match: '{{undocumented_functions}}'
       scope: variable.function.undocumented.wolfram
-    - match: '{{experimental_functions}}'
+    - match: '{{symbolBeginning}}(?:System<*"`"*>)?{{experimental_functions}}{{symbolEnd}}'
       scope: variable.function.experimental.wolfram
     - match: 'System<*"`"*>{{symbolSegment}}{{symbolEnd}}'
       scope: invalid.illegal.system.wolfram
@@ -379,11 +346,11 @@ contexts:
       scope: invalid.illegal.stray-association-end.wolfram
 
   pattern_operators:
-    - match: (?:___)
+    - match: ___
       scope: keyword.operator.BlankNullSequence.wolfram
-    - match: (?:__)
+    - match: __
       scope: keyword.operator.BlankSequence.wolfram
-    - match: (?:_\.)
+    - match: _\.
       scope: keyword.operator.Optional.wolfram
-    - match: (?:_)
+    - match: _
       scope: keyword.operator.Blank.wolfram
