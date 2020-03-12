@@ -96,7 +96,7 @@ Module[{t, templateFile, appliedFile, apply, completions},
   completions = SublimeWolframLanguage`Generate`$builtInFunctions ~Join~ SublimeWolframLanguage`Generate`$constants;
 
   apply = FileTemplateApply[t, <|
-    "builtInFunctions" -> StringJoin[Riffle[{"    \"", #, "\""}& /@ completions, ",\n"]]
+    "builtInFunctions" -> StringReplace[StringJoin[Riffle[{"    \"", #, "\""}& /@ completions, ",\n"]], "$" -> "\\\\$"]
     |>, appliedFile];
 
   Print[apply];
