@@ -104,10 +104,10 @@
 (* STRINGIFYING OPERATORS *)
 
   >>>
-(*^^^ keyword.operator.PutAppend.wolfram *)
+(*^^^ invalid.illegal *)
 
   >>
-(*^^ keyword.operator.Put.wolfram *)
+(*^^ invalid.illegal *)
 
   <<
 (*^^ invalid.illegal *)

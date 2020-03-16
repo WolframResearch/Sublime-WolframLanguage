@@ -147,7 +147,7 @@ contexts:
       captures:
         1: keyword.operator.PutAppend.wolfram
         2: string.quoted.double.wolfram
-    - match: (>>>)\s*(\w*)
+    - match: (>>>)\s*(\w+)
       captures:
         1: keyword.operator.PutAppend.wolfram
         2: string.unquoted.wolfram
@@ -173,11 +173,11 @@ contexts:
         2: string.unquoted.wolfram
     - match: '<<'
       scope: invalid.illegal
-    - match: (>>)\s*("\w")
+    - match: (>>)\s*("\w*")
       captures:
         1: keyword.operator.Put.wolfram
         2: string.quoted.double.wolfram
-    - match: (>>)\s*(\w*)
+    - match: (>>)\s*(\w+)
       captures:
         1: keyword.operator.Put.wolfram
         2: string.unquoted.wolfram
