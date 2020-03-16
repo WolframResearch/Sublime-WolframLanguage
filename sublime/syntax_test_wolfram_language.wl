@@ -100,6 +100,9 @@
    <->
 (* ^^^ keyword.operator *)
 
+  f'[x]
+(* ^ keyword.operator.Derivative *)
+
 
 (* STRINGIFYING OPERATORS *)
 
@@ -249,3 +252,8 @@
 (*^^^ meta.parts.wolfram punctuation.section.parts.begin.wolfram *)
 (*   ^ meta.parts.wolfram *)
 (*    ^^ meta.parts.wolfram punctuation.section.parts.end.wolfram *)
+
+  [[ ]]
+(*^^ meta.parts.wolfram punctuation.section.parts.begin.wolfram *)
+(*  ^ meta.parts.wolfram *)
+(*   ^^ meta.parts.wolfram punctuation.section.parts.end.wolfram *)

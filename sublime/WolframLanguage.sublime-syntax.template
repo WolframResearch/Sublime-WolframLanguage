@@ -20,10 +20,9 @@ file_extensions:
 scope: source.wolfram
 
 variables:
-  symbolSegment: (?:[$[:alpha:]]+[$[:alnum:]]*)
+  symbolSegment: (?:[$[:alpha:]][$[:alnum:]]*)
   symbol: (?:{{symbolSegment}}?)(?:<*"`"*>{{symbolSegment}})*
-  symbolBeginning: \b
-  symbolEnd: (?![<*"`"*>$[:alnum:]])
+  symbolEndBoundary: (?![<*"`"*>$[:alnum:]])
 
   #
   # These get filled-in during build
@@ -88,9 +87,7 @@ contexts:
     #
     # Long Names
     #
-    # This gets filled-in during build
-    #
-    - match: \\\[(?:`longNames`)\]
+    - match: \\\[{{long_names}}\]
       scope: constant.character.escape
     #
     # Anything else is an error
@@ -192,13 +189,12 @@ contexts:
     # 3 character assignment
     - match: (?:\^:=)
       scope: keyword.operator.assignment.UpSetDelayed.wolfram
-    # anything else
-    - match: (?:\^:.)
+    # anything else after ^:
+    - match: (?:\^:)
       scope: invalid.illegal
     # 3 character other
     - match: (?:===)
       scope: keyword.operator.SameQ.wolfram
-    # 3 character other
     - match: (?:=!=|\.\.\.|//\.|@@@|<->|//@)
       scope: keyword.operator.wolfram
     # 2 character arithmetic
@@ -222,16 +218,15 @@ contexts:
       scope: keyword.operator.assignment.TimesBy.wolfram
     - match: (?:-=)
       scope: keyword.operator.assignment.SubtractFrom.wolfram
+    # could be TagSet, TagSetDelayed, or TagUnset, so do not specify
     - match: (?:/:)
-      scope: keyword.operator.assignment.TagSet.wolfram
+      scope: keyword.operator.assignment.Tag.wolfram
     # 2 character ;; specific
-    - match: (?:;;$)
+    - match: (?:;;)$
       scope: invalid.endofline.Span.wolfram
     - match: (?:;;)
       scope: keyword.operator.Span.wolfram
     # 2 character other
-    # accomodate =!= syntax for fonts
-    #- match: (?<!=)(?:!=)
     - match: (?:!=)
       scope: keyword.operator.Unequal.wolfram
     - match: (?:==)
@@ -239,8 +234,8 @@ contexts:
     # could be Factorial2 or Not2, so do not treat as logical
     - match: (?:!!)
       scope: keyword.operator.BangBang.wolfram
-    # - match: (?:\?\?)
-    #   scope: keyword.operator.wolfram
+    - match: (?:\?\?)
+      scope: invalid.illegal.Information.wolfram
     - match: (?:<=|>=|\.\.|:>|<>|->|/@|/;|/\.|//|/\*|@@|@\*|~~|\*\*)
       scope: keyword.operator.wolfram
     # 1 character arithmetic
@@ -263,26 +258,58 @@ contexts:
       scope: keyword.operator.Comma.wolfram punctuation.separator
     - match: ^(?:\?)
       scope: invalid.startofline.Information.wolfram
-    # TODO: warn about ??
-    - match: (?:\?)(?!\?)
+    - match: (?:\?)
+      scope: keyword.operator.PatternTest.wolfram
+    - match: (?:')
+      scope: keyword.operator.Derivative.wolfram
+    - match: (?:>|\^|\.|:|,|&|@|~)
       scope: keyword.operator.wolfram
-    - match: (?:>|\^|\.|:|,|&|@|~|')
-      scope: keyword.operator.wolfram
-  
+
   symbols:
-    - match: '{{symbolBeginning}}(?:System<*"`"*>)?{{built_in_functions}}{{symbolEnd}}'
+    # recognized System<*"`"*> qualified symbols
+    - match: System<*"`"*>{{built_in_functions}}{{symbolEndBoundary}}
       scope: variable.function.builtin.wolfram
-    - match: '{{symbolBeginning}}(?:System<*"`"*>)?{{constants}}{{symbolEnd}}'
+    - match: System<*"`"*>{{constants}}{{symbolEndBoundary}}
       scope: constant.language.wolfram
-    - match: '{{symbolBeginning}}(?:System<*"`"*>)?{{obsolete_functions}}{{symbolEnd}}'
+    - match: System<*"`"*>{{obsolete_functions}}{{symbolEndBoundary}}
       scope: invalid.deprecated.wolfram
-    - match: '{{undocumented_functions}}'
+    - match: System<*"`"*>{{undocumented_functions}}{{symbolEndBoundary}}
       scope: variable.function.undocumented.wolfram
-    - match: '{{symbolBeginning}}(?:System<*"`"*>)?{{experimental_functions}}{{symbolEnd}}'
+    - match: System<*"`"*>{{experimental_functions}}{{symbolEndBoundary}}
       scope: variable.function.experimental.wolfram
-    - match: 'System<*"`"*>{{symbolSegment}}{{symbolEnd}}'
+
+    # all other unrecognized System<*"`"*> symbols
+    - match: System<*"`"*>{{symbolSegment}}{{symbolEndBoundary}}
       scope: invalid.illegal.system.wolfram
-    - match: '{{symbol}}{{symbolEnd}}'
+
+    # all other Foo<*"`"*> qualified symbols
+    - match: '{{symbolSegment}}(?:<*"`"*>{{symbolSegment}})+'
+      scope: variable.other.wolfram
+    # naked Foo<*"`"*>
+    - match: '{{symbolSegment}}<*"`"*>'
+      scope: invalid.illegal.wolfram
+
+    # current context <*"`"*> qualified symbols
+    - match: (?:<*"`"*>{{symbolSegment}})+'
+      scope: variable.other.wolfram
+    # naked <*"`"*>
+    - match: '<*"`"*>'
+      scope: invalid.illegal.wolfram
+
+    # System<*"`"*> unqualified symbols
+    - match: '{{built_in_functions}}{{symbolEndBoundary}}'
+      scope: variable.function.builtin.wolfram
+    - match: '{{constants}}{{symbolEndBoundary}}'
+      scope: constant.language.wolfram
+    - match: '{{obsolete_functions}}{{symbolEndBoundary}}'
+      scope: invalid.deprecated.wolfram
+    - match: '{{undocumented_functions}}{{symbolEndBoundary}}'
+      scope: variable.function.undocumented.wolfram
+    - match: '{{experimental_functions}}{{symbolEndBoundary}}'
+      scope: variable.function.experimental.wolfram
+
+    # all other unqualified symbols
+    - match: '{{symbolSegment}}'
       scope: variable.other.wolfram
 
   groups:
