@@ -47,11 +47,15 @@ contexts:
     - include: comments
     - include: escaped_characters
     - include: literals
+    #
+    # groups ahead of operators, to allow
+    # <| and |> to match before < and |
+    #
+    - include: groups
     - include: stringifying_operators
     - include: operators
     - include: pattern_operators
     - include: symbols
-    - include: groups
     #
     # Anything else is an error
     #
@@ -246,11 +250,9 @@ contexts:
     - match: (?:=)
       scope: keyword.operator.assignment.Set.wolfram
     # 1 character other
-    # accomodate <||> syntax
-    - match: (?:<)(?!\|)
+    - match: (?:<)
       scope: keyword.operator.Less.wolfram
-    # accomodate <||> syntax
-    - match: (?:\|)(?!>)
+    - match: (?:\|)
       scope: keyword.operator.Alternatives.wolfram
     # could be Not or Factorial, so do not treat as logical
     - match: (?:!)
