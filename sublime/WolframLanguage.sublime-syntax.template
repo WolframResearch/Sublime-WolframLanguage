@@ -397,13 +397,15 @@ contexts:
       scope: keyword.other.Out.wolfram
 
   slot:
-    - match: '#[[:alpha:]]+'
+    - match: '#[[:alpha:]][[:alnum:]]*'
       scope: keyword.other.Slot.wolfram
-    - match: '##\d+'
+    #
+    # this matches both ##123 cases and the single ## case
+    #
+    - match: '##\d*'
       scope: keyword.other.SlotSequence.wolfram
-    - match: '##'
-      scope: keyword.other.SlotSequence.wolfram
-    - match: '#\d+'
-      scope: keyword.other.Slot.wolfram
-    - match: '#'
+    #
+    # this matches both #123 cases and the single # case
+    #
+    - match: '#\d*'
       scope: keyword.other.Slot.wolfram
