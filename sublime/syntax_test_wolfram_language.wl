@@ -257,3 +257,65 @@
 (*^^ meta.parts.wolfram punctuation.section.parts.begin.wolfram *)
 (*  ^ meta.parts.wolfram *)
 (*   ^^ meta.parts.wolfram punctuation.section.parts.end.wolfram *)
+
+
+
+
+(* Out[] syntax*)
+
+
+  %
+(*^ keyword.other.Out.wolfram *)
+
+  %%
+(*^^ keyword.other.Out.wolfram *)
+
+  %%%
+(*^^^ keyword.other.Out.wolfram *)
+
+  %%%%
+(*^^^^keyword.other.Out.wolfram *)
+
+  %1
+(*^^ keyword.other.Out.wolfram *)
+
+  %2
+(*^^ keyword.other.Out.wolfram *)
+
+  %123
+(*^^^^ keyword.other.Out.wolfram *)
+
+  %9999
+(*^^^^^ keyword.other.Out.wolfram *)
+
+
+
+
+
+(* Slot[] and SlotSequence[] syntax *)
+
+  #
+(*^ keyword.other.Slot.wolfram *)
+
+  ##
+(*^^ keyword.other.SlotSequence.wolfram *)
+
+  #1
+(*^^ keyword.other.Slot.wolfram *)
+
+  ##1
+(*^^^ keyword.other.SlotSequence.wolfram *)
+
+  #123
+(*^^^^ keyword.other.Slot.wolfram *)
+
+  ##123
+(*^^^^^ keyword.other.SlotSequence.wolfram *)
+
+  #abc
+(*^^^^ keyword.other.Slot.wolfram *)
+
+  #Sin
+(*^^^^ keyword.other.Slot.wolfram *)
+
+

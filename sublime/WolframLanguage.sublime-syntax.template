@@ -45,6 +45,12 @@ contexts:
   expressions:
     - include: comments
     - include: escaped_characters
+    #
+    # out and slot are ahead of literals, to allow
+    # #1 and %1 to match before 1
+    #
+    - include: out
+    - include: slot
     - include: literals
     #
     # groups ahead of operators, to allow
@@ -383,3 +389,21 @@ contexts:
       scope: keyword.operator.Optional.wolfram
     - match: _
       scope: keyword.operator.Blank.wolfram
+
+  out:
+    - match: '%\d+'
+      scope: keyword.other.Out.wolfram
+    - match: '%+'
+      scope: keyword.other.Out.wolfram
+
+  slot:
+    - match: '#[[:alpha:]]+'
+      scope: keyword.other.Slot.wolfram
+    - match: '##\d+'
+      scope: keyword.other.SlotSequence.wolfram
+    - match: '##'
+      scope: keyword.other.SlotSequence.wolfram
+    - match: '#\d+'
+      scope: keyword.other.Slot.wolfram
+    - match: '#'
+      scope: keyword.other.Slot.wolfram
