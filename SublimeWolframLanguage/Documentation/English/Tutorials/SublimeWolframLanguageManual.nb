@@ -1,0 +1,327 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     10566,        319]
+NotebookOptionsPosition[      7407,        260]
+NotebookOutlinePosition[      7802,        276]
+CellTagsIndexPosition[      7759,        273]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Sublime Wolfram Language Manual", "Title",
+ CellChangeTimes->{{3.793612189767194*^9, 3.7936121911025257`*^9}, {
+  3.7936258225270157`*^9, 3.7936258294994297`*^9}, {3.794047129203042*^9, 
+  3.794047129530394*^9}},ExpressionUUID->"39bdd529-4e43-4386-b964-\
+85875fea9681"],
+
+Cell[CellGroupData[{
+
+Cell["About", "Section",
+ CellChangeTimes->{{3.793612050581086*^9, 3.793612054125277*^9}, {
+  3.7936275659752398`*^9, 
+  3.793627566854147*^9}},ExpressionUUID->"60e90a6d-e3c9-46c6-ac3e-\
+681a8a3581a2"],
+
+Cell["Syntax highlighting", "Text",
+ CellChangeTimes->{{3.793626107746018*^9, 
+  3.793626119842875*^9}},ExpressionUUID->"0697a696-f77f-44e0-9360-\
+0b9030013c1c"],
+
+Cell["\<\
+LSP integration: code diagnostics, suggestions for fixes, Find Symbol \
+References, Go To Symbol Definition\
+\>", "Text",
+ CellChangeTimes->{{3.793627575089542*^9, 3.793627607754757*^9}, {
+  3.7938022446102057`*^9, 
+  3.7938022620977697`*^9}},ExpressionUUID->"fc9ddb27-5fe6-482a-9bde-\
+69b6e6d243ae"],
+
+Cell["Auto completion for built-in functions.", "Text",
+ CellChangeTimes->{
+  3.793626542851248*^9},ExpressionUUID->"6140e36e-d202-499f-a144-\
+f4e61326241e"],
+
+Cell["Inline implicit tokens", "Text",
+ CellChangeTimes->{{3.793626567356656*^9, 3.7936265675486603`*^9}, {
+  3.7936277007521067`*^9, 
+  3.793627716440508*^9}},ExpressionUUID->"20cda58c-3f0f-4327-b86c-\
+6fae62f79852"],
+
+Cell["Fixing TestIDs", "Text",
+ CellChangeTimes->{{3.79380235804902*^9, 3.79380236564079*^9}, {
+  3.793802468140457*^9, 
+  3.793802469298245*^9}},ExpressionUUID->"59038d7e-6337-48db-bf8c-\
+813f4482003a"],
+
+Cell["Usage messages while hovering", "Text",
+ CellChangeTimes->{{3.793802389514489*^9, 
+  3.793802393866723*^9}},ExpressionUUID->"b43d1af1-fc52-44c3-b99a-\
+5e958ccf40e4"],
+
+Cell[CellGroupData[{
+
+Cell["syntax highlighting", "Subsection",
+ CellChangeTimes->{{3.7938030220856867`*^9, 
+  3.793803025837206*^9}},ExpressionUUID->"78a12f23-9d4c-44a5-9b14-\
+84605cbb451b"],
+
+Cell["\<\
+builtInFunctions
+undocumentedFunctions
+experimentalFunctions
+obsoleteFunctions
+longNames
+constants\
+\>", "Text",
+ CellChangeTimes->{{3.793803027016466*^9, 
+  3.793803056278689*^9}},ExpressionUUID->"f2520c7f-c1ec-4e37-ba13-\
+a243f53f1405"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["UI Elements", "Section",
+ CellChangeTimes->{{3.79361206070037*^9, 
+  3.793612062476186*^9}},ExpressionUUID->"de8939c2-884d-4624-9ead-\
+f57100cc1a83"],
+
+Cell["\<\
+Menu bar:
+Preferences > Package Settings > Wolfram Language > Settings
+Preferences > Package Settings > Wolfram Language > Documentation
+
+Selection > Expand Selection to Scope:
+this is similar to double- and triple-click in the FE
+xx
+\
+\>", "Text",
+ CellChangeTimes->{{3.793802803189473*^9, 3.793802839751862*^9}, {
+  3.793802906996105*^9, 3.793802933072003*^9}, {3.7938809094877033`*^9, 
+  3.793880924192686*^9}},ExpressionUUID->"4af46ad9-6f7a-45ff-ac5a-\
+1319d6f4d579"],
+
+Cell["\<\
+Context menu:
+LSP > Find Symbol References
+LSP > Go To Symbol Definition\
+\>", "Text",
+ CellChangeTimes->{{3.793802849184268*^9, 
+  3.793802869921421*^9}},ExpressionUUID->"3516dafc-8014-42d7-81e0-\
+c1bbcb91d0f1"],
+
+Cell["\<\
+Command Palette:
+XX\
+\>", "Text",
+ CellChangeTimes->{{3.79380289333855*^9, 
+  3.7938028972190533`*^9}},ExpressionUUID->"e8136955-36d6-4673-8cf2-\
+0032b8a3b862"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Configuration", "Section",
+ CellChangeTimes->{{3.793626101554614*^9, 
+  3.793626102945959*^9}},ExpressionUUID->"1a92d39c-139d-475f-b666-\
+506e1aa9e9cc"],
+
+Cell["", "Program",ExpressionUUID->"49301fc3-5644-4d30-a9fc-5da23458eede"],
+
+Cell["\<\
+It is recommended to specify `wolfram.exe` instead of `WolframKernel.exe`.
+
+`WolframKernel.exe` opens a new window while it is running. But `wolfram.exe` \
+runs inside the window that started it.\
+\>", "Text",
+ CellChangeTimes->{
+  3.793803243104295*^9},ExpressionUUID->"39ad942f-fe46-4801-87dc-\
+85729e891782"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Error Handling", "Section",
+ CellChangeTimes->{{3.7936120669914017`*^9, 
+  3.7936120690395613`*^9}},ExpressionUUID->"5d20b344-9f8f-4a11-8ac2-\
+42707617e766"],
+
+Cell["going to stderr", "Text",
+ CellChangeTimes->{{3.793803164921442*^9, 
+  3.793803167346018*^9}},ExpressionUUID->"25c1bdad-499e-41f4-9411-\
+ba8212c9a976"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Troubleshooting", "Section",
+ CellChangeTimes->{{3.7936120724874687`*^9, 
+  3.7936120744877996`*^9}},ExpressionUUID->"83c96ddb-9e4a-4063-9d2d-\
+3d2f4be3a122"],
+
+Cell[CellGroupData[{
+
+Cell["The Bootstrap problem", "Subsection",
+ CellChangeTimes->{{3.7938789840755997`*^9, 
+  3.793878988763467*^9}},ExpressionUUID->"b989dd75-db6d-480e-bea8-\
+733da74d20a0"],
+
+Cell["\<\
+the kernel must start correctly...
+but how to report when there is an error on startup?\
+\>", "Text",
+ CellChangeTimes->{{3.793878991347436*^9, 
+  3.793879011028427*^9}},ExpressionUUID->"b20bda96-d82e-49d9-9ce0-\
+f5c006a9c4bd"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["things to try", "Subsection",
+ CellChangeTimes->{{3.793878979811122*^9, 
+  3.7938789819791203`*^9}},ExpressionUUID->"3d90fbe9-5a7a-4b61-bbf4-\
+baa7124657a4"],
+
+Cell["\<\
+COMMAND PALETTE:
+LSP: ENABLE LANGUAGE SERVER GLOBALLY: wolfram !!\
+\>", "Text",
+ CellChangeTimes->{{3.793803286577976*^9, 
+  3.7938033004409113`*^9}},ExpressionUUID->"47e69ced-a2a9-457c-979e-\
+2d71324b9a12"],
+
+Cell["\<\
+Make sure that the required Sublime packages are up-to-date:
+sublime-wolframlanguage
+LSP package\
+\>", "Text",
+ CellChangeTimes->{{3.79380314393955*^9, 
+  3.793803186027011*^9}},ExpressionUUID->"d4394d32-7239-4bf4-9994-\
+06f38ade8e29"],
+
+Cell["\<\
+make sure older versions are not present
+Package Control > List Packages
+
+LSP with URL https://github.com/tomv564/LSP
+Remove Package
+
+WolframLanguage with URL \
+https://github.com/ViktorQvarfordt/Sublime-WolframLanguage
+Remove Package\
+\>", "Text",
+ CellChangeTimes->{
+  3.79380314393955*^9, {3.793803188587235*^9, 
+   3.7938031933154087`*^9}},ExpressionUUID->"217a2474-17e1-4442-b1e6-\
+c1cf278101e7"],
+
+Cell["\<\
+Make sure that the required paclets are up-to-date:
+CodeParser
+CodeInspector
+LSPServer\
+\>", "Text",
+ CellChangeTimes->{{3.7938031982756853`*^9, 
+  3.793803213268556*^9}},ExpressionUUID->"26a72057-b3b4-4337-93c4-\
+e626422c48f5"],
+
+Cell["\<\
+### Windows
+
+It is recommended to specify `wolfram.exe` instead of `WolframKernel.exe`.
+
+`WolframKernel.exe` opens a new window while it is running. But `wolfram.exe` \
+runs inside the window that started it.
+
+You may need to double-up quotations marks in the command:
+
+``\[CloseCurlyDoubleQuote]Needs[\\\[CloseCurlyDoubleQuote]\\\
+\[CloseCurlyDoubleQuote]LSPServer`\\\[CloseCurlyDoubleQuote]\\\
+\[CloseCurlyDoubleQuote]];LSPServer`StartServer[]\[CloseCurlyDoubleQuote]``\
+\>", "Text",
+ CellChangeTimes->{
+  3.7938031539238873`*^9},ExpressionUUID->"65e9b5a2-241e-46e2-9d72-\
+3e7f35a95ce6"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1162, 751},
+WindowMargins->{{63, Automatic}, {Automatic, 28}},
+FrontEndVersion->"12.1 for Mac OS X x86 (64-bit) (March 18, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"31cfcc12-91c0-41ca-aa86-094f8d555908"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 275, 4, 98, "Title",ExpressionUUID->"39bdd529-4e43-4386-b964-85875fea9681"],
+Cell[CellGroupData[{
+Cell[880, 30, 201, 4, 67, "Section",ExpressionUUID->"60e90a6d-e3c9-46c6-ac3e-681a8a3581a2"],
+Cell[1084, 36, 161, 3, 35, "Text",ExpressionUUID->"0697a696-f77f-44e0-9360-0b9030013c1c"],
+Cell[1248, 41, 310, 7, 35, "Text",ExpressionUUID->"fc9ddb27-5fe6-482a-9bde-69b6e6d243ae"],
+Cell[1561, 50, 157, 3, 35, "Text",ExpressionUUID->"6140e36e-d202-499f-a144-f4e61326241e"],
+Cell[1721, 55, 217, 4, 35, "Text",ExpressionUUID->"20cda58c-3f0f-4327-b86c-6fae62f79852"],
+Cell[1941, 61, 203, 4, 35, "Text",ExpressionUUID->"59038d7e-6337-48db-bf8c-813f4482003a"],
+Cell[2147, 67, 171, 3, 35, "Text",ExpressionUUID->"b43d1af1-fc52-44c3-b99a-5e958ccf40e4"],
+Cell[CellGroupData[{
+Cell[2343, 74, 169, 3, 54, "Subsection",ExpressionUUID->"78a12f23-9d4c-44a5-9b14-84605cbb451b"],
+Cell[2515, 79, 248, 10, 150, "Text",ExpressionUUID->"f2520c7f-c1ec-4e37-ba13-a243f53f1405"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2812, 95, 155, 3, 67, "Section",ExpressionUUID->"de8939c2-884d-4624-9ead-f57100cc1a83"],
+Cell[2970, 100, 481, 13, 196, "Text",ExpressionUUID->"4af46ad9-6f7a-45ff-ac5a-1319d6f4d579"],
+Cell[3454, 115, 222, 7, 81, "Text",ExpressionUUID->"3516dafc-8014-42d7-81e0-c1bbcb91d0f1"],
+Cell[3679, 124, 170, 6, 58, "Text",ExpressionUUID->"e8136955-36d6-4673-8cf2-0032b8a3b862"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3886, 135, 158, 3, 67, "Section",ExpressionUUID->"1a92d39c-139d-475f-b666-506e1aa9e9cc"],
+Cell[4047, 140, 74, 0, 50, "Program",ExpressionUUID->"49301fc3-5644-4d30-a9fc-5da23458eede"],
+Cell[4124, 142, 321, 8, 81, "Text",ExpressionUUID->"39ad942f-fe46-4801-87dc-85729e891782"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4482, 155, 163, 3, 67, "Section",ExpressionUUID->"5d20b344-9f8f-4a11-8ac2-42707617e766"],
+Cell[4648, 160, 157, 3, 35, "Text",ExpressionUUID->"25c1bdad-499e-41f4-9411-ba8212c9a976"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4842, 168, 164, 3, 67, "Section",ExpressionUUID->"83c96ddb-9e4a-4063-9d2d-3d2f4be3a122"],
+Cell[CellGroupData[{
+Cell[5031, 175, 171, 3, 54, "Subsection",ExpressionUUID->"b989dd75-db6d-480e-bea8-733da74d20a0"],
+Cell[5205, 180, 237, 6, 58, "Text",ExpressionUUID->"b20bda96-d82e-49d9-9ce0-f5c006a9c4bd"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5479, 191, 163, 3, 54, "Subsection",ExpressionUUID->"3d90fbe9-5a7a-4b61-bbf4-baa7124657a4"],
+Cell[5645, 196, 217, 6, 58, "Text",ExpressionUUID->"47e69ced-a2a9-457c-979e-2d71324b9a12"],
+Cell[5865, 204, 245, 7, 81, "Text",ExpressionUUID->"d4394d32-7239-4bf4-9994-06f38ade8e29"],
+Cell[6113, 213, 411, 14, 196, "Text",ExpressionUUID->"217a2474-17e1-4442-b1e6-c1cf278101e7"],
+Cell[6527, 229, 238, 8, 104, "Text",ExpressionUUID->"26a72057-b3b4-4337-93c4-e626422c48f5"],
+Cell[6768, 239, 599, 16, 219, "Text",ExpressionUUID->"65e9b5a2-241e-46e2-9d72-3e7f35a95ce6"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
