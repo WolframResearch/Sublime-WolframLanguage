@@ -197,6 +197,15 @@
 (*           ^^^^^^^^^^^^ variable.function.builtin.wolfram *)
 (*                        ^^ keyword.operator *)
 
+  `foo
+(*^^^^ variable.other *)
+
+  `$desktopCacheBase
+(*^^^^^^^^^^^^^^^^^^ variable.other *)
+
+
+
+
 
 (* STRINGS *)
 

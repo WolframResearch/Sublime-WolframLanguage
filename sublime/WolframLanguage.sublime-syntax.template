@@ -296,7 +296,7 @@ contexts:
       scope: invalid.illegal.wolfram
 
     # current context <*"`"*> qualified symbols
-    - match: (?:<*"`"*>{{symbolSegment}})+'
+    - match: '(?:<*"`"*>{{symbolSegment}})+'
       scope: variable.other.wolfram
     # naked <*"`"*>
     - match: '<*"`"*>'
