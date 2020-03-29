@@ -6,6 +6,8 @@ import threading
 import subprocess
 import sys
 
+import webbrowser
+
 from LSP.plugin.core.handlers import LanguageHandler
 from LSP.plugin.core.settings import ClientConfig, LanguageConfig, read_client_config
 from LSP.plugin.core.protocol import Notification
@@ -204,3 +206,10 @@ class LspWolframLanguagePlugin(LanguageHandler):
         self._client.send_notification(req)
 
 
+class WolframLanguageOpenSiteCommand(sublime_plugin.ApplicationCommand):
+    """Open site links."""
+
+    def run(self, url):
+        """Open the URL."""
+
+        webbrowser.open_new_tab(url)

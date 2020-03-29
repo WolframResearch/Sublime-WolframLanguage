@@ -19,6 +19,14 @@
                 {
                   "base_file": "${packages}/WolframLanguage/WolframLanguage.sublime-settings"
                 }
+              },
+              { "caption": "-" },
+              {
+                "caption": "Documentation",
+                "command": "wolfram_language_open_site",
+                "args": {
+                    "url": "https://reference.wolfram.com/language/"
+                }
               }
             ]
           }
