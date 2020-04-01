@@ -20,7 +20,7 @@
     "-noprompt",
     "-nopaclet",
     "-run",
-    "Needs[\"LSPServer`\"];LSPServer`StartServer[]"
+    "$Messages=Streams[\"stderr\"];Needs[\"LSPServer`\"];LSPServer`StartServer[]"
   ],
 
   "lsp_server_initialization_options": {

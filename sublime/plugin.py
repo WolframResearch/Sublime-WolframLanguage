@@ -31,6 +31,17 @@ class LspWolframLanguagePlugin(LanguageHandler):
             kernel = settings.get("kernel")
             command[0] = kernel
 
+        #
+        # Any dollar sign characters $ will be treated as the beginning of an
+        # environment variable to be expanded, so must use \\[RawDollar]
+        #
+        # Related lines: https://github.com/sublimelsp/LSP/blob/24cee140fd7d02a29e82a139b918bef77d89f6fb/plugin/core/clients.py#L16
+        #
+        command = list(
+            arg.replace("$", "\\[RawDollar]")
+            for arg in command
+        )
+
         initialization_options = settings.get("lsp_server_initialization_options")
 
         config = {
