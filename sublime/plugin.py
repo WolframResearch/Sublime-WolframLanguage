@@ -100,7 +100,7 @@ class LspWolframLanguagePlugin(LanguageHandler):
 
         client.on_notification("wolfram/versions", self.on_wolfram_versions)
 
-        client.on_notification("textDocument/publishImplicitTimes", self.on_implicit_times)
+        client.on_notification("textDocument/publishImplicitTokens", self.on_implicit_tokens)
 
         client.on_notification("textDocument/publishHTMLSnippet", self.on_html_snippet)
 
@@ -132,7 +132,7 @@ class LspWolframLanguagePlugin(LanguageHandler):
         if not lspserver_version or lspserver_version == "bad":
             sublime.message_dialog("Cannot detect LSPServer paclet version.")
 
-    def on_implicit_times(self, params):
+    def on_implicit_tokens(self, params):
 
         #
         # Currently grabbing the active view
@@ -147,7 +147,7 @@ class LspWolframLanguagePlugin(LanguageHandler):
 
         view = active_window.active_view()
 
-        view.erase_phantoms("implicit_times")
+        view.erase_phantoms("implicit_tokens")
 
         lines = params["lines"]
         for l in lines:
@@ -164,10 +164,56 @@ class LspWolframLanguagePlugin(LanguageHandler):
 
             index = 0
             for c in joined:
-                if c == "\xd7":
-                    view.add_phantom("implicit_times",
+                if c == "x":
+                    view.add_phantom("implicit_tokens",
                         sublime.Region(view.text_point(line - 1, index), view.text_point(line - 1, index + 1)),
-                        '<span style="color:#888888">' + c + '</span>',
+                        '<span style="color:#888888">' + '\xd7' + '</span>',
+                        sublime.LAYOUT_INLINE)
+                elif c == "N":
+                    view.add_phantom("implicit_tokens",
+                        sublime.Region(view.text_point(line - 1, index), view.text_point(line - 1, index + 1)),
+                        '<span style="color:#888888">' + 'Null' + '</span>',
+                        sublime.LAYOUT_INLINE)
+                elif c == "1":
+                    view.add_phantom("implicit_tokens",
+                        sublime.Region(view.text_point(line - 1, index), view.text_point(line - 1, index + 1)),
+                        '<span style="color:#888888">' + '1' + '</span>',
+                        sublime.LAYOUT_INLINE)
+                elif c == "A":
+                    view.add_phantom("implicit_tokens",
+                        sublime.Region(view.text_point(line - 1, index), view.text_point(line - 1, index + 1)),
+                        '<span style="color:#888888">' + 'All' + '</span>',
+                        sublime.LAYOUT_INLINE)
+                elif c == "y":
+                    view.add_phantom("implicit_tokens",
+                        sublime.Region(view.text_point(line - 1, index), view.text_point(line - 1, index + 1)),
+                        '<span style="color:#888888">' + '\xd7' + '</span>',
+                        sublime.LAYOUT_INLINE)
+                    view.add_phantom("implicit_tokens",
+                        sublime.Region(view.text_point(line - 1, index), view.text_point(line - 1, index + 1)),
+                        '<span style="color:#888888">' + '1' + '</span>',
+                        sublime.LAYOUT_INLINE)
+                elif c == "B":
+                    view.add_phantom("implicit_tokens",
+                        sublime.Region(view.text_point(line - 1, index), view.text_point(line - 1, index + 1)),
+                        '<span style="color:#888888">' + 'All' + '</span>',
+                        sublime.LAYOUT_INLINE)
+                    view.add_phantom("implicit_tokens",
+                        sublime.Region(view.text_point(line - 1, index), view.text_point(line - 1, index + 1)),
+                        '<span style="color:#888888">' + '\xd7' + '</span>',
+                        sublime.LAYOUT_INLINE)
+                elif c == "C":
+                    view.add_phantom("implicit_tokens",
+                        sublime.Region(view.text_point(line - 1, index), view.text_point(line - 1, index + 1)),
+                        '<span style="color:#888888">' + 'All' + '</span>',
+                        sublime.LAYOUT_INLINE)
+                    view.add_phantom("implicit_tokens",
+                        sublime.Region(view.text_point(line - 1, index), view.text_point(line - 1, index + 1)),
+                        '<span style="color:#888888">' + '\xd7' + '</span>',
+                        sublime.LAYOUT_INLINE)
+                    view.add_phantom("implicit_tokens",
+                        sublime.Region(view.text_point(line - 1, index), view.text_point(line - 1, index + 1)),
+                        '<span style="color:#888888">' + '1' + '</span>',
                         sublime.LAYOUT_INLINE)
                 index = index + 1
 
