@@ -71,7 +71,7 @@ Module[{t, templateFile, appliedFile, apply, longNameFile},
     "experimentalFunctions" -> StringReplace[StringJoin[Riffle[SublimeWolframLanguage`Generate`$experimentalSymbols, "|"]], "$" -> "\\$"],
     "obsoleteFunctions" -> StringReplace[StringJoin[Riffle[SublimeWolframLanguage`Generate`$obsoleteSymbols, "|"]], "$" -> "\\$"],
     "longNames" -> StringJoin[Riffle[$longNames, "|"]],
-    "constants" -> StringReplace[StringJoin[Riffle[SublimeWolframLanguage`Generate`$constants, "|"]], "$" -> "\\$"]
+    "constants" -> StringReplace[StringJoin[Riffle[SublimeWolframLanguage`Generate`$constants, "|"]], {"$" -> "\\$", "[" -> "\\[", "]" -> "\\]","\\" -> "\\\\"}]
     |>, appliedFile];
 
   Print[apply];
@@ -96,7 +96,7 @@ Module[{t, templateFile, appliedFile, apply, completions},
   completions = SublimeWolframLanguage`Generate`$builtInFunctions ~Join~ SublimeWolframLanguage`Generate`$constants;
 
   apply = FileTemplateApply[t, <|
-    "builtInFunctions" -> StringReplace[StringJoin[Riffle[{"    \"", #, "\""}& /@ completions, ",\n"]], "$" -> "\\\\$"]
+    "builtInFunctions" -> StringReplace[StringJoin[Riffle[{"    \"", #, "\""}& /@ completions, ",\n"]], {"$" -> "\\\\$", "\\" -> "\\\\\\\\"}]
     |>, appliedFile];
 
   Print[apply];

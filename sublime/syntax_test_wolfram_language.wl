@@ -172,13 +172,13 @@
   $foo
 (*^^^^ variable.other *)
   my`context12`$foo
-(*^^^^ variable.other *)
+(*^^^^^^^^^^^^^^^^^ variable.other *)
   1$12foo
 (*^ constant.numeric.wolfram *)
 (* ^^^^^^ variable.other.wolfram *)
 
   System`foo
-(* ^^^^^^^^^ invalid.illegal.system.wolfram *)
+(*^^^^^^^^^^ invalid.illegal.system.wolfram *)
   URLFetch
 (*^^^^^^^^ invalid.deprecated.wolfram *)
   DiskBox
@@ -187,13 +187,13 @@
 (*^^^^^^^^^^ variable.function.experimental.wolfram *)
 
   Plus
-(* ^ variable.function *)
+(*^^^^ variable.function *)
   System`Plus
-(*     ^^^ variable.function *)
+(*^^^^^^^^^^^ variable.function *)
 
   Image[Red, Interleaving -> True]
-(*^ variable.function.builtin.wolfram *)
-(*      ^ constant.language.wolfram *)
+(*^^^^^ variable.function.builtin.wolfram *)
+(*      ^^^ constant.language.wolfram *)
 (*           ^^^^^^^^^^^^ variable.function.builtin.wolfram *)
 (*                        ^^ keyword.operator *)
 
@@ -202,6 +202,10 @@
 
   `$desktopCacheBase
 (*^^^^^^^^^^^^^^^^^^ variable.other *)
+
+  System`\[FormalX]
+(*^^^^^^^^^^^^^^^^^ constant.language.wolfram *)
+
 
 
 
