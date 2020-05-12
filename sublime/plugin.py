@@ -118,6 +118,7 @@ class LspWolframLanguagePlugin(LanguageHandler):
         wolfram_version = params["wolframVersion"]
         codeparser_version = params["codeParserVersion"]
         codeinspector_version = params["codeInspectorVersion"]
+        codeformatter_version = params["codeFormatterVersion"]
         lspserver_version = params["lspServerVersion"]
 
         if not wolfram_version or wolfram_version == "bad":
@@ -128,6 +129,9 @@ class LspWolframLanguagePlugin(LanguageHandler):
 
         if not codeinspector_version or codeinspector_version == "bad":
             sublime.message_dialog("Cannot detect CodeInspector paclet version.")
+
+        if not codeformatter_version or codeformatter_version == "bad":
+            sublime.message_dialog("Cannot detect CodeFormatter paclet version.")
 
         if not lspserver_version or lspserver_version == "bad":
             sublime.message_dialog("Cannot detect LSPServer paclet version.")
