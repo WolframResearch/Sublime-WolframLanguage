@@ -27,7 +27,10 @@
     "confidenceLevel": 0.95,
     "colorProvider": false,
     "hoverProvider": false,
-    "definitionProvider": true
+    "definitionProvider": true,
+
+    "implicitTokens": false,
+    "bracketMatcher": false
   }
   ,
 
