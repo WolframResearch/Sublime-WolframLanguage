@@ -119,13 +119,11 @@ LSP > Settings
 
 ```
 {
-  "auto_show_diagnostics_panel": "never",
   "log_debug": true,
+  "log_server": true,
   "log_payloads": true,
-  "log_stderr": true,
-  "show_diagnostics_severity_level": 4
+  "log_stderr": true
 }
-
 ```
 
 
