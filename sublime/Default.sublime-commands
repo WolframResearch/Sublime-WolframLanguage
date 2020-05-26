@@ -1,0 +1,22 @@
+[
+    {
+        "caption": "WolframLanguage: Settings",
+        "command": "edit_settings",
+        "args": {
+            "base_file": "${packages}/WolframLanguage/WolframLanguage.sublime-settings",
+            "default": "{\n$0\n}\n"
+        }
+    }
+    ,
+    {
+        "caption": "WolframLanguage: Enable Debug Mode",
+        "command": "lsp_execute",
+        "args": {"command_name": "enable_debug_mode", "command_args":{}}
+    }
+    ,
+    {
+        "caption": "WolframLanguage: Disable Debug Mode",
+        "command": "lsp_execute",
+        "args": {"command_name": "disable_debug_mode", "command_args":{}}
+    }
+]
