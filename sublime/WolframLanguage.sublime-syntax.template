@@ -21,7 +21,6 @@ scope: source.wolfram
 
 variables:
   symbolSegment: (?:[$[:alpha:]][$[:alnum:]]*)
-  symbol: (?:{{symbolSegment}}?)(?:<*"`"*>{{symbolSegment}})*
   symbolEndBoundary: (?![<*"`"*>$[:alnum:]])
 
   #
@@ -40,7 +39,42 @@ variables:
 contexts:
 
   main:
+    - include: simple_toplevel_definitions
     - include: expressions
+
+  #
+  # The general syntax of WL allows full expressions to appear on the LHS of a function definition,
+  # and this would greatly complicate syntax highlighting
+  #
+  # So take a simpler approach and only allow symbol segments, followed by [], which may contain any valid syntax
+  #
+  # This is not a complete solution to highlighting functions in WL
+  #
+  simple_toplevel_definitions:
+    - match: |-
+        (?x)
+        {{symbolSegment}} (?# head foo in definition foo[] := 2+2 )
+        (?= (?# positive lookahead )
+          \s*
+          (?#
+          we are looking ahead and do not care about highlighting anything here
+          we just need to match balanced groups of [] so that we know when the outer group is done and we can look for :=
+          the following setup allows groups of balanced [] to be matched
+          )
+          ( (?# relative group #1 from the \g )
+            \[
+            (?> (?# atomic group for efficiency. this group is non-capturing and does not count for \g )
+              [^\[\]]+ (?# match any character that is not [ or ] )
+              | (?# or )
+              \g<-1> (?# call subexp in relative group #1 )
+            )*
+            \]
+          )
+          \s*
+          (?::=|=) (?# SetDelayed or Set )
+        )
+      scope:
+        meta.function.wolfram entity.name.function.wolfram
 
   expressions:
     - include: comments
