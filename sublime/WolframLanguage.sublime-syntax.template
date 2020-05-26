@@ -116,6 +116,11 @@ contexts:
     - match: \*\)
       scope: punctuation.definition.comment.wolfram
       pop: true
+    #
+    # Emit a separate token for each character in comment
+    # This has the result of disabling ligatures inside comments
+    #
+    - match: .
 
   escaped_characters:
     #
@@ -182,6 +187,11 @@ contexts:
           scope: punctuation.definition.string.end
           pop: true
         - include: string_escaped_characters
+        #
+        # Emit a separate token for each character in string
+        # This has the result of disabling ligatures inside strings
+        #
+        - match: .
 
   stringifying_operators:
     - match: (>>>)\s*("\w*")
