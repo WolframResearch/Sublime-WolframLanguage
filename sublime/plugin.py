@@ -56,6 +56,9 @@ class LspWolframLanguagePlugin(LanguageHandler):
         return read_client_config("wolfram", config)
 
     def on_start(self, window) -> bool:
+
+        self.hrefMap = {}
+
         settings = sublime.load_settings(settings_file)
 
         command = settings.get("lsp_server_command")
@@ -89,15 +92,6 @@ class LspWolframLanguagePlugin(LanguageHandler):
 
         self._client = client
 
-        # active_window   = sublime.active_window()
-        # panel = active_window.create_output_panel("wolfram")
-
-        #request = Request('wolfram/versions')
-
-        #result = client.execute_request(request)
-
-        #panel.run_command("append", {"characters": 'result: ' + str(result) + '\n'})
-
         client.on_notification("wolfram/versions", self.on_wolfram_versions)
 
         client.on_notification("textDocument/publishImplicitTokens", self.on_implicit_tokens)
@@ -108,12 +102,6 @@ class LspWolframLanguagePlugin(LanguageHandler):
 
         if not sublime:
             return
-
-        # active_window = sublime.active_window()
-
-        # panel = active_window.create_output_panel("wolfram")
-
-        # panel.run_command("append", {"characters": 'params: ' + str(params) + '\n'})
 
         wolfram_version = params["wolframVersion"]
         codeparser_version = params["codeParserVersion"]
@@ -239,6 +227,12 @@ class LspWolframLanguagePlugin(LanguageHandler):
 
         view.erase_phantoms("html_snippet")
 
+        actions = params["actions"]
+        for a in actions:
+            href = a["href"]
+            if href != "":
+                self.hrefMap[href] = a
+
         lines = params["lines"]
         for l in lines:
             line = l["line"]
@@ -249,22 +243,48 @@ class LspWolframLanguagePlugin(LanguageHandler):
             view.add_phantom("html_snippet",
                 sublime.Region(view.text_point(line - 1, 1 - 1), view.text_point(line - 1, len(characters) - 1)),
                 joined,
-                sublime.LAYOUT_BELOW, self.on_navigate)
+                sublime.LAYOUT_BELOW, self.on_html_snippet_navigate)
 
-    def on_navigate(self, href):
+    def on_html_snippet_navigate(self, href):
         
-        # if not sublime:
-        #     return
+        if href == "":
+            return
 
-        # active_window = sublime.active_window()
+        #
+        # Currently grabbing the active view
+        # There is no current way to obtain the view that corresponds to the file
+        # Related issues: https://github.com/sublimelsp/LSP/issues/641
+        #
 
-        # panel = active_window.create_output_panel("wolfram")
+        if not sublime:
+            return
 
-        #panel.run_command("append", {"characters": 'clicked on: ' + href + '\n'})
+        active_window = sublime.active_window()
 
-        req = Notification("htmlSnippetClick", {"href": href})
+        view = active_window.active_view()
 
-        self._client.send_notification(req)
+        action = self.hrefMap[href]
+
+        command = action["command"]
+
+        if command == "insert":
+            view.run_command("click_insert", {"line": action["line"], "column": action["column"], "insertionText": action["insertionText"]})
+        elif command == "delete":
+            view.run_command("click_delete", {"line": action["line"], "column": action["column"], "deletionText": action["deletionText"]})
+        else:
+            raise ValueError("unrecognized command: " + command)
+
+        del self.hrefMap[href]
+
+
+class ClickInsertCommand(sublime_plugin.TextCommand):
+    def run(self, edit, line, column, insertionText):
+        self.view.insert(edit, self.view.text_point(line - 1, column - 1), insertionText)
+
+
+class ClickDeleteCommand(sublime_plugin.TextCommand):
+    def run(self, edit, line, column, deletionText):
+        self.view.erase(edit, sublime.Region(self.view.text_point(line - 1, column - 1), self.view.text_point(line - 1, column + len(deletionText) - 1)))
 
 
 class WolframLanguageOpenSiteCommand(sublime_plugin.ApplicationCommand):

@@ -30,7 +30,8 @@
     "definitionProvider": true,
 
     "implicitTokens": false,
-    "bracketMatcher": false
+    "bracketMatcher": false,
+    "debugBracketMatcher": false
   }
   ,
 
