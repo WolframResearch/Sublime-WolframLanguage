@@ -333,3 +333,55 @@
 
   #abc123
 (*^^^^^^^ keyword.other.Slot.wolfram *)
+
+
+
+
+
+
+(* Function Definitions *)
+
+  foo[] := xxx
+(*^^^ entity.name.function.wolfram *)
+
+  foo[g[], h[]] := xxx
+(*^^^ entity.name.function.wolfram *)
+
+  foo[1, 2, a__, b__, c__, g[h[j[]]]] := xxx
+(*^^^ entity.name.function.wolfram *)
+
+
+
+
+(* Constant definitions *)
+
+  a = 1
+(*^ entity.name.constant.wolfram *)
+
+Module[{}, a = 1]
+(*         ^ variable.other.wolfram *)
+
+  $constant := 3 + 4
+(*^^^^^^^^^ entity.name.constant.wolfram *)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

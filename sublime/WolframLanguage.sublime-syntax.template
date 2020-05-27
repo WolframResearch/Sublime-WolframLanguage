@@ -39,8 +39,14 @@ variables:
 contexts:
 
   main:
+    - include: simple_toplevel_constants
     - include: simple_toplevel_definitions
     - include: expressions
+
+  simple_toplevel_constants:
+    - match: '{{symbolSegment}}\s*(?::=|=)'
+      scope:
+        entity.name.constant.wolfram
 
   #
   # The general syntax of WL allows full expressions to appear on the LHS of a function definition,
