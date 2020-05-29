@@ -44,7 +44,7 @@ contexts:
     - include: expressions
 
   simple_toplevel_constants:
-    - match: '{{symbolSegment}}\s*(?::=|=)'
+    - match: '{{symbolSegment}}(?=\s*(?::=|=))'
       scope:
         entity.name.constant.wolfram
 
