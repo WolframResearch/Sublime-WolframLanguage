@@ -236,13 +236,12 @@ class LspWolframLanguagePlugin(LanguageHandler):
         lines = params["lines"]
         for l in lines:
             line = l["line"]
-            characters = l["characters"]
-
-            joined = "".join(characters)
+            characterCount = l["characterCount"]
+            content = l["content"]
 
             view.add_phantom("html_snippet",
-                sublime.Region(view.text_point(line - 1, 1 - 1), view.text_point(line - 1, len(characters) - 1)),
-                joined,
+                sublime.Region(view.text_point(line - 1, 1 - 1), view.text_point(line - 1, characterCount - 1)),
+                content,
                 sublime.LAYOUT_BELOW, self.on_html_snippet_navigate)
 
     def on_html_snippet_navigate(self, href):
