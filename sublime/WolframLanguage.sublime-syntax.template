@@ -40,6 +40,8 @@ contexts:
 
   main:
     - include: simple_toplevel_constants
+    - include: toplevel_options
+    - include: toplevel_attributes
     - include: simple_toplevel_definitions
     - include: expressions
 
@@ -47,6 +49,18 @@ contexts:
     - match: '{{symbolSegment}}(?=\s*(?::=|=))'
       scope:
         entity.name.constant.wolfram
+
+  toplevel_options:
+    - match: (Options)\s*\[\s*({{symbolSegment}})\s*\](?=\s*(:=|=))
+      captures:
+        1: variable.function.builtin.wolfram
+        2: entity.other.Options.wolfram
+
+  toplevel_attributes:
+    - match: (Attributes)\s*\[\s*({{symbolSegment}})\s*\](?=\s*(:=|=))
+      captures:
+        1: variable.function.builtin.wolfram
+        2: entity.other.Attributes.wolfram
 
   #
   # The general syntax of WL allows full expressions to appear on the LHS of a function definition,
