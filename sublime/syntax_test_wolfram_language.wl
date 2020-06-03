@@ -350,6 +350,9 @@
   foo[1, 2, a__, b__, c__, g[h[j[]]]] := xxx
 (*^^^ entity.name.function.wolfram *)
 
+  foo`bar[g[], h[]] := xxx
+(*^^^ entity.name.Context.wolfram *)
+(*    ^^^ entity.name.function.wolfram *)
 
 
 
@@ -364,6 +367,9 @@ Module[{}, a = 1]
   $constant := 3 + 4
 (*^^^^^^^^^ entity.name.constant.wolfram *)
 
+  a`b = 1
+(*^ entity.name.Context.wolfram *)
+(*  ^ entity.name.constant.wolfram *)
 
 
 
