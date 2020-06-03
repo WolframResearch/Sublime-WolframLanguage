@@ -39,28 +39,39 @@ variables:
 contexts:
 
   main:
-    - include: simple_toplevel_constants
+    - include: toplevel_constants
     - include: toplevel_options
     - include: toplevel_attributes
     - include: simple_toplevel_definitions
     - include: expressions
 
-  simple_toplevel_constants:
-    - match: '{{symbolSegment}}(?=\s*(?::=|=))'
-      scope:
-        entity.name.constant.wolfram
+  toplevel_constants:
+    - match: '(<*"`"*>?(?:{{symbolSegment}}<*"`"*>)*)({{symbolSegment}})(?=\s*(?::=|=))'
+    #         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ captured context
+    #                                                ^^^^^^^^^^^^^^^^^^^ captured symbol name
+      captures:
+        1: entity.name.Context.wolfram
+        2: entity.name.constant.wolfram
 
   toplevel_options:
-    - match: (Options)\s*\[\s*({{symbolSegment}})\s*\](?=\s*(:=|=))
+    - match: '(Options)\s*\[\s*(<*"`"*>?(?:{{symbolSegment}}<*"`"*>)*)({{symbolSegment}})\s*\](?=\s*(:=|=))'
+    #         ^^^^^^^^^ captured function
+    #                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ captured context
+    #                                                                 ^^^^^^^^^^^^^^^^^^^ captured symbol name
       captures:
         1: variable.function.builtin.wolfram
-        2: entity.other.Options.wolfram
+        2: entity.name.Context.wolfram
+        3: entity.other.Options.wolfram
 
   toplevel_attributes:
-    - match: (Attributes)\s*\[\s*({{symbolSegment}})\s*\](?=\s*(:=|=))
+    - match: '(Attributes)\s*\[\s*(<*"`"*>?(?:{{symbolSegment}}<*"`"*>)*)({{symbolSegment}})\s*\](?=\s*(:=|=))'
+    #         ^^^^^^^^^^^^ captured function
+    #                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ captured context
+    #                                                                    ^^^^^^^^^^^^^^^^^^^ captured symbol name
       captures:
         1: variable.function.builtin.wolfram
-        2: entity.other.Attributes.wolfram
+        2: entity.name.Context.wolfram
+        3: entity.other.Attributes.wolfram
 
   #
   # The general syntax of WL allows full expressions to appear on the LHS of a function definition,
@@ -73,7 +84,10 @@ contexts:
   simple_toplevel_definitions:
     - match: |-
         (?x)
-        {{symbolSegment}} (?# head foo in definition foo[] := 2+2 )
+            (?# head foo in definition foo[] := 2+2 )
+            (<*"`"*>?(?:{{symbolSegment}}<*"`"*>)*)({{symbolSegment}})
+        (?# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ captured context )
+        (?#                                        ^^^^^^^^^^^^^^^^^^^ captured symbol name )
         (?= (?# positive lookahead )
           \s*
           (?#
@@ -93,8 +107,9 @@ contexts:
           \s*
           (?::=|=) (?# SetDelayed or Set )
         )
-      scope:
-        meta.function.wolfram entity.name.function.wolfram
+      captures:
+        1: meta.function.wolfram entity.name.Context.wolfram
+        2: meta.function.wolfram entity.name.function.wolfram
 
   expressions:
     - include: comments
