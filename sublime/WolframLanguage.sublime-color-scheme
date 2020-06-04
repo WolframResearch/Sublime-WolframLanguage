@@ -56,8 +56,13 @@
     "rules":
     [
         {
-            "name": "Entity name",
+            "name": "Entity name function",
             "scope": "entity.name.function",
+            "foreground": "var(black)"
+        },
+        {
+            "name": "Entity name constant",
+            "scope": "entity.name.constant",
             "foreground": "var(black)"
         },
         {
