@@ -374,15 +374,38 @@ Module[{}, a = 1]
 
 
 
+(*
+Regression Tests
+*)
 
+   NotAfter["\[\["]
+(* ^^^^^^^^ variable.other.wolfram *)
+(*         ^ punctuation.section.brackets.begin.wolfram *)
+(*          ^ string.quoted.double.wolfram punctuation.definition.string.begin *)
+(*           ^^ invalid.illegal *)
+(*             ^^ invalid.illegal *)
+(*               ^ string.quoted.double.wolfram punctuation.definition.string.end *)
+(*                ^ punctuation.section.brackets.end.wolfram *)
 
+   "\[Alpa]"
+(* ^ string.quoted.double.wolfram punctuation.definition.string.begin *)
+(*  ^^^^^^^ invalid.illegal.BadLongName *)
+(*         ^ string.quoted.double.wolfram punctuation.definition.string.end *)
 
+   "\[Alpa"
+(* ^ string.quoted.double.wolfram punctuation.definition.string.begin *)
+(*  ^^^^^^ invalid.illegal.BadLongName *)
+(*        ^ string.quoted.double.wolfram punctuation.definition.string.end *)
 
+   "\["
+(* ^ string.quoted.double.wolfram punctuation.definition.string.begin *)
+(*  ^^ invalid.illegal.BadLongName *)
+(*    ^ string.quoted.double.wolfram punctuation.definition.string.end *)
 
-
-
-
-
+   "\[]"
+(* ^ string.quoted.double.wolfram punctuation.definition.string.begin *)
+(*  ^^^ invalid.illegal.BadLongName *)
+(*     ^ string.quoted.double.wolfram punctuation.definition.string.end *)
 
 
 
