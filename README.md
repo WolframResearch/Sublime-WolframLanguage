@@ -136,10 +136,9 @@ LSP > Settings
 
 ### Windows
 
-It is recommended to specify `wolfram.exe` instead of `WolframKernel.exe`.
-
-`WolframKernel.exe` opens a new window while it is running. But `wolfram.exe` runs inside the window that started it.
-
 You may need to double-up quotations marks in the command:
 
 ``"Needs[\"\"LSPServer`\"\"];LSPServer`StartServer[]"``
+
+
+

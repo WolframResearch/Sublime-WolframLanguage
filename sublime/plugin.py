@@ -72,19 +72,14 @@ class LspWolframLanguagePlugin(LanguageHandler):
             return True
 
         #
-        # Check that kernel specified by `kernel` actually exists
+        # Check that kernel specified by `kernel` is WolframKernel
         #
         kernel = settings.get("kernel")
 
-        if not os.path.isfile(kernel):
-            sublime.message_dialog("Cannot find Wolfram Kernel: " + kernel)
+        base = os.path.basename(kernel)
+        if not base.lower().startswith("wolframkernel"):
+            sublime.message_dialog("Command for Wolfram Language Server does not start with 'WolframKernel': " + kernel)
             return False
-
-        if sys.platform == "win32":
-            base = os.path.basename(kernel)
-            if base.lower() == "wolframkernel.exe" or base.lower() == "wolframkernel":
-                sublime.message_dialog("WolframKernel.exe cannot be used because it opens a separate window and hangs on stdin. Please use wolfram.exe")
-                return False
 
         return True
 
