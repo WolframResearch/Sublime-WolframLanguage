@@ -43,6 +43,9 @@ set(STATIC_PACKAGE_SOURCES
   ${PROJECT_SOURCE_DIR}/sublime/SymbolListConstants.tmPreferences
   ${PROJECT_SOURCE_DIR}/sublime/syntax_test_wolfram_language.wl
   ${PROJECT_SOURCE_DIR}/sublime/WolframLanguage.sublime-color-scheme
+  ${PROJECT_SOURCE_DIR}/sublime/WolframLanguage\ \(Linux\).sublime-settings
+  ${PROJECT_SOURCE_DIR}/sublime/WolframLanguage\ \(OSX\).sublime-settings
+  ${PROJECT_SOURCE_DIR}/sublime/WolframLanguage\ \(Windows\).sublime-settings
   ${PROJECT_SOURCE_DIR}/sublime/WolframLanguage.sublime-settings
 )
 
@@ -145,51 +148,10 @@ foreach(SRC ${STATIC_PACKAGE_SOURCES})
       ${CMAKE_COMMAND} -E copy ${SRC} ${PROJECT_BINARY_DIR}/package/WolframLanguage/${BARE_SRC}
     DEPENDS
       ${SRC}
+    VERBATIM
   )
   list(APPEND COPIED_PACKAGE_SOURCES ${PROJECT_BINARY_DIR}/package/WolframLanguage/${BARE_SRC})
 endforeach()
-
-
-
-
-
-#
-# platform settings files
-#
-# The spaces and parentheses in the file names screw-up simple copying
-#
-
-add_custom_command(
-  OUTPUT
-    ${PROJECT_BINARY_DIR}/package/WolframLanguage/WolframLanguage\ \(Linux\).sublime-settings
-  COMMAND
-    ${CMAKE_COMMAND} -E copy ${PROJECT_SOURCE_DIR}/sublime/WolframLanguage\ \\\(Linux\\\).sublime-settings ${PROJECT_BINARY_DIR}/package/WolframLanguage/WolframLanguage\ \\\(Linux\\\).sublime-settings
-  DEPENDS
-    ${PROJECT_SOURCE_DIR}/sublime/WolframLanguage\ \(Linux\).sublime-settings
-)
-list(APPEND COPIED_PACKAGE_SOURCES ${PROJECT_BINARY_DIR}/package/WolframLanguage/WolframLanguage\ \(Linux\).sublime-settings)
-
-add_custom_command(
-  OUTPUT
-    ${PROJECT_BINARY_DIR}/package/WolframLanguage/WolframLanguage\ \(OSX\).sublime-settings
-  COMMAND
-    ${CMAKE_COMMAND} -E copy ${PROJECT_SOURCE_DIR}/sublime/WolframLanguage\ \\\(OSX\\\).sublime-settings ${PROJECT_BINARY_DIR}/package/WolframLanguage/WolframLanguage\ \\\(OSX\\\).sublime-settings
-  DEPENDS
-    ${PROJECT_SOURCE_DIR}/sublime/WolframLanguage\ \(OSX\).sublime-settings
-)
-list(APPEND COPIED_PACKAGE_SOURCES ${PROJECT_BINARY_DIR}/package/WolframLanguage/WolframLanguage\ \(OSX\).sublime-settings)
-
-add_custom_command(
-  OUTPUT
-    ${PROJECT_BINARY_DIR}/package/WolframLanguage/WolframLanguage\ \(Windows\).sublime-settings
-  COMMAND
-    ${CMAKE_COMMAND} -E copy ${PROJECT_SOURCE_DIR}/sublime/WolframLanguage\ \\\(Windows\\\).sublime-settings ${PROJECT_BINARY_DIR}/package/WolframLanguage/WolframLanguage\ \\\(Windows\\\).sublime-settings
-  DEPENDS
-    ${PROJECT_SOURCE_DIR}/sublime/WolframLanguage\ \(Windows\).sublime-settings
-)
-list(APPEND COPIED_PACKAGE_SOURCES ${PROJECT_BINARY_DIR}/package/WolframLanguage/WolframLanguage\ \(Windows\).sublime-settings)
-
-
 
 
 
