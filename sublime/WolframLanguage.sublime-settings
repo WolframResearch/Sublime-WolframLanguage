@@ -3,11 +3,11 @@
   // This defaults to platform-specific values:
   // Linux: /usr/local/Wolfram/Mathematica/12.0/Executables/WolframKernel
   // OSX: /Applications/Mathematica.app/Contents/MacOS/WolframKernel
-  // Windows: C:\Program Files\Wolfram Research\Mathematica\12.0\wolfram.exe
+  // Windows: C:\Program Files\Wolfram Research\Mathematica\12.0\WolframKernel.exe
   //
   // Change this setting to use a different kernel
   //
-  "kernel": "<<Path to WolframKernel (or wolfram.exe on Windows)>>",
+  "kernel": "<<Path to WolframKernel>>",
   
   //
   // The command to run. The special value `kernel` will be replaced
@@ -19,8 +19,9 @@
     "-noinit",
     "-noprompt",
     "-nopaclet",
+    "-noicon",
     "-run",
-    "$Messages=Streams[\"stderr\"];Needs[\"LSPServer`\"];LSPServer`StartServer[]"
+    "Needs[\"LSPServer`\"];LSPServer`StartServer[]"
   ],
 
   "lsp_server_initialization_options": {
