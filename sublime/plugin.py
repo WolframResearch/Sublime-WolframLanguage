@@ -79,7 +79,6 @@ class LspWolframLanguagePlugin(LanguageHandler):
         base = os.path.basename(kernel)
         if not base.lower().startswith("wolframkernel"):
             sublime.message_dialog("Command for Wolfram Language Server does not start with 'WolframKernel': " + kernel)
-            return False
 
         return True
 
