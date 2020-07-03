@@ -27,7 +27,6 @@
   "lsp_server_initialization_options": {
     "confidenceLevel": 0.95,
     "colorProvider": false,
-    "hoverProvider": false,
     "definitionProvider": true,
 
     "implicitTokens": false,
