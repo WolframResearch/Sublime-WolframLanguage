@@ -25,12 +25,14 @@
   ],
 
   "lsp_server_initialization_options": {
+    
     "confidenceLevel": 0.95,
     "colorProvider": false,
     "definitionProvider": true,
 
     "implicitTokens": false,
-    "bracketMatcher": false
+    "bracketMatcher": false,
+    "htmlSnippets": true
   }
   ,
 
