@@ -55,13 +55,75 @@ You should see warnings about duplicate clauses.
 
 ### Settings
 
+If you have `Mathematica` installed in the default location on your system, you may not have to change any settings.
+
+If `Mathematica` is not in the default location, then change the location by going to:
+
 `Package Settings > Wolfram Language > Settings`
+
+and adding a `kernel` setting:
 
 ```
 {
   "kernel": "/Applications/Mathematica121.app/Contents/MacOS/WolframKernel"
 }
 
+```
+
+There are other settings such as `lsp_server_command` that specifies the command to run for the server:
+
+```
+{
+  "lsp_server_command":
+    [
+      "`kernel`",
+      "-noinit",
+      "-noprompt",
+      "-nopaclet",
+      "-noicon",
+      "-run",
+      "Needs[\"LSPServer`\"];LSPServer`StartServer[]"
+    ]
+}
+```
+
+
+
+
+## Using LSPServer paclet WITHOUT the Sublime-WolframLanguage package
+
+It is possible to use the LSPServer paclet without using the Sublime-WolframLanguage package.
+
+Add a `wolfram` client to `LSP.sublime-settings`:
+```
+{
+  "clients":
+  {
+    "wolfram":
+    {
+      "enabled": true,
+
+      "command":
+        [
+          "<<Path to WolframKernel>>",
+          "-noinit",
+          "-noprompt",
+          "-nopaclet",
+          "-noicon",
+          "-run",
+          "Needs[\"LSPServer`\"];LSPServer`StartServer[]"
+        ],
+  
+      "scopes": ["source.wolfram"],
+ 
+      "syntaxes": ["<<Path to Wolfram sublime-syntax>>"]
+
+      "languageId": "wolfram",
+  
+      "initializationOptions": { }
+    }
+  }
+}
 ```
 
 
