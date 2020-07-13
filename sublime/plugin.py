@@ -86,37 +86,9 @@ class LspWolframLanguagePlugin(LanguageHandler):
 
         self._client = client
 
-        client.on_notification("wolfram/versions", self.on_wolfram_versions)
-
         client.on_notification("textDocument/publishImplicitTokens", self.on_implicit_tokens)
 
         client.on_notification("textDocument/publishHTMLSnippet", self.on_html_snippet)
-
-    def on_wolfram_versions(self, params):
-
-        if not sublime:
-            return
-
-        wolfram_version = params["wolframVersion"]
-        codeparser_version = params["codeParserVersion"]
-        codeinspector_version = params["codeInspectorVersion"]
-        codeformatter_version = params["codeFormatterVersion"]
-        lspserver_version = params["lspServerVersion"]
-
-        if not wolfram_version or wolfram_version == "bad":
-            sublime.message_dialog("Cannot detect Wolfram version.")
-
-        if not codeparser_version or codeparser_version == "bad":
-            sublime.message_dialog("Cannot detect CodeParser paclet version.")
-
-        if not codeinspector_version or codeinspector_version == "bad":
-            sublime.message_dialog("Cannot detect CodeInspector paclet version.")
-
-        if not codeformatter_version or codeformatter_version == "bad":
-            sublime.message_dialog("Cannot detect CodeFormatter paclet version.")
-
-        if not lspserver_version or lspserver_version == "bad":
-            sublime.message_dialog("Cannot detect LSPServer paclet version.")
 
     def on_implicit_tokens(self, params):
 
