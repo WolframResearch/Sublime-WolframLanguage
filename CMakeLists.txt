@@ -1,7 +1,15 @@
 
-cmake_minimum_required(VERSION 3.0)
+#
+# Require CMake 3.11 to allow "package" target
+#
+# Related policies: https://cmake.org/cmake/help/v3.11/policy/CMP0037.html
+#
+cmake_minimum_required(VERSION 3.11)
 
-project(sublime-wolframlanguage)
+project(sublime-wolframlanguage
+  LANGUAGES
+    NONE
+)
 
 set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
 include(WolframKernel)
@@ -22,6 +30,7 @@ set(BUG349779_PAUSE 1 CACHE STRING "Bug 349779 pause")
 #
 set(BUG349779_TIMEOUT 3600 CACHE STRING "Bug 349779 timeout")
 
+message(STATUS "CMAKE_VERSION: ${CMAKE_VERSION}")
 message(STATUS "PACLET: ${PACLET}")
 message(STATUS "WOLFRAMKERNEL: ${WOLFRAMKERNEL}")
 message(STATUS "BUILD_DOCS: ${BUILD_DOCS}")
