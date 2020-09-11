@@ -7,13 +7,23 @@
 cmake_minimum_required(VERSION 3.11)
 
 project(sublime-wolframlanguage
-  LANGUAGES
-    NONE
+	LANGUAGES
+		NONE
 )
 
 set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
 include(WolframKernel)
 include(PacletInfo)
+
+#
+# Used for quickly reporting syntax errors in WL source files
+#
+find_program(CODEPARSER_EXE
+	NAMES
+		codeparser codeparser.exe
+	HINTS
+		${CODEPARSER_EXE_DIR}
+)
 
 set(PACLET "SublimeWolframLanguage")
 set(WOLFRAMKERNEL ${WOLFRAMKERNEL_DEFAULT} CACHE FILEPATH "Path to WolframKernel")
@@ -38,46 +48,47 @@ message(STATUS "LOCAL_BUILD: ${LOCAL_BUILD}")
 message(STATUS "CMAKE_SIZEOF_VOID_P: ${CMAKE_SIZEOF_VOID_P}")
 message(STATUS "BUG349779_PAUSE: ${BUG349779_PAUSE}")
 message(STATUS "BUG349779_TIMEOUT: ${BUG349779_TIMEOUT}")
+message(STATUS "CODEPARSER_EXE: ${CODEPARSER_EXE}")
 
 set(STATIC_PACKAGE_SOURCES
-  #
-  # why still use the older-style .tmPreferences?
-  # https://forum.sublimetext.com/t/toggle-comment-with-a-custom-sublime-syntax/18789
-  #
-  ${PROJECT_SOURCE_DIR}/sublime/Comments.tmPreferences
-  ${PROJECT_SOURCE_DIR}/sublime/Context.sublime-menu
-  ${PROJECT_SOURCE_DIR}/sublime/Default.sublime-commands
-  ${PROJECT_SOURCE_DIR}/sublime/Main.sublime-menu
-  ${PROJECT_SOURCE_DIR}/sublime/plugin.py
-  ${PROJECT_SOURCE_DIR}/sublime/SymbolListConstants.tmPreferences
-  ${PROJECT_SOURCE_DIR}/sublime/syntax_test_wolfram_language.wl
-  ${PROJECT_SOURCE_DIR}/sublime/WolframLanguage.sublime-color-scheme
-  ${PROJECT_SOURCE_DIR}/sublime/WolframLanguage\ \(Linux\).sublime-settings
-  ${PROJECT_SOURCE_DIR}/sublime/WolframLanguage\ \(OSX\).sublime-settings
-  ${PROJECT_SOURCE_DIR}/sublime/WolframLanguage\ \(Windows\).sublime-settings
-  ${PROJECT_SOURCE_DIR}/sublime/WolframLanguage.sublime-settings
+	#
+	# why still use the older-style .tmPreferences?
+	# https://forum.sublimetext.com/t/toggle-comment-with-a-custom-sublime-syntax/18789
+	#
+	${PROJECT_SOURCE_DIR}/sublime/Comments.tmPreferences
+	${PROJECT_SOURCE_DIR}/sublime/Context.sublime-menu
+	${PROJECT_SOURCE_DIR}/sublime/Default.sublime-commands
+	${PROJECT_SOURCE_DIR}/sublime/Main.sublime-menu
+	${PROJECT_SOURCE_DIR}/sublime/plugin.py
+	${PROJECT_SOURCE_DIR}/sublime/SymbolListConstants.tmPreferences
+	${PROJECT_SOURCE_DIR}/sublime/syntax_test_wolfram_language.wl
+	${PROJECT_SOURCE_DIR}/sublime/WolframLanguage.sublime-color-scheme
+	${PROJECT_SOURCE_DIR}/sublime/WolframLanguage\ \(Linux\).sublime-settings
+	${PROJECT_SOURCE_DIR}/sublime/WolframLanguage\ \(OSX\).sublime-settings
+	${PROJECT_SOURCE_DIR}/sublime/WolframLanguage\ \(Windows\).sublime-settings
+	${PROJECT_SOURCE_DIR}/sublime/WolframLanguage.sublime-settings
 )
 
 set(SYNTAX_TEMPLATE_SOURCE
-  ${PROJECT_SOURCE_DIR}/sublime/WolframLanguage.sublime-syntax.template
+	${PROJECT_SOURCE_DIR}/sublime/WolframLanguage.sublime-syntax.template
 )
 
 set(COMPLETIONS_TEMPLATE_SOURCE
-  ${PROJECT_SOURCE_DIR}/sublime/WolframLanguage.sublime-completions.template
+	${PROJECT_SOURCE_DIR}/sublime/WolframLanguage.sublime-completions.template
 )
 
 set(WL_GENERATE_CREATEPACLETARCHIVE_SOURCES
-  ${PROJECT_SOURCE_DIR}/${PACLET}/Generate/CreatePacletArchive.wl
+	${PROJECT_SOURCE_DIR}/${PACLET}/Generate/CreatePacletArchive.wl
 )
 
 set(PACLETINFO_SOURCE
-  ${PROJECT_SOURCE_DIR}/${PACLET}/PacletInfo.m
+	${PROJECT_SOURCE_DIR}/${PACLET}/PacletInfo.m
 )
 
 set(DOCUMENTATION_NOTEBOOK_PATHS
-  English/Guides/SublimeWolframLanguage.nb
-  English/Tutorials/ReleaseNotes.nb
-  English/Tutorials/SublimeWolframLanguageManual.nb
+	English/Guides/SublimeWolframLanguage.nb
+	English/Tutorials/ReleaseNotes.nb
+	English/Tutorials/SublimeWolframLanguageManual.nb
 
 )
 
@@ -85,10 +96,10 @@ set(DOCUMENTATION_NOTEBOOK_PATHS
 # Setup documentation notebook paths
 #
 foreach(NB_PATH ${DOCUMENTATION_NOTEBOOK_PATHS})
-  set(SRC ${PROJECT_SOURCE_DIR}/${PACLET}/Documentation/${NB_PATH})
-  set(BUILT ${PROJECT_BINARY_DIR}/paclet/${PACLET}/Documentation/${NB_PATH})
-  list(APPEND DOCUMENTATION_SOURCE ${SRC})
-  list(APPEND BUILT_DOCUMENTATION ${BUILT})
+	set(SRC ${PROJECT_SOURCE_DIR}/${PACLET}/Documentation/${NB_PATH})
+	set(BUILT ${PROJECT_BINARY_DIR}/paclet/${PACLET}/Documentation/${NB_PATH})
+	list(APPEND DOCUMENTATION_SOURCE ${SRC})
+	list(APPEND BUILT_DOCUMENTATION ${BUILT})
 endforeach()
 
 #
@@ -99,10 +110,10 @@ CheckPacletInfo()
 
 
 file(MAKE_DIRECTORY
-  ${PROJECT_BINARY_DIR}/package/WolframLanguage
+	${PROJECT_BINARY_DIR}/package/WolframLanguage
 )
 file(MAKE_DIRECTORY
-  ${PROJECT_BINARY_DIR}/paclet/${PACLET}
+	${PROJECT_BINARY_DIR}/paclet/${PACLET}
 )
 
 
@@ -112,6 +123,7 @@ file(MAKE_DIRECTORY
 # Copy source files
 #
 
+set(COPIED_PACLETINFO ${PROJECT_BINARY_DIR}/paclet/${PACLET}/PacletInfo.m)
 set(PROCESSED_SYMBOLS_DUMP ${PROJECT_BINARY_DIR}/processedSymbols.mx)
 
 set(COPIED_SYNTAX_TEMPLATE ${PROJECT_BINARY_DIR}/WolframLanguage.sublime-syntax.template)
@@ -121,73 +133,81 @@ set(COPIED_COMPLETIONS_TEMPLATE ${PROJECT_BINARY_DIR}/WolframLanguage.sublime-co
 set(APPLIED_COMPLETIONS_TEMPLATE ${PROJECT_BINARY_DIR}/package/WolframLanguage/WolframLanguage.sublime-completions)
 
 add_custom_command(
-  OUTPUT
-    ${PROCESSED_SYMBOLS_DUMP}
-  COMMAND
-    ${CMAKE_COMMAND} -DSCRIPT=${PROJECT_SOURCE_DIR}/SublimeWolframLanguage/Generate/ProcessSymbols.wl -DSRCDIR=${PROJECT_SOURCE_DIR} -DBUILDDIR=${PROJECT_BINARY_DIR} -DWOLFRAMKERNEL=${WOLFRAMKERNEL} -DBUG349779_TIMEOUT=${BUG349779_TIMEOUT} -P ${PROJECT_SOURCE_DIR}/cmake/WolframScript.cmake
-  DEPENDS
-    ${PROJECT_SOURCE_DIR}/SublimeWolframLanguage/Generate/ProcessSymbols.wl
-    ${PROJECT_SOURCE_DIR}/cmake/WolframScript.cmake
-)
-
-add_custom_command(
-  OUTPUT
-    ${APPLIED_SYNTAX_TEMPLATE}
-    ${APPLIED_COMPLETIONS_TEMPLATE}
-  COMMAND
-    ${CMAKE_COMMAND} -E copy ${SYNTAX_TEMPLATE_SOURCE} ${COPIED_SYNTAX_TEMPLATE}
-  COMMAND
-    ${CMAKE_COMMAND} -E copy ${COMPLETIONS_TEMPLATE_SOURCE} ${COPIED_COMPLETIONS_TEMPLATE}
-  COMMAND
-    ${CMAKE_COMMAND} -DSCRIPT=${PROJECT_SOURCE_DIR}/SublimeWolframLanguage/Generate/ApplyTemplates.wl -DSRCDIR=${PROJECT_SOURCE_DIR} -DBUILDDIR=${PROJECT_BINARY_DIR} -DWOLFRAMKERNEL=${WOLFRAMKERNEL} -DBUG349779_TIMEOUT=${BUG349779_TIMEOUT} -P ${PROJECT_SOURCE_DIR}/cmake/WolframScript.cmake
-  DEPENDS
-    ${SYNTAX_TEMPLATE_SOURCE}
-    ${COMPLETIONS_TEMPLATE_SOURCE}
-    ${PROJECT_SOURCE_DIR}/SublimeWolframLanguage/Generate/ApplyTemplates.wl
-    ${PROJECT_SOURCE_DIR}/cmake/WolframScript.cmake
-    ${PROCESSED_SYMBOLS_DUMP}
-)
-
-foreach(SRC ${STATIC_PACKAGE_SOURCES})
-  get_filename_component(BARE_SRC ${SRC} NAME)
-  add_custom_command(
-    OUTPUT
-      ${PROJECT_BINARY_DIR}/package/WolframLanguage/${BARE_SRC}
-    COMMAND
-      ${CMAKE_COMMAND} -E copy ${SRC} ${PROJECT_BINARY_DIR}/package/WolframLanguage/${BARE_SRC}
-    DEPENDS
-      ${SRC}
-    VERBATIM
-  )
-  list(APPEND COPIED_PACKAGE_SOURCES ${PROJECT_BINARY_DIR}/package/WolframLanguage/${BARE_SRC})
-endforeach()
-
-
-
-set(COPIED_PACLETINFO ${PROJECT_BINARY_DIR}/paclet/${PACLET}/PacletInfo.m)
-
-add_custom_command(
-  OUTPUT
-    ${COPIED_PACLETINFO}
-  COMMAND
-    ${CMAKE_COMMAND} -E copy ${PACLETINFO_SOURCE} ${COPIED_PACLETINFO}
-  COMMAND
-    ${CMAKE_COMMAND} -DLOCAL_BUILD=${LOCAL_BUILD} -DCOPIED_PACLETINFO=${COPIED_PACLETINFO} -P ${PROJECT_SOURCE_DIR}/cmake/ReplacePacletInfo.cmake
-  DEPENDS
-    ${PACLETINFO_SOURCE}
-    ${PROJECT_SOURCE_DIR}/cmake/ReplacePacletInfo.cmake
+	OUTPUT
+		${COPIED_PACLETINFO}
+	COMMAND
+		${CMAKE_COMMAND} -DSRC=${PACLETINFO_SOURCE} -DCODEPARSER_EXE=${CODEPARSER_EXE} -DWOLFRAMKERNEL=${WOLFRAMKERNEL} -DBUG349779_TIMEOUT=${BUG349779_TIMEOUT} -P ${PROJECT_SOURCE_DIR}/cmake/InspectFile.cmake
+	COMMAND
+		${CMAKE_COMMAND} -E copy ${PACLETINFO_SOURCE} ${COPIED_PACLETINFO}
+	COMMAND
+		${CMAKE_COMMAND} -DLOCAL_BUILD=${LOCAL_BUILD} -DCOPIED_PACLETINFO=${COPIED_PACLETINFO} -P ${PROJECT_SOURCE_DIR}/cmake/ReplacePacletInfo.cmake
+	DEPENDS
+		${PACLETINFO_SOURCE}
+		${PROJECT_SOURCE_DIR}/cmake/InspectFile.cmake
+		${PROJECT_SOURCE_DIR}/cmake/ReplacePacletInfo.cmake
 )
 list(APPEND COPIED_WL_PACLET_SOURCES ${COPIED_PACLETINFO})
 
+foreach(SRC ${STATIC_PACKAGE_SOURCES})
+	get_filename_component(BARE_SRC ${SRC} NAME)
+	add_custom_command(
+		OUTPUT
+			${PROJECT_BINARY_DIR}/package/WolframLanguage/${BARE_SRC}
+		COMMAND
+			${CMAKE_COMMAND} -DSRC=${SRC} -DCODEPARSER_EXE=${CODEPARSER_EXE} -DWOLFRAMKERNEL=${WOLFRAMKERNEL} -DBUG349779_TIMEOUT=${BUG349779_TIMEOUT} -P ${PROJECT_SOURCE_DIR}/cmake/InspectFile.cmake
+		COMMAND
+			${CMAKE_COMMAND} -E copy ${SRC} ${PROJECT_BINARY_DIR}/package/WolframLanguage/${BARE_SRC}
+		DEPENDS
+			${SRC}
+			${PROJECT_SOURCE_DIR}/cmake/InspectFile.cmake
+		VERBATIM
+	)
+	list(APPEND COPIED_PACKAGE_SOURCES ${PROJECT_BINARY_DIR}/package/WolframLanguage/${BARE_SRC})
+endforeach()
+
+add_custom_command(
+	OUTPUT
+		${PROCESSED_SYMBOLS_DUMP}
+	COMMAND
+		${CMAKE_COMMAND} -DSCRIPT=${PROJECT_SOURCE_DIR}/SublimeWolframLanguage/Generate/ProcessSymbols.wl -DSRCDIR=${PROJECT_SOURCE_DIR} -DBUILDDIR=${PROJECT_BINARY_DIR} -DWOLFRAMKERNEL=${WOLFRAMKERNEL} -DBUG349779_TIMEOUT=${BUG349779_TIMEOUT} -P ${PROJECT_SOURCE_DIR}/cmake/WolframScript.cmake
+	DEPENDS
+		${PROJECT_SOURCE_DIR}/SublimeWolframLanguage/Generate/ProcessSymbols.wl
+		${PROJECT_SOURCE_DIR}/cmake/WolframScript.cmake
+)
+
+add_custom_command(
+	OUTPUT
+		${APPLIED_SYNTAX_TEMPLATE}
+		${APPLIED_COMPLETIONS_TEMPLATE}
+	COMMAND
+		${CMAKE_COMMAND} -E copy ${SYNTAX_TEMPLATE_SOURCE} ${COPIED_SYNTAX_TEMPLATE}
+	COMMAND
+		${CMAKE_COMMAND} -E copy ${COMPLETIONS_TEMPLATE_SOURCE} ${COPIED_COMPLETIONS_TEMPLATE}
+	COMMAND
+		${CMAKE_COMMAND} -DSCRIPT=${PROJECT_SOURCE_DIR}/SublimeWolframLanguage/Generate/ApplyTemplates.wl -DSRCDIR=${PROJECT_SOURCE_DIR} -DBUILDDIR=${PROJECT_BINARY_DIR} -DWOLFRAMKERNEL=${WOLFRAMKERNEL} -DBUG349779_TIMEOUT=${BUG349779_TIMEOUT} -P ${PROJECT_SOURCE_DIR}/cmake/WolframScript.cmake
+	DEPENDS
+		${SYNTAX_TEMPLATE_SOURCE}
+		${COMPLETIONS_TEMPLATE_SOURCE}
+		${PROJECT_SOURCE_DIR}/SublimeWolframLanguage/Generate/ApplyTemplates.wl
+		${PROJECT_SOURCE_DIR}/cmake/WolframScript.cmake
+		${PROCESSED_SYMBOLS_DUMP}
+)
+
+
+
+
+
+
+
 set(PACLET_SOURCES
-  ${COPIED_WL_PACLET_SOURCES}
-  ${WL_GENERATE_CREATEPACLETARCHIVE_SOURCES}
+	${COPIED_WL_PACLET_SOURCES}
+	${WL_GENERATE_CREATEPACLETARCHIVE_SOURCES}
 )
 
 if(BUILD_DOCS)
 
 list(APPEND PACLET_SOURCES
-  ${BUILT_DOCUMENTATION}
+	${BUILT_DOCUMENTATION}
 )
 
 endif(BUILD_DOCS)
@@ -206,13 +226,13 @@ endif(BUILD_DOCS)
 #
 
 set(PACKAGE_SOURCES
-  ${COPIED_PACKAGE_SOURCES}
-  ${APPLIED_SYNTAX_TEMPLATE}
-  ${APPLIED_COMPLETIONS_TEMPLATE}
+	${COPIED_PACKAGE_SOURCES}
+	${APPLIED_SYNTAX_TEMPLATE}
+	${APPLIED_COMPLETIONS_TEMPLATE}
 )
 
 add_custom_target(package
-  DEPENDS ${PACKAGE_SOURCES}
+	DEPENDS ${PACKAGE_SOURCES}
 )
 
 
@@ -228,8 +248,8 @@ add_custom_target(package
 if(BUILD_DOCS)
 
 add_custom_target(docs
-  DEPENDS
-    ${BUILT_DOCUMENTATION}
+	DEPENDS
+		${BUILT_DOCUMENTATION}
 )
 
 set(DOCS_APPPATH /Applications/Eclipse.app/Contents/Eclipse/configuration/org.eclipse.osgi/525/0/.cp/MathematicaSource/ CACHE PATH "Path of MathematicaSource inside Workbench installation")
@@ -253,14 +273,14 @@ endif(NOT IS_DIRECTORY ${DOCS_JLINKPATH})
 # build the docs
 #
 add_custom_command(
-  OUTPUT
-    ${BUILT_DOCUMENTATION}
-  DEPENDS
-    ${DOCUMENTATION_SOURCE}
-  COMMAND
-    ant -DmathExe=${WOLFRAMKERNEL} -DappPath=${DOCS_APPPATH} -Djlinkpath=${DOCS_JLINKPATH} -DinputDir=${PROJECT_SOURCE_DIR}/${PACLET}/Documentation/ -DoutputDir=${PROJECT_BINARY_DIR}/paclet/${PACLET}/Documentation/ -file ${DOCS_APPPATH}/DocumentationBuild/SystemFiles/ant/Build/notebook.xml
-  WORKING_DIRECTORY
-    ${PROJECT_SOURCE_DIR}
+	OUTPUT
+		${BUILT_DOCUMENTATION}
+	DEPENDS
+		${DOCUMENTATION_SOURCE}
+	COMMAND
+		ant -DmathExe=${WOLFRAMKERNEL} -DappPath=${DOCS_APPPATH} -Djlinkpath=${DOCS_JLINKPATH} -DinputDir=${PROJECT_SOURCE_DIR}/${PACLET}/Documentation/ -DoutputDir=${PROJECT_BINARY_DIR}/paclet/${PACLET}/Documentation/ -file ${DOCS_APPPATH}/DocumentationBuild/SystemFiles/ant/Build/notebook.xml
+	WORKING_DIRECTORY
+		${PROJECT_SOURCE_DIR}
 )
 
 endif(BUILD_DOCS)
@@ -274,22 +294,22 @@ endif(BUILD_DOCS)
 # paclet target
 #
 add_custom_target(paclet
-  DEPENDS ${PROJECT_BINARY_DIR}/paclet/${PACLET}-${PACLET_VERSION}.paclet
+	DEPENDS ${PROJECT_BINARY_DIR}/paclet/${PACLET}-${PACLET_VERSION}.paclet
 )
 
 #
 # Create the paclet archive
 #
 add_custom_command(
-  OUTPUT
-    ${PROJECT_BINARY_DIR}/paclet/${PACLET}-${PACLET_VERSION}.paclet
-  DEPENDS
-    ${PACLET_SOURCES}
-    ${PROJECT_SOURCE_DIR}/${PACLET}/Generate/CreatePacletArchive.wl
-    ${PROJECT_SOURCE_DIR}/cmake/WolframScript.cmake
-  COMMAND
-    ${CMAKE_COMMAND} -DSCRIPT=${PROJECT_SOURCE_DIR}/${PACLET}/Generate/CreatePacletArchive.wl -DSRCDIR=${PROJECT_SOURCE_DIR} -DBUILDDIR=${PROJECT_BINARY_DIR} -DPACLET=${PACLET} -DWOLFRAMKERNEL=${WOLFRAMKERNEL} -DBUG349779_TIMEOUT=${BUG349779_TIMEOUT} -P ${PROJECT_SOURCE_DIR}/cmake/WolframScript.cmake
-  VERBATIM
-  WORKING_DIRECTORY
-    ${PROJECT_SOURCE_DIR}
+	OUTPUT
+		${PROJECT_BINARY_DIR}/paclet/${PACLET}-${PACLET_VERSION}.paclet
+	DEPENDS
+		${PACLET_SOURCES}
+		${PROJECT_SOURCE_DIR}/${PACLET}/Generate/CreatePacletArchive.wl
+		${PROJECT_SOURCE_DIR}/cmake/WolframScript.cmake
+	COMMAND
+		${CMAKE_COMMAND} -DSCRIPT=${PROJECT_SOURCE_DIR}/${PACLET}/Generate/CreatePacletArchive.wl -DSRCDIR=${PROJECT_SOURCE_DIR} -DBUILDDIR=${PROJECT_BINARY_DIR} -DPACLET=${PACLET} -DWOLFRAMKERNEL=${WOLFRAMKERNEL} -DBUG349779_TIMEOUT=${BUG349779_TIMEOUT} -P ${PROJECT_SOURCE_DIR}/cmake/WolframScript.cmake
+	VERBATIM
+	WORKING_DIRECTORY
+		${PROJECT_SOURCE_DIR}
 )
