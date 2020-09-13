@@ -142,6 +142,20 @@ class LspWolframLanguagePlugin(LanguageHandler):
                         sublime.Region(view.text_point(line - 1, index), view.text_point(line - 1, index + 1)),
                         '<span style="color:#888888">' + 'All' + '</span>',
                         sublime.LAYOUT_INLINE)
+                elif c == "e":
+                    view.add_phantom("implicit_tokens",
+                        sublime.Region(view.text_point(line - 1, index), view.text_point(line - 1, index + 1)),
+                        '<span style="color:#888888">' + '\u25a1' + '</span>',
+                        sublime.LAYOUT_INLINE)
+                elif c == "f":
+                    view.add_phantom("implicit_tokens",
+                        sublime.Region(view.text_point(line - 1, index), view.text_point(line - 1, index + 1)),
+                        '<span style="color:#888888">' + '\u25a1' + '</span>',
+                        sublime.LAYOUT_INLINE)
+                    view.add_phantom("implicit_tokens",
+                        sublime.Region(view.text_point(line - 1, index), view.text_point(line - 1, index + 1)),
+                        '<span style="color:#888888">' + '\xd7' + '</span>',
+                        sublime.LAYOUT_INLINE)
                 elif c == "y":
                     view.add_phantom("implicit_tokens",
                         sublime.Region(view.text_point(line - 1, index), view.text_point(line - 1, index + 1)),
