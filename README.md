@@ -11,10 +11,10 @@ Sublime Text 3 support for the [Wolfram Language](https://en.wikipedia.org/wiki/
 
 Sublime-WolframLanguage depends on the CodeParser, CodeInspector, CodeFormatter, and LSPServer paclets. Make sure that the paclets can be found on your system:
 ```
-In[1]:= Needs["CodeParser`"]
-      Needs["CodeInspector`"]
-      Needs["CodeFormatter`"]
-      Needs["LSPServer`"]
+Needs["CodeParser`"]
+Needs["CodeInspector`"]
+Needs["CodeFormatter`"]
+Needs["LSPServer`"]
 ```
 
 [CodeParser on github.com](https://github.com/<<TODO_placeholder_for_actual_link>>)
@@ -24,15 +24,10 @@ In[1]:= Needs["CodeParser`"]
 
 Install LSPServer and dependencies from the CodeTools paclet server:
 ```
-In[1]:= PacletUpdate["CodeParser", "Site" -> "<<TODO_placeholder_for_actual_link>>", "UpdateSites" -> True]
-      PacletUpdate["CodeInspector", "Site" -> "<<TODO_placeholder_for_actual_link>>", "UpdateSites" -> True]
-      PacletUpdate["CodeFormatter", "Site" -> "<<TODO_placeholder_for_actual_link>>", "UpdateSites" -> True]
-      PacletUpdate["LSPServer", "Site" -> "<<TODO_placeholder_for_actual_link>>", "UpdateSites" -> True]
-
-Out[1]= PacletObject[CodeParser, 1.0, <>]
-Out[2]= PacletObject[CodeInspector, 1.0, <>]
-Out[3]= PacletObject[CodeFormatter, 1.0, <>]
-Out[4]= PacletObject[LSPServer, 1.0, <>]
+PacletUpdate["CodeParser", "Site" -> "<<TODO_placeholder_for_actual_link>>", "UpdateSites" -> True]
+PacletUpdate["CodeInspector", "Site" -> "<<TODO_placeholder_for_actual_link>>", "UpdateSites" -> True]
+PacletUpdate["CodeFormatter", "Site" -> "<<TODO_placeholder_for_actual_link>>", "UpdateSites" -> True]
+PacletUpdate["LSPServer", "Site" -> "<<TODO_placeholder_for_actual_link>>", "UpdateSites" -> True]
 ```
 
 If you haven't already, [install Package Control](https://packagecontrol.io/installation), then select `WolframLanguage` from the `Package Control: Install Package` dropdown list in the Command Palette.
