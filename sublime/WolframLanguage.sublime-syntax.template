@@ -11,11 +11,11 @@
 name: WolframLanguage
 
 file_extensions:
-  - m
   - wl
+  - m
   - wls
-  - mt
   - wlt
+  - mt
 
 scope: source.wolfram
 
