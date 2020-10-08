@@ -1,4 +1,4 @@
-BeginPackage["SublimeWolframLanguage`Generate`ProcessSymbols`"]
+BeginPackage["LSPInfra`Generate`ProcessSymbols`"]
 
 Begin["`Private`"]
 
@@ -21,7 +21,7 @@ If[!DirectoryQ[buildDir],
 
 
 
-SublimeWolframLanguage`Generate`$constants =
+LSPInfra`Generate`$constants =
 {
 
 "\\[FormalA]", "\\[FormalB]", "\\[FormalC]", "\\[FormalD]", "\\[FormalE]",
@@ -189,9 +189,9 @@ Module[{names, documentedSymbols, allSymbols, allASCIISymbols, obsoleteNames,
 
   Print["There are ", Length[documentedSymbols], " documented symbols in System`. (there are also ", Length[Complement[documentedSymbols, allASCIISymbols]], " documented symbols not in System`)"];
 
-  SublimeWolframLanguage`Generate`$undocumentedSymbols = Complement[allASCIISymbols, documentedSymbols];
+  LSPInfra`Generate`$undocumentedSymbols = Complement[allASCIISymbols, documentedSymbols];
 
-  Print["There are ", Length[SublimeWolframLanguage`Generate`$undocumentedSymbols], " undocumented symbols in System`."];
+  Print["There are ", Length[LSPInfra`Generate`$undocumentedSymbols], " undocumented symbols in System`."];
 
   Print["scanning Obsolete symbols... \[WatchIcon]"];
 
@@ -209,12 +209,12 @@ Module[{names, documentedSymbols, allSymbols, allASCIISymbols, obsoleteNames,
 
   obsoleteNames = Select[names, FindList[#, obsoleteString, 100] != {}&];
 
-  SublimeWolframLanguage`Generate`$obsoleteSymbols = StringDrop[#, -3]& /@ obsoleteNames;
+  LSPInfra`Generate`$obsoleteSymbols = StringDrop[#, -3]& /@ obsoleteNames;
 
-  Print["There are ", Length[SublimeWolframLanguage`Generate`$obsoleteSymbols], " obsolete symbols in System`."];
+  Print["There are ", Length[LSPInfra`Generate`$obsoleteSymbols], " obsolete symbols in System`."];
 
-  If[SublimeWolframLanguage`Generate`$obsoleteSymbols == {},
-    SublimeWolframLanguage`Generate`$obsoleteSymbols = {"ObsoletePlaceholderXXX"}
+  If[LSPInfra`Generate`$obsoleteSymbols == {},
+    LSPInfra`Generate`$obsoleteSymbols = {"ObsoletePlaceholderXXX"}
   ];
 
   Print["scanning Experimental symbols... \[WatchIcon]"];
@@ -232,19 +232,19 @@ Module[{names, documentedSymbols, allSymbols, allASCIISymbols, obsoleteNames,
   *)
   experimentalNames = Select[names, FindList[#, experimentalString, 1000] != {}&];
 
-  SublimeWolframLanguage`Generate`$experimentalSymbols = StringDrop[#, -3]& /@ experimentalNames;
+  LSPInfra`Generate`$experimentalSymbols = StringDrop[#, -3]& /@ experimentalNames;
 
-  Print["There are ", Length[SublimeWolframLanguage`Generate`$experimentalSymbols], " experimental symbols in System`."];
+  Print["There are ", Length[LSPInfra`Generate`$experimentalSymbols], " experimental symbols in System`."];
 
-  If[SublimeWolframLanguage`Generate`$experimentalSymbols == {},
-    SublimeWolframLanguage`Generate`$experimentalSymbols = {"ExperimentalPlaceholderXXX"}
+  If[LSPInfra`Generate`$experimentalSymbols == {},
+    LSPInfra`Generate`$experimentalSymbols = {"ExperimentalPlaceholderXXX"}
   ];
 
-  SublimeWolframLanguage`Generate`$builtInFunctions =
+  LSPInfra`Generate`$builtInFunctions =
     Complement[documentedSymbols,
-      SublimeWolframLanguage`Generate`$constants,
-      SublimeWolframLanguage`Generate`$obsoleteSymbols,
-      SublimeWolframLanguage`Generate`$experimentalSymbols];
+      LSPInfra`Generate`$constants,
+      LSPInfra`Generate`$obsoleteSymbols,
+      LSPInfra`Generate`$experimentalSymbols];
 
   ResetDirectory[];
 ]
@@ -255,11 +255,11 @@ Module[{dumpFile},
   dumpFile = FileNameJoin[{buildDir, "processedSymbols.mx"}];
 
   DumpSave[dumpFile, {
-    SublimeWolframLanguage`Generate`$builtInFunctions,
-    SublimeWolframLanguage`Generate`$constants,
-    SublimeWolframLanguage`Generate`$undocumentedSymbols,
-    SublimeWolframLanguage`Generate`$experimentalSymbols,
-    SublimeWolframLanguage`Generate`$obsoleteSymbols}]
+    LSPInfra`Generate`$builtInFunctions,
+    LSPInfra`Generate`$constants,
+    LSPInfra`Generate`$undocumentedSymbols,
+    LSPInfra`Generate`$experimentalSymbols,
+    LSPInfra`Generate`$obsoleteSymbols}]
 ]
 
 setupSystemSymbols[]

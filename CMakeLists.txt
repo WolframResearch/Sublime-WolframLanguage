@@ -69,6 +69,8 @@ set(STATIC_PACKAGE_SOURCES
 	${PROJECT_SOURCE_DIR}/sublime/WolframLanguage.sublime-settings
 )
 
+set(PROCESSED_SYMBOLS_DUMP ${PROJECT_BINARY_DIR}/processedSymbols.mx)
+
 set(SYNTAX_TEMPLATE_SOURCE
 	${PROJECT_SOURCE_DIR}/sublime/WolframLanguage.sublime-syntax.template
 )
@@ -124,7 +126,6 @@ file(MAKE_DIRECTORY
 #
 
 set(COPIED_PACLETINFO ${PROJECT_BINARY_DIR}/paclet/${PACLET}/PacletInfo.m)
-set(PROCESSED_SYMBOLS_DUMP ${PROJECT_BINARY_DIR}/processedSymbols.mx)
 
 set(COPIED_SYNTAX_TEMPLATE ${PROJECT_BINARY_DIR}/WolframLanguage.sublime-syntax.template)
 set(APPLIED_SYNTAX_TEMPLATE ${PROJECT_BINARY_DIR}/package/WolframLanguage/WolframLanguage.sublime-syntax)
@@ -161,6 +162,7 @@ foreach(SRC ${STATIC_PACKAGE_SOURCES})
 	)
 	list(APPEND COPIED_PACKAGE_SOURCES ${PROJECT_BINARY_DIR}/package/WolframLanguage/${BARE_SRC})
 endforeach()
+
 
 add_custom_command(
 	OUTPUT

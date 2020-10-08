@@ -66,12 +66,12 @@ Module[{t, templateFile, appliedFile, apply, longNameFile},
   ];
 
   apply = FileTemplateApply[t, <|
-    "builtInFunctions" -> StringReplace[StringJoin[Riffle[SublimeWolframLanguage`Generate`$builtInFunctions, "|"]], "$" -> "\\$"],
-    "undocumentedFunctions" -> StringReplace[StringJoin[Riffle[SublimeWolframLanguage`Generate`$undocumentedSymbols, "|"]], "$" -> "\\$"],
-    "experimentalFunctions" -> StringReplace[StringJoin[Riffle[SublimeWolframLanguage`Generate`$experimentalSymbols, "|"]], "$" -> "\\$"],
-    "obsoleteFunctions" -> StringReplace[StringJoin[Riffle[SublimeWolframLanguage`Generate`$obsoleteSymbols, "|"]], "$" -> "\\$"],
+    "builtInFunctions" -> StringReplace[StringJoin[Riffle[LSPInfra`Generate`$builtInFunctions, "|"]], "$" -> "\\$"],
+    "undocumentedFunctions" -> StringReplace[StringJoin[Riffle[LSPInfra`Generate`$undocumentedSymbols, "|"]], "$" -> "\\$"],
+    "experimentalFunctions" -> StringReplace[StringJoin[Riffle[LSPInfra`Generate`$experimentalSymbols, "|"]], "$" -> "\\$"],
+    "obsoleteFunctions" -> StringReplace[StringJoin[Riffle[LSPInfra`Generate`$obsoleteSymbols, "|"]], "$" -> "\\$"],
     "longNames" -> StringJoin[Riffle[$longNames, "|"]],
-    "constants" -> StringReplace[StringJoin[Riffle[SublimeWolframLanguage`Generate`$constants, "|"]], {"$" -> "\\$", "[" -> "\\[", "]" -> "\\]","\\" -> "\\\\"}]
+    "constants" -> StringReplace[StringJoin[Riffle[LSPInfra`Generate`$constants, "|"]], {"$" -> "\\$", "[" -> "\\[", "]" -> "\\]","\\" -> "\\\\"}]
     |>, appliedFile];
 
   Print[apply];
@@ -93,7 +93,7 @@ Module[{t, templateFile, appliedFile, apply, completions},
     Quit[1]
   ];
 
-  completions = SublimeWolframLanguage`Generate`$builtInFunctions ~Join~ SublimeWolframLanguage`Generate`$constants;
+  completions = LSPInfra`Generate`$builtInFunctions ~Join~ LSPInfra`Generate`$constants;
 
   apply = FileTemplateApply[t, <|
     "builtInFunctions" -> StringReplace[StringJoin[Riffle[{"    \"", #, "\""}& /@ completions, ",\n"]], {"$" -> "\\\\$", "\\" -> "\\\\\\\\"}]
