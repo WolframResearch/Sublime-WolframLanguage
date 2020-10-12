@@ -292,6 +292,8 @@ contexts:
       scope: keyword.operator.SameQ.wolfram
     - match: (?:=!=|\.\.\.|//\.|@@@|<->|//@)
       scope: keyword.operator.wolfram
+    - match: (?:\|->)
+      scope: keyword.operator.Function.wolfram
     # 2 character arithmetic
     - match: (?:--|\+\+)
       scope: keyword.operator.arithmetic.wolfram
@@ -313,6 +315,8 @@ contexts:
       scope: keyword.operator.assignment.TimesBy.wolfram
     - match: (?:-=)
       scope: keyword.operator.assignment.SubtractFrom.wolfram
+    - match: (?:@=)
+      scope: keyword.operator.assignment.ApplyTo.wolfram
     # could be TagSet, TagSetDelayed, or TagUnset, so do not specify
     - match: (?:/:)
       scope: keyword.operator.assignment.Tag.wolfram
