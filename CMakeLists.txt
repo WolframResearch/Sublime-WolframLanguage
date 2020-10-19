@@ -77,14 +77,9 @@ set(COMPLETIONS_TEMPLATE_SOURCE
 	${PROJECT_SOURCE_DIR}/sublime/WolframLanguage.sublime-completions.template
 )
 
-set(WL_GENERATE_CREATEPACLETARCHIVE_SOURCES
-	${PROJECT_SOURCE_DIR}/${PACLET}/Generate/CreatePacletArchive.wl
-)
-
 set(PACLETINFO_SOURCE
 	${PROJECT_SOURCE_DIR}/${PACLET}/PacletInfo.m
 )
-
 
 
 
@@ -148,6 +143,10 @@ foreach(SRC ${STATIC_PACKAGE_SOURCES})
 endforeach()
 
 
+#
+# generated srcs
+#
+
 add_custom_command(
 	OUTPUT
 		${PROCESSED_SYMBOLS_DUMP}
@@ -156,6 +155,9 @@ add_custom_command(
 	DEPENDS
 		${PROJECT_SOURCE_DIR}/SublimeWolframLanguage/Generate/ProcessSymbols.wl
 		${PROJECT_SOURCE_DIR}/cmake/WolframScript.cmake
+	VERBATIM
+	WORKING_DIRECTORY
+		${PROJECT_SOURCE_DIR}
 )
 
 add_custom_command(
@@ -174,18 +176,12 @@ add_custom_command(
 		${PROJECT_SOURCE_DIR}/SublimeWolframLanguage/Generate/ApplyTemplates.wl
 		${PROJECT_SOURCE_DIR}/cmake/WolframScript.cmake
 		${PROCESSED_SYMBOLS_DUMP}
+	VERBATIM
+	WORKING_DIRECTORY
+		${PROJECT_SOURCE_DIR}
 )
 
 
-
-
-
-
-
-set(PACLET_SOURCES
-	${COPIED_WL_PACLET_SOURCES}
-	${WL_GENERATE_CREATEPACLETARCHIVE_SOURCES}
-)
 
 #
 # package target
@@ -198,35 +194,19 @@ set(PACKAGE_SOURCES
 )
 
 add_custom_target(package
-	DEPENDS ${PACKAGE_SOURCES}
+	DEPENDS
+		${PACKAGE_SOURCES}
 )
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
 #
 # paclet target
 #
+
+set(PACLET_SOURCES
+	${COPIED_WL_PACLET_SOURCES}
+)
 
 if(LOCAL_BUILD)
 set(PACLET_OUTPUT ${PROJECT_BINARY_DIR}/paclet/${PACLET}-${LOCAL_BUILD_VERSION}.paclet)
@@ -255,3 +235,6 @@ add_custom_command(
 	WORKING_DIRECTORY
 		${PROJECT_SOURCE_DIR}
 )
+
+
+

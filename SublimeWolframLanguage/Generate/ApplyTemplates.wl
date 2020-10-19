@@ -2,37 +2,7 @@ BeginPackage["SublimeWolframLanguage`Generate`ApplyTemplates`"]
 
 Begin["`Private`"]
 
-
-Print["Applying Templates..."]
-
-srcDirFlagPosition = FirstPosition[$CommandLine, "-srcDir"]
-
-If[MissingQ[srcDirFlagPosition],
-  Print["Cannot proceed; Unsupported src directory"];
-  Quit[1]
-]
-
-srcDir = $CommandLine[[srcDirFlagPosition[[1]] + 1]]
-
-If[!DirectoryQ[srcDir],
-  Print["Cannot proceed; Unsupported src directory"];
-  Quit[1]
-]
-
-buildDirFlagPosition = FirstPosition[$CommandLine, "-buildDir"]
-
-If[MissingQ[buildDirFlagPosition],
-  Print["Cannot proceed; Unsupported build directory"];
-  Quit[1]
-]
-
-buildDir = $CommandLine[[buildDirFlagPosition[[1]] + 1]]
-
-If[!DirectoryQ[buildDir],
-  Print["Cannot proceed; Unsupported build directory"];
-  Quit[1]
-]
-
+Needs["SublimeWolframLanguage`Generate`GenerateSources`"]
 
 
 getSystemSymbols[] :=
@@ -103,13 +73,22 @@ Module[{t, templateFile, appliedFile, apply, completions},
 
 ]]
 
-getSystemSymbols[]
+generate[] := (
 
-buildSyntax[]
+  Print["Applying Templates..."];
 
-buildCompletions[]
+  getSystemSymbols[];
 
-Print["Done Applying Templates"]
+  buildSyntax[];
+
+  buildCompletions[];
+
+  Print["Done Applying Templates"]
+)
+
+If[script === $InputFileName,
+generate[]
+]
 
 End[]
 
