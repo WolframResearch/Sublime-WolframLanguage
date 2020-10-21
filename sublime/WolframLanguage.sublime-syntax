@@ -361,15 +361,15 @@ contexts:
   symbols:
     # recognized System` qualified symbols
     - match: System`{{builtInFunctions}}{{symbolEndBoundary}}
-      scope: variable.function.builtin.wolfram
+      scope: support.function.builtin.wolfram
     - match: System`{{constants}}{{symbolEndBoundary}}
       scope: constant.language.wolfram
     - match: System`{{obsoleteFunctions}}{{symbolEndBoundary}}
       scope: invalid.deprecated.wolfram
     - match: System`{{undocumentedFunctions}}{{symbolEndBoundary}}
-      scope: variable.function.undocumented.wolfram
+      scope: support.function.undocumented.wolfram
     - match: System`{{experimentalFunctions}}{{symbolEndBoundary}}
-      scope: variable.function.experimental.wolfram
+      scope: support.function.experimental.wolfram
 
     # all other unrecognized System` symbols
     - match: System`{{symbolSegment}}{{symbolEndBoundary}}
@@ -391,15 +391,15 @@ contexts:
 
     # System` unqualified symbols
     - match: '{{builtInFunctions}}{{symbolEndBoundary}}'
-      scope: variable.function.builtin.wolfram
+      scope: support.function.builtin.wolfram
     - match: '{{constants}}{{symbolEndBoundary}}'
       scope: constant.language.wolfram
     - match: '{{obsoleteFunctions}}{{symbolEndBoundary}}'
       scope: invalid.deprecated.wolfram
     - match: '{{undocumentedFunctions}}{{symbolEndBoundary}}'
-      scope: variable.function.undocumented.wolfram
+      scope: support.function.undocumented.wolfram
     - match: '{{experimentalFunctions}}{{symbolEndBoundary}}'
-      scope: variable.function.experimental.wolfram
+      scope: support.function.experimental.wolfram
 
     # all other unqualified symbols
     - match: '{{symbolSegment}}'
