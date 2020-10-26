@@ -182,19 +182,19 @@
   URLFetch
 (*^^^^^^^^ invalid.deprecated.wolfram *)
   DiskBox
-(*^^^^^^^ variable.function.undocumented.wolfram *)
-  BaseEncode
-(*^^^^^^^^^^ variable.function.experimental.wolfram *)
+(*^^^^^^^ support.function.undocumented.wolfram *)
+  ActiveClassification
+(*^^^^^^^^^^ support.function.experimental.wolfram *)
 
   Plus
-(*^^^^ variable.function *)
+(*^^^^ support.function *)
   System`Plus
-(*^^^^^^^^^^^ variable.function *)
+(*^^^^^^^^^^^ support.function *)
 
   Image[Red, Interleaving -> True]
-(*^^^^^ variable.function.builtin.wolfram *)
+(*^^^^^ support.function.builtin.wolfram *)
 (*      ^^^ constant.language.wolfram *)
-(*           ^^^^^^^^^^^^ variable.function.builtin.wolfram *)
+(*           ^^^^^^^^^^^^ support.function.builtin.wolfram *)
 (*                        ^^ keyword.operator *)
 
   `foo
