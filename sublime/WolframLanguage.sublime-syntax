@@ -136,9 +136,45 @@ contexts:
     - include: strings
 
   numbers:
-    - match: 16\^\^\h+
+    - match: '16\^\^{{hexadecimal}}{{accuracy}}{{exponent}}'
       scope: constant.numeric.wolfram
-    - match: (?:\d+\.?|\.\d)\d*\`{0,2}
+    - match: '16\^\^{{hexadecimal}}{{accuracy}}\*\^'
+      scope: invalid.illegal
+    - match: '16\^\^{{hexadecimal}}{{accuracy}}'
+      scope: constant.numeric.wolfram
+    - match: '16\^\^{{hexadecimal}}``'
+      scope: invalid.illegal
+    - match: '16\^\^{{hexadecimal}}{{precision}}{{exponent}}'
+      scope: constant.numeric.wolfram
+    - match: '16\^\^{{hexadecimal}}{{precision}}\*\^'
+      scope: invalid.illegal
+    - match: '16\^\^{{hexadecimal}}{{precision}}'
+      scope: constant.numeric.wolfram
+    - match: '16\^\^{{hexadecimal}}{{exponent}}'
+      scope: constant.numeric.wolfram
+    - match: '16\^\^{{hexadecimal}}\*\^'
+      scope: invalid.illegal
+    - match: '16\^\^{{hexadecimal}}'
+      scope: constant.numeric.wolfram
+    - match: '{{decimal}}{{accuracy}}{{exponent}}'
+      scope: constant.numeric.wolfram
+    - match: '{{decimal}}{{accuracy}}\*\^'
+      scope: invalid.illegal
+    - match: '{{decimal}}{{accuracy}}'
+      scope: constant.numeric.wolfram
+    - match: '{{decimal}}``'
+      scope: invalid.illegal
+    - match: '{{decimal}}{{precision}}{{exponent}}'
+      scope: constant.numeric.wolfram
+    - match: '{{decimal}}{{precision}}\*\^'
+      scope: invalid.illegal
+    - match: '{{decimal}}{{precision}}'
+      scope: constant.numeric.wolfram
+    - match: '{{decimal}}{{exponent}}'
+      scope: constant.numeric.wolfram
+    - match: '{{decimal}}\*\^'
+      scope: invalid.illegal
+    - match: '{{decimal}}'
       scope: constant.numeric.wolfram
 
   strings:

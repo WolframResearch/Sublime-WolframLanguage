@@ -20,6 +20,20 @@
 (* ^^^^^^ constant.numeric *)
    11.11`11.11
 (* ^^^^^^^^^^^ constant.numeric *)
+   11.11``123
+(* ^^^^^^^^^^ constant.numeric *)
+   11.11``
+(* ^^^^^^^ invalid.illegal *)
+   11.11*^23
+(* ^^^^^^^^^ constant.numeric *)
+   11.11*^
+(* ^^^^^^^ invalid.illegal *)
+   123..
+(* ^^^ constant.numeric *)
+(*    ^^ keyword.operator *)
+   123...
+(* ^^^ constant.numeric *)
+(*    ^^^ keyword.operator *)
 
 
 (* LANGUAGE CONSTANTS *)
