@@ -238,6 +238,8 @@ contexts:
       scope: keyword.operator.wolfram
     - match: (?:\|->)
       scope: keyword.operator.Function.wolfram
+    - match: (?://=)
+      scope: keyword.operator.assignment.ApplyTo.wolfram
     - match: (?:--|\+\+)
       scope: keyword.operator.arithmetic.wolfram
     - match: (?:\|\||&&)
@@ -256,8 +258,6 @@ contexts:
       scope: keyword.operator.assignment.TimesBy.wolfram
     - match: (?:-=)
       scope: keyword.operator.assignment.SubtractFrom.wolfram
-    - match: (?:@=)
-      scope: keyword.operator.assignment.ApplyTo.wolfram
     - match: (?:/:)
       scope: keyword.operator.assignment.Tag.wolfram
     - match: (?:;;)$
