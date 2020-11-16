@@ -184,7 +184,7 @@
   DiskBox
 (*^^^^^^^ support.function.undocumented.wolfram *)
   ActiveClassification
-(*^^^^^^^^^^ support.function.experimental.wolfram *)
+(*^^^^^^^^^^^^^^^^^^^^ support.function.experimental.wolfram *)
 
   Plus
 (*^^^^ support.function *)
@@ -225,7 +225,9 @@
 
   "this`is`a`context"
 (*^ punctuation.definition.string.begin *)
-(* ^^^^^^^^^^^^^^^^^ string.quoted.double.wolfram*)
+(* ^^^^^^^^^^^^^^^^^ string.quoted.double.wolfram *)
+
+
 
 
 (* COMMENTS *)
@@ -241,9 +243,9 @@
 (* BRACKETS *)
 
   <|   |>  foo
-(*^^ meta.association.wolfram punctuation.section.association.begin.wolfram  *)
-(*   ^ meta.association.wolfram  *)
-(*     ^^ meta.association.wolfram punctuation.section.association.end.wolfram *)
+(*^^ meta.associations.wolfram punctuation.section.associations.begin.wolfram  *)
+(*   ^ meta.associations.wolfram  *)
+(*     ^^ meta.associations.wolfram punctuation.section.associations.end.wolfram *)
 (*         ^^^ source.wolfram variable.other *)
 
   [ ]
@@ -353,6 +355,23 @@
   foo`bar[g[], h[]] := xxx
 (*^^^ entity.name.Context.wolfram *)
 (*    ^^^ entity.name.function.wolfram *)
+
+
+  foo[1, "[", 2] := xxx
+(*^^^ entity.name.function.wolfram *)
+
+  foo[1, "]", 2] := xxx
+(*^^^ entity.name.function.wolfram *)
+
+  foo[1, "]", 2] /; f[] := xxx
+(*^^^ entity.name.function.wolfram *)
+(*                  ^ variable.other.wolfram *)
+
+
+
+
+
+
 
 
 
