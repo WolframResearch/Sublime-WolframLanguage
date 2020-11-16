@@ -140,6 +140,11 @@
 (*    ^^^ keyword.operator.PutAppend.wolfram *)
 (*        ^^^^^ string.quoted.double.wolfram *)
 
+  abc >>> "/a/b/c/d"
+(*^^^ variable.other.wolfram*)
+(*    ^^^ keyword.operator.PutAppend.wolfram *)
+(*        ^^^^^^^^^^ string.quoted.double.wolfram *)
+
   abc >> def
 (*^^^ variable.other.wolfram*)
 (*    ^^ keyword.operator.Put.wolfram *)

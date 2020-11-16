@@ -190,40 +190,36 @@ contexts:
         - match: .
 
   stringifying_operators:
-    - match: (>>>)\s*("\w*")
+    - match: (>>>)(?=\s*")
       captures:
         1: keyword.operator.PutAppend.wolfram
-        2: string.quoted.double.wolfram
     - match: (>>>)\s*(\w+)
       captures:
         1: keyword.operator.PutAppend.wolfram
         2: string.unquoted.wolfram
     - match: '>>>'
       scope: invalid.illegal
-    - match: (::)("[[:alpha:]][[:alnum:]]*")
+    - match: (::)(?=")
       captures:
         1: keyword.operator.MessageName.wolfram
-        2: string.quoted.double.wolfram
     - match: (::)([[:alpha:]][[:alnum:]]*)
       captures:
         1: keyword.operator.MessageName.wolfram
         2: string.unquoted.wolfram
     - match: '::'
       scope: invalid.illegal
-    - match: (<<)\s*("[`[:alpha:]][`[:alnum:]]*")
+    - match: (<<)(?=\s*")
       captures:
         1: keyword.operator.Get.wolfram
-        2: string.quoted.double.wolfram
     - match: (<<)\s*([`[:alpha:]][`[:alnum:]]*)
       captures:
         1: keyword.operator.Get.wolfram
         2: string.unquoted.wolfram
     - match: '<<'
       scope: invalid.illegal
-    - match: (>>)\s*("\w*")
+    - match: (>>)(?=\s*")
       captures:
         1: keyword.operator.Put.wolfram
-        2: string.quoted.double.wolfram
     - match: (>>)\s*(\w+)
       captures:
         1: keyword.operator.Put.wolfram
