@@ -97,6 +97,8 @@ contexts:
   escaped_characters:
     - match: \\[!%&()*+/@^_` ]
       scope: constant.character.escape
+    - match: \\\[{{systemLongNames}}\]
+      scope: constant.character.escape constant.language.wolfram
     - match: \\\[{{longNames}}\]
       scope: constant.character.escape
     - match: \\\[{{symbolSegment}}?\]?

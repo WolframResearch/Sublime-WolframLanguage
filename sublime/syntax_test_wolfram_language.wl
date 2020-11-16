@@ -203,6 +203,9 @@
   `$desktopCacheBase
 (*^^^^^^^^^^^^^^^^^^ variable.other *)
 
+  \[FormalX]
+(*^^^^^^^^^^ constant.character.escape constant.language.wolfram *)
+
   System`\[FormalX]
 (*^^^^^^^^^^^^^^^^^ constant.language.wolfram *)
 
