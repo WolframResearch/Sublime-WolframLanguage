@@ -103,6 +103,8 @@ contexts:
       scope: constant.character.escape
     - match: \\\[{{symbolSegment}}?\]?
       scope: invalid.illegal.BadLongName
+    - match: \\{{symbolSegment}}\]
+      scope: invalid.illegal.BadLongName
     - match: \\:\h{4}
       scope: constant.character.escape
     - match: \\:\h{1,3}

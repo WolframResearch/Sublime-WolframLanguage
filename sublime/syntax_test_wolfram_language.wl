@@ -231,6 +231,14 @@
 (* ^^^^^^^^^^^^^^^^^ string.quoted.double.wolfram *)
 
 
+  "\[Alpha]"
+(*^ punctuation.definition.string.begin *)
+(* ^^^^^^^^ constant.character.escape *)
+(* ^^^^^^^^^ string.quoted.double.wolfram *)
+
+
+
+
 
 
 (* COMMENTS *)
@@ -418,6 +426,16 @@ Regression Tests
 (* ^ string.quoted.double.wolfram punctuation.definition.string.begin *)
 (*  ^^^^^^ invalid.illegal.BadLongName *)
 (*        ^ string.quoted.double.wolfram punctuation.definition.string.end *)
+
+   "\Alpa]"
+(* ^ string.quoted.double.wolfram punctuation.definition.string.begin *)
+(*  ^^^^^^ invalid.illegal.BadLongName *)
+(*        ^ string.quoted.double.wolfram punctuation.definition.string.end *)
+
+   "\Alpha]"
+(* ^ string.quoted.double.wolfram punctuation.definition.string.begin *)
+(*  ^^^^^^^ invalid.illegal.BadLongName *)
+(*         ^ string.quoted.double.wolfram punctuation.definition.string.end *)
 
    "\["
 (* ^ string.quoted.double.wolfram punctuation.definition.string.begin *)
