@@ -42,7 +42,7 @@ class LspWolframLanguagePlugin(LanguageHandler):
             for arg in command
         )
 
-        initialization_options = settings.get("lsp_server_initialization_options")
+        initialization_options = settings.get("lsp_server_initialization_options", {})
 
         config = {
             "languageId": "wolfram",
