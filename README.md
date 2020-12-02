@@ -20,14 +20,14 @@ Needs["LSPServer`"]
 [CodeParser on github.com](https://github.com/<<TODO_placeholder_for_actual_link>>)
 [CodeInspector on github.com](https://github.com/<<TODO_placeholder_for_actual_link>>)
 [CodeFormatter on github.com](https://github.com/<<TODO_placeholder_for_actual_link>>)
-[CodeParser on github.com](https://github.com/<<TODO_placeholder_for_actual_link>>)
+[LSPServer on github.com](https://github.com/<<TODO_placeholder_for_actual_link>>)
 
 Install LSPServer and dependencies from the CodeTools paclet server:
 ```
-PacletUpdate["CodeParser", "Site" -> "<<TODO_placeholder_for_actual_link>>", "UpdateSites" -> True]
-PacletUpdate["CodeInspector", "Site" -> "<<TODO_placeholder_for_actual_link>>", "UpdateSites" -> True]
-PacletUpdate["CodeFormatter", "Site" -> "<<TODO_placeholder_for_actual_link>>", "UpdateSites" -> True]
-PacletUpdate["LSPServer", "Site" -> "<<TODO_placeholder_for_actual_link>>", "UpdateSites" -> True]
+PacletInstall["CodeParser"]
+PacletInstall["CodeInspector"]
+PacletInstall["CodeFormatter"]
+PacletInstall["LSPServer"]
 ```
 
 If you haven't already, [install Package Control](https://packagecontrol.io/installation), then select `WolframLanguage` from the `Package Control: Install Package` dropdown list in the Command Palette.
