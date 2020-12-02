@@ -5,6 +5,7 @@ import sublime_plugin
 import threading
 import subprocess
 import sys
+import time
 
 import webbrowser
 
@@ -76,19 +77,60 @@ class LspWolframLanguagePlugin(LanguageHandler):
         #
         kernel = settings.get("kernel")
 
+        command[0] = kernel
+        
         base = os.path.basename(kernel)
         if not base.lower().startswith("wolframkernel"):
             sublime.message_dialog("Command for Wolfram Language Server does not start with 'WolframKernel': " + kernel)
 
+        # start timer thread for checking that kernel initialized properly
+        timer = threading.Thread(target=self.kernel_initialization_check_function, args=(command,))
+
+        self.kernel_initialized = False
+
+        timer.start()
+
         return True
 
     def on_initialized(self, client) -> None:
+
+        self.kernel_initialized = True
 
         self._client = client
 
         client.on_notification("textDocument/publishImplicitTokens", self.on_implicit_tokens)
 
         client.on_notification("textDocument/publishHTMLSnippet", self.on_html_snippet)
+
+    def kernel_initialization_check_function(self, command):
+        
+        time.sleep(10)
+        
+        if self.kernel_initialized:
+            return
+
+        # kill kernel, if possible
+
+        msg = ""
+        msg += "Language Server kernel did not initialize properly after 10 seconds.\n"
+        msg += "\n"
+        msg += "This is the command that was used:\n"
+        msg += str(command) + "\n"
+        msg += "\n"
+        msg += "To diagnose the problem, run this in a notebook:\n"
+        msg += "\n"
+        msg += "Needs[\"LSPServer`\"]\n"
+        msg += "LSPServer`RunServerDiagnostic[{"
+        for a in command[:-1]:
+            msg += "\"" + a.replace("\"", "\\\"") + "\""
+            msg += ", "
+        msg += "\"" + command[-1].replace("\"", "\\\"") + "\""
+        msg += "}]\n"
+        msg += "\n"
+        msg += "Fix any problems then restart and try again."
+
+        sublime.message_dialog(msg)
+
 
     def on_implicit_tokens(self, params):
 
