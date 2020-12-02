@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      1536,         52]
-NotebookOptionsPosition[      1038,         34]
-NotebookOutlinePosition[      1458,         51]
-CellTagsIndexPosition[      1415,         48]
+NotebookDataLength[      2767,         81]
+NotebookOptionsPosition[      1955,         58]
+NotebookOutlinePosition[      2379,         75]
+CellTagsIndexPosition[      2336,         72]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -29,13 +29,37 @@ rm -rf /Users/brenton/Library/Application\\ Support/Sublime\\ Text\\ \
 3/Packages/WolframLanguage
 cp -rf package/WolframLanguage /Users/brenton/Library/Application\\ \
 Support/Sublime\\ Text\\ 3/Packages/\
-\>", "Program",ExpressionUUID->"aa1431f8-d31b-47e0-b9e8-91f361420260"]
+\>", "Program",ExpressionUUID->"aa1431f8-d31b-47e0-b9e8-91f361420260"],
+
+Cell[BoxData[
+ RowBox[{"DeleteDirectory", "[", 
+  RowBox[{
+  "\"\</Users/brenton/Library/Application Support/Sublime Text \
+3/Packages/WolframLanguage\>\"", ",", 
+   RowBox[{"DeleteContents", "\[Rule]", "True"}]}], "]"}]], "Input",
+ CellLabel->"In[35]:=",ExpressionUUID->"98dfc068-cd54-47ee-82f1-0eed9590b558"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"CopyDirectory", "[", 
+  RowBox[{
+  "\"\</Users/brenton/development/stash/COD/sublime-wolframlanguage/build/\
+package/WolframLanguage/\>\"", ",", 
+   "\"\</Users/brenton/Library/Application Support/Sublime Text \
+3/Packages/WolframLanguage\>\""}], "]"}]], "Input",
+ CellLabel->"In[36]:=",ExpressionUUID->"9460faab-a54f-46a5-800b-56dfb46b1b81"],
+
+Cell[BoxData["\<\"/Users/brenton/Library/Application Support/Sublime Text \
+3/Packages/WolframLanguage\"\>"], "Output",
+ CellLabel->"Out[36]=",ExpressionUUID->"590fc35b-4d66-4f33-9014-e7dd42be37c7"]
+}, Open  ]]
 }, Open  ]]
 },
 WindowSize->{808, 751},
 WindowMargins->{{4, Automatic}, {Automatic, 4}},
 TrackCellChangeTimes->False,
-FrontEndVersion->"12.2 for Mac OS X x86 (64-bit) (July 12, 2020)",
+FrontEndVersion->"12.2 for Mac OS X x86 (64-bit) (November 28, 2020)",
 StyleDefinitions->"Default.nb",
 ExpressionUUID->"f72eb5b2-ff87-4d2a-9729-3562866f1e6e"
 ]
@@ -52,7 +76,12 @@ CellTagsIndex->{}
 Notebook[{
 Cell[CellGroupData[{
 Cell[580, 22, 80, 0, 67, "Section",ExpressionUUID->"288050c6-f636-4921-afdd-0707941aab2b"],
-Cell[663, 24, 359, 7, 118, "Program",ExpressionUUID->"aa1431f8-d31b-47e0-b9e8-91f361420260"]
+Cell[663, 24, 359, 7, 118, "Program",ExpressionUUID->"aa1431f8-d31b-47e0-b9e8-91f361420260"],
+Cell[1025, 33, 310, 6, 73, "Input",ExpressionUUID->"98dfc068-cd54-47ee-82f1-0eed9590b558"],
+Cell[CellGroupData[{
+Cell[1360, 43, 366, 7, 94, "Input",ExpressionUUID->"9460faab-a54f-46a5-800b-56dfb46b1b81"],
+Cell[1729, 52, 198, 2, 34, "Output",ExpressionUUID->"590fc35b-4d66-4f33-9014-e7dd42be37c7"]
+}, Open  ]]
 }, Open  ]]
 }
 ]
