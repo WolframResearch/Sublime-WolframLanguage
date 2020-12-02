@@ -24,13 +24,6 @@
     "Needs[\"LSPServer`\"];LSPServer`StartServer[]"
   ],
 
-  "lsp_server_initialization_options": {
-    "implicitTokens": false,
-    "bracketMatcher": false,
-    "htmlSnippets": false
-  }
-  ,
-
   "extensions":
   [
     "wl",
