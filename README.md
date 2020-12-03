@@ -82,6 +82,25 @@ There are other settings such as `lsp_server_command` that specifies the command
 }
 ```
 
+#### Experimental Settings
+
+You can enable experimental settings. These are not supported.
+
+`implicitTokens` controls the display of implicit tokens such as `Null` after `;` and implicit Times character `×`.
+
+`bracketMatcher` controls the experimental ML-based bracket matching recommendation system and UI.
+
+Note: `bracketMatcher` requires the `ML4Code` package to be installed.
+
+```
+{
+  "lsp_server_initialization_options": {
+      "implicitTokens": true,
+      "bracketMatcher": true
+    }
+}
+```
+
 
 
 
