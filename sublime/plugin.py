@@ -155,87 +155,22 @@ class LspWolframLanguagePlugin(LanguageHandler):
 
         view.erase_phantoms("implicit_tokens")
 
-        lines = params["lines"]
-        for l in lines:
-            line = l["line"]
-            characters = l["characters"]
-
-            joined = "".join(characters)
+        tokens = params["tokens"]
+        for t in tokens:
+            line = t["line"]
+            column = t["column"]
+            c = t["character"]
 
             #
-            # Must replace spaces with &nbsp;
-            # Sublime minihtml does not support <pre>, <code>, etc.
-            # Related issues: https://forum.sublimetext.com/t/does-minihtml-support-the-pre-tag/46267/3
+            # FIXME: Use the same font as the editor
+            # style = font-family: xxx;
             #
-
-            index = 0
-            for c in joined:
-                if c == "x":
-                    view.add_phantom("implicit_tokens",
-                        sublime.Region(view.text_point(line - 1, index), view.text_point(line - 1, index + 1)),
-                        '<span style="color:#888888">' + '\xd7' + '</span>',
-                        sublime.LAYOUT_INLINE)
-                elif c == "N":
-                    view.add_phantom("implicit_tokens",
-                        sublime.Region(view.text_point(line - 1, index), view.text_point(line - 1, index + 1)),
-                        '<span style="color:#888888">' + 'Null' + '</span>',
-                        sublime.LAYOUT_INLINE)
-                elif c == "1":
-                    view.add_phantom("implicit_tokens",
-                        sublime.Region(view.text_point(line - 1, index), view.text_point(line - 1, index + 1)),
-                        '<span style="color:#888888">' + '1' + '</span>',
-                        sublime.LAYOUT_INLINE)
-                elif c == "A":
-                    view.add_phantom("implicit_tokens",
-                        sublime.Region(view.text_point(line - 1, index), view.text_point(line - 1, index + 1)),
-                        '<span style="color:#888888">' + 'All' + '</span>',
-                        sublime.LAYOUT_INLINE)
-                elif c == "e":
-                    view.add_phantom("implicit_tokens",
-                        sublime.Region(view.text_point(line - 1, index), view.text_point(line - 1, index + 1)),
-                        '<span style="color:#888888">' + '\u25a1' + '</span>',
-                        sublime.LAYOUT_INLINE)
-                elif c == "f":
-                    view.add_phantom("implicit_tokens",
-                        sublime.Region(view.text_point(line - 1, index), view.text_point(line - 1, index + 1)),
-                        '<span style="color:#888888">' + '\u25a1' + '</span>',
-                        sublime.LAYOUT_INLINE)
-                    view.add_phantom("implicit_tokens",
-                        sublime.Region(view.text_point(line - 1, index), view.text_point(line - 1, index + 1)),
-                        '<span style="color:#888888">' + '\xd7' + '</span>',
-                        sublime.LAYOUT_INLINE)
-                elif c == "y":
-                    view.add_phantom("implicit_tokens",
-                        sublime.Region(view.text_point(line - 1, index), view.text_point(line - 1, index + 1)),
-                        '<span style="color:#888888">' + '\xd7' + '</span>',
-                        sublime.LAYOUT_INLINE)
-                    view.add_phantom("implicit_tokens",
-                        sublime.Region(view.text_point(line - 1, index), view.text_point(line - 1, index + 1)),
-                        '<span style="color:#888888">' + '1' + '</span>',
-                        sublime.LAYOUT_INLINE)
-                elif c == "B":
-                    view.add_phantom("implicit_tokens",
-                        sublime.Region(view.text_point(line - 1, index), view.text_point(line - 1, index + 1)),
-                        '<span style="color:#888888">' + 'All' + '</span>',
-                        sublime.LAYOUT_INLINE)
-                    view.add_phantom("implicit_tokens",
-                        sublime.Region(view.text_point(line - 1, index), view.text_point(line - 1, index + 1)),
-                        '<span style="color:#888888">' + '\xd7' + '</span>',
-                        sublime.LAYOUT_INLINE)
-                elif c == "C":
-                    view.add_phantom("implicit_tokens",
-                        sublime.Region(view.text_point(line - 1, index), view.text_point(line - 1, index + 1)),
-                        '<span style="color:#888888">' + 'All' + '</span>',
-                        sublime.LAYOUT_INLINE)
-                    view.add_phantom("implicit_tokens",
-                        sublime.Region(view.text_point(line - 1, index), view.text_point(line - 1, index + 1)),
-                        '<span style="color:#888888">' + '\xd7' + '</span>',
-                        sublime.LAYOUT_INLINE)
-                    view.add_phantom("implicit_tokens",
-                        sublime.Region(view.text_point(line - 1, index), view.text_point(line - 1, index + 1)),
-                        '<span style="color:#888888">' + '1' + '</span>',
-                        sublime.LAYOUT_INLINE)
-                index = index + 1
+            content = '<span style="color:#888888">' + implicitTokenCharToText(c) + '</span>'
+            
+            view.add_phantom("implicit_tokens",
+                sublime.Region(view.text_point(line - 1, column - 1), view.text_point(line - 1, column - 1)),
+                content,
+                sublime.LAYOUT_INLINE)
 
 
     def on_html_snippet(self, params):
@@ -321,3 +256,27 @@ class WolframLanguageOpenSiteCommand(sublime_plugin.ApplicationCommand):
         """Open the URL."""
 
         webbrowser.open_new_tab(url)
+
+
+def implicitTokenCharToText(c):
+    if c == "x":
+        return "\xd7"
+    elif c == "N":
+        return "Null"
+    elif c == "1":
+        return "1"
+    elif c == "A":
+        return "All"
+    elif c == "e":
+        return "\u25a1"
+    elif c == "f":
+        return "\u25a1\xd7"
+    elif c == "y":
+        return "\xd71"
+    elif c == "B":
+        return "All\xd7"
+    elif c == "C":
+        return "All\xd71"
+    else:
+        return " "
+
