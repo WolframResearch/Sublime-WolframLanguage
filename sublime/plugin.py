@@ -43,7 +43,13 @@ class LspWolframLanguagePlugin(LanguageHandler):
             for arg in command
         )
 
-        initialization_options = settings.get("lsp_server_initialization_options", {})
+        implicitTokens = settings.get("implicitTokens", False)
+        bracketMatcher = settings.get("bracketMatcher", False)
+
+        initialization_options = {
+            "implicitTokens": implicitTokens,
+            "bracketMatcher": bracketMatcher
+        }
 
         config = {
             "languageId": "wolfram",

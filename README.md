@@ -94,10 +94,8 @@ Note: `bracketMatcher` requires the `ML4Code` package to be installed.
 
 ```
 {
-  "lsp_server_initialization_options": {
-      "implicitTokens": true,
-      "bracketMatcher": true
-    }
+  "implicitTokens": true,
+  "bracketMatcher": true
 }
 ```
 
