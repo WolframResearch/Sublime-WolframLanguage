@@ -6,6 +6,7 @@ import threading
 import subprocess
 import sys
 import time
+import mdpopups
 
 import webbrowser
 
@@ -188,8 +189,11 @@ class LspWolframLanguagePlugin(LanguageHandler):
 
         view = active_window.active_view()
 
-        view.erase_phantoms("html_snippet")
-
+        # view.erase_phantoms("html_snippet")
+        mdpopups.erase_phantoms(view, "html_snippet")
+        # view.hide_popup()
+        # mdpopups.hide_popup(view)
+        
         actions = params["actions"]
         for a in actions:
             href = a["href"]
@@ -197,15 +201,21 @@ class LspWolframLanguagePlugin(LanguageHandler):
                 self.hrefMap[href] = a
 
         lines = params["lines"]
+
+        #
+        # there may be multiple lines if in debug mode
+        #
         for l in lines:
             line = l["line"]
             characterCount = l["characterCount"]
             content = l["content"]
 
-            view.add_phantom("html_snippet",
-                sublime.Region(view.text_point(line - 1, 1 - 1), view.text_point(line - 1, characterCount - 1)),
-                content,
-                sublime.LAYOUT_BELOW, self.on_html_snippet_navigate)
+            where = sublime.Region(view.text_point(line - 1, 1 - 1), view.text_point(line - 1, characterCount - 1))
+            
+            # view.add_phantom("html_snippet", where, content, sublime.LAYOUT_BELOW, self.on_html_snippet_navigate)
+            mdpopups.add_phantom(view, "html_snippet", where, content, layout=sublime.LAYOUT_BELOW, on_navigate=self.on_html_snippet_navigate)
+            # view.show_popup(content, location=view.text_point(line - 1, 1 - 1), on_navigate=self.on_html_snippet_navigate)
+            # mdpopups.show_popup(view, content, location=view.text_point(line - 1, 1 - 1), on_navigate=self.on_html_snippet_navigate)
 
     def on_html_snippet_navigate(self, href):
         
@@ -224,6 +234,11 @@ class LspWolframLanguagePlugin(LanguageHandler):
         active_window = sublime.active_window()
 
         view = active_window.active_view()
+
+        # view.erase_phantoms("html_snippet")
+        mdpopups.erase_phantoms(view, "html_snippet")
+        # view.hide_popup()
+        # mdpopups.hide_popup(view)
 
         action = self.hrefMap[href]
 
