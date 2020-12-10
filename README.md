@@ -94,7 +94,7 @@ Note: `bracketMatcher` requires the `ML4Code` package to be installed.
 
 ```
 {
-  "implicitTokens": true,
+  "implicitTokens": ["*", ",", ";;", "?"],
   "bracketMatcher": true
 }
 ```
@@ -176,7 +176,7 @@ LSP > Settings
 
 ### Windows
 
-You may need to double-up quotations marks in the command:
+You may need to double-up quotation marks in the command:
 
 ``"Needs[\"\"LSPServer`\"\"];LSPServer`StartServer[]"``
 

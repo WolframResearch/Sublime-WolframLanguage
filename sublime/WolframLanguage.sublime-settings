@@ -24,6 +24,10 @@
     "Needs[\"LSPServer`\"];LSPServer`StartServer[]"
   ],
 
+  // Experimental settings
+  // "implicitTokens": [],
+  // "bracketMatcher": false,
+
   "extensions":
   [
     "wl",

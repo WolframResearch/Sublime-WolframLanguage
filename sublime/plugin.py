@@ -44,7 +44,7 @@ class LspWolframLanguagePlugin(LanguageHandler):
             for arg in command
         )
 
-        implicitTokens = settings.get("implicitTokens", False)
+        implicitTokens = settings.get("implicitTokens", [])
         bracketMatcher = settings.get("bracketMatcher", False)
 
         initialization_options = {
@@ -294,6 +294,8 @@ def implicitTokenCharToText(c):
         return "All\xd7"
     elif c == "C":
         return "All\xd71"
+    elif c == "D":
+        return "All1"
     else:
         return " "
 
