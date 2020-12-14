@@ -62,18 +62,54 @@ endforeach()
 
 
 
-#
-# package target
-#
-
 set(PACKAGE_SOURCES
 	${COPIED_PACKAGE_SOURCES}
 )
 
+set(PACKAGE_OUTPUT ${PROJECT_BINARY_DIR}/package/WolframLanguage.sublime-package)
+
+
+#
+# package target
+#
+
 add_custom_target(package
 	DEPENDS
-		${PACKAGE_SOURCES}
+		${PACKAGE_OUTPUT}
 )
 
+foreach(SRC ${PACKAGE_SOURCES})
+	file(RELATIVE_PATH REL ${PROJECT_BINARY_DIR}/package/WolframLanguage ${SRC})
+	list(APPEND PACKAGE_REL_SOURCES ${REL})
+endforeach()
 
+add_custom_command(
+	OUTPUT
+		${PACKAGE_OUTPUT}
+	DEPENDS
+		${PACKAGE_SOURCES}
+	COMMAND
+		#
+		# .sublime-package files are just .zip files
+		#
+		# approximately around here:
+		# https://github.com/wbond/package_control/blob/master/package_control/package_manager.py#L927
+		#
+		# is where the zipping happens
+		#
+		${CMAKE_COMMAND} -E tar cf ${PACKAGE_OUTPUT} --format=zip ${PACKAGE_REL_SOURCES}
+	VERBATIM
+	WORKING_DIRECTORY
+		${PROJECT_BINARY_DIR}/package/WolframLanguage
+)
 
+if(EXISTS ${PACKAGE_INSTALL_DIR})
+install(
+	FILES
+		${PACKAGE_OUTPUT}
+	DESTINATION
+		${PACKAGE_INSTALL_DIR}
+)
+else()
+message(STATUS "PACKAGE_INSTALL_DIR does not exist; skipping install: ${PACKAGE_INSTALL_DIR}")
+endif()
