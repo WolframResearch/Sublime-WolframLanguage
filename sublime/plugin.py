@@ -126,7 +126,7 @@ class LspWolframLanguagePlugin(LanguageHandler):
         msg += "This is the command that was used:\n"
         msg += str(command) + "\n"
         msg += "\n"
-        msg += "To diagnose the problem, run this in a notebook:\n"
+        msg += "To help diagnose the problem, run this in a notebook:\n"
         msg += "\n"
         msg += "Needs[\"LSPServer`\"]\n"
         msg += "LSPServer`RunServerDiagnostic[{"
