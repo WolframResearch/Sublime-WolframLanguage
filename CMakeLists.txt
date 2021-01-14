@@ -12,6 +12,13 @@ project(sublime-wolframlanguage
 )
 
 message(STATUS "CMAKE_VERSION: ${CMAKE_VERSION}")
+message(STATUS "PACKAGE_INSTALL_DIR: ${PACKAGE_INSTALL_DIR}")
+
+if(DEFINED PACKAGE_INSTALL_DIR)
+if(NOT EXISTS ${PACKAGE_INSTALL_DIR})
+message(FATAL_ERROR "PACKAGE_INSTALL_DIR is defined but does not exist: ${PACKAGE_INSTALL_DIR}")
+endif()
+endif()
 
 set(STATIC_PACKAGE_SOURCES
 	#
@@ -103,13 +110,11 @@ add_custom_command(
 		${PROJECT_BINARY_DIR}/package/WolframLanguage
 )
 
-if(EXISTS ${PACKAGE_INSTALL_DIR})
+if(DEFINED PACKAGE_INSTALL_DIR)
 install(
 	FILES
 		${PACKAGE_OUTPUT}
 	DESTINATION
 		${PACKAGE_INSTALL_DIR}
 )
-else()
-message(STATUS "PACKAGE_INSTALL_DIR does not exist; skipping install: ${PACKAGE_INSTALL_DIR}")
 endif()
