@@ -1,0 +1,3 @@
+WolframLanguage package has been installed.
+
+https://stash.wolfram.com/projects/COD/repos/sublime-wolframlanguage/browse

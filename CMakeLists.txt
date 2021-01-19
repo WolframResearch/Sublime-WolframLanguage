@@ -25,10 +25,12 @@ set(STATIC_PACKAGE_SOURCES
 	# why still use the older-style .tmPreferences?
 	# https://forum.sublimetext.com/t/toggle-comment-with-a-custom-sublime-syntax/18789
 	#
+	${PROJECT_SOURCE_DIR}/sublime/messages/install.txt
 	${PROJECT_SOURCE_DIR}/sublime/Comments.tmPreferences
 	${PROJECT_SOURCE_DIR}/sublime/Context.sublime-menu
 	${PROJECT_SOURCE_DIR}/sublime/Default.sublime-commands
 	${PROJECT_SOURCE_DIR}/sublime/Main.sublime-menu
+	${PROJECT_SOURCE_DIR}/sublime/messages.json
 	${PROJECT_SOURCE_DIR}/sublime/plugin.py
 	${PROJECT_SOURCE_DIR}/sublime/SymbolListConstants.tmPreferences
 	${PROJECT_SOURCE_DIR}/sublime/syntax_test_wolfram_language.wl
@@ -54,17 +56,17 @@ file(MAKE_DIRECTORY
 #
 
 foreach(SRC ${STATIC_PACKAGE_SOURCES})
-	get_filename_component(BARE_SRC ${SRC} NAME)
+	file(RELATIVE_PATH REL ${PROJECT_SOURCE_DIR}/sublime/ ${SRC})
 	add_custom_command(
 		OUTPUT
-			${PROJECT_BINARY_DIR}/package/WolframLanguage/${BARE_SRC}
+			${PROJECT_BINARY_DIR}/package/WolframLanguage/${REL}
 		COMMAND
-			${CMAKE_COMMAND} -E copy ${SRC} ${PROJECT_BINARY_DIR}/package/WolframLanguage/${BARE_SRC}
+			${CMAKE_COMMAND} -E copy ${SRC} ${PROJECT_BINARY_DIR}/package/WolframLanguage/${REL}
 		DEPENDS
 			${SRC}
 		VERBATIM
 	)
-	list(APPEND COPIED_PACKAGE_SOURCES ${PROJECT_BINARY_DIR}/package/WolframLanguage/${BARE_SRC})
+	list(APPEND COPIED_PACKAGE_SOURCES ${PROJECT_BINARY_DIR}/package/WolframLanguage/${REL})
 endforeach()
 
 
