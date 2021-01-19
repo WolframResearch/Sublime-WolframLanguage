@@ -786,11 +786,11 @@ contexts:
     - match: System`{{symbolSegment}}{{symbolEndBoundary}}
       scope: invalid.illegal.system.wolfram
     - match: '{{symbolSegment}}(?:`{{symbolSegment}})+'
-      scope: variable.other.wolfram
+      scope: symbol.unrecognized.wolfram
     - match: '{{symbolSegment}}`'
       scope: invalid.illegal.wolfram
     - match: '(?:`{{symbolSegment}})+'
-      scope: variable.other.wolfram
+      scope: symbol.unrecognized.wolfram
     - match: '`'
       scope: invalid.illegal.wolfram
     - match: '{{builtInFunctions_A}}{{symbolEndBoundary}}'
@@ -1030,7 +1030,7 @@ contexts:
     - match: '{{experimentalFunctions_Z}}{{symbolEndBoundary}}'
       scope: support.function.experimental.wolfram
     - match: '{{symbolSegment}}'
-      scope: variable.other.wolfram
+      scope: symbol.unrecognized.wolfram
 
   groups:
     - include: linearsyntaxparen_group
