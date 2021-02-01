@@ -55,6 +55,9 @@ file(MAKE_DIRECTORY
 # Copy source files
 #
 
+#
+# static package sources
+#
 foreach(SRC ${STATIC_PACKAGE_SOURCES})
 	file(RELATIVE_PATH REL ${PROJECT_SOURCE_DIR}/sublime/ ${SRC})
 	add_custom_command(
@@ -95,8 +98,6 @@ endforeach()
 add_custom_command(
 	OUTPUT
 		${PACKAGE_OUTPUT}
-	DEPENDS
-		${PACKAGE_SOURCES}
 	COMMAND
 		#
 		# .sublime-package files are just .zip files
@@ -107,6 +108,8 @@ add_custom_command(
 		# is where the zipping happens
 		#
 		${CMAKE_COMMAND} -E tar cf ${PACKAGE_OUTPUT} --format=zip ${PACKAGE_REL_SOURCES}
+	DEPENDS
+		${PACKAGE_SOURCES}
 	VERBATIM
 	WORKING_DIRECTORY
 		${PROJECT_BINARY_DIR}/package/WolframLanguage
