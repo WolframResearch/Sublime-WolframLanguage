@@ -278,6 +278,8 @@ class WolframLanguageOpenSiteCommand(sublime_plugin.ApplicationCommand):
 def implicitTokenCharToText(c):
     if c == "x":
         return "\xd7"
+    if c == "z":
+        return "&nbsp;\xd7"
     elif c == "N":
         return "Null"
     elif c == "1":
