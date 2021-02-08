@@ -121,7 +121,7 @@ class LspWolframLanguagePlugin(LanguageHandler):
         msg = ""
         msg += "Language Server kernel did not initialize properly after 10 seconds.\n"
         msg += "\n"
-        msg += "Ignore this message if Sublime was busy indexing.\n"
+        msg += "Ignore this message if Sublime was busy opening a large file or indexing in the background.\n"
         msg += "\n"
         msg += "This is the command that was used:\n"
         msg += str(command) + "\n"
