@@ -4,7 +4,11 @@
 #
 # Related policies: https://cmake.org/cmake/help/v3.11/policy/CMP0037.html
 #
-cmake_minimum_required(VERSION 3.11)
+#
+# https://cmake.org/cmake/help/latest/release/3.15.html
+# The cmake(1) command gained a new --install option. This may be used after building a project to run installation without using the generated build system or the native build tool.
+#
+cmake_minimum_required(VERSION 3.15)
 
 project(sublime-wolframlanguage
 	LANGUAGES
