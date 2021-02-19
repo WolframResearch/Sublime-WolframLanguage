@@ -478,6 +478,8 @@ contexts:
       scope: keyword.operator.assignment.DivideBy.wolfram
     - match: (?:\+=)
       scope: keyword.operator.assignment.AddTo.wolfram
+    - match: (?:=\s+\.)
+      scope: invalid.whitespace.Unset.wolfram
     - match: (?:=\.)
       scope: keyword.operator.assignment.Unset.wolfram
     - match: (?:\*=)
