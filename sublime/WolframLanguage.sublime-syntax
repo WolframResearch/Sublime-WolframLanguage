@@ -176,9 +176,6 @@ contexts:
 
   main:
     - include: shebang
-    - include: toplevel_constants
-    - include: toplevel_options
-    - include: toplevel_attributes
     - include: simple_toplevel_definitions
     - include: expressions
 
@@ -190,29 +187,9 @@ contexts:
       scope: comment.line.shebang.wolfram
       captures:
         1: punctuation.definition.comment.wolfram
-        
-  toplevel_constants:
-    - match: '^\s*(`?(?:{{symbolSegment}}`)*)({{symbolSegment}})(?=\s*(?::=|=))'
-      captures:
-        1: entity.name.Context.wolfram
-        2: entity.name.constant.wolfram
-
-  toplevel_options:
-    - match: '^\s*(Options)\s*\[\s*(`?(?:{{symbolSegment}}`)*)({{symbolSegment}})\s*\](?=\s*(:=|=))'
-      captures:
-        1: variable.function.builtin.wolfram
-        2: entity.name.Context.wolfram
-        3: entity.other.Options.wolfram
-
-  toplevel_attributes:
-    - match: '^\s*(Attributes)\s*\[\s*(`?(?:{{symbolSegment}}`)*)({{symbolSegment}})\s*\](?=\s*(:=|=))'
-      captures:
-        1: variable.function.builtin.wolfram
-        2: entity.name.Context.wolfram
-        3: entity.other.Attributes.wolfram
 
   simple_toplevel_definitions:
-    - match: ^\s*(`?(?:{{symbolSegment}}`)*)({{symbolSegment}})(?=\s*(\[(?>[^\[\]"]+|".*"|\g<-1>)*\])\s*(?:/;.*)?(?::=|=))
+    - match: ^\s*(`?(?:{{symbolSegment}}`)*)({{symbolSegment}})(?=\s*(\[(?>[^\[\]]+|\g<-1>)*\])\s*(?:/;.*)?(?::=|=))
       captures:
         1: meta.function.wolfram entity.name.Context.wolfram
         2: meta.function.wolfram entity.name.function.wolfram
