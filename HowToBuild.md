@@ -29,3 +29,10 @@ On Windows:
 cmake -DMATHEMATICA_INSTALL_DIR="C:/Program Files/Wolfram Research/Mathematica/12.2" ..
 cmake --build . --target package
 ```
+
+## Installing
+
+You can install the package from CMake:
+```
+cmake --install . --component package
+```

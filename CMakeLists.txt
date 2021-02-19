@@ -125,5 +125,7 @@ install(
 		${PACKAGE_OUTPUT}
 	DESTINATION
 		${PACKAGE_INSTALL_DIR}
+	COMPONENT
+		package
 )
 endif()
