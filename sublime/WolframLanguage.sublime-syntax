@@ -520,7 +520,9 @@ contexts:
       scope: keyword.operator.PatternTest.wolfram
     - match: (?:')
       scope: keyword.operator.Derivative.wolfram
-    - match: (?:>|\^|\.|:|,|&|@|~)
+    - match: (?:&)
+      scope: keyword.operator.Function.wolfram
+    - match: (?:>|\^|\.|:|,|@|~)
       scope: keyword.operator.wolfram
 
   symbols:
