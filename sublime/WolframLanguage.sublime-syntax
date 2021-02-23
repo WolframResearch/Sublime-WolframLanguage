@@ -480,9 +480,9 @@ contexts:
       scope: keyword.operator.assignment.DivideBy.wolfram
     - match: (?:\+=)
       scope: keyword.operator.assignment.AddTo.wolfram
-    - match: (?:=\s+\.)
+    - match: (?:=\s+\.(?![0-9]))
       scope: invalid.whitespace.Unset.wolfram
-    - match: (?:=\.)
+    - match: (?:=\.(?![0-9]))
       scope: keyword.operator.assignment.Unset.wolfram
     - match: (?:\*=)
       scope: keyword.operator.assignment.TimesBy.wolfram
