@@ -1014,6 +1014,22 @@ contexts:
       scope: symbol.unrecognized.wolfram
 
   groups:
+    - match: \\\)
+      scope: invalid.illegal.stray-linearsyntaxparens-end.wolfram
+    - match: \)
+      scope: invalid.illegal.stray-parens-end.wolfram
+    - match: \[\s+\[
+      scope: invalid.whitespace.Part.wolfram
+    - match: \]\s+\]
+      scope: invalid.whitespace.Part.wolfram
+    - match: \]\]
+      scope: invalid.illegal.stray-parts-end.wolfram
+    - match: \]
+      scope: invalid.illegal.stray-brackets-end.wolfram
+    - match: \}
+      scope: invalid.illegal.stray-braces-end.wolfram
+    - match: \|>
+      scope: invalid.illegal.stray-associations-end.wolfram
     - include: linearsyntaxparen_group
     - include: paren_group
     - include: part_group
@@ -1030,8 +1046,6 @@ contexts:
           scope: punctuation.section.linearsyntaxparens.end.wolfram
           pop: true
         - include: expressions
-    - match: \\\)
-      scope: invalid.illegal.stray-linearsyntaxparens-end.wolfram
 
   paren_group:
     - match: \(
@@ -1042,20 +1056,16 @@ contexts:
           scope: punctuation.section.parens.end.wolfram
           pop: true
         - include: expressions
-    - match: \)
-      scope: invalid.illegal.stray-parens-end.wolfram
 
   part_group:
-    - match: \[\s*\[
+    - match: \[\[
       scope: punctuation.section.parts.begin.wolfram
       push:
         - meta_scope: meta.parts.wolfram
-        - match: \]\s*\]
+        - match: \]\]
           scope: punctuation.section.parts.end.wolfram
           pop: true
         - include: expressions
-    - match: \]\s*\]
-      scope: invalid.illegal.stray-parts-end.wolfram
 
   bracket_group:
     - match: \[
@@ -1066,8 +1076,6 @@ contexts:
           scope: punctuation.section.brackets.end.wolfram
           pop: true
         - include: expressions
-    - match: \]
-      scope: invalid.illegal.stray-brackets-end.wolfram
 
   brace_group:
     - match: \{
@@ -1078,8 +1086,6 @@ contexts:
           scope: punctuation.section.braces.end.wolfram
           pop: true
         - include: expressions
-    - match: \}
-      scope: invalid.illegal.stray-braces-end.wolfram
 
   association_group:
     - match: <\|
@@ -1090,8 +1096,6 @@ contexts:
           scope: punctuation.section.associations.end.wolfram
           pop: true
         - include: expressions
-    - match: \|>
-      scope: invalid.illegal.stray-associations-end.wolfram
 
   pattern_operators:
     - match: ___
