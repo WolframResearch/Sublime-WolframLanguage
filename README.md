@@ -60,7 +60,11 @@ and adding a `kernel` setting:
 
 ```
 {
+  ...
+
   "kernel": "/Applications/Mathematica122.app/Contents/MacOS/WolframKernel"
+  
+  ...
 }
 
 ```
@@ -69,6 +73,8 @@ There are other settings such as `lsp_server_command` that specifies the command
 
 ```
 {
+  ...
+
   "lsp_server_command":
     [
       "`kernel`",
@@ -79,6 +85,8 @@ There are other settings such as `lsp_server_command` that specifies the command
       "-run",
       "Needs[\"LSPServer`\"];LSPServer`StartServer[]"
     ]
+
+  ...
 }
 ```
 
@@ -88,14 +96,27 @@ You can enable experimental settings. These are not supported.
 
 `implicitTokens` controls the display of implicit tokens such as `Null` after `;` and implicit Times character `×`.
 
+```
+{
+  ...
+
+  "implicitTokens": ["*", ",", ";;", "?"]
+
+  ...
+}
+```
+
 `bracketMatcher` controls the experimental ML-based bracket matching recommendation system and UI.
 
 Note: `bracketMatcher` requires the `ML4Code` package to be installed.
 
 ```
 {
-  "implicitTokens": ["*", ",", ";;", "?"],
+  ...
+
   "bracketMatcher": true
+
+  ...
 }
 ```
 
@@ -109,6 +130,8 @@ It is possible to use the LSPServer paclet without using the Sublime-WolframLang
 Add a `wolfram` client to `LSP.sublime-settings`:
 ```
 {
+  ...
+
   "clients":
   {
     "wolfram":
@@ -135,6 +158,8 @@ Add a `wolfram` client to `LSP.sublime-settings`:
       "initializationOptions": { }
     }
   }
+
+  ...
 }
 ```
 
