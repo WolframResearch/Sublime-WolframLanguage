@@ -167,20 +167,22 @@ variables:
   freeLongNames_Z: (?:Z(?:Hacek|eta))
 
   undocumentedLongNames_A: (?:A(?:kuz|ndy))
-  undocumentedLongNames_C: (?:C(?:OMPATIBILITYKanjiSpace|OMPATIBILITYNoBreak|ontinuedFractionK|url))
+  undocumentedLongNames_C: (?:C(?:ontinuedFractionK|url))
   undocumentedLongNames_D: (?:D(?:ivergence|ivisionSlash))
   undocumentedLongNames_E: (?:E(?:xpectationE))
   undocumentedLongNames_F: (?:F(?:reeformPrompt))
   undocumentedLongNames_G: (?:G(?:radient))
-  undocumentedLongNames_I: (?:I(?:nlinePart))
   undocumentedLongNames_L: (?:L(?:aplacian))
   undocumentedLongNames_M: (?:M(?:inus|oon))
-  undocumentedLongNames_N: (?:N(?:umberComma))
   undocumentedLongNames_P: (?:P(?:ageBreakAbove|ageBreakBelow|robabilityPr))
   undocumentedLongNames_S: (?:S(?:pooky|tepperDown|tepperLeft|tepperRight|tepperUp|un))
   undocumentedLongNames_U: (?:U(?:nknownGlyph))
   undocumentedLongNames_V: (?:V(?:illa))
   undocumentedLongNames_W: (?:W(?:olframAlphaPrompt))
+
+  unsupportedLongNames_C: (?:C(?:OMPATIBILITYKanjiSpace|OMPATIBILITYNoBreak))
+  unsupportedLongNames_I: (?:I(?:nlinePart))
+  unsupportedLongNames_N: (?:N(?:umberComma))
 
   punctuationChar: (?:!|&|'|\*|\+|,|-|\.|/|:|;|<|=|>|\?|@|\\|\^|\||~)
   binary: (?:(?:0|1)+(?:\.(?!\.)(?:0|1)*)?+|\.(?!\.)(?:0|1)+)
@@ -262,13 +264,9 @@ contexts:
       scope: constant.character.escape.undocumented
     - match: \\\[{{undocumentedLongNames_G}}\]
       scope: constant.character.escape.undocumented
-    - match: \\\[{{undocumentedLongNames_I}}\]
-      scope: constant.character.escape.undocumented
     - match: \\\[{{undocumentedLongNames_L}}\]
       scope: constant.character.escape.undocumented
     - match: \\\[{{undocumentedLongNames_M}}\]
-      scope: constant.character.escape.undocumented
-    - match: \\\[{{undocumentedLongNames_N}}\]
       scope: constant.character.escape.undocumented
     - match: \\\[{{undocumentedLongNames_P}}\]
       scope: constant.character.escape.undocumented
@@ -280,6 +278,12 @@ contexts:
       scope: constant.character.escape.undocumented
     - match: \\\[{{undocumentedLongNames_W}}\]
       scope: constant.character.escape.undocumented
+    - match: \\\[{{unsupportedLongNames_C}}\]
+      scope: invalid.illegal.unsupported
+    - match: \\\[{{unsupportedLongNames_I}}\]
+      scope: invalid.illegal.unsupported
+    - match: \\\[{{unsupportedLongNames_N}}\]
+      scope: invalid.illegal.unsupported
     - match: \\\[{{freeLongNames_A}}\]
       scope: constant.character.escape
     - match: \\\[{{freeLongNames_B}}\]
