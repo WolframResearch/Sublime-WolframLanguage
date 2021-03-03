@@ -66,7 +66,8 @@ variables:
   constants_DOLLAR: (?:\$(?:Aborted|ActivationKey|AllowDataUpdates|AllowInternet|AssertFunction|Assumptions|AudioInputDevices|AudioOutputDevices|BaseDirectory|BasePacletsDirectory|BatchInput|BatchOutput|ByteOrdering|CacheBaseDirectory|Canceled|CharacterEncoding|CharacterEncodings|CloudAccountName|CloudBase|CloudConnected|CloudCreditsAvailable|CloudEvaluation|CloudExpressionBase|CloudObjectNameFormat|CloudObjectURLType|CloudRootDirectory|CloudSymbolBase|CloudUserID|CloudUserUUID|CloudVersion|CommandLine|CompilationTarget|ConfiguredKernels|Context|ContextPath|ControlActiveSetting|Cookies|CreationDate|CurrentLink|CurrentTask|DateStringFormat|DefaultAudioInputDevice|DefaultAudioOutputDevice|DefaultFrontEnd|DefaultImagingDevice|DefaultLocalBase|Display|DisplayFunction|DistributedContexts|DynamicEvaluation|Echo|EmbedCodeEnvironments|EmbeddableServices|Epilog|EvaluationCloudBase|EvaluationCloudObject|EvaluationEnvironment|ExportFormats|Failed|FontFamilies|FrontEnd|FrontEndSession|GeoLocation|GeoLocationCity|GeoLocationCountry|GeoLocationSource|HistoryLength|HomeDirectory|IgnoreEOF|ImageFormattingWidth|ImageResolution|ImagingDevice|ImagingDevices|ImportFormats|InitialDirectory|Input|InputFileName|InputStreamMethods|Inspector|InstallationDirectory|InterpreterTypes|IterationLimit|KernelCount|KernelID|Language|LibraryPath|LicenseExpirationDate|LicenseID|LicenseServer|Line|Linked|LocalBase|LocalSymbolBase|MachineAddresses|MachineDomains|MachineEpsilon|MachineID|MachineName|MachinePrecision|MachineType|MaxExtraPrecision|MaxMachineNumber|MaxNumber|MaxPiecewiseCases|MaxPrecision|MaxRootDegree|MessageGroups|MessageList|MessagePrePrint|Messages|MinMachineNumber|MinNumber|MinPrecision|MobilePhone|ModuleNumber|NetworkConnected|NewMessage|NewSymbol|NotebookInlineStorageLimit|Notebooks|NumberMarks|OperatingSystem|Output|OutputSizeLimit|OutputStreamMethods|Packages|ParentLink|ParentProcessID|PasswordFile|Path|PathnameSeparator|PerformanceGoal|Permissions|PlotTheme|Post|Pre|PrePrint|PreRead|Printout3DPreviewer|ProcessID|ProcessorCount|ProcessorType|RandomGeneratorState|RecursionLimit|ReleaseNumber|RequesterAddress|RequesterWolframID|RequesterWolframUUID|RootDirectory|ScriptCommandLine|ScriptInputString|Services|SessionID|SharedFunctions|SharedVariables|SoundDisplayFunction|SynchronousEvaluation|SyntaxHandler|System|SystemCharacterEncoding|SystemID|SystemShell|SystemTimeZone|SystemWordLength|TemplatePath|TemporaryDirectory|TimeUnit|TimeZone|TimeZoneEntity|TimedOut|UnitSystem|Urgent|UserAgentString|UserBaseDirectory|UserBasePacletsDirectory|UserDocumentsDirectory|UserURLBase|Username|Version|VersionNumber|WolframDocumentsDirectory|WolframID|WolframUUID))
   constants_SLASH: (?:\\(?:\[FormalA\]|\[FormalAlpha\]|\[FormalB\]|\[FormalBeta\]|\[FormalC\]|\[FormalCapitalA\]|\[FormalCapitalAlpha\]|\[FormalCapitalB\]|\[FormalCapitalBeta\]|\[FormalCapitalC\]|\[FormalCapitalChi\]|\[FormalCapitalD\]|\[FormalCapitalDelta\]|\[FormalCapitalDigamma\]|\[FormalCapitalE\]|\[FormalCapitalEpsilon\]|\[FormalCapitalEta\]|\[FormalCapitalF\]|\[FormalCapitalG\]|\[FormalCapitalGamma\]|\[FormalCapitalH\]|\[FormalCapitalI\]|\[FormalCapitalIota\]|\[FormalCapitalJ\]|\[FormalCapitalK\]|\[FormalCapitalKappa\]|\[FormalCapitalKoppa\]|\[FormalCapitalL\]|\[FormalCapitalLambda\]|\[FormalCapitalM\]|\[FormalCapitalMu\]|\[FormalCapitalN\]|\[FormalCapitalNu\]|\[FormalCapitalO\]|\[FormalCapitalOmega\]|\[FormalCapitalOmicron\]|\[FormalCapitalP\]|\[FormalCapitalPhi\]|\[FormalCapitalPi\]|\[FormalCapitalPsi\]|\[FormalCapitalQ\]|\[FormalCapitalR\]|\[FormalCapitalRho\]|\[FormalCapitalS\]|\[FormalCapitalSampi\]|\[FormalCapitalSigma\]|\[FormalCapitalStigma\]|\[FormalCapitalT\]|\[FormalCapitalTau\]|\[FormalCapitalTheta\]|\[FormalCapitalU\]|\[FormalCapitalUpsilon\]|\[FormalCapitalV\]|\[FormalCapitalW\]|\[FormalCapitalX\]|\[FormalCapitalXi\]|\[FormalCapitalY\]|\[FormalCapitalZ\]|\[FormalCapitalZeta\]|\[FormalChi\]|\[FormalCurlyCapitalUpsilon\]|\[FormalCurlyEpsilon\]|\[FormalCurlyKappa\]|\[FormalCurlyPhi\]|\[FormalCurlyPi\]|\[FormalCurlyRho\]|\[FormalCurlyTheta\]|\[FormalD\]|\[FormalDelta\]|\[FormalDigamma\]|\[FormalE\]|\[FormalEpsilon\]|\[FormalEta\]|\[FormalF\]|\[FormalFinalSigma\]|\[FormalG\]|\[FormalGamma\]|\[FormalH\]|\[FormalI\]|\[FormalIota\]|\[FormalJ\]|\[FormalK\]|\[FormalKappa\]|\[FormalKoppa\]|\[FormalL\]|\[FormalLambda\]|\[FormalM\]|\[FormalMu\]|\[FormalN\]|\[FormalNu\]|\[FormalO\]|\[FormalOmega\]|\[FormalOmicron\]|\[FormalP\]|\[FormalPhi\]|\[FormalPi\]|\[FormalPsi\]|\[FormalQ\]|\[FormalR\]|\[FormalRho\]|\[FormalS\]|\[FormalSampi\]|\[FormalSigma\]|\[FormalStigma\]|\[FormalT\]|\[FormalTau\]|\[FormalTheta\]|\[FormalU\]|\[FormalUpsilon\]|\[FormalV\]|\[FormalW\]|\[FormalX\]|\[FormalXi\]|\[FormalY\]|\[FormalZ\]|\[FormalZeta\]|\[SystemsModelDelay\]))
 
-  systemLongNames: (?:FormalA|FormalAlpha|FormalB|FormalBeta|FormalC|FormalCapitalA|FormalCapitalAlpha|FormalCapitalB|FormalCapitalBeta|FormalCapitalC|FormalCapitalChi|FormalCapitalD|FormalCapitalDelta|FormalCapitalDigamma|FormalCapitalE|FormalCapitalEpsilon|FormalCapitalEta|FormalCapitalF|FormalCapitalG|FormalCapitalGamma|FormalCapitalH|FormalCapitalI|FormalCapitalIota|FormalCapitalJ|FormalCapitalK|FormalCapitalKappa|FormalCapitalKoppa|FormalCapitalL|FormalCapitalLambda|FormalCapitalM|FormalCapitalMu|FormalCapitalN|FormalCapitalNu|FormalCapitalO|FormalCapitalOmega|FormalCapitalOmicron|FormalCapitalP|FormalCapitalPhi|FormalCapitalPi|FormalCapitalPsi|FormalCapitalQ|FormalCapitalR|FormalCapitalRho|FormalCapitalS|FormalCapitalSampi|FormalCapitalSigma|FormalCapitalStigma|FormalCapitalT|FormalCapitalTau|FormalCapitalTheta|FormalCapitalU|FormalCapitalUpsilon|FormalCapitalV|FormalCapitalW|FormalCapitalX|FormalCapitalXi|FormalCapitalY|FormalCapitalZ|FormalCapitalZeta|FormalChi|FormalCurlyCapitalUpsilon|FormalCurlyEpsilon|FormalCurlyKappa|FormalCurlyPhi|FormalCurlyPi|FormalCurlyRho|FormalCurlyTheta|FormalD|FormalDelta|FormalDigamma|FormalE|FormalEpsilon|FormalEta|FormalF|FormalFinalSigma|FormalG|FormalGamma|FormalH|FormalI|FormalIota|FormalJ|FormalK|FormalKappa|FormalKoppa|FormalL|FormalLambda|FormalM|FormalMu|FormalN|FormalNu|FormalO|FormalOmega|FormalOmicron|FormalP|FormalPhi|FormalPi|FormalPsi|FormalQ|FormalR|FormalRho|FormalS|FormalSampi|FormalSigma|FormalStigma|FormalT|FormalTau|FormalTheta|FormalU|FormalUpsilon|FormalV|FormalW|FormalX|FormalXi|FormalY|FormalZ|FormalZeta|SystemsModelDelay)
+  systemLongNames_F: (?:F(?:ormalA|ormalAlpha|ormalB|ormalBeta|ormalC|ormalCapitalA|ormalCapitalAlpha|ormalCapitalB|ormalCapitalBeta|ormalCapitalC|ormalCapitalChi|ormalCapitalD|ormalCapitalDelta|ormalCapitalDigamma|ormalCapitalE|ormalCapitalEpsilon|ormalCapitalEta|ormalCapitalF|ormalCapitalG|ormalCapitalGamma|ormalCapitalH|ormalCapitalI|ormalCapitalIota|ormalCapitalJ|ormalCapitalK|ormalCapitalKappa|ormalCapitalKoppa|ormalCapitalL|ormalCapitalLambda|ormalCapitalM|ormalCapitalMu|ormalCapitalN|ormalCapitalNu|ormalCapitalO|ormalCapitalOmega|ormalCapitalOmicron|ormalCapitalP|ormalCapitalPhi|ormalCapitalPi|ormalCapitalPsi|ormalCapitalQ|ormalCapitalR|ormalCapitalRho|ormalCapitalS|ormalCapitalSampi|ormalCapitalSigma|ormalCapitalStigma|ormalCapitalT|ormalCapitalTau|ormalCapitalTheta|ormalCapitalU|ormalCapitalUpsilon|ormalCapitalV|ormalCapitalW|ormalCapitalX|ormalCapitalXi|ormalCapitalY|ormalCapitalZ|ormalCapitalZeta|ormalChi|ormalCurlyCapitalUpsilon|ormalCurlyEpsilon|ormalCurlyKappa|ormalCurlyPhi|ormalCurlyPi|ormalCurlyRho|ormalCurlyTheta|ormalD|ormalDelta|ormalDigamma|ormalE|ormalEpsilon|ormalEta|ormalF|ormalFinalSigma|ormalG|ormalGamma|ormalH|ormalI|ormalIota|ormalJ|ormalK|ormalKappa|ormalKoppa|ormalL|ormalLambda|ormalM|ormalMu|ormalN|ormalNu|ormalO|ormalOmega|ormalOmicron|ormalP|ormalPhi|ormalPi|ormalPsi|ormalQ|ormalR|ormalRho|ormalS|ormalSampi|ormalSigma|ormalStigma|ormalT|ormalTau|ormalTheta|ormalU|ormalUpsilon|ormalV|ormalW|ormalX|ormalXi|ormalY|ormalZ|ormalZeta))
+  systemLongNames_S: (?:S(?:ystemsModelDelay))
 
   obsoleteSymbols_A: (?:A(?:bortScheduledTask|ctive|lgebraicRules|lternateImage|mbientLight|natomyForm|nimationCycleOffset|nimationCycleRepetitions|nimationDisplayTime|spectRatioFixed|stronomicalData|synchronousTaskObject|synchronousTasks|udioDevice|udioLooping))
   obsoleteSymbols_B: (?:B(?:uttonEvaluator|uttonExpandable|uttonFrame|uttonMargins|uttonNote|uttonStyle))
@@ -138,32 +139,48 @@ variables:
   experimentalSymbols_Z: (?:Z(?:oomCenter|oomFactor))
   experimentalSymbols_DOLLAR: (?:\$(?:AllowExternalChannelFunctions|AudioDecoders|AudioEncoders|BlockchainBase|ChannelBase|CookieStore|CryptographicEllipticCurveNames|CurrentWebSession|DataStructures|DefaultNetworkInterface|DefaultProxyRules|DefaultRemoteBatchSubmissionEnvironment|DefaultRemoteKernel|DefaultSystemCredentialStore|ExternalIdentifierTypes|ExternalStorageBase|GeneratedAssetLocation|IncomingMailSettings|Initialization|InitializationContexts|NetworkInterfaces|NoValue|PersistenceBase|PersistencePath|PreInitialization|PublisherID|ResourceSystemBase|ResourceSystemPath|SSHAuthentication|ServiceCreditsAvailable|SourceLink|SubtitleDecoders|SubtitleEncoders|SystemCredentialStore|TestFileName|VideoDecoders|VideoEncoders|VoiceStyles))
 
-  longNames_A: (?:A(?:Acute|Bar|Cup|DoubleDot|E|Grave|Hat|Ring|Tilde|kuz|leph|liasDelimiter|liasIndicator|lignmentMarker|lpha|ltKey|nd|ndy|ngle|ngstrom|pplication|quariusSign|riesSign|scendingEllipsis|utoLeftMatch|utoOperand|utoPlaceholder|utoRightMatch|utoSpace))
-  longNames_B: (?:B(?:ackslash|eamedEighthNote|eamedSixteenthNote|ecause|et|eta|lackBishop|lackKing|lackKnight|lackPawn|lackQueen|lackRook|reve|ullet))
-  longNames_C: (?:C(?:Acute|Cedilla|Hacek|OMPATIBILITYKanjiSpace|OMPATIBILITYNoBreak|ancerSign|ap|apitalAAcute|apitalABar|apitalACup|apitalADoubleDot|apitalAE|apitalAGrave|apitalAHat|apitalARing|apitalATilde|apitalAlpha|apitalBeta|apitalCAcute|apitalCCedilla|apitalCHacek|apitalChi|apitalDHacek|apitalDelta|apitalDifferentialD|apitalDigamma|apitalEAcute|apitalEBar|apitalECup|apitalEDoubleDot|apitalEGrave|apitalEHacek|apitalEHat|apitalEpsilon|apitalEta|apitalEth|apitalGamma|apitalIAcute|apitalICup|apitalIDoubleDot|apitalIGrave|apitalIHat|apitalIota|apitalKappa|apitalKoppa|apitalLSlash|apitalLambda|apitalMu|apitalNHacek|apitalNTilde|apitalNu|apitalOAcute|apitalODoubleAcute|apitalODoubleDot|apitalOE|apitalOGrave|apitalOHat|apitalOSlash|apitalOTilde|apitalOmega|apitalOmicron|apitalPhi|apitalPi|apitalPsi|apitalRHacek|apitalRho|apitalSHacek|apitalSampi|apitalSigma|apitalStigma|apitalTHacek|apitalTau|apitalTheta|apitalThorn|apitalUAcute|apitalUDoubleAcute|apitalUDoubleDot|apitalUGrave|apitalUHat|apitalURing|apitalUpsilon|apitalXi|apitalYAcute|apitalZHacek|apitalZeta|apricornSign|edilla|ent|enterDot|enterEllipsis|heckedBox|heckmark|heckmarkedBox|hi|ircleDot|ircleMinus|irclePlus|ircleTimes|lockwiseContourIntegral|loseCurlyDoubleQuote|loseCurlyQuote|loverLeaf|lubSuit|olon|ommandKey|onditioned|ongruent|onjugate|onjugateTranspose|onstantC|ontinuation|ontinuedFractionK|ontourIntegral|ontrolKey|oproduct|opyright|ounterClockwiseContourIntegral|ross|ubeRoot|up|upCap|url|urlyCapitalUpsilon|urlyEpsilon|urlyKappa|urlyPhi|urlyPi|urlyRho|urlyTheta|urrency))
-  longNames_D: (?:D(?:Hacek|agger|alet|ash|egree|el|eleteKey|elta|escendingEllipsis|iameter|iamond|iamondSuit|ifferenceDelta|ifferentialD|igamma|irectedEdge|iscreteRatio|iscreteShift|iscretionaryHyphen|iscretionaryLineSeparator|iscretionaryPageBreakAbove|iscretionaryPageBreakBelow|iscretionaryParagraphSeparator|istributed|ivergence|ivide|ivides|ivisionSlash|otEqual|otlessI|otlessJ|ottedSquare|oubleContourIntegral|oubleDagger|oubleDot|oubleDownArrow|oubleLeftArrow|oubleLeftRightArrow|oubleLeftTee|oubleLongLeftArrow|oubleLongLeftRightArrow|oubleLongRightArrow|oublePrime|oubleRightArrow|oubleRightTee|oubleStruckA|oubleStruckB|oubleStruckC|oubleStruckCapitalA|oubleStruckCapitalB|oubleStruckCapitalC|oubleStruckCapitalD|oubleStruckCapitalE|oubleStruckCapitalF|oubleStruckCapitalG|oubleStruckCapitalH|oubleStruckCapitalI|oubleStruckCapitalJ|oubleStruckCapitalK|oubleStruckCapitalL|oubleStruckCapitalM|oubleStruckCapitalN|oubleStruckCapitalO|oubleStruckCapitalP|oubleStruckCapitalQ|oubleStruckCapitalR|oubleStruckCapitalS|oubleStruckCapitalT|oubleStruckCapitalU|oubleStruckCapitalV|oubleStruckCapitalW|oubleStruckCapitalX|oubleStruckCapitalY|oubleStruckCapitalZ|oubleStruckD|oubleStruckE|oubleStruckEight|oubleStruckF|oubleStruckFive|oubleStruckFour|oubleStruckG|oubleStruckH|oubleStruckI|oubleStruckJ|oubleStruckK|oubleStruckL|oubleStruckM|oubleStruckN|oubleStruckNine|oubleStruckO|oubleStruckOne|oubleStruckP|oubleStruckQ|oubleStruckR|oubleStruckS|oubleStruckSeven|oubleStruckSix|oubleStruckT|oubleStruckThree|oubleStruckTwo|oubleStruckU|oubleStruckV|oubleStruckW|oubleStruckX|oubleStruckY|oubleStruckZ|oubleStruckZero|oubleUpArrow|oubleUpDownArrow|oubleVerticalBar|oubledGamma|oubledPi|ownArrow|ownArrowBar|ownArrowUpArrow|ownBreve|ownExclamation|ownLeftRightVector|ownLeftTeeVector|ownLeftVector|ownLeftVectorBar|ownPointer|ownQuestion|ownRightTeeVector|ownRightVector|ownRightVectorBar|ownTee|ownTeeArrow))
-  longNames_E: (?:E(?:Acute|Bar|Cup|DoubleDot|Grave|Hacek|Hat|arth|ighthNote|lement|llipsis|mptyCircle|mptyDiamond|mptyDownTriangle|mptyRectangle|mptySet|mptySmallCircle|mptySmallSquare|mptySquare|mptyUpTriangle|mptyVerySmallSquare|nterKey|ntityEnd|ntityStart|psilon|qual|qualTilde|quilibrium|quivalent|rrorIndicator|scapeKey|ta|th|uro|xists|xpectationE|xponentialE))
-  longNames_F: (?:F(?:iLigature|illedCircle|illedDiamond|illedDownTriangle|illedLeftTriangle|illedRectangle|illedRightTriangle|illedSmallCircle|illedSmallSquare|illedSquare|illedUpTriangle|illedVerySmallSquare|inalSigma|irstPage|ivePointedStar|lLigature|lat|lorin|orAll|ormalA|ormalAlpha|ormalB|ormalBeta|ormalC|ormalCapitalA|ormalCapitalAlpha|ormalCapitalB|ormalCapitalBeta|ormalCapitalC|ormalCapitalChi|ormalCapitalD|ormalCapitalDelta|ormalCapitalDigamma|ormalCapitalE|ormalCapitalEpsilon|ormalCapitalEta|ormalCapitalF|ormalCapitalG|ormalCapitalGamma|ormalCapitalH|ormalCapitalI|ormalCapitalIota|ormalCapitalJ|ormalCapitalK|ormalCapitalKappa|ormalCapitalKoppa|ormalCapitalL|ormalCapitalLambda|ormalCapitalM|ormalCapitalMu|ormalCapitalN|ormalCapitalNu|ormalCapitalO|ormalCapitalOmega|ormalCapitalOmicron|ormalCapitalP|ormalCapitalPhi|ormalCapitalPi|ormalCapitalPsi|ormalCapitalQ|ormalCapitalR|ormalCapitalRho|ormalCapitalS|ormalCapitalSampi|ormalCapitalSigma|ormalCapitalStigma|ormalCapitalT|ormalCapitalTau|ormalCapitalTheta|ormalCapitalU|ormalCapitalUpsilon|ormalCapitalV|ormalCapitalW|ormalCapitalX|ormalCapitalXi|ormalCapitalY|ormalCapitalZ|ormalCapitalZeta|ormalChi|ormalCurlyCapitalUpsilon|ormalCurlyEpsilon|ormalCurlyKappa|ormalCurlyPhi|ormalCurlyPi|ormalCurlyRho|ormalCurlyTheta|ormalD|ormalDelta|ormalDigamma|ormalE|ormalEpsilon|ormalEta|ormalF|ormalFinalSigma|ormalG|ormalGamma|ormalH|ormalI|ormalIota|ormalJ|ormalK|ormalKappa|ormalKoppa|ormalL|ormalLambda|ormalM|ormalMu|ormalN|ormalNu|ormalO|ormalOmega|ormalOmicron|ormalP|ormalPhi|ormalPi|ormalPsi|ormalQ|ormalR|ormalRho|ormalS|ormalSampi|ormalSigma|ormalStigma|ormalT|ormalTau|ormalTheta|ormalU|ormalUpsilon|ormalV|ormalW|ormalX|ormalXi|ormalY|ormalZ|ormalZeta|reakedSmiley|reeformPrompt|unction))
-  longNames_G: (?:G(?:amma|eminiSign|imel|othicA|othicB|othicC|othicCapitalA|othicCapitalB|othicCapitalC|othicCapitalD|othicCapitalE|othicCapitalF|othicCapitalG|othicCapitalH|othicCapitalI|othicCapitalJ|othicCapitalK|othicCapitalL|othicCapitalM|othicCapitalN|othicCapitalO|othicCapitalP|othicCapitalQ|othicCapitalR|othicCapitalS|othicCapitalT|othicCapitalU|othicCapitalV|othicCapitalW|othicCapitalX|othicCapitalY|othicCapitalZ|othicD|othicE|othicEight|othicF|othicFive|othicFour|othicG|othicH|othicI|othicJ|othicK|othicL|othicM|othicN|othicNine|othicO|othicOne|othicP|othicQ|othicR|othicS|othicSeven|othicSix|othicT|othicThree|othicTwo|othicU|othicV|othicW|othicX|othicY|othicZ|othicZero|radient|rayCircle|raySquare|reaterEqual|reaterEqualLess|reaterFullEqual|reaterGreater|reaterLess|reaterSlantEqual|reaterTilde))
-  longNames_H: (?:H(?:Bar|acek|appySmiley|eartSuit|ermitianConjugate|orizontalLine|umpDownHump|umpEqual|yphen))
-  longNames_I: (?:I(?:Acute|Cup|DoubleDot|Grave|Hat|maginaryI|maginaryJ|mplicitPlus|mplies|ndentingNewLine|nfinity|nlinePart|ntegral|ntersection|nvisibleApplication|nvisibleComma|nvisiblePostfixScriptBase|nvisiblePrefixScriptBase|nvisibleSpace|nvisibleTimes|ota))
-  longNames_J: (?:J(?:upiter))
-  longNames_K: (?:K(?:appa|ernelIcon|eyBar|oppa))
-  longNames_L: (?:L(?:Slash|ambda|aplacian|astPage|eftAngleBracket|eftArrow|eftArrowBar|eftArrowRightArrow|eftAssociation|eftBracketingBar|eftCeiling|eftDoubleBracket|eftDoubleBracketingBar|eftDownTeeVector|eftDownVector|eftDownVectorBar|eftFloor|eftGuillemet|eftModified|eftPointer|eftRightArrow|eftRightVector|eftSkeleton|eftTee|eftTeeArrow|eftTeeVector|eftTriangle|eftTriangleBar|eftTriangleEqual|eftUpDownVector|eftUpTeeVector|eftUpVector|eftUpVectorBar|eftVector|eftVectorBar|eoSign|essEqual|essEqualGreater|essFullEqual|essGreater|essLess|essSlantEqual|essTilde|etterSpace|ibraSign|ightBulb|imit|ineSeparator|ongDash|ongEqual|ongLeftArrow|ongLeftRightArrow|ongRightArrow|owerLeftArrow|owerRightArrow))
-  longNames_M: (?:M(?:ars|athematicaIcon|axLimit|easuredAngle|ediumSpace|ercury|ho|icro|inLimit|inus|inusPlus|od1Key|od2Key|oon|u))
-  longNames_N: (?:N(?:Hacek|Tilde|and|atural|egativeMediumSpace|egativeThickSpace|egativeThinSpace|egativeVeryThinSpace|eptune|estedGreaterGreater|estedLessLess|eutralSmiley|ewLine|oBreak|onBreakingSpace|or|ot|otCongruent|otCupCap|otDoubleVerticalBar|otElement|otEqual|otEqualTilde|otExists|otGreater|otGreaterEqual|otGreaterFullEqual|otGreaterGreater|otGreaterLess|otGreaterSlantEqual|otGreaterTilde|otHumpDownHump|otHumpEqual|otLeftTriangle|otLeftTriangleBar|otLeftTriangleEqual|otLess|otLessEqual|otLessFullEqual|otLessGreater|otLessLess|otLessSlantEqual|otLessTilde|otNestedGreaterGreater|otNestedLessLess|otPrecedes|otPrecedesEqual|otPrecedesSlantEqual|otPrecedesTilde|otReverseElement|otRightTriangle|otRightTriangleBar|otRightTriangleEqual|otSquareSubset|otSquareSubsetEqual|otSquareSuperset|otSquareSupersetEqual|otSubset|otSubsetEqual|otSucceeds|otSucceedsEqual|otSucceedsSlantEqual|otSucceedsTilde|otSuperset|otSupersetEqual|otTilde|otTildeEqual|otTildeFullEqual|otTildeTilde|otVerticalBar|u|ull|umberComma|umberSign))
-  longNames_O: (?:O(?:Acute|DoubleAcute|DoubleDot|E|Grave|Hat|Slash|Tilde|mega|micron|penCurlyDoubleQuote|penCurlyQuote|ptionKey|r|verBrace|verBracket|verParenthesis))
-  longNames_P: (?:P(?:ageBreakAbove|ageBreakBelow|aragraph|aragraphSeparator|artialD|ermutationProduct|erpendicular|hi|i|iecewise|iscesSign|laceholder|lusMinus|luto|recedes|recedesEqual|recedesSlantEqual|recedesTilde|rime|robabilityPr|roduct|roportion|roportional|si))
-  longNames_Q: (?:Q(?:uarterNote))
-  longNames_R: (?:R(?:Hacek|awAmpersand|awAt|awBackquote|awBackslash|awColon|awComma|awDash|awDollar|awDot|awDoubleQuote|awEqual|awEscape|awExclamation|awGreater|awLeftBrace|awLeftBracket|awLeftParenthesis|awLess|awNumberSign|awPercent|awPlus|awQuestion|awQuote|awReturn|awRightBrace|awRightBracket|awRightParenthesis|awSemicolon|awSlash|awSpace|awStar|awTab|awTilde|awUnderscore|awVerticalBar|awWedge|egisteredTrademark|eturnIndicator|eturnKey|everseDoublePrime|everseElement|everseEquilibrium|eversePrime|everseUpEquilibrium|ho|ightAngle|ightAngleBracket|ightArrow|ightArrowBar|ightArrowLeftArrow|ightAssociation|ightBracketingBar|ightCeiling|ightDoubleBracket|ightDoubleBracketingBar|ightDownTeeVector|ightDownVector|ightDownVectorBar|ightFloor|ightGuillemet|ightModified|ightPointer|ightSkeleton|ightTee|ightTeeArrow|ightTeeVector|ightTriangle|ightTriangleBar|ightTriangleEqual|ightUpDownVector|ightUpTeeVector|ightUpVector|ightUpVectorBar|ightVector|ightVectorBar|oundImplies|oundSpaceIndicator|ule|uleDelayed|upee))
-  longNames_S: (?:S(?:Hacek|Z|adSmiley|agittariusSign|ampi|aturn|corpioSign|criptA|criptB|criptC|criptCapitalA|criptCapitalB|criptCapitalC|criptCapitalD|criptCapitalE|criptCapitalF|criptCapitalG|criptCapitalH|criptCapitalI|criptCapitalJ|criptCapitalK|criptCapitalL|criptCapitalM|criptCapitalN|criptCapitalO|criptCapitalP|criptCapitalQ|criptCapitalR|criptCapitalS|criptCapitalT|criptCapitalU|criptCapitalV|criptCapitalW|criptCapitalX|criptCapitalY|criptCapitalZ|criptD|criptDotlessI|criptDotlessJ|criptE|criptEight|criptF|criptFive|criptFour|criptG|criptH|criptI|criptJ|criptK|criptL|criptM|criptN|criptNine|criptO|criptOne|criptP|criptQ|criptR|criptS|criptSeven|criptSix|criptT|criptThree|criptTwo|criptU|criptV|criptW|criptX|criptY|criptZ|criptZero|ection|electionPlaceholder|hah|harp|hiftKey|hortDownArrow|hortLeftArrow|hortRightArrow|hortUpArrow|igma|ixPointedStar|keletonIndicator|mallCircle|paceIndicator|paceKey|padeSuit|panFromAbove|panFromBoth|panFromLeft|phericalAngle|pooky|qrt|quare|quareIntersection|quareSubset|quareSubsetEqual|quareSuperset|quareSupersetEqual|quareUnion|tar|tepperDown|tepperLeft|tepperRight|tepperUp|terling|tigma|ubset|ubsetEqual|ucceeds|ucceedsEqual|ucceedsSlantEqual|ucceedsTilde|uchThat|um|un|uperset|upersetEqual|ystemEnterKey|ystemsModelDelay))
-  longNames_T: (?:T(?:Hacek|abKey|au|aurusSign|ensorProduct|ensorWedge|herefore|heta|hickSpace|hinSpace|horn|ilde|ildeEqual|ildeFullEqual|ildeTilde|imes|rademark|ranspose|ripleDot|woWayRule))
-  longNames_U: (?:U(?:Acute|DoubleAcute|DoubleDot|Grave|Hat|Ring|nderBrace|nderBracket|nderParenthesis|ndirectedEdge|nion|nionPlus|nknownGlyph|pArrow|pArrowBar|pArrowDownArrow|pDownArrow|pEquilibrium|pPointer|pTee|pTeeArrow|pperLeftArrow|pperRightArrow|psilon|ranus))
-  longNames_V: (?:V(?:ectorGreater|ectorGreaterEqual|ectorLess|ectorLessEqual|ee|enus|erticalBar|erticalEllipsis|erticalLine|erticalSeparator|erticalTilde|eryThinSpace|illa|irgoSign))
-  longNames_W: (?:W(?:arningSign|atchIcon|edge|eierstrassP|hiteBishop|hiteKing|hiteKnight|hitePawn|hiteQueen|hiteRook|olf|olframAlphaPrompt|olframLanguageLogo|olframLanguageLogoCircle))
-  longNames_X: (?:X(?:i|nor|or))
-  longNames_Y: (?:Y(?:Acute|DoubleDot|en))
-  longNames_Z: (?:Z(?:Hacek|eta))
+  freeLongNames_A: (?:A(?:Acute|Bar|Cup|DoubleDot|E|Grave|Hat|Ring|Tilde|leph|liasDelimiter|liasIndicator|lignmentMarker|lpha|ltKey|nd|ngle|ngstrom|pplication|quariusSign|riesSign|scendingEllipsis|utoLeftMatch|utoOperand|utoPlaceholder|utoRightMatch|utoSpace))
+  freeLongNames_B: (?:B(?:ackslash|eamedEighthNote|eamedSixteenthNote|ecause|et|eta|lackBishop|lackKing|lackKnight|lackPawn|lackQueen|lackRook|reve|ullet))
+  freeLongNames_C: (?:C(?:Acute|Cedilla|Hacek|ancerSign|ap|apitalAAcute|apitalABar|apitalACup|apitalADoubleDot|apitalAE|apitalAGrave|apitalAHat|apitalARing|apitalATilde|apitalAlpha|apitalBeta|apitalCAcute|apitalCCedilla|apitalCHacek|apitalChi|apitalDHacek|apitalDelta|apitalDifferentialD|apitalDigamma|apitalEAcute|apitalEBar|apitalECup|apitalEDoubleDot|apitalEGrave|apitalEHacek|apitalEHat|apitalEpsilon|apitalEta|apitalEth|apitalGamma|apitalIAcute|apitalICup|apitalIDoubleDot|apitalIGrave|apitalIHat|apitalIota|apitalKappa|apitalKoppa|apitalLSlash|apitalLambda|apitalMu|apitalNHacek|apitalNTilde|apitalNu|apitalOAcute|apitalODoubleAcute|apitalODoubleDot|apitalOE|apitalOGrave|apitalOHat|apitalOSlash|apitalOTilde|apitalOmega|apitalOmicron|apitalPhi|apitalPi|apitalPsi|apitalRHacek|apitalRho|apitalSHacek|apitalSampi|apitalSigma|apitalStigma|apitalTHacek|apitalTau|apitalTheta|apitalThorn|apitalUAcute|apitalUDoubleAcute|apitalUDoubleDot|apitalUGrave|apitalUHat|apitalURing|apitalUpsilon|apitalXi|apitalYAcute|apitalZHacek|apitalZeta|apricornSign|edilla|ent|enterDot|enterEllipsis|heckedBox|heckmark|heckmarkedBox|hi|ircleDot|ircleMinus|irclePlus|ircleTimes|lockwiseContourIntegral|loseCurlyDoubleQuote|loseCurlyQuote|loverLeaf|lubSuit|olon|ommandKey|onditioned|ongruent|onjugate|onjugateTranspose|onstantC|ontinuation|ontourIntegral|ontrolKey|oproduct|opyright|ounterClockwiseContourIntegral|ross|ubeRoot|up|upCap|urlyCapitalUpsilon|urlyEpsilon|urlyKappa|urlyPhi|urlyPi|urlyRho|urlyTheta|urrency))
+  freeLongNames_D: (?:D(?:Hacek|agger|alet|ash|egree|el|eleteKey|elta|escendingEllipsis|iameter|iamond|iamondSuit|ifferenceDelta|ifferentialD|igamma|irectedEdge|iscreteRatio|iscreteShift|iscretionaryHyphen|iscretionaryLineSeparator|iscretionaryPageBreakAbove|iscretionaryPageBreakBelow|iscretionaryParagraphSeparator|istributed|ivide|ivides|otEqual|otlessI|otlessJ|ottedSquare|oubleContourIntegral|oubleDagger|oubleDot|oubleDownArrow|oubleLeftArrow|oubleLeftRightArrow|oubleLeftTee|oubleLongLeftArrow|oubleLongLeftRightArrow|oubleLongRightArrow|oublePrime|oubleRightArrow|oubleRightTee|oubleStruckA|oubleStruckB|oubleStruckC|oubleStruckCapitalA|oubleStruckCapitalB|oubleStruckCapitalC|oubleStruckCapitalD|oubleStruckCapitalE|oubleStruckCapitalF|oubleStruckCapitalG|oubleStruckCapitalH|oubleStruckCapitalI|oubleStruckCapitalJ|oubleStruckCapitalK|oubleStruckCapitalL|oubleStruckCapitalM|oubleStruckCapitalN|oubleStruckCapitalO|oubleStruckCapitalP|oubleStruckCapitalQ|oubleStruckCapitalR|oubleStruckCapitalS|oubleStruckCapitalT|oubleStruckCapitalU|oubleStruckCapitalV|oubleStruckCapitalW|oubleStruckCapitalX|oubleStruckCapitalY|oubleStruckCapitalZ|oubleStruckD|oubleStruckE|oubleStruckEight|oubleStruckF|oubleStruckFive|oubleStruckFour|oubleStruckG|oubleStruckH|oubleStruckI|oubleStruckJ|oubleStruckK|oubleStruckL|oubleStruckM|oubleStruckN|oubleStruckNine|oubleStruckO|oubleStruckOne|oubleStruckP|oubleStruckQ|oubleStruckR|oubleStruckS|oubleStruckSeven|oubleStruckSix|oubleStruckT|oubleStruckThree|oubleStruckTwo|oubleStruckU|oubleStruckV|oubleStruckW|oubleStruckX|oubleStruckY|oubleStruckZ|oubleStruckZero|oubleUpArrow|oubleUpDownArrow|oubleVerticalBar|oubledGamma|oubledPi|ownArrow|ownArrowBar|ownArrowUpArrow|ownBreve|ownExclamation|ownLeftRightVector|ownLeftTeeVector|ownLeftVector|ownLeftVectorBar|ownPointer|ownQuestion|ownRightTeeVector|ownRightVector|ownRightVectorBar|ownTee|ownTeeArrow))
+  freeLongNames_E: (?:E(?:Acute|Bar|Cup|DoubleDot|Grave|Hacek|Hat|arth|ighthNote|lement|llipsis|mptyCircle|mptyDiamond|mptyDownTriangle|mptyRectangle|mptySet|mptySmallCircle|mptySmallSquare|mptySquare|mptyUpTriangle|mptyVerySmallSquare|nterKey|ntityEnd|ntityStart|psilon|qual|qualTilde|quilibrium|quivalent|rrorIndicator|scapeKey|ta|th|uro|xists|xponentialE))
+  freeLongNames_F: (?:F(?:iLigature|illedCircle|illedDiamond|illedDownTriangle|illedLeftTriangle|illedRectangle|illedRightTriangle|illedSmallCircle|illedSmallSquare|illedSquare|illedUpTriangle|illedVerySmallSquare|inalSigma|irstPage|ivePointedStar|lLigature|lat|lorin|orAll|reakedSmiley|unction))
+  freeLongNames_G: (?:G(?:amma|eminiSign|imel|othicA|othicB|othicC|othicCapitalA|othicCapitalB|othicCapitalC|othicCapitalD|othicCapitalE|othicCapitalF|othicCapitalG|othicCapitalH|othicCapitalI|othicCapitalJ|othicCapitalK|othicCapitalL|othicCapitalM|othicCapitalN|othicCapitalO|othicCapitalP|othicCapitalQ|othicCapitalR|othicCapitalS|othicCapitalT|othicCapitalU|othicCapitalV|othicCapitalW|othicCapitalX|othicCapitalY|othicCapitalZ|othicD|othicE|othicEight|othicF|othicFive|othicFour|othicG|othicH|othicI|othicJ|othicK|othicL|othicM|othicN|othicNine|othicO|othicOne|othicP|othicQ|othicR|othicS|othicSeven|othicSix|othicT|othicThree|othicTwo|othicU|othicV|othicW|othicX|othicY|othicZ|othicZero|rayCircle|raySquare|reaterEqual|reaterEqualLess|reaterFullEqual|reaterGreater|reaterLess|reaterSlantEqual|reaterTilde))
+  freeLongNames_H: (?:H(?:Bar|acek|appySmiley|eartSuit|ermitianConjugate|orizontalLine|umpDownHump|umpEqual|yphen))
+  freeLongNames_I: (?:I(?:Acute|Cup|DoubleDot|Grave|Hat|maginaryI|maginaryJ|mplicitPlus|mplies|ndentingNewLine|nfinity|ntegral|ntersection|nvisibleApplication|nvisibleComma|nvisiblePostfixScriptBase|nvisiblePrefixScriptBase|nvisibleSpace|nvisibleTimes|ota))
+  freeLongNames_J: (?:J(?:upiter))
+  freeLongNames_K: (?:K(?:appa|ernelIcon|eyBar|oppa))
+  freeLongNames_L: (?:L(?:Slash|ambda|astPage|eftAngleBracket|eftArrow|eftArrowBar|eftArrowRightArrow|eftAssociation|eftBracketingBar|eftCeiling|eftDoubleBracket|eftDoubleBracketingBar|eftDownTeeVector|eftDownVector|eftDownVectorBar|eftFloor|eftGuillemet|eftModified|eftPointer|eftRightArrow|eftRightVector|eftSkeleton|eftTee|eftTeeArrow|eftTeeVector|eftTriangle|eftTriangleBar|eftTriangleEqual|eftUpDownVector|eftUpTeeVector|eftUpVector|eftUpVectorBar|eftVector|eftVectorBar|eoSign|essEqual|essEqualGreater|essFullEqual|essGreater|essLess|essSlantEqual|essTilde|etterSpace|ibraSign|ightBulb|imit|ineSeparator|ongDash|ongEqual|ongLeftArrow|ongLeftRightArrow|ongRightArrow|owerLeftArrow|owerRightArrow))
+  freeLongNames_M: (?:M(?:ars|athematicaIcon|axLimit|easuredAngle|ediumSpace|ercury|ho|icro|inLimit|inusPlus|od1Key|od2Key|u))
+  freeLongNames_N: (?:N(?:Hacek|Tilde|and|atural|egativeMediumSpace|egativeThickSpace|egativeThinSpace|egativeVeryThinSpace|eptune|estedGreaterGreater|estedLessLess|eutralSmiley|ewLine|oBreak|onBreakingSpace|or|ot|otCongruent|otCupCap|otDoubleVerticalBar|otElement|otEqual|otEqualTilde|otExists|otGreater|otGreaterEqual|otGreaterFullEqual|otGreaterGreater|otGreaterLess|otGreaterSlantEqual|otGreaterTilde|otHumpDownHump|otHumpEqual|otLeftTriangle|otLeftTriangleBar|otLeftTriangleEqual|otLess|otLessEqual|otLessFullEqual|otLessGreater|otLessLess|otLessSlantEqual|otLessTilde|otNestedGreaterGreater|otNestedLessLess|otPrecedes|otPrecedesEqual|otPrecedesSlantEqual|otPrecedesTilde|otReverseElement|otRightTriangle|otRightTriangleBar|otRightTriangleEqual|otSquareSubset|otSquareSubsetEqual|otSquareSuperset|otSquareSupersetEqual|otSubset|otSubsetEqual|otSucceeds|otSucceedsEqual|otSucceedsSlantEqual|otSucceedsTilde|otSuperset|otSupersetEqual|otTilde|otTildeEqual|otTildeFullEqual|otTildeTilde|otVerticalBar|u|ull|umberSign))
+  freeLongNames_O: (?:O(?:Acute|DoubleAcute|DoubleDot|E|Grave|Hat|Slash|Tilde|mega|micron|penCurlyDoubleQuote|penCurlyQuote|ptionKey|r|verBrace|verBracket|verParenthesis))
+  freeLongNames_P: (?:P(?:aragraph|aragraphSeparator|artialD|ermutationProduct|erpendicular|hi|i|iecewise|iscesSign|laceholder|lusMinus|luto|recedes|recedesEqual|recedesSlantEqual|recedesTilde|rime|roduct|roportion|roportional|si))
+  freeLongNames_Q: (?:Q(?:uarterNote))
+  freeLongNames_R: (?:R(?:Hacek|awAmpersand|awAt|awBackquote|awBackslash|awColon|awComma|awDash|awDollar|awDot|awDoubleQuote|awEqual|awEscape|awExclamation|awGreater|awLeftBrace|awLeftBracket|awLeftParenthesis|awLess|awNumberSign|awPercent|awPlus|awQuestion|awQuote|awReturn|awRightBrace|awRightBracket|awRightParenthesis|awSemicolon|awSlash|awSpace|awStar|awTab|awTilde|awUnderscore|awVerticalBar|awWedge|egisteredTrademark|eturnIndicator|eturnKey|everseDoublePrime|everseElement|everseEquilibrium|eversePrime|everseUpEquilibrium|ho|ightAngle|ightAngleBracket|ightArrow|ightArrowBar|ightArrowLeftArrow|ightAssociation|ightBracketingBar|ightCeiling|ightDoubleBracket|ightDoubleBracketingBar|ightDownTeeVector|ightDownVector|ightDownVectorBar|ightFloor|ightGuillemet|ightModified|ightPointer|ightSkeleton|ightTee|ightTeeArrow|ightTeeVector|ightTriangle|ightTriangleBar|ightTriangleEqual|ightUpDownVector|ightUpTeeVector|ightUpVector|ightUpVectorBar|ightVector|ightVectorBar|oundImplies|oundSpaceIndicator|ule|uleDelayed|upee))
+  freeLongNames_S: (?:S(?:Hacek|Z|adSmiley|agittariusSign|ampi|aturn|corpioSign|criptA|criptB|criptC|criptCapitalA|criptCapitalB|criptCapitalC|criptCapitalD|criptCapitalE|criptCapitalF|criptCapitalG|criptCapitalH|criptCapitalI|criptCapitalJ|criptCapitalK|criptCapitalL|criptCapitalM|criptCapitalN|criptCapitalO|criptCapitalP|criptCapitalQ|criptCapitalR|criptCapitalS|criptCapitalT|criptCapitalU|criptCapitalV|criptCapitalW|criptCapitalX|criptCapitalY|criptCapitalZ|criptD|criptDotlessI|criptDotlessJ|criptE|criptEight|criptF|criptFive|criptFour|criptG|criptH|criptI|criptJ|criptK|criptL|criptM|criptN|criptNine|criptO|criptOne|criptP|criptQ|criptR|criptS|criptSeven|criptSix|criptT|criptThree|criptTwo|criptU|criptV|criptW|criptX|criptY|criptZ|criptZero|ection|electionPlaceholder|hah|harp|hiftKey|hortDownArrow|hortLeftArrow|hortRightArrow|hortUpArrow|igma|ixPointedStar|keletonIndicator|mallCircle|paceIndicator|paceKey|padeSuit|panFromAbove|panFromBoth|panFromLeft|phericalAngle|qrt|quare|quareIntersection|quareSubset|quareSubsetEqual|quareSuperset|quareSupersetEqual|quareUnion|tar|terling|tigma|ubset|ubsetEqual|ucceeds|ucceedsEqual|ucceedsSlantEqual|ucceedsTilde|uchThat|um|uperset|upersetEqual|ystemEnterKey))
+  freeLongNames_T: (?:T(?:Hacek|abKey|au|aurusSign|ensorProduct|ensorWedge|herefore|heta|hickSpace|hinSpace|horn|ilde|ildeEqual|ildeFullEqual|ildeTilde|imes|rademark|ranspose|ripleDot|woWayRule))
+  freeLongNames_U: (?:U(?:Acute|DoubleAcute|DoubleDot|Grave|Hat|Ring|nderBrace|nderBracket|nderParenthesis|ndirectedEdge|nion|nionPlus|pArrow|pArrowBar|pArrowDownArrow|pDownArrow|pEquilibrium|pPointer|pTee|pTeeArrow|pperLeftArrow|pperRightArrow|psilon|ranus))
+  freeLongNames_V: (?:V(?:ectorGreater|ectorGreaterEqual|ectorLess|ectorLessEqual|ee|enus|erticalBar|erticalEllipsis|erticalLine|erticalSeparator|erticalTilde|eryThinSpace|irgoSign))
+  freeLongNames_W: (?:W(?:arningSign|atchIcon|edge|eierstrassP|hiteBishop|hiteKing|hiteKnight|hitePawn|hiteQueen|hiteRook|olf|olframLanguageLogo|olframLanguageLogoCircle))
+  freeLongNames_X: (?:X(?:i|nor|or))
+  freeLongNames_Y: (?:Y(?:Acute|DoubleDot|en))
+  freeLongNames_Z: (?:Z(?:Hacek|eta))
+
+  undocumentedLongNames_A: (?:A(?:kuz|ndy))
+  undocumentedLongNames_C: (?:C(?:OMPATIBILITYKanjiSpace|OMPATIBILITYNoBreak|ontinuedFractionK|url))
+  undocumentedLongNames_D: (?:D(?:ivergence|ivisionSlash))
+  undocumentedLongNames_E: (?:E(?:xpectationE))
+  undocumentedLongNames_F: (?:F(?:reeformPrompt))
+  undocumentedLongNames_G: (?:G(?:radient))
+  undocumentedLongNames_I: (?:I(?:nlinePart))
+  undocumentedLongNames_L: (?:L(?:aplacian))
+  undocumentedLongNames_M: (?:M(?:inus|oon))
+  undocumentedLongNames_N: (?:N(?:umberComma))
+  undocumentedLongNames_P: (?:P(?:ageBreakAbove|ageBreakBelow|robabilityPr))
+  undocumentedLongNames_S: (?:S(?:pooky|tepperDown|tepperLeft|tepperRight|tepperUp|un))
+  undocumentedLongNames_U: (?:U(?:nknownGlyph))
+  undocumentedLongNames_V: (?:V(?:illa))
+  undocumentedLongNames_W: (?:W(?:olframAlphaPrompt))
 
   punctuationChar: (?:!|&|'|\*|\+|,|-|\.|/|:|;|<|=|>|\?|@|\\|\^|\||~)
   binary: (?:(?:0|1)+(?:\.(?!\.)(?:0|1)*)?+|\.(?!\.)(?:0|1)+)
@@ -229,59 +246,91 @@ contexts:
   escaped_characters:
     - match: \\[!%&()*+/@^_` ]
       scope: constant.character.escape
-    - match: \\\[{{systemLongNames}}\]
+    - match: \\\[{{systemLongNames_F}}\]
       scope: constant.character.escape constant.language.wolfram
-    - match: \\\[{{longNames_A}}\]
+    - match: \\\[{{systemLongNames_S}}\]
+      scope: constant.character.escape constant.language.wolfram
+    - match: \\\[{{undocumentedLongNames_A}}\]
+      scope: constant.character.escape.undocumented
+    - match: \\\[{{undocumentedLongNames_C}}\]
+      scope: constant.character.escape.undocumented
+    - match: \\\[{{undocumentedLongNames_D}}\]
+      scope: constant.character.escape.undocumented
+    - match: \\\[{{undocumentedLongNames_E}}\]
+      scope: constant.character.escape.undocumented
+    - match: \\\[{{undocumentedLongNames_F}}\]
+      scope: constant.character.escape.undocumented
+    - match: \\\[{{undocumentedLongNames_G}}\]
+      scope: constant.character.escape.undocumented
+    - match: \\\[{{undocumentedLongNames_I}}\]
+      scope: constant.character.escape.undocumented
+    - match: \\\[{{undocumentedLongNames_L}}\]
+      scope: constant.character.escape.undocumented
+    - match: \\\[{{undocumentedLongNames_M}}\]
+      scope: constant.character.escape.undocumented
+    - match: \\\[{{undocumentedLongNames_N}}\]
+      scope: constant.character.escape.undocumented
+    - match: \\\[{{undocumentedLongNames_P}}\]
+      scope: constant.character.escape.undocumented
+    - match: \\\[{{undocumentedLongNames_S}}\]
+      scope: constant.character.escape.undocumented
+    - match: \\\[{{undocumentedLongNames_U}}\]
+      scope: constant.character.escape.undocumented
+    - match: \\\[{{undocumentedLongNames_V}}\]
+      scope: constant.character.escape.undocumented
+    - match: \\\[{{undocumentedLongNames_W}}\]
+      scope: constant.character.escape.undocumented
+    - match: \\\[{{freeLongNames_A}}\]
       scope: constant.character.escape
-    - match: \\\[{{longNames_B}}\]
+    - match: \\\[{{freeLongNames_B}}\]
       scope: constant.character.escape
-    - match: \\\[{{longNames_C}}\]
+    - match: \\\[{{freeLongNames_C}}\]
       scope: constant.character.escape
-    - match: \\\[{{longNames_D}}\]
+    - match: \\\[{{freeLongNames_D}}\]
       scope: constant.character.escape
-    - match: \\\[{{longNames_E}}\]
+    - match: \\\[{{freeLongNames_E}}\]
       scope: constant.character.escape
-    - match: \\\[{{longNames_F}}\]
+    - match: \\\[{{freeLongNames_F}}\]
       scope: constant.character.escape
-    - match: \\\[{{longNames_G}}\]
+    - match: \\\[{{freeLongNames_G}}\]
       scope: constant.character.escape
-    - match: \\\[{{longNames_H}}\]
+    - match: \\\[{{freeLongNames_H}}\]
       scope: constant.character.escape
-    - match: \\\[{{longNames_I}}\]
+    - match: \\\[{{freeLongNames_I}}\]
       scope: constant.character.escape
-    - match: \\\[{{longNames_J}}\]
+    - match: \\\[{{freeLongNames_J}}\]
       scope: constant.character.escape
-    - match: \\\[{{longNames_K}}\]
+    - match: \\\[{{freeLongNames_K}}\]
       scope: constant.character.escape
-    - match: \\\[{{longNames_L}}\]
+    - match: \\\[{{freeLongNames_L}}\]
       scope: constant.character.escape
-    - match: \\\[{{longNames_M}}\]
+    - match: \\\[{{freeLongNames_M}}\]
       scope: constant.character.escape
-    - match: \\\[{{longNames_N}}\]
+    - match: \\\[{{freeLongNames_N}}\]
       scope: constant.character.escape
-    - match: \\\[{{longNames_O}}\]
+    - match: \\\[{{freeLongNames_O}}\]
       scope: constant.character.escape
-    - match: \\\[{{longNames_P}}\]
+    - match: \\\[{{freeLongNames_P}}\]
       scope: constant.character.escape
-    - match: \\\[{{longNames_Q}}\]
+    - match: \\\[{{freeLongNames_Q}}\]
       scope: constant.character.escape
-    - match: \\\[{{longNames_R}}\]
+    - match: \\\[{{freeLongNames_R}}\]
       scope: constant.character.escape
-    - match: \\\[{{longNames_S}}\]
+    - match: \\\[{{freeLongNames_S}}\]
       scope: constant.character.escape
-    - match: \\\[{{longNames_T}}\]
+    - match: \\\[{{freeLongNames_T}}\]
       scope: constant.character.escape
-    - match: \\\[{{longNames_U}}\]
+    - match: \\\[{{freeLongNames_U}}\]
       scope: constant.character.escape
-    - match: \\\[{{longNames_V}}\]
+    - match: \\\[{{freeLongNames_V}}\]
       scope: constant.character.escape
-    - match: \\\[{{longNames_W}}\]
+    - match: \\\[{{freeLongNames_W}}\]
       scope: constant.character.escape
-    - match: \\\[{{longNames_X}}\]
+    - match: \\\[{{freeLongNames_X}}\]
       scope: constant.character.escape
-    - match: \\\[{{longNames_Y}}\]
+    - match: \\\[{{freeLongNames_Y}}\]
       scope: constant.character.escape
-    - match: \\\[{{longNames_Z}}\]
+    - match: \\\[{{freeLongNames_Z}}\]
       scope: constant.character.escape
     - match: \\\[{{symbolSegment}}?\]?
       scope: invalid.illegal.BadLongName
