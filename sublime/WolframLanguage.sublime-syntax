@@ -210,7 +210,7 @@ contexts:
         1: punctuation.definition.comment.wolfram
 
   simple_toplevel_definitions:
-    - match: ^\s*(Attributes|Options|Format)(?=\s*(\[(?>[^\[\]]+|\g<-1>)*\])\s*(?:/;.*)?(?::=|=))
+    - match: ^\s*(Attributes|Format|Options)(?=\s*(\[(?>[^\[\]]+|\g<-1>)*\])\s*(?:/;.*)?(?::=|=))
       captures:
         1: support.function.builtin.wolfram
     - match: ^\s*(`?(?:{{symbolSegment}}`)*)({{symbolSegment}})(?=\s*(\[(?>[^\[\]]+|\g<-1>)*\])\s*(?:/;.*)?(?::=|=))
