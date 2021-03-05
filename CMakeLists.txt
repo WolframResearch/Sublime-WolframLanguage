@@ -90,6 +90,7 @@ set(PACKAGE_OUTPUT ${PROJECT_BINARY_DIR}/package/WolframLanguage.sublime-package
 #
 
 add_custom_target(package
+	ALL
 	DEPENDS
 		${PACKAGE_OUTPUT}
 )
