@@ -25,11 +25,11 @@ endif()
 endif()
 
 set(STATIC_PACKAGE_SOURCES
+	${PROJECT_SOURCE_DIR}/sublime/messages/install.txt
 	#
 	# why still use the older-style .tmPreferences?
 	# https://forum.sublimetext.com/t/toggle-comment-with-a-custom-sublime-syntax/18789
 	#
-	${PROJECT_SOURCE_DIR}/sublime/messages/install.txt
 	${PROJECT_SOURCE_DIR}/sublime/Comments.tmPreferences
 	${PROJECT_SOURCE_DIR}/sublime/Context.sublime-menu
 	${PROJECT_SOURCE_DIR}/sublime/Default.sublime-commands
