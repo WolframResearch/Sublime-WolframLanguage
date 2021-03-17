@@ -281,13 +281,15 @@ def implicitTokenCharToText(c):
     if c == "z":
         return "&nbsp;\xd7"
     elif c == "N":
-        return "Null"
+        # add a space before Null because it looks nicer
+        return "&nbsp;Null"
     elif c == "1":
         return "1"
     elif c == "A":
         return "All"
     elif c == "e":
-        return "\u25a1"
+        # add space before and after \u25a1 because it looks nicer
+        return "&nbsp;\u25a1&nbsp;"
     elif c == "f":
         return "\u25a1\xd7"
     elif c == "y":
