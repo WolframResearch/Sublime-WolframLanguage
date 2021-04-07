@@ -19,14 +19,14 @@ The result is a directory named `package` that contains the WolframLanguage Subl
 Specify `MATHEMATICA_INSTALL_DIR` if you have Mathematica installed in a non-default location:
 
 ```
-cmake -DMATHEMATICA_INSTALL_DIR=/Applications/Mathematica122.app/Contents/ ..
+cmake -DMATHEMATICA_INSTALL_DIR=/Applications/Mathematica123.app/Contents/ ..
 cmake --build .
 ```
 
 On Windows:
 
 ```
-cmake -DMATHEMATICA_INSTALL_DIR="C:/Program Files/Wolfram Research/Mathematica/12.2" ..
+cmake -DMATHEMATICA_INSTALL_DIR="C:/Program Files/Wolfram Research/Mathematica/12.3" ..
 cmake --build .
 ```
 
