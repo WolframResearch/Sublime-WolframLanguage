@@ -107,7 +107,6 @@ variables:
   undocumentedSymbols_N: (?:N(?:BernoulliB|ProductFactors|SumTerms|Values|amespaceBox|amespaceBoxOptions|eedCurrentFrontEndPackagePacket|eedCurrentFrontEndSymbolsPacket|estedScriptRules|etworkPacketRecordingDuring|ext|onAssociative|ormalGrouping|otebookCreateReturnObject|otebookDefault|otebookFindReturnObject|otebookGetLayoutInformationPacket|otebookGetMisspellingsPacket|otebookInterfaceObject|otebookOpenReturnObject|otebookPutReturnObject|otebookResetGeneratedCells|otebookSaveAs|otebookSetupLayoutInformationPacket))
   undocumentedSymbols_O: (?:O(?:LEData|bjectExistsQ|pen|penFunctionInspectorPacket|penSpecialOptions|penerBox|penerBoxOptions|ptionQ|ptionValueBox|ptionValueBoxOptions|ptionsPacket|utputFormData|utputGrouping|utputMathEditExpression|ver|verlayBox|verlayBoxOptions))
   undocumentedSymbols_P: (?:P(?:ackPaclet|ackage|acletDirectoryAdd|acletDirectoryRemove|acletInformation|acletObjectQ|acletSymbol|acletUpdate|ageHeight|aneBox|aneBoxOptions|aneSelectorBox|aneSelectorBoxOptions|anelBox|anelBoxOptions|aperWidth|arameter|arameterVariables|arentConnect|arentForm|arentList|arenthesize|artialD|asteAutoQuoteCharacters|ausedTime|eriodicInterpolation|erpendicular|ickMode|ickedElements|ivoting|lotRangeClipPlanesStyle|oint3DBox|oint3DBoxOptions|ointBox|ointBoxOptions|olygon3DBox|olygon3DBoxOptions|olygonBox|olygonBoxOptions|olygonHoleScale|olygonScale|olynomialForm|olynomials|opupMenuBox|opupMenuBoxOptions|ostScript|recedence|redictionRoot|revious|rimaryPlaceholder|rintForm|rismBox|rismBoxOptions|rivateFrontEndOptions|robabilityPr|rocessStateDomain|rocessTimeDomain|rogressIndicatorBox|rogressIndicatorBoxOptions|romptForm|yramidBox|yramidBoxOptions))
-  undocumentedSymbols_Q: 
   undocumentedSymbols_R: (?:R(?:adioButtonBox|adioButtonBoxOptions|andomSeed|angeSpecification|aster3DBox|aster3DBoxOptions|asterBox|asterBoxOptions|ationalFunctions|awArray|awMedium|ebuildPacletData|ectangleBox|ecurringDigitsForm|eferenceMarkerStyle|eferenceMarkers|einstall|emoved|epeatedString|esetMenusPacket|esourceAcquire|esourceSubmissionObject|eturnEntersInput|eturnInputFormPacket|otationBox|otationBoxOptions|oundImplies|owBackgrounds|owHeights|uleCondition|uleForm))
   undocumentedSymbols_S: (?:S(?:aveAutoDelete|caledMousePosition|cheduledTaskInformationData|criptForm|criptRules|ectionGrouping|electWithContents|election|electionCell|electionCellCreateCell|electionCellDefaultStyle|electionCellParentStyle|electionDuplicateCell|electionPlaceholder|electionSetStyle|elfLoops|erviceResponse|etBoxFormNamesPacket|etEvaluationNotebook|etFileLoadingContext|etNotebookStatusLine|etOptionsPacket|etSecuredAuthenticationKey|etSpeechParametersPacket|etValue|etbacks|etterBox|etterBoxOptions|howAutoConvert|howCodeAssist|howControls|howGroupOpenCloseIcon|howInvisibleCharacters|howPredictiveInterface|howSyntaxStyles|hrinkWrapBoundingBox|ingleEvaluation|ingleLetterStyle|lider2DBox|lider2DBoxOptions|liderBox|liderBoxOptions|ocket|olveDelayed|oundAndGraphics|pace|paceForm|panningCharacters|peakTextPacket|pellingSuggestionsPacket|phereBox|tartupSound|tringBreak|tringByteCount|trokeForm|tructuredArrayHeadQ|tyleHints|tyleKeyMapping|tyleNames|ubValues|urfaceAppearance|yntax|ystemException|ystemGet|ystemInformationData|ystemStub|ystemTest))
   undocumentedSymbols_T: (?:T(?:ab|abViewBox|abViewBoxOptions|ableViewBox|ableViewBoxAlignment|ableViewBoxBackground|ableViewBoxHeaders|ableViewBoxItemSize|ableViewBoxItemStyle|ableViewBoxOptions|agBoxNote|agStyle|emplateEvaluate|emplateSlotSequence|emplateUnevaluated|emplateVerbatim|emporaryVariable|ensorQ|etrahedronBox|etrahedronBoxOptions|ext3DBox|ext3DBoxOptions|extBand|extBoundingBox|extBox|extForm|extLine|extParagraph|hisLink|itleGrouping|oColor|oggle|oggleFalse|ogglerBox|ogglerBoxOptions|ooBig|ooltipBox|ooltipBoxOptions|otalHeight|raceAction|raceInternal|raceLevel|raditionalNotation|raditionalOrder|ransparentColor|rapSelection|ubeBSplineCurveBox|ubeBSplineCurveBoxOptions|ubeBezierCurveBox|ubeBezierCurveBoxOptions|ubeBox|ubeBoxOptions|ypeDeclaration))
@@ -782,8 +781,6 @@ contexts:
       scope: support.function.undocumented.wolfram
     - match: System`{{undocumentedSymbols_P}}{{symbolEndBoundary}}
       scope: support.function.undocumented.wolfram
-    - match: System`{{undocumentedSymbols_Q}}{{symbolEndBoundary}}
-      scope: support.function.undocumented.wolfram
     - match: System`{{undocumentedSymbols_R}}{{symbolEndBoundary}}
       scope: support.function.undocumented.wolfram
     - match: System`{{undocumentedSymbols_S}}{{symbolEndBoundary}}
@@ -1039,8 +1036,6 @@ contexts:
     - match: '{{undocumentedSymbols_O}}{{symbolEndBoundary}}'
       scope: support.function.undocumented.wolfram
     - match: '{{undocumentedSymbols_P}}{{symbolEndBoundary}}'
-      scope: support.function.undocumented.wolfram
-    - match: '{{undocumentedSymbols_Q}}{{symbolEndBoundary}}'
       scope: support.function.undocumented.wolfram
     - match: '{{undocumentedSymbols_R}}{{symbolEndBoundary}}'
       scope: support.function.undocumented.wolfram
