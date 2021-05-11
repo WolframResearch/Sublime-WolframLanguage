@@ -597,7 +597,7 @@ contexts:
       scope: keyword.operator.Derivative.wolfram
     - match: (?:&)
       scope: keyword.operator.Function.wolfram
-    - match: (?:>|\^|\.|:|,|@|~)
+    - match: (?:>|\^|\.|:|@|~)
       scope: keyword.operator.wolfram
 
   symbols:
