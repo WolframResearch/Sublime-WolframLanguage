@@ -265,37 +265,37 @@ contexts:
 
   escaped_characters:
     - match: \\[!%&()*+/@^_` ]
-      scope: constant.character.escape
+      scope: donothighlight.constant.character.escape
     - match: \\\[{{systemLongNames_F}}\]
-      scope: constant.character.escape constant.language.wolfram
+      scope: donothighlight.constant.character.escape constant.language.wolfram
     - match: \\\[{{systemLongNames_S}}\]
-      scope: constant.character.escape constant.language.wolfram
+      scope: donothighlight.constant.character.escape constant.language.wolfram
     - match: \\\[{{undocumentedLongNames_A}}\]
-      scope: constant.character.escape.undocumented
+      scope: donothighlight.constant.character.escape.undocumented
     - match: \\\[{{undocumentedLongNames_C}}\]
-      scope: constant.character.escape.undocumented
+      scope: donothighlight.constant.character.escape.undocumented
     - match: \\\[{{undocumentedLongNames_D}}\]
-      scope: constant.character.escape.undocumented
+      scope: donothighlight.constant.character.escape.undocumented
     - match: \\\[{{undocumentedLongNames_E}}\]
-      scope: constant.character.escape.undocumented
+      scope: donothighlight.constant.character.escape.undocumented
     - match: \\\[{{undocumentedLongNames_F}}\]
-      scope: constant.character.escape.undocumented
+      scope: donothighlight.constant.character.escape.undocumented
     - match: \\\[{{undocumentedLongNames_G}}\]
-      scope: constant.character.escape.undocumented
+      scope: donothighlight.constant.character.escape.undocumented
     - match: \\\[{{undocumentedLongNames_L}}\]
-      scope: constant.character.escape.undocumented
+      scope: donothighlight.constant.character.escape.undocumented
     - match: \\\[{{undocumentedLongNames_M}}\]
-      scope: constant.character.escape.undocumented
+      scope: donothighlight.constant.character.escape.undocumented
     - match: \\\[{{undocumentedLongNames_P}}\]
-      scope: constant.character.escape.undocumented
+      scope: donothighlight.constant.character.escape.undocumented
     - match: \\\[{{undocumentedLongNames_S}}\]
-      scope: constant.character.escape.undocumented
+      scope: donothighlight.constant.character.escape.undocumented
     - match: \\\[{{undocumentedLongNames_U}}\]
-      scope: constant.character.escape.undocumented
+      scope: donothighlight.constant.character.escape.undocumented
     - match: \\\[{{undocumentedLongNames_V}}\]
-      scope: constant.character.escape.undocumented
+      scope: donothighlight.constant.character.escape.undocumented
     - match: \\\[{{undocumentedLongNames_W}}\]
-      scope: constant.character.escape.undocumented
+      scope: donothighlight.constant.character.escape.undocumented
     - match: \\\[{{unsupportedLongNames_C}}\]
       scope: invalid.illegal.unsupported
     - match: \\\[{{unsupportedLongNames_I}}\]
@@ -303,85 +303,85 @@ contexts:
     - match: \\\[{{unsupportedLongNames_N}}\]
       scope: invalid.illegal.unsupported
     - match: \\\[{{freeLongNames_A}}\]
-      scope: constant.character.escape
+      scope: donothighlight.constant.character.escape
     - match: \\\[{{freeLongNames_B}}\]
-      scope: constant.character.escape
+      scope: donothighlight.constant.character.escape
     - match: \\\[{{freeLongNames_C}}\]
-      scope: constant.character.escape
+      scope: donothighlight.constant.character.escape
     - match: \\\[{{freeLongNames_D}}\]
-      scope: constant.character.escape
+      scope: donothighlight.constant.character.escape
     - match: \\\[{{freeLongNames_E}}\]
-      scope: constant.character.escape
+      scope: donothighlight.constant.character.escape
     - match: \\\[{{freeLongNames_F}}\]
-      scope: constant.character.escape
+      scope: donothighlight.constant.character.escape
     - match: \\\[{{freeLongNames_G}}\]
-      scope: constant.character.escape
+      scope: donothighlight.constant.character.escape
     - match: \\\[{{freeLongNames_H}}\]
-      scope: constant.character.escape
+      scope: donothighlight.constant.character.escape
     - match: \\\[{{freeLongNames_I}}\]
-      scope: constant.character.escape
+      scope: donothighlight.constant.character.escape
     - match: \\\[{{freeLongNames_J}}\]
-      scope: constant.character.escape
+      scope: donothighlight.constant.character.escape
     - match: \\\[{{freeLongNames_K}}\]
-      scope: constant.character.escape
+      scope: donothighlight.constant.character.escape
     - match: \\\[{{freeLongNames_L}}\]
-      scope: constant.character.escape
+      scope: donothighlight.constant.character.escape
     - match: \\\[{{freeLongNames_M}}\]
-      scope: constant.character.escape
+      scope: donothighlight.constant.character.escape
     - match: \\\[{{freeLongNames_N}}\]
-      scope: constant.character.escape
+      scope: donothighlight.constant.character.escape
     - match: \\\[{{freeLongNames_O}}\]
-      scope: constant.character.escape
+      scope: donothighlight.constant.character.escape
     - match: \\\[{{freeLongNames_P}}\]
-      scope: constant.character.escape
+      scope: donothighlight.constant.character.escape
     - match: \\\[{{freeLongNames_Q}}\]
-      scope: constant.character.escape
+      scope: donothighlight.constant.character.escape
     - match: \\\[{{freeLongNames_R}}\]
-      scope: constant.character.escape
+      scope: donothighlight.constant.character.escape
     - match: \\\[{{freeLongNames_S}}\]
-      scope: constant.character.escape
+      scope: donothighlight.constant.character.escape
     - match: \\\[{{freeLongNames_T}}\]
-      scope: constant.character.escape
+      scope: donothighlight.constant.character.escape
     - match: \\\[{{freeLongNames_U}}\]
-      scope: constant.character.escape
+      scope: donothighlight.constant.character.escape
     - match: \\\[{{freeLongNames_V}}\]
-      scope: constant.character.escape
+      scope: donothighlight.constant.character.escape
     - match: \\\[{{freeLongNames_W}}\]
-      scope: constant.character.escape
+      scope: donothighlight.constant.character.escape
     - match: \\\[{{freeLongNames_X}}\]
-      scope: constant.character.escape
+      scope: donothighlight.constant.character.escape
     - match: \\\[{{freeLongNames_Y}}\]
-      scope: constant.character.escape
+      scope: donothighlight.constant.character.escape
     - match: \\\[{{freeLongNames_Z}}\]
-      scope: constant.character.escape
+      scope: donothighlight.constant.character.escape
     - match: \\\[{{symbolSegment}}?\]?
       scope: invalid.illegal.BadLongName
     - match: \\{{symbolSegment}}\]
       scope: invalid.illegal.BadLongName
     - match: \\:\h{4}
-      scope: constant.character.escape
+      scope: donothighlight.constant.character.escape
     - match: \\:\h{1,3}
       scope: invalid.illegal
     - match: \\\.\h{2}
-      scope: constant.character.escape
+      scope: donothighlight.constant.character.escape
     - match: \\\.\h{1}
       scope: invalid.illegal
     - match: \\\|\h{6}
-      scope: constant.character.escape
+      scope: donothighlight.constant.character.escape
     - match: \\\|\h{1,5}
       scope: invalid.illegal
     - match: \\[0-7]{3}
-      scope: constant.character.escape
+      scope: donothighlight.constant.character.escape
     - match: \\[0-7]{1,2}
       scope: invalid.illegal
     - match: \\$
-      scope: constant.character.escape punctuation.separator.continuation
+      scope: donothighlight.constant.character.escape punctuation.separator.continuation
     - match: \\.
       scope: invalid.illegal
 
   string_escaped_characters:
     - match: \\[bfnrt"\\<>]
-      scope: constant.character.escape
+      scope: donothighlight.constant.character.escape
     - include: escaped_characters
 
   literals:
