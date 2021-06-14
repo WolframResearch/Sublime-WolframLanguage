@@ -1,9 +1,9 @@
 {
   //
   // This defaults to platform-specific values:
-  // Linux: /usr/local/Wolfram/Mathematica/12.2/Executables/WolframKernel
+  // Linux: /usr/local/Wolfram/Mathematica/12.3/Executables/WolframKernel
   // OSX: /Applications/Mathematica.app/Contents/MacOS/WolframKernel
-  // Windows: C:\Program Files\Wolfram Research\Mathematica\12.2\WolframKernel.exe
+  // Windows: C:\Program Files\Wolfram Research\Mathematica\12.3\WolframKernel.exe
   //
   // Change this setting to use a different kernel
   //
