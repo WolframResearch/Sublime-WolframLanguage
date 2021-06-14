@@ -32,6 +32,14 @@ cmake --build .
 
 ## Installing
 
+Specify the path to your `Installed Packages` directory:
+```
+cmake -DPACKAGE_INSTALL_DIR="/Users/brenton/Library/Application Support/Sublime Text/Installed Packages" ..
+```
+
+You only need to do this step once.
+
+
 You can install the package from CMake:
 ```
 cmake --install .
