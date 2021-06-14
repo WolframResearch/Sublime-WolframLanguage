@@ -10,19 +10,24 @@ import mdpopups
 
 import webbrowser
 
-from LSP.plugin.core.handlers import LanguageHandler
-from LSP.plugin.core.settings import ClientConfig, LanguageConfig, read_client_config
-from LSP.plugin.core.protocol import Notification
+from LSP.plugin.core.settings import ClientConfig
+from LSP.plugin import register_plugin, unregister_plugin, AbstractPlugin, WorkspaceFolder
+from LSP.plugin.core.typing import Tuple, List, Optional
 
 settings_file = "WolframLanguage.sublime-settings"
 
-class LspWolframLanguagePlugin(LanguageHandler):
-    @property
-    def name(self) -> str:
+class LspWolframLanguagePlugin(AbstractPlugin):
+
+    hrefMap = {}
+    kernel_initialized = False
+
+    @classmethod
+    def name(cls) -> str:
         return "wolfram"
 
-    @property
-    def config(self) -> ClientConfig:
+    @classmethod
+    def configuration(cls) -> Tuple[sublime.Settings, str]:
+        filepath = "Packages/WolframLanguage/{}".format(settings_file)
         settings = sublime.load_settings(settings_file)
 
         command = settings.get("lsp_server_command")
@@ -37,7 +42,7 @@ class LspWolframLanguagePlugin(LanguageHandler):
         # Any dollar sign characters $ will be treated as the beginning of an
         # environment variable to be expanded, so must use \\[RawDollar]
         #
-        # Related lines: https://github.com/sublimelsp/LSP/blob/24cee140fd7d02a29e82a139b918bef77d89f6fb/plugin/core/clients.py#L16
+        # Related lines: https://github.com/sublimelsp/LSP/blob/main/plugin/core/types.py#L657
         #
         command = list(
             arg.replace("$", "\\[RawDollar]")
@@ -52,68 +57,40 @@ class LspWolframLanguagePlugin(LanguageHandler):
             "bracketMatcher": bracketMatcher
         }
 
-        config = {
-            "languageId": "wolfram",
-            "scopes": ["source.wolfram"],
-            "syntaxes": ["Packages/WolframLanguage/WolframLanguage.sublime-syntax"]
-        }
+        settings.set("command", command)
+        settings.set("initializationOptions", initialization_options)
+        settings.set("selector", "source.wolfram")
 
-        config["command"] = command
-        config["initializationOptions"] = initialization_options
+        return settings, filepath
 
-        return read_client_config("wolfram", config)
-
-    def on_start(self, window) -> bool:
-
-        self.hrefMap = {}
-
-        settings = sublime.load_settings(settings_file)
-
-        command = settings.get("lsp_server_command")
-
-        kernel_path = command[0]
-
-        #
-        # if not using `kernel` syntax in command, then just return now
-        #
-        if not kernel_path == "`kernel`":
-            return True
-
-        #
-        # Check that kernel specified by `kernel` is WolframKernel
-        #
-        kernel = settings.get("kernel")
-
-        command[0] = kernel
+    @classmethod
+    def on_pre_start(cls, window: sublime.Window, initiating_view: sublime.View, workspace_folders: List[WorkspaceFolder], configuration: ClientConfig) -> Optional[str]:
         
+        command = configuration.command
+
+        kernel = command[0]
+
         base = os.path.basename(kernel)
         if not base.lower().startswith("wolframkernel"):
             sublime.message_dialog("Command for Wolfram Language Server does not start with 'WolframKernel': " + kernel)
 
         # start timer thread for checking that kernel initialized properly
-        timer = threading.Thread(target=self.kernel_initialization_check_function, args=(command,))
-
-        self.kernel_initialized = False
+        timer = threading.Thread(target=cls.kernel_initialization_check_function, args=(command,))
 
         timer.start()
 
-        return True
+        return None
+ 
+    @classmethod
+    def on_post_start(cls, window: sublime.Window, initiating_view: sublime.View, workspace_folders: List[WorkspaceFolder], configuration: ClientConfig) -> None:
+        cls.kernel_initialized = True
 
-    def on_initialized(self, client) -> None:
-
-        self.kernel_initialized = True
-
-        self._client = client
-
-        client.on_notification("textDocument/publishImplicitTokens", self.on_implicit_tokens)
-
-        client.on_notification("textDocument/publishHTMLSnippet", self.on_html_snippet)
-
-    def kernel_initialization_check_function(self, command):
+    @classmethod
+    def kernel_initialization_check_function(cls, command):
         
         time.sleep(10)
         
-        if self.kernel_initialized:
+        if cls.kernel_initialized:
             return
 
         # kill kernel, if possible
@@ -140,8 +117,7 @@ class LspWolframLanguagePlugin(LanguageHandler):
 
         sublime.message_dialog(msg)
 
-
-    def on_implicit_tokens(self, params):
+    def m_textDocument_publishImplicitTokens(self, params):
 
         #
         # Currently grabbing the active view
@@ -176,7 +152,7 @@ class LspWolframLanguagePlugin(LanguageHandler):
                 sublime.LAYOUT_INLINE)
 
 
-    def on_html_snippet(self, params):
+    def m_textDocument_publishHTMLSnippet(self, params):
 
         #
         # Currently grabbing the active view
@@ -302,4 +278,15 @@ def implicitTokenCharToText(c):
         return "All1"
     else:
         return " "
+
+
+def plugin_loaded():
+    register_plugin(LspWolframLanguagePlugin)
+
+
+def plugin_unloaded():
+    unregister_plugin(LspWolframLanguagePlugin)
+
+
+
 
