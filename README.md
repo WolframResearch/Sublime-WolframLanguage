@@ -198,12 +198,3 @@ LSP > Settings
   "log_stderr": true
 }
 ```
-
-### Windows
-
-You may need to double-up quotation marks in the command:
-
-``"Needs[\"\"LSPServer`\"\"];LSPServer`StartServer[]"``
-
-
-
