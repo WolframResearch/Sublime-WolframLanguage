@@ -7,6 +7,7 @@ import subprocess
 import sys
 import time
 import mdpopups
+import datetime
 
 import webbrowser
 
@@ -15,6 +16,9 @@ from LSP.plugin import register_plugin, unregister_plugin, AbstractPlugin, Works
 from LSP.plugin.core.typing import Tuple, List, Optional
 
 settings_file = "WolframLanguage.sublime-settings"
+
+ping_pong_counter = 0
+start_time = datetime.datetime(2020,1,1,0,0,0,0)
 
 class LspWolframLanguagePlugin(AbstractPlugin):
 
@@ -82,6 +86,7 @@ class LspWolframLanguagePlugin(AbstractPlugin):
 
         return None
 
+
     @classmethod
     def kernel_initialization_check_function(cls, command):
         
@@ -117,6 +122,88 @@ class LspWolframLanguagePlugin(AbstractPlugin):
     def m_wolfram_afterInitialize(self, params):
         cls = type(self)
         cls.kernel_initialized = True
+
+    def m_roundTripTest(self, params):
+
+        if not sublime:
+            return
+
+        active_window = sublime.active_window()
+
+        view = active_window.active_view()
+
+        delT = datetime.datetime.now() - start_time
+
+        print("Roundtrip timing test executed.")
+        print("==========================================")
+        
+        sublime.message_dialog('Roundtrip Timing = '+(str(round(delT.total_seconds()*1000, 2)) + ' ms'))
+
+    
+    def m_pingPongTest(self, params):
+
+        
+        if not sublime:
+            return     
+
+        global ping_pong_counter
+        ping_pong_counter = ping_pong_counter - 1
+
+                           
+        if ping_pong_counter == 0:
+            delT = datetime.datetime.now() - start_time
+            delT.total_seconds()
+            print("Pingpong test executed.")
+            print("==========================================")
+            
+            sublime.message_dialog('Pingpong Timing = '+(str(round(delT.total_seconds()*100, 2)) + ' ms'))
+            return
+        
+        active_window = sublime.active_window()
+
+        view = active_window.active_view()
+
+        view.run_command("lsp_execute", 
+                {
+                    "session_name": "wolfram",
+                    "command_name": "ping_pong_responsiveness_test", 
+                    "command_args":{}
+                }
+            )
+
+    def m_payloadTest(self, params):
+
+        
+        if not sublime:
+            return     
+
+        
+        global ping_pong_counter
+        ping_pong_counter = ping_pong_counter - 1
+
+                           
+        if ping_pong_counter == 0:
+            delT = datetime.datetime.now() - start_time
+            delT.total_seconds()
+
+            print("Payload timing test executed.")
+            print("==========================================")
+
+            sublime.message_dialog('Payload (2.6MB) Timing = '+(str(round(delT.total_seconds()/3, 2)) + ' sec'))
+            return
+        
+        active_window = sublime.active_window()
+
+        view = active_window.active_view()
+
+        view.run_command("lsp_execute", 
+                {
+                    "session_name": "wolfram",
+                    "command_name": "payload_responsiveness_test", 
+                    "command_args":{}
+                    }
+                )
+
 
     def m_textDocument_publishImplicitTokens(self, params):
 
@@ -250,6 +337,64 @@ class WolframLanguageOpenSiteCommand(sublime_plugin.ApplicationCommand):
         """Open the URL."""
 
         webbrowser.open_new_tab(url)
+
+class RoundTripTimingCommand(sublime_plugin.ApplicationCommand):
+    def run(self):
+        global start_time
+        start_time = datetime.datetime.now()
+        print("Roundtrip timing test started ...")
+        active_window = sublime.active_window()
+        view = active_window.active_view()
+
+        view.run_command("lsp_execute", 
+            {
+            "session_name": "wolfram",
+            "command_name": "roundtrip_responsiveness_test", 
+            "command_args":{}
+            }
+        )
+
+
+class PingPongCommand(sublime_plugin.ApplicationCommand):
+    def run(self):
+        global ping_pong_counter
+        ping_pong_counter = 10
+
+        global start_time
+        start_time = datetime.datetime.now()
+        print("Pingpong test started ...")
+        active_window = sublime.active_window()
+        view = active_window.active_view()
+
+        view.run_command("lsp_execute", 
+            {
+                "session_name": "wolfram",
+                "command_name": "ping_pong_responsiveness_test",
+                "command_args":{}
+            }
+        )
+
+class PayloadTimingCommand(sublime_plugin.ApplicationCommand):
+    def run(self):
+
+        global ping_pong_counter
+        ping_pong_counter = 3
+
+        global start_time
+        start_time = datetime.datetime.now()
+
+        print("Payload timing test started ...")
+
+        active_window = sublime.active_window()
+        view = active_window.active_view()
+
+        view.run_command("lsp_execute", 
+            {
+                "session_name": "wolfram",
+                "command_name": "payload_responsiveness_test", 
+                "command_args":{}
+            }
+        )
 
 
 def implicitTokenCharToText(c):

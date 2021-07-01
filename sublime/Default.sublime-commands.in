@@ -45,5 +45,22 @@ BEGIN_DEBUG
         "args": {"session_name": "wolfram", "command_name": "disable_bracket_matcher_display_insertion_text", "command_args":[]}
     }
     ,
+    {
+        "caption": "Wolfram Language: Roundtrip Timing Test",
+        "command": "round_trip_timing",
+        "args": {}
+    }
+    ,
+    {
+        "caption": "Wolfram Language: Pingpong Test",
+        "command": "ping_pong",
+        "args": {}
+    }    
+    ,
+    {
+        "caption": "Wolfram Language: Payload Timing Test",
+        "command": "payload_timing",
+        "args": {}
+    }
 END_DEBUG
 ]
