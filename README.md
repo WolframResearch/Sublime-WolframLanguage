@@ -85,6 +85,7 @@ There are other settings such as `lsp_server_command` that specifies the command
       "-noprompt",
       "-nopaclet",
       "-noicon",
+      "-nostartuppaclets",
       "-run",
       "Needs[\"LSPServer`\"];LSPServer`StartServer[]"
     ]
@@ -148,6 +149,7 @@ Add a `wolfram` client to `LSP.sublime-settings`:
           "-noprompt",
           "-nopaclet",
           "-noicon",
+          "-nostartuppaclets",
           "-run",
           "Needs[\"LSPServer`\"];LSPServer`StartServer[]"
         ],
