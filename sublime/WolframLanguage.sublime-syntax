@@ -233,13 +233,22 @@ contexts:
         1: punctuation.definition.comment.wolfram
 
   simple_toplevel_definitions:
-    - match: ^\s*(Attributes|Format|Options)(?=\s*(\[(?>[^\[\]]+|\g<-1>)*\])\s*(?:/;.*)?(?::=|=(?!!|=|\.)))
+    - match: ^\s*(Attributes|Format|Options)\s*(\[)(`?(?:{{symbolSegment}}`)*)({{symbolSegment}})(\])\s*(:=|=(?!!|=|\.))
       captures:
         1: support.function.builtin.wolfram
+        2: punctuation.section.brackets.begin.wolfram
+        3: meta.function.wolfram entity.name.Context.wolfram
+        4: meta.function.wolfram entity.name.function.wolfram
+        5: punctuation.section.brackets.end.wolfram
+        6: keyword.operator.assignment.wolfram
     - match: ^\s*(`?(?:{{symbolSegment}}`)*)({{symbolSegment}})(?=\s*(\[(?>[^\[\]]+|\g<-1>)*\])\s*(?:/;.*)?(?::=|=(?!!|=|\.)))
       captures:
         1: meta.function.wolfram entity.name.Context.wolfram
         2: meta.function.wolfram entity.name.function.wolfram
+    - match: ^\s*(`?(?:{{symbolSegment}}`)*)({{symbolSegment}})(?=\s*(?:/;.*)?(?::=|=(?!!|=|\.)))
+      captures:
+        1: meta.function.wolfram entity.name.Context.wolfram
+        2: meta.function.wolfram entity.name.constant.wolfram
 
   expressions:
     - include: escaped_character_symbols
