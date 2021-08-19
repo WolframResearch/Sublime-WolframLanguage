@@ -41,7 +41,7 @@ set(STATIC_PACKAGE_SOURCES
 	${PROJECT_SOURCE_DIR}/sublime/messages.json
 	${PROJECT_SOURCE_DIR}/sublime/plugin.py
 	${PROJECT_SOURCE_DIR}/sublime/SymbolListConstants.tmPreferences
-	${PROJECT_SOURCE_DIR}/sublime/syntax_test_wolfram_language.wl
+	#${PROJECT_SOURCE_DIR}/sublime/syntax_test_wolfram_language.wl
 	${PROJECT_SOURCE_DIR}/sublime/WolframLanguage.sublime-color-scheme
 	${PROJECT_SOURCE_DIR}/sublime/WolframLanguage.sublime-completions
 	${PROJECT_SOURCE_DIR}/sublime/WolframLanguage\ \(Linux\).sublime-settings

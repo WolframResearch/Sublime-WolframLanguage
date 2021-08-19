@@ -131,27 +131,27 @@
 
 
   abc >>> def
-(*^^^ variable.other.wolfram*)
+(*^^^ symbol.unrecognized.wolfram*)
 (*    ^^^ keyword.operator.PutAppend.wolfram *)
 (*        ^^^ string.unquoted.wolfram *)
 
   abc >>> "def"
-(*^^^ variable.other.wolfram*)
+(*^^^ symbol.unrecognized.wolfram*)
 (*    ^^^ keyword.operator.PutAppend.wolfram *)
 (*        ^^^^^ string.quoted.double.wolfram *)
 
   abc >>> "/a/b/c/d"
-(*^^^ variable.other.wolfram*)
+(*^^^ symbol.unrecognized.wolfram*)
 (*    ^^^ keyword.operator.PutAppend.wolfram *)
 (*        ^^^^^^^^^^ string.quoted.double.wolfram *)
 
   abc >> def
-(*^^^ variable.other.wolfram*)
+(*^^^ symbol.unrecognized.wolfram*)
 (*    ^^ keyword.operator.Put.wolfram *)
 (*       ^^^ string.unquoted.wolfram *)
 
   abc >> "def"
-(*^^^ variable.other.wolfram*)
+(*^^^ symbol.unrecognized.wolfram*)
 (*    ^^ keyword.operator.Put.wolfram *)
 (*       ^^^^^ string.quoted.double.wolfram *)
 
@@ -164,7 +164,7 @@
 (*   ^^^^^^^^ string.quoted.double.wolfram *)
 
   abc << def
-(*^^^ variable.other.wolfram*)
+(*^^^ symbol.unrecognized.wolfram*)
 (*    ^^ keyword.operator.Get.wolfram *)
 (*       ^^^ string.unquoted.wolfram *)
 
@@ -172,12 +172,12 @@
 (*^^ invalid.illegal *)
 
   symbol::tag
-(*^^^^^^ variable.other.wolfram *)
+(*^^^^^^ symbol.unrecognized.wolfram *)
 (*      ^^ keyword.operator.MessageName.wolfram *)
 (*        ^^^ string.unquoted.wolfram *)
 
   symbol::"tag"
-(*^^^^^^ variable.other.wolfram *)
+(*^^^^^^ symbol.unrecognized.wolfram *)
 (*      ^^ keyword.operator.MessageName.wolfram *)
 (*        ^^^^^ string.quoted.double.wolfram *)
 
@@ -185,16 +185,16 @@
 (* VARIABLES *)
 
   f[x]
-(*^ variable*)
+(*^ symbol.unrecognized.wolfram *)
   foo$bar12
-(*^^^^^^^^^ variable.other *)
+(*^^^^^^^^^ symbol.unrecognized.wolfram *)
   $foo
-(*^^^^ variable.other *)
+(*^^^^ symbol.unrecognized.wolfram *)
   my`context12`$foo
-(*^^^^^^^^^^^^^^^^^ variable.other *)
+(*^^^^^^^^^^^^^^^^^ symbol.unrecognized.wolfram *)
   1$12foo
 (*^ constant.numeric.wolfram *)
-(* ^^^^^^ variable.other.wolfram *)
+(* ^^^^^^ symbol.unrecognized.wolfram *)
 
   System`foo
 (*^^^^^^^^^^ invalid.illegal.system.wolfram *)
@@ -213,17 +213,17 @@
   Image[Red, Interleaving -> True]
 (*^^^^^ support.function.builtin.wolfram *)
 (*      ^^^ constant.language.wolfram *)
-(*           ^^^^^^^^^^^^ support.function.builtin.wolfram *)
+(*           ^^^^^^^^^^^^ constant.language.wolfram *)
 (*                        ^^ keyword.operator *)
 
   `foo
-(*^^^^ variable.other *)
+(*^^^^ symbol.unrecognized.wolfram *)
 
   `$desktopCacheBase
-(*^^^^^^^^^^^^^^^^^^ variable.other *)
+(*^^^^^^^^^^^^^^^^^^ symbol.unrecognized.wolfram *)
 
   \[FormalX]
-(*^^^^^^^^^^ constant.character.escape constant.language.wolfram *)
+(*^^^^^^^^^^ constant.language.wolfram *)
 
   System`\[FormalX]
 (*^^^^^^^^^^^^^^^^^ constant.language.wolfram *)
@@ -252,7 +252,7 @@
 
   "\[Alpha]"
 (*^ punctuation.definition.string.begin *)
-(* ^^^^^^^^ constant.character.escape *)
+(* ^^^^^^^^ donothighlight.constant.character.escape *)
 (* ^^^^^^^^^ string.quoted.double.wolfram *)
 
 
@@ -276,7 +276,7 @@
 (*^^ meta.associations.wolfram punctuation.section.associations.begin.wolfram  *)
 (*   ^ meta.associations.wolfram  *)
 (*     ^^ meta.associations.wolfram punctuation.section.associations.end.wolfram *)
-(*         ^^^ source.wolfram variable.other *)
+(*         ^^^ source.wolfram symbol.unrecognized.wolfram *)
 
   [ ]
 (*^ meta.brackets.wolfram punctuation.section.brackets.begin.wolfram *)
@@ -294,9 +294,8 @@
 (*  ^ meta.parens.wolfram punctuation.section.parens.end.wolfram *)
 
   [ [ ]]
-(*^^^ meta.parts.wolfram punctuation.section.parts.begin.wolfram *)
-(*   ^ meta.parts.wolfram *)
-(*    ^^ meta.parts.wolfram punctuation.section.parts.end.wolfram *)
+(*^^^ invalid.whitespace.Part.wolfram *)
+(*    ^^ invalid.illegal.stray-parts-end.wolfram *)
 
   [[ ]]
 (*^^ meta.parts.wolfram punctuation.section.parts.begin.wolfram *)
@@ -387,17 +386,13 @@
 (*    ^^^ entity.name.function.wolfram *)
 
 
-  foo[1, "[", 2] := xxx
-(*^^^ entity.name.function.wolfram *)
 
-  foo[1, "]", 2] := xxx
-(*^^^ entity.name.function.wolfram *)
-
-  foo[1, "]", 2] /; f[] := xxx
-(*^^^ entity.name.function.wolfram *)
-(*                  ^ variable.other.wolfram *)
-
-
+  Attributes[foo] = { HoldFirst }
+(*^^^^^^^^^^ support.function.builtin.wolfram *)
+(*          ^ punctuation.section.brackets.begin.wolfram *)
+(*           ^^^ entity.name.function.wolfram *)
+(*              ^ punctuation.section.brackets.end.wolfram *)
+(*                ^ keyword.operator.assignment.wolfram *)
 
 
 
@@ -411,7 +406,7 @@
 (*^ entity.name.constant.wolfram *)
 
 Module[{}, a = 1]
-(*         ^ variable.other.wolfram *)
+(*         ^ symbol.unrecognized.wolfram *)
 
   $constant := 3 + 4
 (*^^^^^^^^^ entity.name.constant.wolfram *)
@@ -428,7 +423,7 @@ Regression Tests
 *)
 
    NotAfter["\[\["]
-(* ^^^^^^^^ variable.other.wolfram *)
+(* ^^^^^^^^ symbol.unrecognized.wolfram *)
 (*         ^ punctuation.section.brackets.begin.wolfram *)
 (*          ^ string.quoted.double.wolfram punctuation.definition.string.begin *)
 (*           ^^ invalid.illegal *)
