@@ -1,0 +1,12 @@
+Release Notes
+
+1.3
+
+August 30, 2021
+
+
+Now supporting Sublime 4
+
+
+
+
