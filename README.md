@@ -1,49 +1,22 @@
-# Sublime-WolframLanguage
+# Wolfram Integration with Sublime Text
 
-Sublime Text 4 support for the [Wolfram Language](https://en.wikipedia.org/wiki/Wolfram_Language), the language used in Mathematica.
+A Sublime Text package for Wolfram Language.
 
-- Syntax highlighting.
-- Auto completion for built-in functions.
-- LSP support.
-- Requires Sublime Text 4 Build 4107 or later.
+* Syntax highlighting
+* [LSP](https://microsoft.github.io/language-server-protocol/) support
+
+![highlighting](docs/highlighting.png)
 
 
 ## Setup
 
-Sublime-WolframLanguage depends on the CodeParser, CodeInspector, CodeFormatter, and LSPServer paclets. Make sure that the paclets can be found on your system:
-```
-Needs["CodeParser`"]
-Needs["CodeInspector`"]
-Needs["CodeFormatter`"]
-Needs["LSPServer`"]
-```
+Sublime-WolframLanguage depends on [LSPServer](https://github.com/WolframResearch/lspserver) to provide LSP functionality.
 
-[CodeParser on github.com](https://github.com/WolframResearch/codeparser)
-[CodeInspector on github.com](https://github.com/WolframResearch/codeinspector)
-[CodeFormatter on github.com](https://github.com/WolframResearch/codeformatter)
-[LSPServer on github.com](https://github.com/<<TODO_placeholder_for_actual_link>>)
+[Build and install the WolframLanguage package locally](HowToBuild.md)
 
-Install LSPServer and dependencies from the CodeTools paclet server:
-```
-PacletInstall["CodeParser"]
-PacletInstall["CodeInspector"]
-PacletInstall["CodeFormatter"]
-PacletInstall["LSPServer"]
-```
+If properly setup, you should have syntax highlighting and linting of Wolfram `.m` and `.wl` files.
 
-If you haven't already, [install Package Control](https://packagecontrol.io/installation), then select `WolframLanguage` from the `Package Control: Install Package` dropdown list in the Command Palette.
-
-Note: `WolframLanguage` is not yet in Package Control. `WolframLanguage` must be installed manually.
-
-
-In the Command Palette: LSP: Enable Language Server Globally, and select wolfram
-
-
-Restart Sublime
-
-You should now have syntax highlighting and linting of Wolfram `.m` and `.wl` files working.
-
-Test this by typing this into a new `.m` file and saving it:
+Test this by typing this into a new `.wl` file and saving it:
 ```
 Which[a, b, a, b]
 ```
@@ -53,30 +26,29 @@ You should see warnings about duplicate clauses.
 
 ### Settings
 
-If you have `Mathematica` installed in the default location on your system, you may not have to change any settings.
+If you have Wolfram System installed in the default location on your system, you may not have to change any settings.
 
-If `Mathematica` is not in the default location, then change the location by going to:
+If Wolfram System is not in the default location, then specify the actual location:
 
+Go to the menu item:
 `Package Settings > Wolfram Language > Settings`
 
-and adding a `kernel` setting:
-
+Add a `kernel` setting:
 ```
 {
-  ...
+  …
 
   "kernel": "/Applications/Mathematica123.app/Contents/MacOS/WolframKernel"
-  
-  ...
+
+  …
 }
 
 ```
 
-There are other settings such as `lsp_server_command` that specifies the command to run for the server:
-
+You may also change the command that is used to start the server:
 ```
 {
-  ...
+  …
 
   "lsp_server_command":
     [
@@ -90,7 +62,7 @@ There are other settings such as `lsp_server_command` that specifies the command
       "Needs[\"LSPServer`\"];LSPServer`StartServer[]"
     ]
 
-  ...
+  …
 }
 ```
 
@@ -102,104 +74,20 @@ You can enable experimental settings. These are not supported.
 
 ```
 {
-  ...
+  …
 
   "implicitTokens": ["*", ",", ";;", "?"]
 
-  ...
-}
-```
-
-`bracketMatcher` controls the experimental ML-based bracket matching recommendation system and UI.
-
-Note: `bracketMatcher` requires the `ML4Code` package to be installed.
-
-```
-{
-  ...
-
-  "bracketMatcher": true
-
-  ...
-}
-```
-
-
-
-
-## Using LSPServer paclet WITHOUT the Sublime-WolframLanguage package
-
-It is possible to use the LSPServer paclet without using the Sublime-WolframLanguage package.
-
-Add a `wolfram` client to `LSP.sublime-settings`:
-```
-{
-  ...
-
-  "clients":
-  {
-    "wolfram":
-    {
-      "enabled": true,
-
-      "command":
-        [
-          "<<Path to WolframKernel>>",
-          "-noinit",
-          "-noprompt",
-          "-nopaclet",
-          "-noicon",
-          "-nostartuppaclets",
-          "-run",
-          "Needs[\"LSPServer`\"];LSPServer`StartServer[]"
-        ],
-  
-      "scopes": ["source.wolfram"],
- 
-      "syntaxes": ["<<Path to Wolfram sublime-syntax>>"]
-
-      "languageId": "wolfram",
-  
-      "initializationOptions": { }
-    }
-  }
-
-  ...
+  …
 }
 ```
 
 
 ## Troubleshooting
 
-
-Make sure that the required packages are up-to-date:
-sublime-wolframlanguage
-LSP package
-
-make sure older versions are not present
-
-Package Control > List Packages
-
-
-LSP with URL https://github.com/tomv564/LSP
-Remove Package
-
-
-WolframLanguage with URL https://github.com/ViktorQvarfordt/Sublime-WolframLanguage
-Remove Package
-
-### Debugging
-
-Turn on debug LSP settings
-
-
-LSP > Settings
-
+Make sure that the paclets can be found on your system:
 ```
-{
-  "log_debug": true,
-  "log_server": true,
-  "log_payloads": true,
-  "log_stderr": true
-}
+Needs["LSPServer`"]
 ```
+
+[Troubleshooting LSP for Sublime Text](https://lsp.sublimetext.io/troubleshooting/)
