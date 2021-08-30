@@ -54,7 +54,8 @@ class LspWolframLanguagePlugin(AbstractPlugin):
 
         initialization_options = {
             "implicitTokens": implicitTokens,
-            "bracketMatcher": bracketMatcher
+            "bracketMatcher": bracketMatcher,
+            "afterInitialize": True
         }
 
         settings.set("command", command)
@@ -80,10 +81,6 @@ class LspWolframLanguagePlugin(AbstractPlugin):
         timer.start()
 
         return None
- 
-    @classmethod
-    def on_post_start(cls, window: sublime.Window, initiating_view: sublime.View, workspace_folders: List[WorkspaceFolder], configuration: ClientConfig) -> None:
-        cls.kernel_initialized = True
 
     @classmethod
     def kernel_initialization_check_function(cls, command):
@@ -116,6 +113,10 @@ class LspWolframLanguagePlugin(AbstractPlugin):
         msg += "Fix any problems then restart and try again."
 
         sublime.message_dialog(msg)
+
+    def m_wolfram_afterInitialize(self, params):
+        cls = type(self)
+        cls.kernel_initialized = True
 
     def m_textDocument_publishImplicitTokens(self, params):
 
