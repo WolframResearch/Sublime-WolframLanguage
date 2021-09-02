@@ -8,6 +8,7 @@
         }
     }
     ,
+BEGIN_DEBUG
     {
         "caption": "Wolfram Language: Enable Bracket Matcher Debug Mode",
         "command": "lsp_execute",
@@ -43,4 +44,6 @@
         "command": "lsp_execute",
         "args": {"session_name": "wolfram", "command_name": "disable_bracket_matcher_display_insertion_text", "command_args":[]}
     }
+    ,
+END_DEBUG
 ]
