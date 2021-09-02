@@ -48,19 +48,20 @@ BEGIN_DEBUG
     {
         "caption": "Wolfram Language: Roundtrip Timing Test",
         "command": "round_trip_timing",
-        "args": {}
+        "args": []
     }
     ,
     {
         "caption": "Wolfram Language: Pingpong Test",
         "command": "ping_pong",
-        "args": {}
+        "args": []
     }    
     ,
     {
         "caption": "Wolfram Language: Payload Timing Test",
         "command": "payload_timing",
-        "args": {}
+        "args": []
     }
+    ,
 END_DEBUG
 ]
