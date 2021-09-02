@@ -11,36 +11,36 @@
     {
         "caption": "Wolfram Language: Enable Bracket Matcher Debug Mode",
         "command": "lsp_execute",
-        "args": {"command_name": "enable_bracket_matcher_debug_mode", "command_args":{}}
+        "args": {"session_name": "wolfram", "command_name": "enable_bracket_matcher_debug_mode", "command_args":[]}
     }
     ,
     {
         "caption": "Wolfram Language: Disable Bracket Matcher Debug Mode",
         "command": "lsp_execute",
-        "args": {"command_name": "disable_bracket_matcher_debug_mode", "command_args":{}}
+        "args": {"session_name": "wolfram", "command_name": "disable_bracket_matcher_debug_mode", "command_args":[]}
     }
-    // ,
-    // {
-    //     "caption": "WolframLanguage: Enable Bracket Matcher Design Colors",
-    //     "command": "lsp_execute",
-    //     "args": {"command_name": "enable_bracket_matcher_design_colors", "command_args":{}}
-    // }
-    // ,
-    // {
-    //     "caption": "WolframLanguage: Disable Bracket Matcher Design Colors",
-    //     "command": "lsp_execute",
-    //     "args": {"command_name": "disable_bracket_matcher_design_colors", "command_args":{}}
-    // }
-    // ,
-    // {
-    //     "caption": "WolframLanguage: Enable Bracket Matcher Display Insertion Text",
-    //     "command": "lsp_execute",
-    //     "args": {"command_name": "enable_bracket_matcher_display_insertion_text", "command_args":{}}
-    // }
-    // ,
-    // {
-    //     "caption": "WolframLanguage: Disable Bracket Matcher Display Insertion Text",
-    //     "command": "lsp_execute",
-    //     "args": {"command_name": "disable_bracket_matcher_display_insertion_text", "command_args":{}}
-    // }
+    ,
+    {
+        "caption": "Wolfram Language: Enable Bracket Matcher Design Colors",
+        "command": "lsp_execute",
+        "args": {"session_name": "wolfram", "command_name": "enable_bracket_matcher_design_colors", "command_args":[]}
+    }
+    ,
+    {
+        "caption": "Wolfram Language: Disable Bracket Matcher Design Colors",
+        "command": "lsp_execute",
+        "args": {"session_name": "wolfram", "command_name": "disable_bracket_matcher_design_colors", "command_args":[]}
+    }
+    ,
+    {
+        "caption": "Wolfram Language: Enable Bracket Matcher Display Insertion Text",
+        "command": "lsp_execute",
+        "args": {"session_name": "wolfram", "command_name": "enable_bracket_matcher_display_insertion_text", "command_args":[]}
+    }
+    ,
+    {
+        "caption": "Wolfram Language: Disable Bracket Matcher Display Insertion Text",
+        "command": "lsp_execute",
+        "args": {"session_name": "wolfram", "command_name": "disable_bracket_matcher_display_insertion_text", "command_args":[]}
+    }
 ]
