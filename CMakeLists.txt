@@ -36,7 +36,7 @@ set(STATIC_PACKAGE_SOURCES
 	#
 	${PROJECT_SOURCE_DIR}/sublime/Comments.tmPreferences
 	${PROJECT_SOURCE_DIR}/sublime/Context.sublime-menu
-	${PROJECT_SOURCE_DIR}/sublime/Default.sublime-commands
+	${PROJECT_SOURCE_DIR}/sublime/Default.sublime-commands.in
 	${PROJECT_SOURCE_DIR}/sublime/Main.sublime-menu
 	${PROJECT_SOURCE_DIR}/sublime/messages.json
 	${PROJECT_SOURCE_DIR}/sublime/plugin.py
