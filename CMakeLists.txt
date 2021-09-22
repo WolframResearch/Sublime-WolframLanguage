@@ -32,7 +32,6 @@ endif()
 endif()
 
 set(STATIC_PACKAGE_SOURCES
-	${PROJECT_SOURCE_DIR}/messages/install.txt
 	#
 	# why still use the older-style .tmPreferences?
 	# https://forum.sublimetext.com/t/toggle-comment-with-a-custom-sublime-syntax/18789
@@ -41,9 +40,15 @@ set(STATIC_PACKAGE_SOURCES
 	${PROJECT_SOURCE_DIR}/Context.sublime-menu
 	${PROJECT_SOURCE_DIR}/Default.sublime-commands
 	${PROJECT_SOURCE_DIR}/Main.sublime-menu
-	${PROJECT_SOURCE_DIR}/messages.json
+	#
+	# Do not include messages.json (or messages dir)
+	#
+	# ${PROJECT_SOURCE_DIR}/messages.json
 	${PROJECT_SOURCE_DIR}/plugin.py
 	${PROJECT_SOURCE_DIR}/SymbolListConstants.tmPreferences
+	#
+	# Do not include syntax tests
+	#
 	#${PROJECT_SOURCE_DIR}/syntax_test_wolfram_language.wl
 	${PROJECT_SOURCE_DIR}/WolframLanguage.sublime-color-scheme
 	${PROJECT_SOURCE_DIR}/WolframLanguage.sublime-completions
