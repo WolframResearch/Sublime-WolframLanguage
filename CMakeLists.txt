@@ -32,32 +32,31 @@ endif()
 endif()
 
 set(STATIC_PACKAGE_SOURCES
-	${PROJECT_SOURCE_DIR}/sublime/messages/install.txt
+	${PROJECT_SOURCE_DIR}/messages/install.txt
 	#
 	# why still use the older-style .tmPreferences?
 	# https://forum.sublimetext.com/t/toggle-comment-with-a-custom-sublime-syntax/18789
 	#
-	${PROJECT_SOURCE_DIR}/sublime/Comments.tmPreferences
-	${PROJECT_SOURCE_DIR}/sublime/Context.sublime-menu
-	${PROJECT_SOURCE_DIR}/sublime/Default.sublime-commands
-	${PROJECT_SOURCE_DIR}/sublime/Main.sublime-menu
-	${PROJECT_SOURCE_DIR}/sublime/messages.json
-	${PROJECT_SOURCE_DIR}/sublime/plugin.py
-	${PROJECT_SOURCE_DIR}/sublime/SymbolListConstants.tmPreferences
-	#${PROJECT_SOURCE_DIR}/sublime/syntax_test_wolfram_language.wl
-	${PROJECT_SOURCE_DIR}/sublime/WolframLanguage.sublime-color-scheme
-	${PROJECT_SOURCE_DIR}/sublime/WolframLanguage.sublime-completions
-	${PROJECT_SOURCE_DIR}/sublime/WolframLanguage\ \(Linux\).sublime-settings
-	${PROJECT_SOURCE_DIR}/sublime/WolframLanguage\ \(OSX\).sublime-settings
-	${PROJECT_SOURCE_DIR}/sublime/WolframLanguage\ \(Windows\).sublime-settings
-	${PROJECT_SOURCE_DIR}/sublime/WolframLanguage.sublime-settings
-	${PROJECT_SOURCE_DIR}/sublime/WolframLanguage.sublime-syntax
+	${PROJECT_SOURCE_DIR}/Comments.tmPreferences
+	${PROJECT_SOURCE_DIR}/Context.sublime-menu
+	${PROJECT_SOURCE_DIR}/Default.sublime-commands
+	${PROJECT_SOURCE_DIR}/Main.sublime-menu
+	${PROJECT_SOURCE_DIR}/messages.json
+	${PROJECT_SOURCE_DIR}/plugin.py
+	${PROJECT_SOURCE_DIR}/SymbolListConstants.tmPreferences
+	#${PROJECT_SOURCE_DIR}/syntax_test_wolfram_language.wl
+	${PROJECT_SOURCE_DIR}/WolframLanguage.sublime-color-scheme
+	${PROJECT_SOURCE_DIR}/WolframLanguage.sublime-completions
+	${PROJECT_SOURCE_DIR}/WolframLanguage\ \(Linux\).sublime-settings
+	${PROJECT_SOURCE_DIR}/WolframLanguage\ \(OSX\).sublime-settings
+	${PROJECT_SOURCE_DIR}/WolframLanguage\ \(Windows\).sublime-settings
+	${PROJECT_SOURCE_DIR}/WolframLanguage.sublime-settings
+	${PROJECT_SOURCE_DIR}/WolframLanguage.sublime-syntax
 )
 
 
 file(MAKE_DIRECTORY
 	${PROJECT_BINARY_DIR}/package/WolframLanguage
-	${PROJECT_BINARY_DIR}/generated/package/WolframLanguage/
 )
 
 
@@ -70,7 +69,7 @@ file(MAKE_DIRECTORY
 # static package sources
 #
 foreach(SRC ${STATIC_PACKAGE_SOURCES})
-	file(RELATIVE_PATH REL ${PROJECT_SOURCE_DIR}/sublime/ ${SRC})
+	file(RELATIVE_PATH REL ${PROJECT_SOURCE_DIR}/ ${SRC})
 	add_custom_command(
 		OUTPUT
 			${PROJECT_BINARY_DIR}/package/WolframLanguage/${REL}
