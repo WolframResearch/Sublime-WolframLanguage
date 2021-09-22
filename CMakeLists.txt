@@ -39,6 +39,7 @@ set(STATIC_PACKAGE_SOURCES
 	#
 	${PROJECT_SOURCE_DIR}/sublime/Comments.tmPreferences
 	${PROJECT_SOURCE_DIR}/sublime/Context.sublime-menu
+	${PROJECT_SOURCE_DIR}/sublime/Default.sublime-commands
 	${PROJECT_SOURCE_DIR}/sublime/Main.sublime-menu
 	${PROJECT_SOURCE_DIR}/sublime/messages.json
 	${PROJECT_SOURCE_DIR}/sublime/plugin.py
@@ -51,10 +52,6 @@ set(STATIC_PACKAGE_SOURCES
 	${PROJECT_SOURCE_DIR}/sublime/WolframLanguage\ \(Windows\).sublime-settings
 	${PROJECT_SOURCE_DIR}/sublime/WolframLanguage.sublime-settings
 	${PROJECT_SOURCE_DIR}/sublime/WolframLanguage.sublime-syntax
-)
-
-set(GENERATED_PACKAGE_SOURCES
-	${PROJECT_BINARY_DIR}/generated/package/WolframLanguage/Default.sublime-commands
 )
 
 
@@ -85,41 +82,6 @@ foreach(SRC ${STATIC_PACKAGE_SOURCES})
 	)
 	list(APPEND COPIED_PACKAGE_SOURCES ${PROJECT_BINARY_DIR}/package/WolframLanguage/${REL})
 endforeach()
-
-#
-# generated package sources
-#
-foreach(SRC ${GENERATED_PACKAGE_SOURCES})
-	file(RELATIVE_PATH REL ${PROJECT_BINARY_DIR}/generated/package/WolframLanguage/ ${SRC})
-	add_custom_command(
-		OUTPUT
-			${PROJECT_BINARY_DIR}/package/WolframLanguage/${REL}
-		COMMAND
-			${CMAKE_COMMAND} -E copy ${SRC} ${PROJECT_BINARY_DIR}/package/WolframLanguage/${REL}
-		DEPENDS
-			${SRC}
-	)
-	list(APPEND COPIED_PACKAGE_SOURCES ${PROJECT_BINARY_DIR}/package/WolframLanguage/${REL})
-endforeach()
-
-
-
-#
-# generated srcs
-#
-
-add_custom_command(
-	OUTPUT
-		${PROJECT_BINARY_DIR}/generated/package/WolframLanguage/Default.sublime-commands
-	COMMAND
-		${CMAKE_COMMAND} -DDEBUG_COMMANDS=${DEBUG_COMMANDS} -DSOURCE_SUBLIMECOMMANDS=${PROJECT_SOURCE_DIR}/sublime/Default.sublime-commands.in -DGENERATED_SUBLIMECOMMANDS=${PROJECT_BINARY_DIR}/generated/package/WolframLanguage/Default.sublime-commands -P ${PROJECT_SOURCE_DIR}/cmake/ReplaceDefaultSublimeCommands.cmake
-	DEPENDS
-		${PROJECT_SOURCE_DIR}/sublime/Default.sublime-commands.in
-		${PROJECT_SOURCE_DIR}/cmake/ReplaceDefaultSublimeCommands.cmake
-	VERBATIM
-	WORKING_DIRECTORY
-		${PROJECT_SOURCE_DIR}
-)
 
 
 
