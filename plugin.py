@@ -11,9 +11,28 @@ import datetime
 
 import webbrowser
 
-from LSP.plugin.core.settings import ClientConfig
-from LSP.plugin import register_plugin, unregister_plugin, AbstractPlugin, WorkspaceFolder
-from LSP.plugin.core.typing import Tuple, List, Optional
+try:
+    from LSP.plugin.core.settings import ClientConfig
+    from LSP.plugin import register_plugin, unregister_plugin, AbstractPlugin, WorkspaceFolder
+except ImportError:
+    #
+    # if there is an ImportError, then that means that LSP is not installed
+    #
+    # we want to keep LSP as optional, so handle this by mocking the bare minimum needed to simply load the plugin
+    #
+    # nothing in the plugin will run, we just want to guarantee that it does not crash when loading because of
+    # ImportError, TypeError, etc.
+    #
+    #
+    # Relatedly, we also want to continue to support older versions of Sublime with older versions of Python
+    # So, do not yet include any special type hint syntax that was introduced in Python 3.5
+    #
+    class AbstractPlugin:
+        pass
+    def register_plugin(cls):
+        pass
+    def unregister_plugin(cls):
+        pass
 
 settings_file = "WolframLanguage.sublime-settings"
 
@@ -30,7 +49,7 @@ class LspWolframLanguagePlugin(AbstractPlugin):
         return "wolfram"
 
     @classmethod
-    def configuration(cls) -> Tuple[sublime.Settings, str]:
+    def configuration(cls):
         filepath = "Packages/WolframLanguage/{}".format(settings_file)
         settings = sublime.load_settings(settings_file)
 
@@ -69,7 +88,7 @@ class LspWolframLanguagePlugin(AbstractPlugin):
         return settings, filepath
 
     @classmethod
-    def on_pre_start(cls, window: sublime.Window, initiating_view: sublime.View, workspace_folders: List[WorkspaceFolder], configuration: ClientConfig) -> Optional[str]:
+    def on_pre_start(cls, window, initiating_view, workspace_folders, configuration):
         
         command = configuration.command
 
