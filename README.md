@@ -1,4 +1,4 @@
-# Wolfram Integration with Sublime Text
+# Wolfram System Integration with Sublime Text
 
 A Sublime Text package for Wolfram Language.
 

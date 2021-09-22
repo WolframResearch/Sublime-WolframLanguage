@@ -1,3 +1,16 @@
-WolframLanguage package has been installed.
 
-https://stash.wolfram.com/projects/COD/repos/sublime-wolframlanguage/browse
+The official WolframLanguage Sublime package from Wolfram Research
+
+Thanks for installing!
+
+Lots of features:
+* Extensive syntax highlighting
+* Goto Definition
+
+And if you have the LSP package (https://github.com/sublimelsp/LSP) installed:
+* Diagnostics
+* Suggestions for fixes
+* Formatting files / selections
+* Documentation on hover
+
+https://github.com/WolframResearch/Sublime-WolframLanguage
