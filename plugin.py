@@ -41,11 +41,22 @@ start_time = datetime.datetime(2020,1,1,0,0,0,0)
 
 class LspWolframLanguagePlugin(AbstractPlugin):
 
-    hrefMap = {}
     kernel_initialized = False
 
+    #
+    # AbstractPlugin is created after the server has responded, so __init__
+    # can be used as a kind of on_post_initialize
+    #
+    # Related issues: https://github.com/sublimelsp/LSP/issues/1860
+    #
+    def __init__(self, weaksession):
+        super().__init__(weaksession)
+        self.hrefMap = {}
+        cls = type(self)
+        cls.kernel_initialized = True
+
     @classmethod
-    def name(cls) -> str:
+    def name(cls):
         return "wolfram"
 
     @classmethod
@@ -77,8 +88,7 @@ class LspWolframLanguagePlugin(AbstractPlugin):
 
         initialization_options = {
             "implicitTokens": implicitTokens,
-            "bracketMatcher": bracketMatcher,
-            "afterInitialize": True
+            "bracketMatcher": bracketMatcher
         }
 
         settings.set("command", command)
@@ -98,18 +108,15 @@ class LspWolframLanguagePlugin(AbstractPlugin):
         if not base.lower().startswith("wolframkernel"):
             sublime.message_dialog("Command for Wolfram Language Server does not start with 'WolframKernel': " + kernel)
 
-        # start timer thread for checking that kernel initialized properly
-        timer = threading.Thread(target=cls.kernel_initialization_check_function, args=(command,))
-
-        timer.start()
+        #
+        # Check kernel initialization after 10 seconds
+        #
+        sublime.set_timeout(lambda: cls.check_kernel_initialization(command), 10000)
 
         return None
 
-
     @classmethod
-    def kernel_initialization_check_function(cls, command):
-        
-        time.sleep(10)
+    def check_kernel_initialization(cls, command):
         
         if cls.kernel_initialized:
             return
@@ -137,10 +144,6 @@ class LspWolframLanguagePlugin(AbstractPlugin):
         msg += "Fix any problems then restart and try again."
 
         sublime.message_dialog(msg)
-
-    def m_wolfram_afterInitialize(self, params):
-        cls = type(self)
-        cls.kernel_initialized = True
 
     def m_roundTripTest(self, params):
 
