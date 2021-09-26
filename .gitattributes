@@ -1,16 +1,11 @@
 docs export-ignore
-messages export-ignore
 scripts export-ignore
 Tests export-ignore
-WolframLanguageSyntax export-ignore
 .gitattributes export-ignore
 .gitignore export-ignore
-.project export-ignore
-.WolframResources export-ignore
 CMakeLists.txt export-ignore
 CONTRIBUTING.md export-ignore
 HowToBuild.md export-ignore
 LICENSE export-ignore
-messages.json export-ignore
 README.md export-ignore
 syntax_test_wolfram_language.wl export-ignore

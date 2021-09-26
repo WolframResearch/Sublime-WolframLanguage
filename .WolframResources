@@ -1,8 +1,0 @@
-Resources[
-    Version[1],
-    ExecutionBuildCommand["<<SublimeWolframLanguage`"],
-    Paclet[
-        PacletFolder["SublimeWolframLanguage"],
-        FunctionPaclet[False]
-    ]
-]

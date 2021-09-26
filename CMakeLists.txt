@@ -15,10 +15,7 @@ project(sublime-wolframlanguage
 		NONE
 )
 
-set(DEBUG_COMMANDS OFF CACHE BOOL "Debug commands")
-
 message(STATUS "CMAKE_VERSION: ${CMAKE_VERSION}")
-message(STATUS "DEBUG_COMMANDS: ${DEBUG_COMMANDS}")
 if(DEFINED PACKAGE_INSTALL_DIR)
 message(STATUS "PACKAGE_INSTALL_DIR: ${PACKAGE_INSTALL_DIR}")
 else()
@@ -118,8 +115,10 @@ add_custom_command(
 		#
 		# .sublime-package files are just .zip files
 		#
+		# this line:
+		# package_file = zipfile.ZipFile(package_path, "w", compression=zipfile.ZIP_DEFLATED)
 		# approximately around here:
-		# https://github.com/wbond/package_control/blob/master/package_control/package_manager.py#L927
+		# https://github.com/wbond/package_control/blob/master/package_control/package_manager.py#L929
 		#
 		# is where the zipping happens
 		#
