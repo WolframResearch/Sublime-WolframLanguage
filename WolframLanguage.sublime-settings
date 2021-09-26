@@ -5,6 +5,8 @@
   "lsp_server_enabled": true,
 
   //
+  // WolframKernel for the Wolfram language server
+  //
   // This defaults to platform-specific values:
   // Linux: "/usr/local/Wolfram/Mathematica/12.3/Executables/WolframKernel"
   // OSX: "/Applications/Mathematica.app/Contents/MacOS/WolframKernel"
@@ -15,8 +17,9 @@
   "kernel": "<<Path to WolframKernel>>",
   
   //
-  // The command to run. The special value `kernel` will be replaced
-  // with the value of the "kernel" setting.
+  // Command for the Wolfram language server
+  //
+  // The special value `kernel` will be replaced with the value of the "kernel" setting
   //
   "lsp_server_command":
   [
@@ -30,7 +33,9 @@
     "Needs[\"LSPServer`\"];LSPServer`StartServer[]"
   ],
 
-  // Experimental settings
+  //
+  // Experimental settings for the Wolfram language server
+  //
   // "implicitTokens": [],
   // "bracketMatcher": false,
 

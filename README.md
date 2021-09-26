@@ -1,6 +1,6 @@
 # Wolfram System Integration with Sublime Text
 
-A Sublime Text package for Wolfram Language.
+Official Sublime Text package for Wolfram Language
 
 * Syntax highlighting
 * [LSP](https://microsoft.github.io/language-server-protocol/) support
@@ -8,13 +8,37 @@ A Sublime Text package for Wolfram Language.
 ![highlighting](docs/highlighting.png)
 
 
+Forked from [https://github.com/ViktorQvarfordt/Sublime-WolframLanguage](https://github.com/ViktorQvarfordt/Sublime-WolframLanguage)
+
+Thanks Viktor!
+
+
+## Compatibility
+
+Compatible with Sublime Text 3 and Sublime Text 4.
+
+If the LSP package ([https://github.com/sublimelsp/LSP](https://github.com/sublimelsp/LSP)) is installed, then additional features will be available.
+
+
 ## Setup
 
-Sublime-WolframLanguage depends on [LSPServer](https://github.com/WolframResearch/lspserver) to provide LSP functionality.
+1. Install [Package Control](https://packagecontrol.io/installation)
+2. Open Tools > Command Palette...
+3. Select Package Control: Install Package
+4. Install [LSP](https://github.com/sublimelsp/LSP)
+5. Install [WolframLanguage](https://github.com/WolframResearch/Sublime-WolframLanguage)
 
-[Build and install the WolframLanguage package locally](HowToBuild.md)
+The WolframLanguage package depends on [LSPServer paclet](https://github.com/WolframResearch/lspserver) to provide LSP functionality.
 
-If properly setup, you should have syntax highlighting and linting of Wolfram `.m` and `.wl` files.
+Install LSPServer and its dependencies by running this Wolfram Language code:
+```
+PacletInstall["CodeParser"]
+PacletInstall["CodeInspector"]
+PacletInstall["CodeFormatter"]
+PacletInstall["LSPServer"]
+```
+
+If properly setup, you should have syntax highlighting and linting of Wolfram Language `.wl` files.
 
 Test this by typing this into a new `.wl` file and saving it:
 ```

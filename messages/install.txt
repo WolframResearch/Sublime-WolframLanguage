@@ -1,5 +1,5 @@
 
-The official WolframLanguage Sublime package from Wolfram Research
+Official Sublime Text package for Wolfram Language
 
 Thanks for installing!
 
