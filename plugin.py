@@ -127,6 +127,14 @@ class LspWolframLanguagePlugin(AbstractPlugin):
         
         if cls.kernel_initialized:
             return
+        
+        kernel = command[0]
+
+        #
+        # Users knows that the kernel did not start properly, so do not also display timeout error
+        #
+        if not os.path.exists(kernel):
+            return
 
         # kill kernel, if possible
 
