@@ -42,6 +42,8 @@ set(STATIC_PACKAGE_SOURCES
 	#
 	# ${PROJECT_SOURCE_DIR}/messages.json
 	${PROJECT_SOURCE_DIR}/plugin.py
+	${PROJECT_SOURCE_DIR}/SideBar.py
+	${PROJECT_SOURCE_DIR}/Side\ Bar.sublime-menu
 	${PROJECT_SOURCE_DIR}/SymbolListConstants.tmPreferences
 	#
 	# Do not include syntax tests
