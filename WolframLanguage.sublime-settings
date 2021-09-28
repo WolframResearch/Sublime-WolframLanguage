@@ -1,5 +1,10 @@
 {
   //
+  // Enables the Wolfram language server
+  //
+  "lsp_server_enabled": true,
+
+  //
   // This defaults to platform-specific values:
   // Linux: "/usr/local/Wolfram/Mathematica/12.3/Executables/WolframKernel"
   // OSX: "/Applications/Mathematica.app/Contents/MacOS/WolframKernel"

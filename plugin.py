@@ -98,9 +98,24 @@ class LspWolframLanguagePlugin(AbstractPlugin):
             "bracketMatcher": bracketMatcher
         }
 
+        enabled = settings.get("lsp_server_enabled", True)
+        if enabled:
+            #
+            # if LSP settings have disabled wolfram client, then respect that
+            #
+            # Being disabled is "poison": if disabled is specified anywhere, then client is disabled
+            #
+            lsp_settings = sublime.load_settings("LSP.sublime-settings")
+            clients = lsp_settings.get("clients")
+            wolfram_client = clients.get("wolfram", {})
+            wolfram_client_enabled = wolfram_client.get("enabled", True)
+            if not wolfram_client_enabled:
+                enabled = False
+
         settings.set("command", command)
         settings.set("initializationOptions", initialization_options)
         settings.set("selector", "source.wolfram")
+        settings.set("enabled", enabled)
 
         return settings, filepath
 
