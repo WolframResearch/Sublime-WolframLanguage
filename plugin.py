@@ -6,7 +6,6 @@ import threading
 import subprocess
 import sys
 import time
-import mdpopups
 import datetime
 
 import webbrowser
@@ -14,6 +13,14 @@ import webbrowser
 try:
     from LSP.plugin.core.settings import ClientConfig
     from LSP.plugin import register_plugin, unregister_plugin, AbstractPlugin, WorkspaceFolder
+    #
+    # mdpopups may not be available, but LSP depends on mdpopups, so if LSP is installed, then mdpopups is also installed
+    #
+    # Do not add a dependency on mdpopups to WolframLanguage
+    #
+    # verify that LSP depends on mdpopups: https://github.com/sublimelsp/LSP/blob/main/dependencies.json
+    #
+    import mdpopups
 except ImportError:
     #
     # if there is an ImportError, then that means that LSP is not installed
