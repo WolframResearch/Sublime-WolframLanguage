@@ -1,0 +1,5 @@
+=> 0.12
+
+5 Aug, 2019
+
+Start relying on the WolframLanguage Sublime package. There is no longer a sublime-wolfram package to install. Please read the README for changes.

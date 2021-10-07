@@ -1,5 +1,7 @@
 => 1.3.2
 
+27 Sep, 2021
+
 Fixed problem with dialog saying "Language Server kernel did not initialize properly after 10 seconds."
 
 The kernel actually did start correctly, but the timeout for the dialog was not being handled properly.
