@@ -2,25 +2,42 @@
 
 Official Sublime Text package for Wolfram Language
 
-* Syntax highlighting
-* [LSP](https://microsoft.github.io/language-server-protocol/) support
-
-![highlighting](docs/highlighting.png)
-
-
 Forked from [https://github.com/ViktorQvarfordt/Sublime-WolframLanguage](https://github.com/ViktorQvarfordt/Sublime-WolframLanguage)
 
 Thanks Viktor!
 
 
-## Compatibility
+## Features
+
+* Syntax Highlighting
+* Goto Definition
+* Auto complete
+* Diagnostics and suggestions for fixes
+* Formatting files and selections
+* Semantic highlighting
+* Expand and shrink selection
+* Outline
+* Color swatches
+* Symbol references
+* Documentation on hover
+
+
+### Syntax Highlighting
+
+Support for the entire Wolfram Language syntax and all built-in functions.
+
+![highlighting](docs/highlighting.png)
+
+
+## Setup
 
 Compatible with Sublime Text 3 and Sublime Text 4.
 
 If the LSP package ([https://github.com/sublimelsp/LSP](https://github.com/sublimelsp/LSP)) is installed, then additional features will be available.
 
+LSP functionality uses a Wolfram kernel to run as a language server.
 
-## Setup
+This requires Wolfram System 12.1 or higher.
 
 1. Install [Package Control](https://packagecontrol.io/installation)
 2. Open Tools > Command Palette...
@@ -28,9 +45,11 @@ If the LSP package ([https://github.com/sublimelsp/LSP](https://github.com/subli
 4. Install [LSP](https://github.com/sublimelsp/LSP)
 5. Install [WolframLanguage](https://github.com/WolframResearch/Sublime-WolframLanguage)
 
+The package must be installed from Wolfram Research.
+
 The WolframLanguage package depends on [LSPServer paclet](https://github.com/WolframResearch/lspserver) to provide LSP functionality.
 
-Install LSPServer and its dependencies by running this Wolfram Language code:
+Install LSPServer paclet and its dependencies by running this Wolfram Language code:
 ```
 PacletInstall["CodeParser"]
 PacletInstall["CodeInspector"]
@@ -109,9 +128,28 @@ You can enable experimental settings. These are not supported.
 
 ## Troubleshooting
 
-Make sure that the paclets can be found on your system:
+[Troubleshooting LSP for Sublime Text](https://lsp.sublimetext.io/troubleshooting/)
+
+Make sure that LSPServer paclet and its dependencies are up-to-date and can be found on your system:
 ```
+PacletInstall["CodeParser"]
+PacletInstall["CodeInspector"]
+PacletInstall["CodeFormatter"]
+PacletInstall["LSPServer"]
+
 Needs["LSPServer`"]
 ```
 
-[Troubleshooting LSP for Sublime Text](https://lsp.sublimetext.io/troubleshooting/)
+
+### Server settings
+
+Check `WolframLanguage.sublime-settings` for errors.
+
+Turn on debug logging from the kernel by giving a string argument to `StartServer[]`.
+
+This is a directory that kernel logs will be written to.
+```
+Needs["LSPServer`"];LSPServer`StartServer["/path/to/log/directory/"]
+```
+
+
