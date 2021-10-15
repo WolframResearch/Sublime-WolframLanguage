@@ -185,6 +185,10 @@
 (* VARIABLES *)
 
   f[x]
+(*^ variable.function.wolfram *)
+  f@x
+(*^ variable.function.wolfram *)
+  f@@x
 (*^ symbol.unrecognized.wolfram *)
   foo$bar12
 (*^^^^^^^^^ symbol.unrecognized.wolfram *)
@@ -423,7 +427,7 @@ Regression Tests
 *)
 
    NotAfter["\[\["]
-(* ^^^^^^^^ symbol.unrecognized.wolfram *)
+(* ^^^^^^^^ variable.function.wolfram *)
 (*         ^ punctuation.section.brackets.begin.wolfram *)
 (*          ^ string.quoted.double.wolfram punctuation.definition.string.begin *)
 (*           ^^ invalid.illegal *)

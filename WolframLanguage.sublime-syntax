@@ -887,10 +887,14 @@ contexts:
       scope: invalid.session.wolfram
     - match: System`{{symbolSegment}}{{symbolEndBoundary}}
       scope: invalid.illegal.system.wolfram
+    - match: '{{symbolSegment}}(?:`{{symbolSegment}})+(?=\s*(\[|@(?!@)))'
+      scope: variable.function.wolfram
     - match: '{{symbolSegment}}(?:`{{symbolSegment}})+'
       scope: symbol.unrecognized.wolfram
     - match: '{{symbolSegment}}`'
       scope: invalid.illegal.wolfram
+    - match: '(?:`{{symbolSegment}})+(?=\s*(\[|@(?!@)))'
+      scope: variable.function.wolfram
     - match: '(?:`{{symbolSegment}})+'
       scope: symbol.unrecognized.wolfram
     - match: '`'
@@ -1167,6 +1171,8 @@ contexts:
       scope: invalid.session.wolfram
     - match: '{{sessionSymbols_DOLLAR}}{{symbolEndBoundary}}'
       scope: invalid.session.wolfram
+    - match: '{{symbolSegment}}(?=\s*(\[|@(?!@)))'
+      scope: variable.function.wolfram
     - match: '{{symbolSegment}}'
       scope: symbol.unrecognized.wolfram
 
