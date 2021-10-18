@@ -151,15 +151,26 @@ class LspWolframLanguagePlugin(AbstractPlugin):
         if not os.path.exists(kernel):
             return
 
-        # kill kernel, if possible
+        # TODO: kill kernel, if possible
 
         msg = ""
-        msg += "Language Server kernel did not initialize properly after 10 seconds.\n"
+        msg += "Language server kernel did not respond after 10 seconds.\n"
+        msg += "\n"
+        msg += "The most likely cause is that required paclets are not installed.\n"
+        msg += "\n"
+        msg += "The language server kernel process is hanging and may need to be killed manually.\n"
         msg += "\n"
         msg += "Ignore this message if Sublime was busy opening a large file or indexing in the background.\n"
         msg += "\n"
         msg += "This is the command that was used:\n"
         msg += str(command) + "\n"
+        msg += "\n"
+        msg += "To ensure that required paclets are installed and up-to-date, run this in a notebook:\n"
+        msg += "\n"
+        msg += "PacletInstall[\"CodeParser\"]\n"
+        msg += "PacletInstall[\"CodeInspector\"]\n"
+        msg += "PacletInstall[\"CodeFormatter\"]\n"
+        msg += "PacletInstall[\"LSPServer\"]\n"
         msg += "\n"
         msg += "To help diagnose the problem, run this in a notebook:\n"
         msg += "\n"
