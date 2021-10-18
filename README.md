@@ -14,9 +14,7 @@ Thanks Viktor!
 * Auto complete
 * Diagnostics and suggestions for fixes
 * Formatting files and selections
-* Semantic highlighting
 * Expand and shrink selection
-* Outline
 * Color swatches
 * Symbol references
 * Documentation on hover
@@ -109,6 +107,28 @@ You may also change the command that is used to start the server:
 }
 ```
 
+You may disable Wolfram language server by specifying:
+```
+{
+  …
+  "lsp_server_enabled": false
+  …
+}
+```
+
+
+#### Other Settings
+
+You may use a special Light color scheme that emulates the syntax coloring of the notebook editor:
+```
+{
+  …
+  "color_scheme": "WolframLanguage.sublime-color-scheme"
+  …
+}
+```
+
+
 #### Experimental Settings
 
 You can enable experimental settings. These are not supported.
@@ -139,6 +159,8 @@ PacletInstall["LSPServer"]
 
 Needs["LSPServer`"]
 ```
+
+If the kernel cannot start, then follow the instructions in the dialog that pops up after 10 seconds for more information.
 
 
 ### Server settings

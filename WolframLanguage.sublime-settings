@@ -48,8 +48,8 @@
     "mt"
   ],
 
-  "word_separators": "./\\()\"'-:,.;<>~!@#%^&*|+=[]{}`~?_",
   //
-  // Uncomment to use Wolfram-specific syntax coloring
-  // "color_scheme": "WolframLanguage.sublime-color-scheme",
+  // This allows for symbols like $name to be selected without leaving the $ out
+  //
+  "word_separators": "./\\()\"'-:,.;<>~!@#%^&*|+=[]{}`~?_",
 }
