@@ -81,7 +81,7 @@ Add a `kernel` setting:
 {
   …
 
-  "kernel": "/Applications/Mathematica123.app/Contents/MacOS/WolframKernel"
+  "kernel": "/Applications/Mathematica.app/Contents/MacOS/WolframKernel"
 
   …
 }
