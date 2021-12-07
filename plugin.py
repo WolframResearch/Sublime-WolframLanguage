@@ -177,9 +177,12 @@ class LspWolframLanguagePlugin(AbstractPlugin):
         msg += "Needs[\"LSPServer`\"]\n"
         msg += "LSPServer`RunServerDiagnostic[{"
         for a in command[:-1]:
-            msg += "\"" + a.replace("\"", "\\\"") + "\""
+            #
+            # important to replace \ -> \\ before replacing " -> \"
+            #
+            msg += "\"" + a.replace("\\", "\\\\").replace("\"", "\\\"") + "\""
             msg += ", "
-        msg += "\"" + command[-1].replace("\"", "\\\"") + "\""
+        msg += "\"" + command[-1].replace("\\", "\\\\").replace("\"", "\\\"") + "\""
         msg += "}]\n"
         msg += "\n"
         msg += "Fix any problems then restart and try again."
