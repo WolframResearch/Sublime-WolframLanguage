@@ -7,6 +7,7 @@ import subprocess
 import sys
 import time
 import datetime
+import tempfile
 
 import webbrowser
 
@@ -135,7 +136,20 @@ class LspWolframLanguagePlugin(AbstractPlugin):
         #
         sublime.set_timeout(lambda: cls.check_kernel_initialization(command), 10000)
 
-        return None
+        #
+        # Ensure an empty directory to use as working directory
+        #
+        cls.wolfram_tmp_dir = os.path.join(tempfile.gettempdir(), "Wolfram-LSPServer")
+
+        try:
+            os.mkdir(cls.wolfram_tmp_dir)
+        except FileExistsError:
+            pass
+
+        #
+        # :returns:   A desired working directory, or None if you don't care
+        #
+        return cls.wolfram_tmp_dir
 
     @classmethod
     def check_kernel_initialization(cls, command):
@@ -183,7 +197,9 @@ class LspWolframLanguagePlugin(AbstractPlugin):
             msg += "\"" + a.replace("\\", "\\\\").replace("\"", "\\\"") + "\""
             msg += ", "
         msg += "\"" + command[-1].replace("\\", "\\\\").replace("\"", "\\\"") + "\""
-        msg += "}]\n"
+        msg += "}, ProcessDirectory -> \""
+        msg += cls.wolfram_tmp_dir.replace("\\", "\\\\")
+        msg += "\"]\n"
         msg += "\n"
         msg += "Fix any problems then restart and try again."
 
