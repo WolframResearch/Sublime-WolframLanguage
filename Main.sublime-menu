@@ -20,11 +20,14 @@
                   "base_file": "${packages}/WolframLanguage/WolframLanguage.sublime-settings"
                 }
               },
-              { "caption": "-" },
+              {
+                "caption": "-"
+              },
               {
                 "caption": "Documentation",
                 "command": "wolfram_language_open_site",
-                "args": {
+                "args":
+                {
                     "url": "https://github.com/WolframResearch/Sublime-WolframLanguage"
                 }
               }
