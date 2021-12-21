@@ -84,7 +84,10 @@ class LspWolframLanguagePlugin(AbstractPlugin):
         # Any dollar sign characters $ will be treated as the beginning of an
         # environment variable to be expanded, so must use \\[RawDollar]
         #
-        # Related lines: https://github.com/sublimelsp/LSP/blob/main/plugin/core/types.py#L657
+        # Related lines:
+        # command = sublime.expand_variables(self.command, variables)
+        # around here:
+        # https://github.com/sublimelsp/LSP/blob/main/plugin/core/types.py#L778
         #
         command = list(
             arg.replace("$", "\\[RawDollar]")

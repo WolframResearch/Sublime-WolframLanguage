@@ -2,7 +2,8 @@
 
 25 Oct, 2021
 
-Fix 415574: unrecognized symbol followed by [ should have scope variable.function
+Fix 415574: unrecognized symbol followed by `[` should have scope `variable.function`
 
-Also recognized f @ x syntax for function call, but do NOT recognize a ~f~ b or a // f
+Also recognize `f @ x` syntax for function call, but do NOT recognize `a ~f~ b` or `a // f`
+
 

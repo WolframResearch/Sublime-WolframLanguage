@@ -2,6 +2,8 @@
 
 Official Sublime Text package for Wolfram Language
 
+[Developing Wolfram Language Code in Other Editors and IDEs with LSP from WTC 2021: Watch Video (youtube)](https://www.youtube.com/watch?v=nXVEOUMZbzQ)
+
 Forked from [https://github.com/ViktorQvarfordt/Sublime-WolframLanguage](https://github.com/ViktorQvarfordt/Sublime-WolframLanguage)
 
 Thanks Viktor!
@@ -18,6 +20,7 @@ Thanks Viktor!
 * Color swatches
 * Symbol references
 * Documentation on hover
+* New menu items (Open in Notebook Editor)
 
 
 ### Syntax Highlighting

@@ -6,4 +6,6 @@ Treat mdpopups module as optional
 
 If a kernel cannot be started, then do not also show the timeout dialog after 10 seconds, that is just extra noise.
 
-lsp_server_enabled setting: Allow selectively disabling Wolfram Language LSP
+`lsp_server_enabled` setting: Allow selectively disabling Wolfram Language LSP
+
+

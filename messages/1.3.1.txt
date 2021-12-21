@@ -4,6 +4,8 @@
 
 First release from official Wolfram Research GitHub repo
 
-https://github.com/WolframResearch/Sublime-WolframLanguage
+[https://github.com/WolframResearch/Sublime-WolframLanguage](https://github.com/WolframResearch/Sublime-WolframLanguage)
 
-Forked and major rewrite from https://github.com/ViktorQvarfordt/Sublime-WolframLanguage
+Forked and major rewrite from [https://github.com/ViktorQvarfordt/Sublime-WolframLanguage](https://github.com/ViktorQvarfordt/Sublime-WolframLanguage)
+
+
