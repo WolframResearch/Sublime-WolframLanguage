@@ -5,6 +5,11 @@
   "lsp_server_enabled": true,
 
   //
+  // Enables the timeout warning if the kernel does not start after 15 seconds
+  //
+  "timeout_warning_enabled": true,
+
+  //
   // WolframKernel for the Wolfram language server
   //
   // This defaults to platform-specific values

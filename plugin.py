@@ -49,6 +49,7 @@ start_time = datetime.datetime(2020,1,1,0,0,0,0)
 
 class LspWolframLanguagePlugin(AbstractPlugin):
 
+    timeout_warning_enabled = True
     kernel_initialized = False
 
     #
@@ -126,6 +127,8 @@ class LspWolframLanguagePlugin(AbstractPlugin):
             if not wolfram_client_enabled:
                 enabled = False
 
+        cls.timeout_warning_enabled = settings.get("timeout_warning_enabled", True)
+
         settings.set("command", command)
         settings.set("initializationOptions", initialization_options)
         settings.set("selector", "source.wolfram")
@@ -138,16 +141,11 @@ class LspWolframLanguagePlugin(AbstractPlugin):
         
         command = configuration.command
 
-        kernel = command[0]
-
-        base = os.path.basename(kernel)
-        if not base.lower().startswith("wolframkernel"):
-            sublime.message_dialog("Command for Wolfram Language Server does not start with 'WolframKernel': " + kernel)
-
-        #
-        # Check kernel initialization after 10 seconds
-        #
-        sublime.set_timeout(lambda: cls.check_kernel_initialization(command), 10000)
+        if cls.timeout_warning_enabled:
+            #
+            # Check kernel initialization after 15 seconds
+            #
+            sublime.set_timeout(lambda: cls.check_kernel_initialization(command), 15000)
 
         #
         # Ensure an empty directory to use as working directory
@@ -181,13 +179,13 @@ class LspWolframLanguagePlugin(AbstractPlugin):
         # TODO: kill kernel, if possible
 
         msg = ""
-        msg += "Language server kernel did not respond after 10 seconds.\n"
+        msg += "Language server kernel did not respond after 15 seconds.\n"
+        msg += "\n"
+        msg += "If the language kernel server did eventually start after this warning, then you can disable this warning with the timeout_warning_enabled setting.\n"
         msg += "\n"
         msg += "The most likely cause is that required paclets are not installed.\n"
         msg += "\n"
         msg += "The language server kernel process is hanging and may need to be killed manually.\n"
-        msg += "\n"
-        msg += "Ignore this message if Sublime was busy opening a large file or indexing in the background.\n"
         msg += "\n"
         msg += "This is the command that was used:\n"
         msg += str(command) + "\n"
