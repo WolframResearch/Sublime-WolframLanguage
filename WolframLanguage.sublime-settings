@@ -7,10 +7,7 @@
   //
   // WolframKernel for the Wolfram language server
   //
-  // This defaults to platform-specific values:
-  // Linux: "/usr/local/Wolfram/Mathematica/13.0/Executables/WolframKernel"
-  // OSX: "/Applications/Mathematica.app/Contents/MacOS/WolframKernel"
-  // Windows: "C:\\Program Files\\Wolfram Research\\Mathematica\\13.0\\WolframKernel.exe"
+  // This defaults to platform-specific values
   //
   // Change this setting to use a different kernel
   //

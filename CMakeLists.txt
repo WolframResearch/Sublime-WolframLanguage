@@ -51,9 +51,6 @@ set(STATIC_PACKAGE_SOURCES
 	#${PROJECT_SOURCE_DIR}/syntax_test_wolfram_language.wl
 	${PROJECT_SOURCE_DIR}/WolframLanguage.sublime-color-scheme
 	${PROJECT_SOURCE_DIR}/WolframLanguage.sublime-completions
-	${PROJECT_SOURCE_DIR}/WolframLanguage\ \(Linux\).sublime-settings
-	${PROJECT_SOURCE_DIR}/WolframLanguage\ \(OSX\).sublime-settings
-	${PROJECT_SOURCE_DIR}/WolframLanguage\ \(Windows\).sublime-settings
 	${PROJECT_SOURCE_DIR}/WolframLanguage.sublime-settings
 	${PROJECT_SOURCE_DIR}/WolframLanguage.sublime-syntax
 )
