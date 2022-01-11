@@ -398,9 +398,11 @@ contexts:
       scope: donothighlight.constant.character.escape
     - match: \\\.\h{1}
       scope: invalid.illegal
-    - match: \\\|\h{6}
+    - match: \\\|0\h{5}
       scope: donothighlight.constant.character.escape
-    - match: \\\|\h{1,5}
+    - match: \\\|10\h{4}
+      scope: donothighlight.constant.character.escape
+    - match: \\\|\h{1,6}
       scope: invalid.illegal
     - match: \\[0-7]{3}
       scope: donothighlight.constant.character.escape
