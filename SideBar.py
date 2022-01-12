@@ -16,7 +16,7 @@ def open_file(filepath):
 class NotebookEditorOpenCommand(sublime_plugin.WindowCommand):
     def run(self, paths = []):
         for path in paths:
-            if ".nb" in path or ".cdf" in path or ".wl" in path or ".m" in path:
+            if path.endswith((".nb", ".cdf", ".wl", ".m", ".wls")):
                 open_file(path)
 
 
