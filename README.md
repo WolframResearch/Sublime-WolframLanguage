@@ -83,7 +83,6 @@ Add a `kernel` setting:
   …
 
   "kernel": "/Applications/Mathematica.app/Contents/MacOS/WolframKernel"
-
   …
 }
 
@@ -105,7 +104,6 @@ You may also change the command that is used to start the server:
       "-run",
       "Needs[\"LSPServer`\"];LSPServer`StartServer[]"
     ]
-
   …
 }
 ```
@@ -136,17 +134,21 @@ You may use a special Light color scheme that emulates the syntax coloring of th
 
 You can enable experimental settings. These are not supported.
 
-`implicitTokens` controls the display of implicit tokens such as `Null` after `;` and implicit Times character `×`.
-
+`implicitTokens` controls the display of implicit tokens.
 ```
 {
   …
 
   "implicitTokens": ["*", ",", ";;", "?"]
-
   …
 }
 ```
+
+* `"*"`: display implicit Times character `×`
+* `","`: display `Null` around stray commas
+* `;;`: display `1` and `All` around `;;`
+* `;`: display `Null` after `;`
+* `?`: display `□` in place of missing arguments
 
 
 ## Troubleshooting
