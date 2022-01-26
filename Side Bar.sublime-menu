@@ -1,7 +1,7 @@
 [
 	{
 		"command": "side_bar_editor_open",
-		"caption": "Open in Notebook Editor",
+		"caption": "Open in System Editor",
 		"args": {"paths": []}
 	}	
 ]

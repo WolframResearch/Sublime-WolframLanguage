@@ -20,7 +20,7 @@ Thanks Viktor!
 * Color swatches
 * Symbol references
 * Documentation on hover
-* New menu items (Open in Notebook Editor)
+* New menu items (Open in System Editor)
 
 
 ### Syntax Highlighting
