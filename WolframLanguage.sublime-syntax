@@ -179,6 +179,7 @@ variables:
   undocumentedLongNames_G: (?:G(?:radient))
   undocumentedLongNames_L: (?:L(?:aplacian))
   undocumentedLongNames_M: (?:M(?:inus|oon))
+  undocumentedLongNames_N: (?:N(?:umberComma))
   undocumentedLongNames_P: (?:P(?:ageBreakAbove|ageBreakBelow|robabilityPr))
   undocumentedLongNames_S: (?:S(?:pooky|tepperDown|tepperLeft|tepperRight|tepperUp|un))
   undocumentedLongNames_U: (?:U(?:nknownGlyph))
@@ -187,7 +188,6 @@ variables:
 
   unsupportedLongNames_C: (?:C(?:OMPATIBILITYKanjiSpace|OMPATIBILITYNoBreak))
   unsupportedLongNames_I: (?:I(?:nlinePart))
-  unsupportedLongNames_N: (?:N(?:umberComma))
 
   badSymbols_A: (?:A(?:llFalse|nyFalse))
   badSymbols_B: (?:B(?:oolean))
@@ -318,6 +318,8 @@ contexts:
       scope: donothighlight.constant.character.escape.undocumented
     - match: \\\[{{undocumentedLongNames_M}}\]
       scope: donothighlight.constant.character.escape.undocumented
+    - match: \\\[{{undocumentedLongNames_N}}\]
+      scope: donothighlight.constant.character.escape.undocumented
     - match: \\\[{{undocumentedLongNames_P}}\]
       scope: donothighlight.constant.character.escape.undocumented
     - match: \\\[{{undocumentedLongNames_S}}\]
@@ -331,8 +333,6 @@ contexts:
     - match: \\\[{{unsupportedLongNames_C}}\]
       scope: invalid.illegal.unsupported
     - match: \\\[{{unsupportedLongNames_I}}\]
-      scope: invalid.illegal.unsupported
-    - match: \\\[{{unsupportedLongNames_N}}\]
       scope: invalid.illegal.unsupported
     - match: \\\[{{freeLongNames_A}}\]
       scope: donothighlight.constant.character.escape
