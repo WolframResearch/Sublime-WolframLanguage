@@ -1,5 +1,10 @@
 [
     {
+        "command": "context_editor_open",
+        "caption": "Open in Notebook Editor"
+    }
+    ,
+    {
         "caption": "Wolfram Language",
         "children":
         [

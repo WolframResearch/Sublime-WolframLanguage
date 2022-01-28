@@ -489,31 +489,6 @@ class PayloadTimingCommand(sublime_plugin.ApplicationCommand):
             }
         )
 
-
-# class OpenInFrontendCommand(sublime_plugin.WindowCommand):
-
-#     def run(self, path=None, then_close=False):
-#         view = self.window.active_view()
-#         path = path or view.file_name()
-#         print(path)
-#         if path:
-#             open_file(path)
-#             if then_close:
-#                 if hasattr(view, "close"):
-#                     view.close()
-#                 else:
-#                     self.window.run_command("close")
-#         else:
-#             view.set_status(
-#                 "NTFiles", "Cannot open file with external application")
-#             sublime.set_timeout(lambda: view.erase_status("NTFiles"), 10000)
-
-#     def is_enabled(self):
-#         if self.window.active_view():
-#             return self.window.active_view().file_name() is not None
-#         else:
-#             return False
-
 def implicitTokenCharToText(c):
     if c == "x":
         return "\xd7"
@@ -541,15 +516,6 @@ def implicitTokenCharToText(c):
         return "All1"
     else:
         return " "
-
-
-# def open_file(filepath):
-#     if sublime.platform() == "osx":
-#         subprocess.Popen(('open', filepath))
-#     elif sublime.platform() == "windows":
-#         os.startfile(filepath)
-#     elif sublime.platform() == "linux":
-#         subprocess.Popen(('xdg-open', filepath))
 
 
 def resolveKernel():

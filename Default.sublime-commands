@@ -8,11 +8,6 @@
         }
     }
 //    ,
-//    {
-//        "caption": "Wolfram Language: Open in notebook editor",
-//        "command": "open_in_frontend",
-//        "args": {"then_close": false}
-//    }
 // BEGIN_DEBUG
 //     {
 //         "caption": "Wolfram Language: Enable Bracket Matcher Debug Mode",

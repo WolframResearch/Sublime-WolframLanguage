@@ -29,11 +29,13 @@ endif()
 endif()
 
 set(STATIC_PACKAGE_SOURCES
+	${PROJECT_SOURCE_DIR}/plugin/open.py
 	#
 	# why still use the older-style .tmPreferences?
 	# https://forum.sublimetext.com/t/toggle-comment-with-a-custom-sublime-syntax/18789
 	#
 	${PROJECT_SOURCE_DIR}/Comments.tmPreferences
+	${PROJECT_SOURCE_DIR}/Context.py
 	${PROJECT_SOURCE_DIR}/Context.sublime-menu
 	${PROJECT_SOURCE_DIR}/Default.sublime-commands
 	${PROJECT_SOURCE_DIR}/Main.sublime-menu
