@@ -2026,7 +2026,6 @@
     "GraphAutomorphismGroup",
     "GraphCenter",
     "GraphComplement",
-    "GraphData",
     "GraphDensity",
     "GraphDiameter",
     "GraphDifference",
