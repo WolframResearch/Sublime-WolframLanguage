@@ -1,4 +1,32 @@
 
+## 1.5.0 - 7 Mar, 2022
+
+Open notebooks support.
+
+Ensure an empty directory to use as working directory
+
+Should try new versions as well as older versions
+
+Increase timeout to 15 seconds and add timeout_warning_enabled setting
+
+Syntax error for invalid \|XXXXXX character syntax
+
+Reorganize the "Open in Notebook Editor" menu items
+
+Add context menu item
+
+Rename "Open in Notebook Editor" -> "Open in System Editor"
+
+13.0.1 syntax updates
+
+
+### Fixes
+
+Fix 419286: "Open in Notebook Editor" opens other files than recognized by FE
+
+Fix logic for resolving kernel paths
+
+
 ## 1.4.0 - 25 Oct, 2021
 
 Fix 415574: unrecognized symbol followed by `[` should have scope `variable.function`
