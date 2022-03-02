@@ -1,4 +1,7 @@
 
+## 1.6.0 - XX May, 2022
+
+
 ## 1.5.0 - 7 Mar, 2022
 
 Open notebooks support.
