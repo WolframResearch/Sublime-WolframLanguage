@@ -191,14 +191,17 @@ variables:
 
   badSymbols_A: (?:A(?:llFalse|nyFalse))
   badSymbols_B: (?:B(?:oolean))
-  badSymbols_C: (?:C(?:omplexQ))
+  badSymbols_C: (?:C(?:loudbase|omplexQ))
+  badSymbols_D: (?:D(?:ataSet))
+  badSymbols_E: (?:E(?:xpandFilename))
   badSymbols_F: (?:F(?:ailed|alseQ))
   badSymbols_I: (?:I(?:nterpolationFunction|nterpolationPolynomial))
   badSymbols_M: (?:M(?:atch))
   badSymbols_O: (?:O(?:ptionPattern|ptionsQ))
   badSymbols_R: (?:R(?:ationalQ|ealQ))
   badSymbols_S: (?:S(?:tringMatch|ymbolQ))
-  badSymbols_U: (?:U(?:nSameQ))
+  badSymbols_U: (?:U(?:nSameQ|rlExecute))
+  badSymbols_DOLLAR: (?:\$(?:PathNameSeparator|RegisteredUsername))
 
   sessionSymbols_E: (?:E(?:cho|xit))
   sessionSymbols_I: (?:I(?:n|nString))
@@ -1147,6 +1150,10 @@ contexts:
       scope: invalid.bad.wolfram
     - match: '{{badSymbols_C}}{{symbolEndBoundary}}'
       scope: invalid.bad.wolfram
+    - match: '{{badSymbols_D}}{{symbolEndBoundary}}'
+      scope: invalid.bad.wolfram
+    - match: '{{badSymbols_E}}{{symbolEndBoundary}}'
+      scope: invalid.bad.wolfram
     - match: '{{badSymbols_F}}{{symbolEndBoundary}}'
       scope: invalid.bad.wolfram
     - match: '{{badSymbols_I}}{{symbolEndBoundary}}'
@@ -1160,6 +1167,8 @@ contexts:
     - match: '{{badSymbols_S}}{{symbolEndBoundary}}'
       scope: invalid.bad.wolfram
     - match: '{{badSymbols_U}}{{symbolEndBoundary}}'
+      scope: invalid.bad.wolfram
+    - match: '{{badSymbols_DOLLAR}}{{symbolEndBoundary}}'
       scope: invalid.bad.wolfram
     - match: '{{sessionSymbols_E}}{{symbolEndBoundary}}'
       scope: invalid.session.wolfram
