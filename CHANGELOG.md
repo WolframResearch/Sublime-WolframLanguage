@@ -1,6 +1,8 @@
 
 ## 1.6.0 - XX May, 2022
 
+Add "Download Wolfram Engine" links to main menu and command palette
+
 
 ## 1.5.0 - 7 Mar, 2022
 
