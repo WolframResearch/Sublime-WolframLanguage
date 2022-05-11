@@ -1242,7 +1242,7 @@ contexts:
         - include: expressions
 
   bracket_group:
-    - match: \[
+    - match: ::\[|\[
       scope: punctuation.section.brackets.begin.wolfram
       push:
         - meta_scope: meta.brackets.wolfram
