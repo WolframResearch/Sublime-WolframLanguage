@@ -3,6 +3,8 @@
 
 Add "Download Wolfram Engine" links to main menu and command palette
 
+support new 13.1 syntax `"PackedArray"::["Real64"]`
+
 
 ## 1.5.0 - 7 Mar, 2022
 
