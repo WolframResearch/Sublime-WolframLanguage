@@ -14,7 +14,7 @@ Should try new versions as well as older versions
 
 Increase timeout to 15 seconds and add timeout_warning_enabled setting
 
-Syntax error for invalid \|XXXXXX character syntax
+Syntax error for invalid `\|XXXXXX` character syntax
 
 Reorganize the "Open in Notebook Editor" menu items
 

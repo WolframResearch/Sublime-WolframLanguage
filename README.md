@@ -165,7 +165,7 @@ PacletInstall["LSPServer"]
 Needs["LSPServer`"]
 ```
 
-If the kernel cannot start, then follow the instructions in the dialog that pops up after 10 seconds for more information.
+If the kernel cannot start, then follow the instructions in the dialog that pops up after 15 seconds for more information.
 
 
 ### Server settings
