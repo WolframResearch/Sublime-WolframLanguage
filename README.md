@@ -4,6 +4,8 @@ Official Sublime Text package for Wolfram Language
 
 [Developing Wolfram Language Code in Other Editors and IDEs with LSP from WTC 2021: Watch Video (youtube)](https://www.youtube.com/watch?v=nXVEOUMZbzQ)
 
+Download and install the free [Wolfram Engine](https://www.wolfram.com/engine/)
+
 Forked from [https://github.com/ViktorQvarfordt/Sublime-WolframLanguage](https://github.com/ViktorQvarfordt/Sublime-WolframLanguage)
 
 Thanks Viktor!
@@ -39,6 +41,8 @@ If the LSP package ([https://github.com/sublimelsp/LSP](https://github.com/subli
 LSP functionality uses a Wolfram kernel to run as a language server.
 
 This requires Wolfram System 12.1 or higher.
+
+If you do not have the Wolfram System installed, then download and install the free [Wolfram Engine](https://www.wolfram.com/engine/).
 
 1. Install [Package Control](https://packagecontrol.io/installation)
 2. Open Tools > Command Palette...
