@@ -38,31 +38,52 @@ variables:
   builtinFunctions_Y: (?:Y(?:uleDissimilarity))
   builtinFunctions_Z: (?:Z(?:IPCodeData|Test|Transform|ernikeR|eroSymmetric|eta|etaZero|ipfDistribution))
 
-  constants_A: (?:A(?:bove|cceptanceThreshold|ccuracyGoal|ctiveStyle|ddOnHelpPath|djustmentBoxOptions|fter|lgebraics|lignment|lignmentPoint|ll|llowGroupClose|llowInlineCells|llowLooseGrammar|llowReverseGroupClose|llowScriptLevelChange|llowVersionUpdate|llowedCloudExtraParameters|llowedCloudParameterExtensions|llowedDimensions|llowedFrequencyRange|llowedHeads|lternativeHypothesis|ltitudeMethod|mbiguityFunction|natomySkinStyle|nchoredSearch|nimationDirection|nimationRate|nimationRepetitions|nimationRunTime|nimationRunning|nimationTimeIndex|nnotationRules|nonymous|ntialiasing|ppearance|ppearanceElements|ppearanceRules|spectRatio|ssociationFormat|ssumptions|synchronous|ttachedCell|udioChannelAssignment|udioEncoding|udioInputDevice|udioLabel|udioOutputDevice|uthentication|utoAction|utoCopy|utoDelete|utoGeneratedPackage|utoIndent|utoItalicWords|utoMultiplicationSymbol|utoOpenNotebooks|utoOpenPalettes|utoOperatorRenderings|utoRemove|utoScroll|utoSpacing|utoloadPath|utomatic|utorunSequencing|xes|xesEdge|xesLabel|xesOrigin|xesStyle|xis))
-  constants_B: (?:B(?:ack|ackground|ackward|arOrigin|arSpacing|aseStyle|aseline|aselinePosition|efore|elow|inaryFormat|lack|lue|old|ookmarks|ooleanStrings|ooleans|ottom|oundaryStyle|oxBaselineShift|oxFormFormatTypes|oxFrame|oxMargins|oxRatios|oxStyle|oxed|oxes|rown|ubbleScale|ubbleSizes|uttonBoxOptions|uttonData|uttonFunction|uttonMinHeight|uttonSource|yte|yteOrdering))
-  constants_C: (?:C(?:alendarType|alloutMarker|alloutStyle|aptureRunning|aseOrdering|atalan|elestialSystem|ellAutoOverwrite|ellBaseline|ellBracketOptions|ellChangeTimes|ellContext|ellDingbat|ellDingbatMargin|ellDynamicExpression|ellEditDuplicate|ellEpilog|ellEvaluationDuplicate|ellEvaluationFunction|ellEventActions|ellFrame|ellFrameColor|ellFrameLabelMargins|ellFrameLabels|ellFrameMargins|ellGrouping|ellGroupingRules|ellHorizontalScrolling|ellID|ellLabel|ellLabelAutoDelete|ellLabelMargins|ellLabelPositioning|ellLabelStyle|ellMargins|ellOpen|ellProlog|ellSize|ellStyle|ellTags|enter|haracter|haracterEncoding|haracterEncodingsPath|hartBaseStyle|hartElementFunction|hartElements|hartLabels|hartLayout|hartLegends|hartStyle|lassPriors|lickToCopyEnabled|lipPlanes|lipPlanesStyle|lipRange|lippingStyle|losingAutoSave|loudBase|loudObjectNameFormat|loudObjectURLType|lusterDissimilarityFunction|odeAssistOptions|olorCoverage|olorFunction|olorFunctionBinning|olorFunctionScaling|olorRules|olorSelectorSettings|olorSpace|olumnAlignments|olumnLines|olumnSpacings|olumnWidths|olumnsEqual|ombinerFunction|ommonDefaultFormatTypes|ommunityBoundaryStyle|ommunityLabels|ommunityRegionStyle|ompilationOptions|ompilationTarget|ompiled|omplexInfinity|omplexes|omplexityFunction|ompressionLevel|onfidenceLevel|onfidenceRange|onfidenceTransform|onfigurationPath|onstant|onstants|ontentPadding|ontentSelectable|ontentSize|ontinuousAction|ontourLabels|ontourShading|ontourStyle|ontours|ontrolPlacement|ontrolType|ontrollerLinking|ontrollerMethod|ontrollerPath|ontrolsRendering|onversionRules|ookieFunction|oordinatesToolOptions|opyFunction|opyable|ornerNeighbors|ounterAssignments|ounterFunction|ounterIncrements|ounterStyleMenuListing|ovarianceEstimatorFunction|reateCellID|reateIntermediateDirectories|riterionFunction|ubics|urveClosed|yan))
-  constants_D: (?:D(?:ashed|ataRange|ataReversed|atasetTheme|ateFormat|ateFunction|ateReduction|ateTicksFormat|ayCountConvention|efaultAxesStyle|efaultBaseStyle|efaultBoxStyle|efaultDuplicateCellStyle|efaultDuration|efaultElement|efaultFaceGridsStyle|efaultFieldHintStyle|efaultFontProperties|efaultFormatType|efaultFrameStyle|efaultFrameTicksStyle|efaultGridLinesStyle|efaultInlineFormatType|efaultLabelStyle|efaultMenuStyle|efaultNaturalLanguage|efaultNewCellStyle|efaultNewInlineCellStyle|efaultNotebook|efaultOptions|efaultPrintPrecision|efaultStyleDefinitions|efaultTicksStyle|efaultTooltipStyle|egree|einitialization|eletable|eleteContents|eletionWarning|elimiter|elimiterAutoMatching|elimiterFlashTime|elimiterMatching|elimiters|eliveryFunction|ependentVariables|eployed|escriptorStateSpace|iacriticalPositioning|ialogProlog|ialogSymbols|igitBlock|igitCharacter|irectedEdges|irection|iscreteVariables|ispersionEstimatorFunction|isplayAllSteps|isplayFunction|istanceFunction|istributedContexts|ithering|ividers|ockedCells|otDashed|otted|ynamicEvaluationTimeout|ynamicModuleValues|ynamicUpdating))
-  constants_E: (?:E(?:|clipseType|dgeCapacity|dgeCost|dgeLabelStyle|dgeLabels|dgeShapeFunction|dgeStyle|dgeValueRange|dgeValueSizes|dgeWeight|ditCellTagsSettings|ditable|lidedForms|nabled|ndOfBuffer|ndOfFile|ndOfLine|ndOfString|pilog|pilogFunction|scapeRadius|ulerGamma|valuatable|valuationCompletionAction|valuationElements|valuationMonitor|valuator|valuatorNames|ventLabels|xcludePods|xcludedContexts|xcludedForms|xcludedLines|xcludedPhysicalQuantities|xclusions|xclusionsStyle|xponentFunction|xponentPosition|xponentStep|xponentialFamily|xportAutoReplacements|xpression|xpressionUUID|xtension|xtentElementFunction|xtentMarkers|xtentSize|xternalDataCharacterEncoding|xternalOptions|xternalTypeSignature))
-  constants_F: (?:F(?:aceGrids|aceGridsStyle|ailureAction|alse|eatureNames|eatureTypes|eedbackSector|eedbackSectorStyle|eedbackType|ieldCompletionFunction|ieldHint|ieldHintStyle|ieldMasked|ieldSize|ileNameDialogSettings|ileNameForms|illing|illingStyle|indSettings|itRegularization|lat|ollowRedirects|ontColor|ontFamily|ontProperties|ontSize|ontSlant|ontSubstitutions|ontTracking|ontVariations|ontWeight|orceVersionInstall|ormBoxOptions|ormLayoutFunction|ormProtectionMethod|ormatType|ormatTypeAutoConvert|orward|orwardBackward|ourierParameters|ractionBoxOptions|ractionLine|rame|rameBoxOptions|rameLabel|rameMargins|rameRate|rameStyle|rameTicks|rameTicksStyle|riday|ront|rontEndDynamicExpression|rontEndEventActions|ull|unctionSpace))
-  constants_G: (?:G(?:apPenalty|augeFaceElementFunction|augeFaceStyle|augeFrameElementFunction|augeFrameSize|augeFrameStyle|augeLabels|augeMarkers|augeStyle|aussianIntegers|eneral|enerateConditions|eneratedCell|eneratedDocumentBinding|eneratedParameters|eneratedQuantityMagnitudes|eneratorDescription|eneratorHistoryLength|eneratorOutputType|eoArraySize|eoBackground|eoCenter|eoGridLines|eoGridLinesStyle|eoGridRange|eoGridRangePadding|eoLabels|eoLocation|eoModel|eoProjection|eoRange|eoRangePadding|eoResolution|eoScaleBar|eoServer|eoStylingImageFunction|eoZoomLevel|laisher|oldenAngle|oldenRatio|radient|raphHighlight|raphHighlightStyle|raphLayerStyle|raphLayers|raphLayout|ray|reen|ridCreationSettings|ridDefaultElement|ridFrame|ridFrameMargins|ridLines|ridLinesStyle|roupActionBase|roupPageBreakWithin))
-  constants_H: (?:H(?:eaderAlignment|eaderBackground|eaderDisplayFunction|eaderLines|eaderSize|eaderStyle|eads|elpBrowserSettings|ere|exadecimalCharacter|iddenItems|oldAll|oldAllComplete|oldFirst|oldRest|olidayCalendar|yperlinkAction|yphenation))
-  constants_I: (?:I(?:|conRules|gnoreCase|gnoreDiacritics|gnorePunctuation|mageCaptureFunction|mageFormattingWidth|mageLabels|mageLegends|mageMargins|magePadding|magePreviewFunction|mageRegion|mageResolution|mageSize|mageSizeAction|mageSizeMultipliers|magingDevice|mportAutoReplacements|mportOptions|ncludeConstantBasis|ncludeDefinitions|ncludeDirectories|ncludeFileExtension|ncludeGeneratorTasks|ncludeInflections|ncludeMetaInformation|ncludePods|ncludeQuantities|ncludeSingularSolutions|ncludeWindowTimes|ncludedContexts|ndeterminate|ndeterminateThreshold|nfinity|nflationMethod|nheritScope|nherited|nitialSeeding|nitialization|nitializationCell|nitializationCellEvaluation|nitializationCellWarning|nputAliases|nputAssumptions|nputAutoReplacements|nsertResults|nsertionFunction|nteger|ntegers|nteractive|nterleaving|nterpolationOrder|nterpolationPoints|nterpretationBoxOptions|nterpretationFunction|ntervalMarkers|ntervalMarkersStyle|nverseFunctions|talic|temAspectRatio|temDisplayFunction|temSize|temStyle))
-  constants_J: (?:J(?:oined))
-  constants_K: (?:K(?:eepExistingVersion|eyCollisionFunction|eypointStrength|hinchin))
-  constants_L: (?:L(?:abelStyle|abelVisibility|abelingFunction|abelingSize|anguage|anguageCategory|arge|arger|ayerSizeFunction|eaderSize|earningRate|eft|egendAppearance|egendFunction|egendLabel|egendLayout|egendMargins|egendMarkerSize|egendMarkers|etterCharacter|ightBlue|ightBrown|ightCyan|ightGray|ightGreen|ightMagenta|ightOrange|ightPink|ightPurple|ightRed|ightYellow|ighting|ightingAngle|imitsPositioning|imitsPositioningTokens|ineBreakWithin|ineIndent|ineIndentMaxFraction|ineIntegralConvolutionScale|ineSpacing|inearOffsetFunction|inebreakAdjustments|inkFunction|inkProtocol|istFormat|istPickerBoxOptions|istable|ocalizeVariables|ocatorAutoCreate|ocatorRegion|ocked|ooping))
-  constants_M: (?:M(?:achinePrecision|agenta|agnification|ailAddressValidation|ailResponseFunction|ailSettings|anual|asking|atchLocalNames|axCellMeasure|axColorDistance|axDuration|axExtraBandwidths|axExtraConditions|axFeatureDisplacement|axFeatures|axItems|axIterations|axMixtureKernels|axOverlapFraction|axPlotPoints|axRecursion|axStepFraction|axStepSize|axSteps|edium|emoryConstraint|enuCommandKey|enuSortingValue|enuStyle|esh|eshCellCentroid|eshCellHighlight|eshCellLabel|eshCellMarker|eshCellMeasure|eshCellQuality|eshCellShapeFunction|eshCellStyle|eshFunctions|eshQualityGoal|eshRefinementFunction|eshShading|eshStyle|etaInformation|ethod|inColorDistance|inIntervalSize|inPointSeparation|issingBehavior|issingDataMethod|issingDataRules|issingString|issingStyle|odal|odulus|onday|ultiaxisArrangement|ultiedgeStyle|ultilaunchWarning|ultilineFunction|ultiselection))
-  constants_N: (?:N(?:HoldAll|HoldFirst|HoldRest|egativeIntegers|egativeRationals|egativeReals|icholsGridLines|oWhitespace|ominalVariables|onConstants|onNegativeIntegers|onNegativeRationals|onNegativeReals|onPositiveIntegers|onPositiveRationals|onPositiveReals|one|ormFunction|ormalized|ormalsFunction|otebookAutoSave|otebookBrowseDirectory|otebookConvertSettings|otebookDynamicExpression|otebookEventActions|otebookPath|otebooksMenu|otificationFunction|ow|ull|ullRecords|ullWords|umber|umberFormat|umberMarks|umberMultiplier|umberPadding|umberPoint|umberSeparator|umberSigns|umberString|umericFunction|yquistGridLines))
-  constants_O: (?:O(?:neIdentity|pacityFunction|pacityFunctionScaling|peratingSystem|ptionInspectorSettings|range|rderless|utputAutoOverwrite|utputSizeLimit|verlaps|verscriptBoxOptions|verwriteTarget))
-  constants_P: (?:P(?:IDDerivativeFilter|IDFeedforward|acletSite|adding|addingSize|ageBreakAbove|ageBreakBelow|ageBreakWithin|ageFooterLines|ageFooters|ageHeaderLines|ageHeaders|ageTheme|ageWidth|alettePath|aneled|aragraphIndent|aragraphSpacing|arallelization|arameterEstimator|artBehavior|artitionGranularity|assEventsDown|assEventsUp|asteBoxFormInlineCells|ath|erformanceGoal|ermissions|haseRange|i|ink|laceholderReplace|lain|layRange|lotLabel|lotLabels|lotLayout|lotLegends|lotMarkers|lotPoints|lotRange|lotRangeClipping|lotRangePadding|lotRegion|lotStyle|lotTheme|odStates|odWidth|olarAxes|olarAxesOrigin|olarGridLines|olarTicks|oleZeroMarkers|ositiveIntegers|ositiveRationals|ositiveReals|recisionGoal|referencesPath|reprocessingRules|reserveColor|reserveImageOptions|rimes|rincipalValue|rintAction|rintPrecision|rintingCopies|rintingOptions|rintingPageRange|rintingStartingPageNumber|rintingStyleEnvironment|rintout3DPreviewer|rivateCellOptions|rivateEvaluationOptions|rivateFontOptions|rivateNotebookOptions|rivatePaths|rocessDirectory|rocessEnvironment|rocessEstimator|rogressReporting|rolog|rotected|unctuationCharacter|urple))
-  constants_Q: (?:Q(?:uartics))
-  constants_R: (?:R(?:adicalBoxOptions|andomSeeding|asterSize|ationals|eImLabels|eImStyle|eadProtected|eal|ealBlockDiagonalForm|eals|ecognitionPrior|ecord|ecordLists|ecordSeparators|ed|eferenceLineStyle|efreshRate|egionBoundaryStyle|egionFillingStyle|egionFunction|egionSize|egularization|enderingOptions|equiredPhysicalQuantities|esampling|esamplingMethod|esolveContextAliases|estartInterval|eturnReceiptFunction|evolutionAxis|ight|otateLabel|otationAction|oundingRadius|owAlignments|owLines|owMinHeight|owSpacings|owsEqual|ulerUnits|untimeAttributes|untimeOptions))
-  constants_S: (?:S(?:ameTest|ampleDepth|ampleRate|amplingPeriod|aturday|aveConnection|aveDefinitions|aveable|caleDivisions|caleOrigin|calePadding|caleRangeStyle|caleRanges|calingFunctions|cientificNotationThreshold|creenStyleEnvironment|criptBaselineShifts|criptLevel|criptMinSize|criptSizeMultipliers|crollPosition|crollbars|crollingOptions|ectorOrigin|ectorSpacing|electable|elfLoopStyle|equenceHold|eriesTermGoal|haringList|howAutoSpellCheck|howAutoStyles|howCellBracket|howCellLabel|howCellTags|howClosedCellArea|howContents|howCursorTracker|howGroupOpener|howPageBreaks|howSelection|howShortBoxForm|howSpecialCharacters|howStringCharacters|hrinkingDelay|ignPadding|ignificanceLevel|imilarityRules|ingleLetterItalics|liderBoxOptions|mall|maller|ortedBy|oundVolume|pacings|panAdjustments|panCharacterRounding|panFromAbove|panFromBoth|panFromLeft|panLineThickness|panMaxSize|panMinSize|panSymmetric|pecificityGoal|pellingCorrection|pellingDictionaries|pellingDictionariesPath|pellingOptions|phericalRegion|plineClosed|plineDegree|plineKnots|plineWeights|qrtBoxOptions|tabilityMargins|tabilityMarginsStyle|tandardized|tartOfLine|tartOfString|tartingStepSize|tateSpaceRealization|tepMonitor|trataVariables|treamColorFunction|treamColorFunctionScaling|treamMarkers|treamPoints|treamScale|treamStyle|trictInequalities|tring|tripOnInput|tripWrapperBoxes|truckthrough|tructuredSelection|tub|tyleBoxAutoDelete|tyleDefinitions|tyleHints|tyleMenuListing|tyleNameDialogSettings|tyleSheetPath|ubscriptBoxOptions|ubsuperscriptBoxOptions|ubtitleEncoding|unday|uperscriptBoxOptions|urdForm|ynchronousInitialization|ynchronousUpdating|yntaxForm|ystemHelpPath|ystemsModelLabels))
-  constants_T: (?:T(?:abFilling|abSpacings|ableAlignments|ableDepth|ableDirections|ableHeadings|ableSpacing|agBoxOptions|aggingRules|argetFunctions|argetUnits|emplateBoxOptions|emporalRegularity|emporary|estID|extAlignment|extClipboardType|extJustification|extureCoordinateFunction|extureCoordinateScaling|hick|hin|hursday|icks|icksStyle|imeConstraint|imeDirection|imeFormat|imeGoal|imeSystem|imeZone|iny|oday|okenWords|olerance|omorrow|ooltipDelay|ooltipStyle|op|otalWidth|ouchscreenAutoZoom|ouchscreenControlPlacement|raceAbove|raceBackward|raceDepth|raceForward|raceOff|raceOn|raceOriginal|rackedSymbols|rackingFunction|raditionalFunctionNotation|ransformationClass|ransformationFunctions|ransitionDirection|ransitionDuration|ransitionEffect|ranslationOptions|ransparent|ravelMethod|rendStyle|rig|rue|uesday))
-  constants_U: (?:U(?:ndefined|nderlined|nderoverscriptBoxOptions|nderscriptBoxOptions|ndoOptions|ndoTrackedVariables|nitSystem|nityDimensions|nsavedVariables|pdateInterval|pdatePacletSites|tilityFunction))
-  constants_V: (?:V(?:alidationLength|alidationSet|alueDimensions|arianceEstimatorFunction|ectorAspectRatio|ectorColorFunction|ectorColorFunctionScaling|ectorMarkers|ectorPoints|ectorRange|ectorScaling|ectorSizes|ectorStyle|erifyConvergence|erifySecurityCertificates|erifySolutions|erifyTestAssumptions|ersionedPreferences|ertexCapacity|ertexColors|ertexCoordinates|ertexDataCoordinates|ertexLabelStyle|ertexLabels|ertexNormals|ertexShape|ertexShapeFunction|ertexSize|ertexStyle|ertexTextureCoordinates|ertexWeight|ideoEncoding|iewAngle|iewCenter|iewMatrix|iewPoint|iewProjection|iewRange|iewVector|iewVertical|isible))
-  constants_W: (?:W(?:aveletScale|ednesday|eights|hite|hitePoint|hitespace|hitespaceCharacter|indowClickSelect|indowElements|indowFloating|indowFrame|indowFrameElements|indowMargins|indowOpacity|indowSize|indowStatusArea|indowTitle|indowToolbars|ord|ordBoundary|ordCharacter|ordOrientation|ordSearch|ordSelectionFunction|ordSeparators|ordSpacings|orkingPrecision|rapAround))
+  options_A: (?:A(?:cceptanceThreshold|ccuracyGoal|ctiveStyle|ddOnHelpPath|djustmentBoxOptions|lignment|lignmentPoint|llowGroupClose|llowInlineCells|llowLooseGrammar|llowReverseGroupClose|llowScriptLevelChange|llowVersionUpdate|llowedCloudExtraParameters|llowedCloudParameterExtensions|llowedDimensions|llowedFrequencyRange|llowedHeads|lternativeHypothesis|ltitudeMethod|mbiguityFunction|natomySkinStyle|nchoredSearch|nimationDirection|nimationRate|nimationRepetitions|nimationRunTime|nimationRunning|nimationTimeIndex|nnotationRules|ntialiasing|ppearance|ppearanceElements|ppearanceRules|spectRatio|ssociationFormat|ssumptions|synchronous|ttachedCell|udioChannelAssignment|udioEncoding|udioInputDevice|udioLabel|udioOutputDevice|uthentication|utoAction|utoCopy|utoDelete|utoGeneratedPackage|utoIndent|utoItalicWords|utoMultiplicationSymbol|utoOpenNotebooks|utoOpenPalettes|utoOperatorRenderings|utoRemove|utoScroll|utoSpacing|utoloadPath|utorunSequencing|xes|xesEdge|xesLabel|xesOrigin|xesStyle))
+  options_B: (?:B(?:ackground|arOrigin|arSpacing|aseStyle|aselinePosition|inaryFormat|ookmarks|ooleanStrings|oundaryStyle|oxBaselineShift|oxFormFormatTypes|oxFrame|oxMargins|oxRatios|oxStyle|oxed|ubbleScale|ubbleSizes|uttonBoxOptions|uttonData|uttonFunction|uttonMinHeight|uttonSource|yteOrdering))
+  options_C: (?:C(?:alendarType|alloutMarker|alloutStyle|aptureRunning|aseOrdering|elestialSystem|ellAutoOverwrite|ellBaseline|ellBracketOptions|ellChangeTimes|ellContext|ellDingbat|ellDingbatMargin|ellDynamicExpression|ellEditDuplicate|ellEpilog|ellEvaluationDuplicate|ellEvaluationFunction|ellEventActions|ellFrame|ellFrameColor|ellFrameLabelMargins|ellFrameLabels|ellFrameMargins|ellGrouping|ellGroupingRules|ellHorizontalScrolling|ellID|ellLabel|ellLabelAutoDelete|ellLabelMargins|ellLabelPositioning|ellLabelStyle|ellMargins|ellOpen|ellProlog|ellSize|ellTags|haracterEncoding|haracterEncodingsPath|hartBaseStyle|hartElementFunction|hartElements|hartLabels|hartLayout|hartLegends|hartStyle|lassPriors|lickToCopyEnabled|lipPlanes|lipPlanesStyle|lipRange|lippingStyle|losingAutoSave|loudBase|loudObjectNameFormat|loudObjectURLType|lusterDissimilarityFunction|odeAssistOptions|olorCoverage|olorFunction|olorFunctionBinning|olorFunctionScaling|olorRules|olorSelectorSettings|olorSpace|olumnAlignments|olumnLines|olumnSpacings|olumnWidths|olumnsEqual|ombinerFunction|ommonDefaultFormatTypes|ommunityBoundaryStyle|ommunityLabels|ommunityRegionStyle|ompilationOptions|ompilationTarget|ompiled|omplexityFunction|ompressionLevel|onfidenceLevel|onfidenceRange|onfidenceTransform|onfigurationPath|onstants|ontentPadding|ontentSelectable|ontentSize|ontinuousAction|ontourLabels|ontourShading|ontourStyle|ontours|ontrolPlacement|ontrolType|ontrollerLinking|ontrollerMethod|ontrollerPath|ontrolsRendering|onversionRules|ookieFunction|oordinatesToolOptions|opyFunction|opyable|ornerNeighbors|ounterAssignments|ounterFunction|ounterIncrements|ounterStyleMenuListing|ovarianceEstimatorFunction|reateCellID|reateIntermediateDirectories|riterionFunction|ubics|urveClosed))
+  options_D: (?:D(?:ataRange|ataReversed|atasetTheme|ateFormat|ateFunction|ateReduction|ateTicksFormat|ayCountConvention|efaultDuplicateCellStyle|efaultDuration|efaultElement|efaultFontProperties|efaultFormatType|efaultInlineFormatType|efaultNaturalLanguage|efaultNewCellStyle|efaultNewInlineCellStyle|efaultNotebook|efaultOptions|efaultPrintPrecision|efaultStyleDefinitions|einitialization|eletable|eleteContents|eletionWarning|elimiterAutoMatching|elimiterFlashTime|elimiterMatching|elimiters|eliveryFunction|ependentVariables|eployed|escriptorStateSpace|iacriticalPositioning|ialogProlog|ialogSymbols|igitBlock|irectedEdges|irection|iscreteVariables|ispersionEstimatorFunction|isplayAllSteps|isplayFunction|istanceFunction|istributedContexts|ithering|ividers|ockedCells|ynamicEvaluationTimeout|ynamicModuleValues|ynamicUpdating))
+  options_E: (?:E(?:clipseType|dgeCapacity|dgeCost|dgeLabelStyle|dgeLabels|dgeShapeFunction|dgeStyle|dgeValueRange|dgeValueSizes|dgeWeight|ditCellTagsSettings|ditable|lidedForms|nabled|pilog|pilogFunction|scapeRadius|valuatable|valuationCompletionAction|valuationElements|valuationMonitor|valuator|valuatorNames|ventLabels|xcludePods|xcludedContexts|xcludedForms|xcludedLines|xcludedPhysicalQuantities|xclusions|xclusionsStyle|xponentFunction|xponentPosition|xponentStep|xponentialFamily|xportAutoReplacements|xpressionUUID|xtension|xtentElementFunction|xtentMarkers|xtentSize|xternalDataCharacterEncoding|xternalOptions|xternalTypeSignature))
+  options_F: (?:F(?:aceGrids|aceGridsStyle|ailureAction|eatureNames|eatureTypes|eedbackSector|eedbackSectorStyle|eedbackType|ieldCompletionFunction|ieldHint|ieldHintStyle|ieldMasked|ieldSize|ileNameDialogSettings|ileNameForms|illing|illingStyle|indSettings|itRegularization|ollowRedirects|ontColor|ontFamily|ontSize|ontSlant|ontSubstitutions|ontTracking|ontVariations|ontWeight|orceVersionInstall|ormBoxOptions|ormLayoutFunction|ormProtectionMethod|ormatType|ormatTypeAutoConvert|ourierParameters|ractionBoxOptions|ractionLine|rame|rameBoxOptions|rameLabel|rameMargins|rameRate|rameStyle|rameTicks|rameTicksStyle|rontEndEventActions|unctionSpace))
+  options_G: (?:G(?:apPenalty|augeFaceElementFunction|augeFaceStyle|augeFrameElementFunction|augeFrameSize|augeFrameStyle|augeLabels|augeMarkers|augeStyle|aussianIntegers|enerateConditions|eneratedCell|eneratedDocumentBinding|eneratedParameters|eneratedQuantityMagnitudes|eneratorDescription|eneratorHistoryLength|eneratorOutputType|eoArraySize|eoBackground|eoCenter|eoGridLines|eoGridLinesStyle|eoGridRange|eoGridRangePadding|eoLabels|eoLocation|eoModel|eoProjection|eoRange|eoRangePadding|eoResolution|eoScaleBar|eoServer|eoStylingImageFunction|eoZoomLevel|radient|raphHighlight|raphHighlightStyle|raphLayerStyle|raphLayers|raphLayout|ridCreationSettings|ridDefaultElement|ridFrame|ridFrameMargins|ridLines|ridLinesStyle|roupActionBase|roupPageBreakWithin))
+  options_H: (?:H(?:eaderAlignment|eaderBackground|eaderDisplayFunction|eaderLines|eaderSize|eaderStyle|eads|elpBrowserSettings|iddenItems|olidayCalendar|yperlinkAction|yphenation))
+  options_I: (?:I(?:conRules|gnoreCase|gnoreDiacritics|gnorePunctuation|mageCaptureFunction|mageFormattingWidth|mageLabels|mageLegends|mageMargins|magePadding|magePreviewFunction|mageRegion|mageResolution|mageSize|mageSizeAction|mageSizeMultipliers|magingDevice|mportAutoReplacements|mportOptions|ncludeConstantBasis|ncludeDefinitions|ncludeDirectories|ncludeFileExtension|ncludeGeneratorTasks|ncludeInflections|ncludeMetaInformation|ncludePods|ncludeQuantities|ncludeSingularSolutions|ncludeWindowTimes|ncludedContexts|ndeterminateThreshold|nflationMethod|nheritScope|nitialSeeding|nitialization|nitializationCell|nitializationCellEvaluation|nitializationCellWarning|nputAliases|nputAssumptions|nputAutoReplacements|nsertResults|nsertionFunction|nteractive|nterleaving|nterpolationOrder|nterpolationPoints|nterpretationBoxOptions|nterpretationFunction|ntervalMarkers|ntervalMarkersStyle|nverseFunctions|temAspectRatio|temDisplayFunction|temSize|temStyle))
+  options_J: (?:J(?:oined))
+  options_K: (?:K(?:eepExistingVersion|eyCollisionFunction|eypointStrength))
+  options_L: (?:L(?:abelStyle|abelVisibility|abelingFunction|abelingSize|anguage|anguageCategory|ayerSizeFunction|eaderSize|earningRate|egendAppearance|egendFunction|egendLabel|egendLayout|egendMargins|egendMarkerSize|egendMarkers|ighting|ightingAngle|imitsPositioning|imitsPositioningTokens|ineBreakWithin|ineIndent|ineIndentMaxFraction|ineIntegralConvolutionScale|ineSpacing|inearOffsetFunction|inebreakAdjustments|inkFunction|inkProtocol|istFormat|istPickerBoxOptions|ocalizeVariables|ocatorAutoCreate|ocatorRegion|ooping))
+  options_M: (?:M(?:agnification|ailAddressValidation|ailResponseFunction|ailSettings|asking|atchLocalNames|axCellMeasure|axColorDistance|axDuration|axExtraBandwidths|axExtraConditions|axFeatureDisplacement|axFeatures|axItems|axIterations|axMixtureKernels|axOverlapFraction|axPlotPoints|axRecursion|axStepFraction|axStepSize|axSteps|emoryConstraint|enuCommandKey|enuSortingValue|enuStyle|esh|eshCellHighlight|eshCellLabel|eshCellMarker|eshCellShapeFunction|eshCellStyle|eshFunctions|eshQualityGoal|eshRefinementFunction|eshShading|eshStyle|etaInformation|ethod|inColorDistance|inIntervalSize|inPointSeparation|issingBehavior|issingDataMethod|issingDataRules|issingString|issingStyle|odal|odulus|ultiaxisArrangement|ultiedgeStyle|ultilaunchWarning|ultilineFunction|ultiselection))
+  options_N: (?:N(?:icholsGridLines|ominalVariables|onConstants|ormFunction|ormalized|ormalsFunction|otebookAutoSave|otebookBrowseDirectory|otebookConvertSettings|otebookDynamicExpression|otebookEventActions|otebookPath|otebooksMenu|otificationFunction|ullRecords|ullWords|umberFormat|umberMarks|umberMultiplier|umberPadding|umberPoint|umberSeparator|umberSigns|yquistGridLines))
+  options_O: (?:O(?:pacityFunction|pacityFunctionScaling|peratingSystem|ptionInspectorSettings|utputAutoOverwrite|utputSizeLimit|verlaps|verscriptBoxOptions|verwriteTarget))
+  options_P: (?:P(?:IDDerivativeFilter|IDFeedforward|acletSite|adding|addingSize|ageBreakAbove|ageBreakBelow|ageBreakWithin|ageFooterLines|ageFooters|ageHeaderLines|ageHeaders|ageTheme|ageWidth|alettePath|aneled|aragraphIndent|aragraphSpacing|arallelization|arameterEstimator|artBehavior|artitionGranularity|assEventsDown|assEventsUp|asteBoxFormInlineCells|ath|erformanceGoal|ermissions|haseRange|laceholderReplace|layRange|lotLabel|lotLabels|lotLayout|lotLegends|lotMarkers|lotPoints|lotRange|lotRangeClipping|lotRangePadding|lotRegion|lotStyle|lotTheme|odStates|odWidth|olarAxes|olarAxesOrigin|olarGridLines|olarTicks|oleZeroMarkers|recisionGoal|referencesPath|reprocessingRules|reserveColor|reserveImageOptions|rincipalValue|rintAction|rintPrecision|rintingCopies|rintingOptions|rintingPageRange|rintingStartingPageNumber|rintingStyleEnvironment|rintout3DPreviewer|rivateCellOptions|rivateEvaluationOptions|rivateFontOptions|rivateNotebookOptions|rivatePaths|rocessDirectory|rocessEnvironment|rocessEstimator|rogressReporting|rolog))
+  options_Q: (?:Q(?:uartics))
+  options_R: (?:R(?:adicalBoxOptions|andomSeeding|asterSize|eImLabels|eImStyle|ealBlockDiagonalForm|ecognitionPrior|ecordLists|ecordSeparators|eferenceLineStyle|efreshRate|egionBoundaryStyle|egionFillingStyle|egionFunction|egionSize|egularization|enderingOptions|equiredPhysicalQuantities|esampling|esamplingMethod|esolveContextAliases|estartInterval|eturnReceiptFunction|evolutionAxis|otateLabel|otationAction|oundingRadius|owAlignments|owLines|owMinHeight|owSpacings|owsEqual|ulerUnits|untimeAttributes|untimeOptions))
+  options_S: (?:S(?:ameTest|ampleDepth|ampleRate|amplingPeriod|aveConnection|aveDefinitions|aveable|caleDivisions|caleOrigin|calePadding|caleRangeStyle|caleRanges|calingFunctions|cientificNotationThreshold|creenStyleEnvironment|criptBaselineShifts|criptLevel|criptMinSize|criptSizeMultipliers|crollPosition|crollbars|crollingOptions|ectorOrigin|ectorSpacing|electable|elfLoopStyle|eriesTermGoal|haringList|howAutoSpellCheck|howAutoStyles|howCellBracket|howCellLabel|howCellTags|howClosedCellArea|howContents|howCursorTracker|howGroupOpener|howPageBreaks|howSelection|howShortBoxForm|howSpecialCharacters|howStringCharacters|hrinkingDelay|ignPadding|ignificanceLevel|imilarityRules|ingleLetterItalics|liderBoxOptions|ortedBy|oundVolume|pacings|panAdjustments|panCharacterRounding|panLineThickness|panMaxSize|panMinSize|panSymmetric|pecificityGoal|pellingCorrection|pellingDictionaries|pellingDictionariesPath|pellingOptions|phericalRegion|plineClosed|plineDegree|plineKnots|plineWeights|qrtBoxOptions|tabilityMargins|tabilityMarginsStyle|tandardized|tartingStepSize|tateSpaceRealization|tepMonitor|trataVariables|treamColorFunction|treamColorFunctionScaling|treamMarkers|treamPoints|treamScale|treamStyle|trictInequalities|tripOnInput|tripWrapperBoxes|tructuredSelection|tyleBoxAutoDelete|tyleDefinitions|tyleHints|tyleMenuListing|tyleNameDialogSettings|tyleSheetPath|ubscriptBoxOptions|ubsuperscriptBoxOptions|ubtitleEncoding|uperscriptBoxOptions|urdForm|ynchronousInitialization|ynchronousUpdating|yntaxForm|ystemHelpPath|ystemsModelLabels))
+  options_T: (?:T(?:abFilling|abSpacings|ableAlignments|ableDepth|ableDirections|ableHeadings|ableSpacing|agBoxOptions|aggingRules|argetFunctions|argetUnits|emplateBoxOptions|emporalRegularity|estID|extAlignment|extClipboardType|extJustification|extureCoordinateFunction|extureCoordinateScaling|icks|icksStyle|imeConstraint|imeDirection|imeFormat|imeGoal|imeSystem|imeZone|okenWords|olerance|ooltipDelay|ooltipStyle|otalWidth|ouchscreenAutoZoom|ouchscreenControlPlacement|raceAbove|raceBackward|raceDepth|raceForward|raceOff|raceOn|raceOriginal|rackedSymbols|rackingFunction|raditionalFunctionNotation|ransformationClass|ransformationFunctions|ransitionDirection|ransitionDuration|ransitionEffect|ranslationOptions|ravelMethod|rendStyle|rig))
+  options_U: (?:U(?:nderoverscriptBoxOptions|nderscriptBoxOptions|ndoOptions|ndoTrackedVariables|nitSystem|nityDimensions|nsavedVariables|pdateInterval|pdatePacletSites|tilityFunction))
+  options_V: (?:V(?:alidationLength|alidationSet|alueDimensions|arianceEstimatorFunction|ectorAspectRatio|ectorColorFunction|ectorColorFunctionScaling|ectorMarkers|ectorPoints|ectorRange|ectorScaling|ectorSizes|ectorStyle|erifyConvergence|erifySecurityCertificates|erifySolutions|erifyTestAssumptions|ersionedPreferences|ertexCapacity|ertexColors|ertexCoordinates|ertexDataCoordinates|ertexLabelStyle|ertexLabels|ertexNormals|ertexShape|ertexShapeFunction|ertexSize|ertexStyle|ertexTextureCoordinates|ertexWeight|ideoEncoding|iewAngle|iewCenter|iewMatrix|iewPoint|iewProjection|iewRange|iewVector|iewVertical|isible))
+  options_W: (?:W(?:aveletScale|eights|hitePoint|indowClickSelect|indowElements|indowFloating|indowFrame|indowFrameElements|indowMargins|indowOpacity|indowSize|indowStatusArea|indowTitle|indowToolbars|ordOrientation|ordSearch|ordSelectionFunction|ordSeparators|ordSpacings|orkingPrecision|rapAround))
+  options_Z: (?:Z(?:eroTest|eroWidthTimes))
+
+  constants_A: (?:A(?:bove|fter|lgebraics|ll|nonymous|utomatic|xis))
+  constants_B: (?:B(?:ack|ackward|aseline|efore|elow|lack|lue|old|ooleans|ottom|oxes|rown|yte))
+  constants_C: (?:C(?:atalan|ellStyle|enter|haracter|omplexInfinity|omplexes|onstant|yan))
+  constants_D: (?:D(?:ashed|efaultAxesStyle|efaultBaseStyle|efaultBoxStyle|efaultFaceGridsStyle|efaultFieldHintStyle|efaultFrameStyle|efaultFrameTicksStyle|efaultGridLinesStyle|efaultLabelStyle|efaultMenuStyle|efaultTicksStyle|efaultTooltipStyle|egree|elimiter|igitCharacter|otDashed|otted))
+  constants_E: (?:E(?:|ndOfBuffer|ndOfFile|ndOfLine|ndOfString|ulerGamma|xpression))
+  constants_F: (?:F(?:alse|lat|ontProperties|orward|orwardBackward|riday|ront|rontEndDynamicExpression|ull))
+  constants_G: (?:G(?:eneral|laisher|oldenAngle|oldenRatio|ray|reen))
+  constants_H: (?:H(?:ere|exadecimalCharacter|oldAll|oldAllComplete|oldFirst|oldRest))
+  constants_I: (?:I(?:|ndeterminate|nfinity|nherited|nteger|ntegers|talic))
+  constants_K: (?:K(?:hinchin))
+  constants_L: (?:L(?:arge|arger|eft|etterCharacter|ightBlue|ightBrown|ightCyan|ightGray|ightGreen|ightMagenta|ightOrange|ightPink|ightPurple|ightRed|ightYellow|istable|ocked))
+  constants_M: (?:M(?:achinePrecision|agenta|anual|edium|eshCellCentroid|eshCellMeasure|eshCellQuality|onday))
+  constants_N: (?:N(?:HoldAll|HoldFirst|HoldRest|egativeIntegers|egativeRationals|egativeReals|oWhitespace|onNegativeIntegers|onNegativeRationals|onNegativeReals|onPositiveIntegers|onPositiveRationals|onPositiveReals|one|ow|ull|umber|umberString|umericFunction))
+  constants_O: (?:O(?:neIdentity|range|rderless))
+  constants_P: (?:P(?:i|ink|lain|ositiveIntegers|ositiveRationals|ositiveReals|rimes|rotected|unctuationCharacter|urple))
+  constants_R: (?:R(?:ationals|eadProtected|eal|eals|ecord|ed|ight))
+  constants_S: (?:S(?:aturday|equenceHold|mall|maller|panFromAbove|panFromBoth|panFromLeft|tartOfLine|tartOfString|tring|truckthrough|tub|unday))
+  constants_T: (?:T(?:emporary|hick|hin|hursday|iny|oday|omorrow|op|ransparent|rue|uesday))
+  constants_U: (?:U(?:ndefined|nderlined))
+  constants_W: (?:W(?:ednesday|hite|hitespace|hitespaceCharacter|ord|ordBoundary|ordCharacter))
   constants_Y: (?:Y(?:ellow|esterday))
-  constants_Z: (?:Z(?:eroTest|eroWidthTimes))
   constants_DOLLAR: (?:\$(?:Aborted|ActivationKey|AllowDataUpdates|AllowInternet|AssertFunction|Assumptions|AudioInputDevices|AudioOutputDevices|BaseDirectory|BasePacletsDirectory|BatchInput|BatchOutput|ByteOrdering|CacheBaseDirectory|Canceled|CharacterEncoding|CharacterEncodings|CloudAccountName|CloudBase|CloudConnected|CloudCreditsAvailable|CloudEvaluation|CloudExpressionBase|CloudObjectNameFormat|CloudObjectURLType|CloudRootDirectory|CloudSymbolBase|CloudUserID|CloudUserUUID|CloudVersion|CommandLine|CompilationTarget|Context|ContextAliases|ContextPath|ControlActiveSetting|Cookies|CreationDate|CurrentLink|CurrentTask|DateStringFormat|DefaultAudioInputDevice|DefaultAudioOutputDevice|DefaultFrontEnd|DefaultImagingDevice|DefaultKernels|DefaultLocalBase|DefaultLocalKernel|Display|DisplayFunction|DistributedContexts|DynamicEvaluation|Echo|EmbedCodeEnvironments|EmbeddableServices|Epilog|EvaluationCloudBase|EvaluationCloudObject|EvaluationEnvironment|ExportFormats|Failed|FontFamilies|FrontEnd|FrontEndSession|GeoLocation|GeoLocationCity|GeoLocationCountry|GeoLocationSource|HomeDirectory|IgnoreEOF|ImageFormattingWidth|ImageResolution|ImagingDevice|ImagingDevices|ImportFormats|InitialDirectory|Input|InputFileName|InputStreamMethods|Inspector|InstallationDirectory|InterpreterTypes|IterationLimit|KernelCount|KernelID|Language|LibraryPath|LicenseExpirationDate|LicenseID|LicenseServer|Linked|LocalBase|LocalSymbolBase|MachineAddresses|MachineDomains|MachineEpsilon|MachineID|MachineName|MachinePrecision|MachineType|MaxExtraPrecision|MaxMachineNumber|MaxNumber|MaxPiecewiseCases|MaxPrecision|MaxRootDegree|MessageGroups|MessageList|MessagePrePrint|Messages|MinMachineNumber|MinNumber|MinPrecision|MobilePhone|ModuleNumber|NetworkConnected|NewMessage|NewSymbol|NotebookInlineStorageLimit|Notebooks|NumberMarks|OperatingSystem|Output|OutputSizeLimit|OutputStreamMethods|Packages|ParentLink|ParentProcessID|PasswordFile|Path|PathnameSeparator|PerformanceGoal|Permissions|PlotTheme|Printout3DPreviewer|ProcessID|ProcessorCount|ProcessorType|ProgressReporting|RandomGeneratorState|RecursionLimit|ReleaseNumber|RequesterAddress|RequesterWolframID|RequesterWolframUUID|RootDirectory|ScriptCommandLine|ScriptInputString|Services|SessionID|SharedFunctions|SharedVariables|SoundDisplayFunction|SynchronousEvaluation|System|SystemCharacterEncoding|SystemID|SystemShell|SystemTimeZone|SystemWordLength|TemplatePath|TemporaryDirectory|TimeUnit|TimeZone|TimeZoneEntity|TimedOut|UnitSystem|Urgent|UserAgentString|UserBaseDirectory|UserBasePacletsDirectory|UserDocumentsDirectory|UserURLBase|Username|Version|VersionNumber|WolframDocumentsDirectory|WolframID|WolframUUID))
 
   systemLongNames_F: (?:F(?:ormalA|ormalAlpha|ormalB|ormalBeta|ormalC|ormalCapitalA|ormalCapitalAlpha|ormalCapitalB|ormalCapitalBeta|ormalCapitalC|ormalCapitalChi|ormalCapitalD|ormalCapitalDelta|ormalCapitalDigamma|ormalCapitalE|ormalCapitalEpsilon|ormalCapitalEta|ormalCapitalF|ormalCapitalG|ormalCapitalGamma|ormalCapitalH|ormalCapitalI|ormalCapitalIota|ormalCapitalJ|ormalCapitalK|ormalCapitalKappa|ormalCapitalKoppa|ormalCapitalL|ormalCapitalLambda|ormalCapitalM|ormalCapitalMu|ormalCapitalN|ormalCapitalNu|ormalCapitalO|ormalCapitalOmega|ormalCapitalOmicron|ormalCapitalP|ormalCapitalPhi|ormalCapitalPi|ormalCapitalPsi|ormalCapitalQ|ormalCapitalR|ormalCapitalRho|ormalCapitalS|ormalCapitalSampi|ormalCapitalSigma|ormalCapitalStigma|ormalCapitalT|ormalCapitalTau|ormalCapitalTheta|ormalCapitalU|ormalCapitalUpsilon|ormalCapitalV|ormalCapitalW|ormalCapitalX|ormalCapitalXi|ormalCapitalY|ormalCapitalZ|ormalCapitalZeta|ormalChi|ormalCurlyCapitalUpsilon|ormalCurlyEpsilon|ormalCurlyKappa|ormalCurlyPhi|ormalCurlyPi|ormalCurlyRho|ormalCurlyTheta|ormalD|ormalDelta|ormalDigamma|ormalE|ormalEpsilon|ormalEta|ormalF|ormalFinalSigma|ormalG|ormalGamma|ormalH|ormalI|ormalIota|ormalJ|ormalK|ormalKappa|ormalKoppa|ormalL|ormalLambda|ormalM|ormalMu|ormalN|ormalNu|ormalO|ormalOmega|ormalOmicron|ormalP|ormalPhi|ormalPi|ormalPsi|ormalQ|ormalR|ormalRho|ormalS|ormalSampi|ormalScriptA|ormalScriptB|ormalScriptC|ormalScriptCapitalA|ormalScriptCapitalB|ormalScriptCapitalC|ormalScriptCapitalD|ormalScriptCapitalE|ormalScriptCapitalF|ormalScriptCapitalG|ormalScriptCapitalH|ormalScriptCapitalI|ormalScriptCapitalJ|ormalScriptCapitalK|ormalScriptCapitalL|ormalScriptCapitalM|ormalScriptCapitalN|ormalScriptCapitalO|ormalScriptCapitalP|ormalScriptCapitalQ|ormalScriptCapitalR|ormalScriptCapitalS|ormalScriptCapitalT|ormalScriptCapitalU|ormalScriptCapitalV|ormalScriptCapitalW|ormalScriptCapitalX|ormalScriptCapitalY|ormalScriptCapitalZ|ormalScriptD|ormalScriptE|ormalScriptF|ormalScriptG|ormalScriptH|ormalScriptI|ormalScriptJ|ormalScriptK|ormalScriptL|ormalScriptM|ormalScriptN|ormalScriptO|ormalScriptP|ormalScriptQ|ormalScriptR|ormalScriptS|ormalScriptT|ormalScriptU|ormalScriptV|ormalScriptW|ormalScriptX|ormalScriptY|ormalScriptZ|ormalSigma|ormalStigma|ormalT|ormalTau|ormalTheta|ormalU|ormalUpsilon|ormalV|ormalW|ormalX|ormalXi|ormalY|ormalZ|ormalZeta))
@@ -690,6 +711,54 @@ contexts:
       scope: support.function.builtin.wolfram
     - match: System`{{builtinFunctions_Z}}{{symbolEndBoundary}}
       scope: support.function.builtin.wolfram
+    - match: System`{{options_A}}{{symbolEndBoundary}}
+      scope: constant.language.wolfram
+    - match: System`{{options_B}}{{symbolEndBoundary}}
+      scope: constant.language.wolfram
+    - match: System`{{options_C}}{{symbolEndBoundary}}
+      scope: constant.language.wolfram
+    - match: System`{{options_D}}{{symbolEndBoundary}}
+      scope: constant.language.wolfram
+    - match: System`{{options_E}}{{symbolEndBoundary}}
+      scope: constant.language.wolfram
+    - match: System`{{options_F}}{{symbolEndBoundary}}
+      scope: constant.language.wolfram
+    - match: System`{{options_G}}{{symbolEndBoundary}}
+      scope: constant.language.wolfram
+    - match: System`{{options_H}}{{symbolEndBoundary}}
+      scope: constant.language.wolfram
+    - match: System`{{options_I}}{{symbolEndBoundary}}
+      scope: constant.language.wolfram
+    - match: System`{{options_J}}{{symbolEndBoundary}}
+      scope: constant.language.wolfram
+    - match: System`{{options_K}}{{symbolEndBoundary}}
+      scope: constant.language.wolfram
+    - match: System`{{options_L}}{{symbolEndBoundary}}
+      scope: constant.language.wolfram
+    - match: System`{{options_M}}{{symbolEndBoundary}}
+      scope: constant.language.wolfram
+    - match: System`{{options_N}}{{symbolEndBoundary}}
+      scope: constant.language.wolfram
+    - match: System`{{options_O}}{{symbolEndBoundary}}
+      scope: constant.language.wolfram
+    - match: System`{{options_P}}{{symbolEndBoundary}}
+      scope: constant.language.wolfram
+    - match: System`{{options_Q}}{{symbolEndBoundary}}
+      scope: constant.language.wolfram
+    - match: System`{{options_R}}{{symbolEndBoundary}}
+      scope: constant.language.wolfram
+    - match: System`{{options_S}}{{symbolEndBoundary}}
+      scope: constant.language.wolfram
+    - match: System`{{options_T}}{{symbolEndBoundary}}
+      scope: constant.language.wolfram
+    - match: System`{{options_U}}{{symbolEndBoundary}}
+      scope: constant.language.wolfram
+    - match: System`{{options_V}}{{symbolEndBoundary}}
+      scope: constant.language.wolfram
+    - match: System`{{options_W}}{{symbolEndBoundary}}
+      scope: constant.language.wolfram
+    - match: System`{{options_Z}}{{symbolEndBoundary}}
+      scope: constant.language.wolfram
     - match: System`{{constants_A}}{{symbolEndBoundary}}
       scope: constant.language.wolfram
     - match: System`{{constants_B}}{{symbolEndBoundary}}
@@ -708,8 +777,6 @@ contexts:
       scope: constant.language.wolfram
     - match: System`{{constants_I}}{{symbolEndBoundary}}
       scope: constant.language.wolfram
-    - match: System`{{constants_J}}{{symbolEndBoundary}}
-      scope: constant.language.wolfram
     - match: System`{{constants_K}}{{symbolEndBoundary}}
       scope: constant.language.wolfram
     - match: System`{{constants_L}}{{symbolEndBoundary}}
@@ -722,8 +789,6 @@ contexts:
       scope: constant.language.wolfram
     - match: System`{{constants_P}}{{symbolEndBoundary}}
       scope: constant.language.wolfram
-    - match: System`{{constants_Q}}{{symbolEndBoundary}}
-      scope: constant.language.wolfram
     - match: System`{{constants_R}}{{symbolEndBoundary}}
       scope: constant.language.wolfram
     - match: System`{{constants_S}}{{symbolEndBoundary}}
@@ -732,13 +797,9 @@ contexts:
       scope: constant.language.wolfram
     - match: System`{{constants_U}}{{symbolEndBoundary}}
       scope: constant.language.wolfram
-    - match: System`{{constants_V}}{{symbolEndBoundary}}
-      scope: constant.language.wolfram
     - match: System`{{constants_W}}{{symbolEndBoundary}}
       scope: constant.language.wolfram
     - match: System`{{constants_Y}}{{symbolEndBoundary}}
-      scope: constant.language.wolfram
-    - match: System`{{constants_Z}}{{symbolEndBoundary}}
       scope: constant.language.wolfram
     - match: System`{{constants_DOLLAR}}{{symbolEndBoundary}}
       scope: constant.language.wolfram
@@ -956,6 +1017,56 @@ contexts:
       scope: support.function.builtin.wolfram
     - match: '{{builtinFunctions_Z}}{{symbolEndBoundary}}'
       scope: support.function.builtin.wolfram
+    - match: '{{options_A}}{{symbolEndBoundary}}'
+      scope: constant.language.wolfram
+    - match: '{{options_B}}{{symbolEndBoundary}}'
+      scope: constant.language.wolfram
+    - match: '{{options_C}}{{symbolEndBoundary}}'
+      scope: constant.language.wolfram
+    - match: '{{options_D}}{{symbolEndBoundary}}'
+      scope: constant.language.wolfram
+    - match: '{{options_E}}{{symbolEndBoundary}}'
+      scope: constant.language.wolfram
+    - match: '{{options_F}}{{symbolEndBoundary}}'
+      scope: constant.language.wolfram
+    - match: '{{options_G}}{{symbolEndBoundary}}'
+      scope: constant.language.wolfram
+    - match: '{{options_H}}{{symbolEndBoundary}}'
+      scope: constant.language.wolfram
+    - match: '{{options_I}}{{symbolEndBoundary}}'
+      scope: constant.language.wolfram
+    - match: '{{options_J}}{{symbolEndBoundary}}'
+      scope: constant.language.wolfram
+    - match: '{{options_K}}{{symbolEndBoundary}}'
+      scope: constant.language.wolfram
+    - match: '{{options_L}}{{symbolEndBoundary}}'
+      scope: constant.language.wolfram
+    - match: '{{options_M}}{{symbolEndBoundary}}'
+      scope: constant.language.wolfram
+    - match: '{{options_N}}{{symbolEndBoundary}}'
+      scope: constant.language.wolfram
+    - match: '{{options_O}}{{symbolEndBoundary}}'
+      scope: constant.language.wolfram
+    - match: '{{options_P}}{{symbolEndBoundary}}'
+      scope: constant.language.wolfram
+    - match: '{{options_Q}}{{symbolEndBoundary}}'
+      scope: constant.language.wolfram
+    - match: '{{options_R}}{{symbolEndBoundary}}'
+      scope: constant.language.wolfram
+    - match: '{{options_S}}{{symbolEndBoundary}}'
+      scope: constant.language.wolfram
+    - match: '{{options_T}}{{symbolEndBoundary}}'
+      scope: constant.language.wolfram
+    - match: '{{options_U}}{{symbolEndBoundary}}'
+      scope: constant.language.wolfram
+    - match: '{{options_V}}{{symbolEndBoundary}}'
+      scope: constant.language.wolfram
+    - match: '{{options_W}}{{symbolEndBoundary}}'
+      scope: constant.language.wolfram
+    - match: '{{options_Z}}{{symbolEndBoundary}}'
+      scope: constant.language.wolfram
+    - match: '{{options_DOLLAR}}{{symbolEndBoundary}}'
+      scope: constant.language.wolfram
     - match: '{{constants_A}}{{symbolEndBoundary}}'
       scope: constant.language.wolfram
     - match: '{{constants_B}}{{symbolEndBoundary}}'
@@ -974,8 +1085,6 @@ contexts:
       scope: constant.language.wolfram
     - match: '{{constants_I}}{{symbolEndBoundary}}'
       scope: constant.language.wolfram
-    - match: '{{constants_J}}{{symbolEndBoundary}}'
-      scope: constant.language.wolfram
     - match: '{{constants_K}}{{symbolEndBoundary}}'
       scope: constant.language.wolfram
     - match: '{{constants_L}}{{symbolEndBoundary}}'
@@ -988,8 +1097,6 @@ contexts:
       scope: constant.language.wolfram
     - match: '{{constants_P}}{{symbolEndBoundary}}'
       scope: constant.language.wolfram
-    - match: '{{constants_Q}}{{symbolEndBoundary}}'
-      scope: constant.language.wolfram
     - match: '{{constants_R}}{{symbolEndBoundary}}'
       scope: constant.language.wolfram
     - match: '{{constants_S}}{{symbolEndBoundary}}'
@@ -998,13 +1105,9 @@ contexts:
       scope: constant.language.wolfram
     - match: '{{constants_U}}{{symbolEndBoundary}}'
       scope: constant.language.wolfram
-    - match: '{{constants_V}}{{symbolEndBoundary}}'
-      scope: constant.language.wolfram
     - match: '{{constants_W}}{{symbolEndBoundary}}'
       scope: constant.language.wolfram
     - match: '{{constants_Y}}{{symbolEndBoundary}}'
-      scope: constant.language.wolfram
-    - match: '{{constants_Z}}{{symbolEndBoundary}}'
       scope: constant.language.wolfram
     - match: '{{constants_DOLLAR}}{{symbolEndBoundary}}'
       scope: constant.language.wolfram
