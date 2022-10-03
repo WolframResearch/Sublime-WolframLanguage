@@ -524,8 +524,7 @@ def resolveKernel():
         #
         # generally recommend Wolfram Engine before Mathematica
         # and newer versions over older versions
-        #
-        # But do not recommend Wolfram Engine before 13.0, because usage messages did not work before 13.0
+        # and recommend pre-13.0 Wolfram Engine last, because usage messages did not work before 13.0
         #
         possible_kernel_paths = [
             "/usr/local/Wolfram/WolframEngine/13.1/Executables/WolframKernel",
@@ -534,26 +533,26 @@ def resolveKernel():
             "/usr/local/Wolfram/Mathematica/13.0/Executables/WolframKernel",
             "/usr/local/Wolfram/Mathematica/12.3/Executables/WolframKernel",
             "/usr/local/Wolfram/Mathematica/12.2/Executables/WolframKernel",
-            "/usr/local/Wolfram/Mathematica/12.1/Executables/WolframKernel"
+            "/usr/local/Wolfram/Mathematica/12.1/Executables/WolframKernel",
+            "/usr/local/Wolfram/WolframEngine/12.3/Executables/WolframKernel",
+            "/usr/local/Wolfram/WolframEngine/12.2/Executables/WolframKernel",
+            "/usr/local/Wolfram/WolframEngine/12.1/Executables/WolframKernel"
         ]
     elif sys.platform == "darwin":
         #
         # generally recommend Wolfram Engine before Mathematica
         #
-        # But do not recommend Wolfram Engine on Mac, because we do not know the version, and usage messages did not work before 13.0
-        #
-        # FIXME: ~18 months after release of 13.0, assume that 13.0 is installed, and then switch to recommending Wolfram Engine
+        # We do not know the version on Mac
         #
         possible_kernel_paths = [
-            # "/Applications/Wolfram Engine.app/Contents/MacOS/WolframKernel",
+            "/Applications/Wolfram Engine.app/Contents/MacOS/WolframKernel",
             "/Applications/Mathematica.app/Contents/MacOS/WolframKernel"
         ]
     elif sys.platform == "windows":
         #
         # generally recommend Wolfram Engine before Mathematica
         # and newer versions over older versions
-        #
-        # But do not recommend Wolfram Engine before 13.0, because usage messages did not work before 13.0
+        # and recommend pre-13.0 Wolfram Engine last, because usage messages did not work before 13.0
         #
         possible_kernel_paths = [
             "C:\\Program Files\\Wolfram Research\\Wolfram Engine\\13.1\\WolframKernel.exe",
@@ -562,7 +561,10 @@ def resolveKernel():
             "C:\\Program Files\\Wolfram Research\\Mathematica\\13.0\\WolframKernel.exe",
             "C:\\Program Files\\Wolfram Research\\Mathematica\\12.3\\WolframKernel.exe",
             "C:\\Program Files\\Wolfram Research\\Mathematica\\12.2\\WolframKernel.exe",
-            "C:\\Program Files\\Wolfram Research\\Mathematica\\12.1\\WolframKernel.exe"
+            "C:\\Program Files\\Wolfram Research\\Mathematica\\12.1\\WolframKernel.exe",
+            "C:\\Program Files\\Wolfram Research\\Wolfram Engine\\12.3\\WolframKernel.exe",
+            "C:\\Program Files\\Wolfram Research\\Wolfram Engine\\12.2\\WolframKernel.exe",
+            "C:\\Program Files\\Wolfram Research\\Wolfram Engine\\12.1\\WolframKernel.exe"
         ]
 
     #

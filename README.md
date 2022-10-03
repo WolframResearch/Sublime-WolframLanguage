@@ -42,6 +42,8 @@ LSP functionality uses a Wolfram kernel to run as a language server.
 
 This requires Wolfram System 12.1 or higher.
 
+You can use either Mathematica or the free Wolfram Engine.
+
 If you do not have the Wolfram System installed, then download and install the free [Wolfram Engine](https://www.wolfram.com/engine/).
 
 1. Install [Package Control](https://packagecontrol.io/installation)
@@ -92,33 +94,19 @@ Add a `kernel` setting:
 
 ```
 
-You may also change the command that is used to start the server:
+The default location for Wolfram Engine on Linux is:
 ```
-{
-  …
-
-  "lsp_server_command":
-    [
-      "`kernel`",
-      "-noinit",
-      "-noprompt",
-      "-nopaclet",
-      "-noicon",
-      "-nostartuppaclets",
-      "-run",
-      "Needs[\"LSPServer`\"];LSPServer`StartServer[]"
-    ]
-  …
-}
+/usr/local/Wolfram/WolframEngine/13.1/Executables/WolframKernel
 ```
 
-You may disable Wolfram language server by specifying:
+The default location for Wolfram Engine on Windows is:
 ```
-{
-  …
-  "lsp_server_enabled": false
-  …
-}
+C:\Program Files\Wolfram Research\Wolfram Engine\13.1\WolframKernel.exe
+```
+
+The default location for Wolfram Engine on macOS is:
+```
+/Applications/Mathematica.app/Contents/MacOS/WolframKernel
 ```
 
 
