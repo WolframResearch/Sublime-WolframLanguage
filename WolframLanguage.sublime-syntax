@@ -214,7 +214,7 @@ variables:
   badSymbols_B: (?:B(?:oolean))
   badSymbols_C: (?:C(?:loudbase|omplexQ))
   badSymbols_D: (?:D(?:ataSet))
-  badSymbols_E: (?:E(?:xpandFilename))
+  badSymbols_E: (?:E(?:xpandFilename|xportPacket))
   badSymbols_F: (?:F(?:ailed|alseQ))
   badSymbols_I: (?:I(?:nterpolationFunction|nterpolationPolynomial))
   badSymbols_M: (?:M(?:atch))
