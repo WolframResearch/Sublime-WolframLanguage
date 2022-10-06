@@ -1,4 +1,9 @@
 
+## 1.8.0 - 10 Oct, 2022
+
+Add links to free Wolfram Engine.
+
+
 ## 1.7.0 - 4 July, 2022
 
 13.1 syntax updates

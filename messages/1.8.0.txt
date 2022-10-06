@@ -1,5 +1,7 @@
 => 1.8.0
 
-XX Sep, 2022
+10 Oct, 2022
+
+Add links to free Wolfram Engine.
 
 
