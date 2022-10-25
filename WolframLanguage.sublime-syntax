@@ -1065,8 +1065,6 @@ contexts:
       scope: constant.language.wolfram
     - match: '{{options_Z}}{{symbolEndBoundary}}'
       scope: constant.language.wolfram
-    - match: '{{options_DOLLAR}}{{symbolEndBoundary}}'
-      scope: constant.language.wolfram
     - match: '{{constants_A}}{{symbolEndBoundary}}'
       scope: constant.language.wolfram
     - match: '{{constants_B}}{{symbolEndBoundary}}'
