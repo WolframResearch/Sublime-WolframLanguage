@@ -527,15 +527,34 @@ def resolveKernel():
         # and recommend pre-13.0 Wolfram Engine last, because usage messages did not work before 13.0
         #
         possible_kernel_paths = [
-            "/usr/local/Wolfram/WolframEngine/13.1/Executables/WolframKernel",
+            "/usr/local/Wolfram/Wolfram/14.2/Executables/WolframKernel",
+            "/usr/local/Wolfram/WolframEngine/14.2/Executables/WolframKernel",
+
+            "/usr/local/Wolfram/Wolfram/14.1/Executables/WolframKernel",
+            "/usr/local/Wolfram/WolframEngine/14.1/Executables/WolframKernel",
+
+            "/usr/local/Wolfram/Mathematica/14.0/Executables/WolframKernel",
+            "/usr/local/Wolfram/WolframEngine/14.0/Executables/WolframKernel",
+
+            "/usr/local/Wolfram/Mathematica/13.3/Executables/WolframKernel",
+            "/usr/local/Wolfram/WolframEngine/13.3/Executables/WolframKernel",
+
+            "/usr/local/Wolfram/Mathematica/13.2/Executables/WolframKernel",
+            "/usr/local/Wolfram/WolframEngine/13.2/Executables/WolframKernel",
+
             "/usr/local/Wolfram/Mathematica/13.1/Executables/WolframKernel",
-            "/usr/local/Wolfram/WolframEngine/13.0/Executables/WolframKernel",
+            "/usr/local/Wolfram/WolframEngine/13.1/Executables/WolframKernel",
+
             "/usr/local/Wolfram/Mathematica/13.0/Executables/WolframKernel",
+            "/usr/local/Wolfram/WolframEngine/13.0/Executables/WolframKernel",
+
             "/usr/local/Wolfram/Mathematica/12.3/Executables/WolframKernel",
-            "/usr/local/Wolfram/Mathematica/12.2/Executables/WolframKernel",
-            "/usr/local/Wolfram/Mathematica/12.1/Executables/WolframKernel",
             "/usr/local/Wolfram/WolframEngine/12.3/Executables/WolframKernel",
+
+            "/usr/local/Wolfram/Mathematica/12.2/Executables/WolframKernel",
             "/usr/local/Wolfram/WolframEngine/12.2/Executables/WolframKernel",
+
+            "/usr/local/Wolfram/Mathematica/12.1/Executables/WolframKernel",
             "/usr/local/Wolfram/WolframEngine/12.1/Executables/WolframKernel"
         ]
     elif sys.platform == "darwin":
@@ -545,8 +564,9 @@ def resolveKernel():
         # We do not know the version on Mac
         #
         possible_kernel_paths = [
-            "/Applications/Wolfram Engine.app/Contents/MacOS/WolframKernel",
-            "/Applications/Mathematica.app/Contents/MacOS/WolframKernel"
+            "/Applications/Wolfram.app/Contents/MacOS/WolframKernel",
+            "/Applications/Mathematica.app/Contents/MacOS/WolframKernel",
+            "'/Applications/Wolfram Engine.app/Contents/MacOS/WolframKernel'"
         ]
     elif sys.platform == "windows":
         #
@@ -555,15 +575,34 @@ def resolveKernel():
         # and recommend pre-13.0 Wolfram Engine last, because usage messages did not work before 13.0
         #
         possible_kernel_paths = [
-            "C:\\Program Files\\Wolfram Research\\Wolfram Engine\\13.1\\WolframKernel.exe",
+            "C:\\Program Files\\Wolfram Research\\Wolfram\\14.2\\WolframKernel.exe",
+            "C:\\Program Files\\Wolfram Research\\Wolfram Engine\\14.2\\WolframKernel.exe",
+
+            "C:\\Program Files\\Wolfram Research\\Wolfram\\14.1\\WolframKernel.exe",
+            "C:\\Program Files\\Wolfram Research\\Wolfram Engine\\14.1\\WolframKernel.exe",
+
+            "C:\\Program Files\\Wolfram Research\\Mathematica\\14.0\\WolframKernel.exe",
+            "C:\\Program Files\\Wolfram Research\\Wolfram Engine\\14.0\\WolframKernel.exe",
+
+            "C:\\Program Files\\Wolfram Research\\Mathematica\\13.3\\WolframKernel.exe",
+            "C:\\Program Files\\Wolfram Research\\Wolfram Engine\\13.3\\WolframKernel.exe",
+
+            "C:\\Program Files\\Wolfram Research\\Mathematica\\13.2\\WolframKernel.exe",
+            "C:\\Program Files\\Wolfram Research\\Wolfram Engine\\13.2\\WolframKernel.exe",
+
             "C:\\Program Files\\Wolfram Research\\Mathematica\\13.1\\WolframKernel.exe",
-            "C:\\Program Files\\Wolfram Research\\Wolfram Engine\\13.0\\WolframKernel.exe",
+            "C:\\Program Files\\Wolfram Research\\Wolfram Engine\\13.1\\WolframKernel.exe",
+
             "C:\\Program Files\\Wolfram Research\\Mathematica\\13.0\\WolframKernel.exe",
+            "C:\\Program Files\\Wolfram Research\\Wolfram Engine\\13.0\\WolframKernel.exe",
+
             "C:\\Program Files\\Wolfram Research\\Mathematica\\12.3\\WolframKernel.exe",
-            "C:\\Program Files\\Wolfram Research\\Mathematica\\12.2\\WolframKernel.exe",
-            "C:\\Program Files\\Wolfram Research\\Mathematica\\12.1\\WolframKernel.exe",
             "C:\\Program Files\\Wolfram Research\\Wolfram Engine\\12.3\\WolframKernel.exe",
+
+            "C:\\Program Files\\Wolfram Research\\Mathematica\\12.2\\WolframKernel.exe",
             "C:\\Program Files\\Wolfram Research\\Wolfram Engine\\12.2\\WolframKernel.exe",
+
+            "C:\\Program Files\\Wolfram Research\\Mathematica\\12.1\\WolframKernel.exe",
             "C:\\Program Files\\Wolfram Research\\Wolfram Engine\\12.1\\WolframKernel.exe"
         ]
 
@@ -571,6 +610,42 @@ def resolveKernel():
     # need to return SOMETHING to show in error messages, so use possible_kernel_paths[0] as default
     #
     return next((k for k in possible_kernel_paths if os.path.isfile(k)), possible_kernel_paths[0])
+
+class SideBarEditorOpenCommand(sublime_plugin.WindowCommand):
+    
+    def run(self, paths = []):
+        for path in paths:
+            open_file(path)
+
+    def is_enabled(self, paths = []):
+        for path in paths:
+            if not path.endswith((".nb", ".cdf", ".wl", ".m", ".wls")):
+                return False
+
+        return True
+    
+class ContextEditorOpenCommand(sublime_plugin.TextCommand):
+    
+    def run(self, edit):
+        name = self.view.file_name()
+        open_file(name)
+
+    def is_enabled(self):
+        name = self.view.file_name()
+        if name == None:
+            return False
+        if name.endswith((".nb", ".cdf", ".wl", ".m", ".wls")):
+            return True
+        return False
+    
+
+def open_file(filepath):
+    if sublime.platform() == "osx":
+        subprocess.Popen(("open", filepath))
+    elif sublime.platform() == "windows":
+        os.startfile(filepath)
+    elif sublime.platform() == "linux":
+        subprocess.Popen(("xdg-open", filepath))
 
 
 def plugin_loaded():
