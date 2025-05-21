@@ -1,17 +1,9 @@
 
 Official Sublime Text package for Wolfram Language
 
-Thanks for installing!
+This package requires that LSP support is installed
 
-Lots of features:
-* Extensive syntax highlighting
-* Goto Definition
-
-And if you have the [LSP package](https://github.com/sublimelsp/LSP) installed:
-* Diagnostics
-* Suggestions for fixes
-* Formatting files / selections
-* Documentation on hover
+It provides code completion, syntax highlighting, jump to function definition, documentation on hover, code formatting, diagnostics and code fix suggestions
 
 [https://github.com/WolframResearch/Sublime-WolframLanguage](https://github.com/WolframResearch/Sublime-WolframLanguage)
 
